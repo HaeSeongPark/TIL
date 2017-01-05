@@ -16,10 +16,11 @@ for(int i=0; i<10; i++)
 ...코드 중간 생략
 
 for(int i=0; i<10; i++)
- System.out.printf("%d", numArr[i]
+ System.out.printf("%d", numArr[i]);
 }
 
--------------------- 메서드 생성
+```
+```java
 void printArr(int[] nuumArr)
 {
   for(int i=0; i<10; i++)
