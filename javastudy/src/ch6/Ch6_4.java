@@ -12,7 +12,7 @@ class Tv6_4{
 }
 
 
-public class ch6_4 {
+public class Ch6_4 {
 	public static void main(String[] args) {
 		Tv6_4[] tvArr = new Tv6_4[3];
 		
