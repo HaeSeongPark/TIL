@@ -24,7 +24,7 @@ public class Ch6_4 {
 		for(int i=0; i<tvArr.length; i++)
 		{
 			tvArr[i].channelUp();
-			System.out.printf("tvArr[%d].channel =%d%n",i,tvArr[i].channel);
+			System.out.printf("tvArr[%d].channel =%d\n",i,tvArr[i].channel);
 		}
 	}
 }

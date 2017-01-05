@@ -15,6 +15,6 @@ public class Ch6_1 {
 		Tv6_1 t = new Tv6_1();
 		t.channel =7;
 		t.channelDown();
-		System.out.println("현재 채널은 "+t.channel+"입니다.");
+		System.out.println("현재 채널은 "+t.channel+" 입니다.");
 	}
 }

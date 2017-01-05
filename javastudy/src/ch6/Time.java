@@ -16,7 +16,7 @@ public class Time {
 		return minute;
 	}
 	public void setMinute(int minute) {
-		if(minute<0 || minute>59)
+		if(minute<0  || minute>59)
 			return;
 		this.minute = minute;
 	}
@@ -29,8 +29,8 @@ public class Time {
 		this.second = second;
 	}
 	/*
-	 * 이 외에도 시간의 차를 구하는 메서드와 같이 시간과 관련된 메서드를 추가로
-	 * 정의하여 time클래스를 향상시켜 보는 것도 좋은 프로그래밍 공부거리가 될 것이다.
+	 *  시간의 차를 구하는 메서드와 같이 시간과 관련된 메서드를 추가로
+	 * 정의하여 time클래스를 향상시켜 보기
 	 */
 	
 }
