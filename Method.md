@@ -45,14 +45,14 @@ main{
 
 
 ```java
-main{  //예 1
+main
+{  
  int[] numArr = new int[10];
  
  initArr(numArr); // 1. 배열을 초기화
  printArr(numArr); // 2. 배열을 출력
  sortArr(numArr); // 3. 배열을 정렬
- printArr(numArr); // 4.배열을 출력
- 
+ printArr(numArr); // 4.배열을 출력 
 } 
 ```
 > 처음 프로그램을 설게할 때 내용이 없는 메서드를 작업단위로 만들어 놓고, 하나씩 완성해가는 것도 좋은 방법
@@ -70,7 +70,7 @@ void showRecordList()  { /*나중에 내용을 완성*/}
 
 main
 {  
-	switch(showMenu()
+	switch(showMenu())
     {
     	case 1:
            inputRecord();
