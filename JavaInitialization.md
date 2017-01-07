@@ -10,9 +10,9 @@
 ------------ | -------------
 boolean|false
 char|'\u000'
-byte,short,int|0(zero)
-long | 0(zero)L
-double|0.0d 또는 0.0 (zero)
+byte,short,int|0
+long | 0L
+double|0.0d 또는 0.0
 참조형 변수 | null
 
 2.명시적 초기화(explicit initialization)
