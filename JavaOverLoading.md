@@ -30,8 +30,10 @@ long add(int a, int b) { return (long)(a+b);}
 
 
 4. 오버로딩의 장점
+
 >* 메서드 이름 절약
 >* 오버로딩이 없다면 위의 println에서 각기 다른 이름을 줘야한다. 따라서 작성하는 사람이나 사용하는 사람 둘다 피곤하다.
+
 
 5.가변인자(variable arguments)
 >* 기존에는 메서드의 매개변수 개수가 고정적이었으나 jdk1.5부터 동적으로 지정해 줄 수 있게 됐고 이 기능을 가변인(variable arguments)자라고 한다. '타입...변수명'과 같은 형식으로 선언
@@ -40,14 +42,15 @@ String concatenate(String...str){...}
 //가변인자 외에도 매개변수가 더 있다면, 가변인자를 매개변수 중에서 제일 마지막에 선언해야 한다.
 String concatenate(int a, Stirng...str){...}
 
+```java
 //사용
 print(concatenate());   //인자없음
 print(concatenate("a")); //인자하나
 print(concatenate(new Stirng[]{"A","B"})); //배열도 가능, 가변인자는 배열을 사용하기 때문
 //주의 ,print(concatenate({"A","B"})); 이렇게는 안 됨
 //주의 ,print(concatenate(null)); null 안됨
-
 ```
+
 ```java
  //가변인자와 매개변수의 타입을 배열로 하는 것과의 차이점
  String concatenate(String[] str){...}
