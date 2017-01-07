@@ -80,7 +80,7 @@ Car(Stirng color, String geartType) {
 * 인스턴스변수의 초기화 순서
  > 기본값-> 명시적 초기화 -> 클래스 초기화 블럭 -> 생성자
  
- ```java
+ ```java 
  	class InitTest{
     static int cv =1;
     int iv = 1;
