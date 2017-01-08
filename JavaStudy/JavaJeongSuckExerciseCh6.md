@@ -10,7 +10,7 @@
 
 # 문자열을 매개변수로 쓸 때 조심해야 할 것
 
-> 문자열은 내용을 변경할 수 없기 때문에 덧셈등 연산을 하면 새로운 문자열이 생성디고 새로운 문자열의 주소가 생성된다
+> 문자열은 내용을 변경할 수 없기 때문에 덧셈등 연산을 하면 새로운 문자열이 생성되고 새로운 문자열의 주소가 생성된다
 
 ```java
  class Exercise6_19{
@@ -36,13 +36,13 @@
 ```java
 String str = "ABC123";
 ```
-<그림> 6_19_1
+![그림](https://github.com/HaeSeongPark/TIL/blob/master/img/Java/Exercise6_19_1.PNG)
 
 그 다음에 메서드 change를 호출하면서 참조변수 str을 넘겨주면, 메서드 change의 지역변수 str에 주소값 0x100(임의의 주소값)이 저장된다. 이제 메서드 change의 지역변수 srt도 문자열 "ABC123"을 참조하게 된다. 이 두 참조변수는 이름은 같지만 부명히 다른 변수이다. 서로 다른 영역에 있기 때문에 이름이 같아도 상관없는 것이다.
 ```java
 chnage(str); // change를 호출하면서 문자열 str을 넘겨준다.
 ```
-<그림> 6_19_2
+![그림](https://github.com/HaeSeongPark/TIL/blob/master/img/Java/Exercise6_19_2.PNG)
 
 메서드 change에서는 넘겨받은 문자열의 뒤에 "456"을 붙인다. **문자열은 내용을 변경할 수 없기 때문에** 덧셈연산을 하면 새로운 문자열이 생성되고 새로운 문자열의 주소가 srt에 저장된다.
 ```java
@@ -50,11 +50,11 @@ chnage(str); // change를 호출하면서 문자열 str을 넘겨준다.
    	str += "456";  //기존의 문자열에 "456"을 붙인다.
   }
 ```
-<그림> 6_19_3
+![그림](https://github.com/HaeSeongPark/TIL/blob/master/img/Java/Exercise6_19_3.PNG)
 
 이제 change메서드는 종료되고, 작업에 사용하던 메모리를 반환하므로 change메서드의 지역변수인 str역시 메모리에서 제거된다. 다시 main메서드로 돌아와서 문자열 str의 값을 출력하면 처음의 값과 변함없는 값이 출력된다. 문자열 "ABC123456"은 참조하는 변수가 하나도 없으므로 적절한 시기에 가비지컬렉터(garbage collector)에 의해 제거된다.
 
 ```java
     System.out.println(str);
 ```
-<그림> 6_19_4
+![그림](https://github.com/HaeSeongPark/TIL/blob/master/img/Java/Exercise6_19_4.PNG)
