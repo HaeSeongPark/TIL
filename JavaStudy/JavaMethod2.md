@@ -37,14 +37,16 @@ int add(int a, int b)                                //선언부
  
 
 # 기본형 매개변수와 참조형 변수
-* 기본형 매개변수 read only    [소스](https://github.com/HaeSeongPark/TIL/blob/master/javastudy/src/ch6/PrimitiveParamEx.java)
-* 참조형 매개변수 read & write [소스](https://github.com/HaeSeongPark/TIL/blob/master/javastudy/src/ch6/ReferenceParamEx.java)
+* 기본형 매개변수 read only    [[소스]](https://github.com/HaeSeongPark/TIL/blob/master/JavaStudySource/src/ch6/PrimitiveParamEx.java)
+* 참조형 매개변수 read & write [[소스]](https://github.com/HaeSeongPark/TIL/blob/master/JavaStudySource/src/ch6/ReferenceParamEx.java)
 
 # 참조형 반환타입
-> 매개변수뿐만 아니라 반환타입도 참조형이 될 수 있다. 반환타입이 참조형이라는 것은 반환하는 값의 타입이 참조형. 모든 참조형 타입의 값은 '객체의 주소'이므로 그저 정수값이 반횐되는 것일 뿐. [소스](https://github.com/HaeSeongPark/TIL/blob/master/javastudy/src/ch6/ReferenceReturnEx.java)
+> 매개변수뿐만 아니라 반환타입도 참조형이 될 수 있다. 
+반환타입이 참조형이라는 것은 반환하는 값의 타입이 참조형.
+모든 참조형 타입의 값은 '객체의 주소'이므로 그저 정수값이 반횐되는 것일 뿐. [[소스]](https://github.com/HaeSeongPark/TIL/blob/master/JavaStudySource/src/ch6/ReferenceReturnEx.java)
 
 # 재귀함수
-> 매서드의 내부에서 메서드 자신을 다시 호출하는 것. recursive call  [소스](https://github.com/HaeSeongPark/TIL/blob/master/javastudy/src/ch6/RecursiveCallFactorial.java)
+> 매서드의 내부에서 메서드 자신을 다시 호출하는 것. recursive call  [[소스]](https://github.com/HaeSeongPark/TIL/blob/master/JavaStudySource/src/ch6/RecursiveCallFactorial.java)
 
 ```
 논리적 간결함 :
@@ -62,7 +64,7 @@ int add(int a, int b)                                //선언부
 
 * 인스턴스 메서드는 인스턴스 변수와 관련된 작업을 하는 메서드
 * 클래스메서드는 인스턴스와 관계없는(인스턴스 변수나 인스턴스 메서드를 사용하지 않는) 메서드
-[[소스]](https://github.com/HaeSeongPark/TIL/blob/master/javastudy/src/ch6/StaticAndInstanceMethod.java)
+[[소스]](https://github.com/HaeSeongPark/TIL/blob/master/JavaStudySource/src/ch6/StaticAndInstanceMethod.java)
 
 1.클래스를 설게할 때, 멤버변수 중 모든 인스턴스에 공통적으로 사용해야하는 것은 static을 붙인다.
 2.클래스 변수는 인스턴스를 생성하지 않아도 사용가능
@@ -111,4 +113,4 @@ int add(int a, int b)                                //선언부
  }
 ```
 
-> 인스턴스를 생성하여 인스턴스멤버 사용하는 [[소스]](https://github.com/HaeSeongPark/TIL/blob/master/javastudy/src/ch6/MemberCall.java)
+> 인스턴스를 생성하여 인스턴스멤버 사용하는 [[소스]](https://github.com/HaeSeongPark/TIL/blob/master/JavaStudySource/src/ch6/MemberCall.java)
