@@ -23,7 +23,7 @@ public class VarArgsEx {
 		System.out.println(concatenate("","100","200","300"));
 		System.out.println(concatenate("-",strArr));
 		System.out.println(concatenate(",",new String[]{"100","200","300"}));
-//		System.out.println(concatenate("",{"100","200","300"})); ¿¡·¯!!!
+//		System.out.println(concatenate("",{"100","200","300"})); ì—ëŸ¬ë°œìƒ!!!
 		System.out.println("["+concatenate(",",new String[0])+"]");
 		System.out.println("["+concatenate(",",null)+"]");
 		System.out.println("["+concatenate(",")+"]");
