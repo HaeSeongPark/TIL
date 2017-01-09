@@ -60,4 +60,4 @@ print(concatenate(new Stirng[]{"A","B"})); //배열도 가능, 가변인자는 �
 ```
 
 5-2.가변인자(variable arguments)의 오버로딩
-> 가변인자를 선언한 메서들르 오버로딩하면, 메서드를 호출했을 때 구별되지 못하는 경우가 자주 발생할 수 있기 때문에 가능하면 사용하지 않는 것이 좋다. [[소스]](https://github.com/HaeSeongPark/TIL/blob/master/javastudy/src/ch6/VarArgsEx.java)
+> 가변인자를 선언한 메서들르 오버로딩하면, 메서드를 호출했을 때 구별되지 못하는 경우가 자주 발생할 수 있기 때문에 가능하면 사용하지 않는 것이 좋다. [[소스]](https://github.com/HaeSeongPark/TIL/blob/master/JavaStudySource/src/ch6/VarArgsEx.java)
