@@ -1,6 +1,6 @@
 package ch7;
 
-class Tv{
+class TvTVCR{
 	boolean power;
 	int channel;
 	
@@ -17,7 +17,7 @@ class VCR{
 	void ff(){ /*...*/}
 }
 
-public class TVCR extends Tv{
+public class TVCR extends TvTVCR{
 	VCR vcr = new VCR();
 	int counter = vcr.counter;
 	
