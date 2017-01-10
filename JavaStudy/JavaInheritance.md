@@ -82,7 +82,7 @@
 class TVCR extends TV,VCR{...} // 이와 같은 표현은 허용되지 않는다.
 
 //비중이 높은 클래스 하나만 상속관계로, 나머지는 포함관계로 한다.
-class Tv{                                           class TVCR extends Tv{
+class TvTVCR{                                           class TVCR extends TvTVCR{
 	boolean power;                                   VCR vcr = new VCR();
     int channel;                                     int counter = vcr.counter;
     
@@ -100,7 +100,7 @@ class Tv{                                           class TVCR extends Tv{
    }
     
    ```
-   
+   [[풀소스]](https://github.com/HaeSeongPark/TIL/blob/master/JavaStudySource/src/ch7/TVCR.java)
  
  
 5 Object클래스 : 모든 클래스의 최고조상
