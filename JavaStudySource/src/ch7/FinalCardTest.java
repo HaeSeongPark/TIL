@@ -18,6 +18,7 @@ class CardFinalTest{
 		return KIND + " " + NUMBER;
 	}
 }
+
 public class FinalCardTest {
 	public static void main(String[] args) {
 		CardFinalTest c = new CardFinalTest("HEART",15);
