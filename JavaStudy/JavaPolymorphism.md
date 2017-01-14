@@ -46,6 +46,7 @@
     
     fe = (FireEngine)car ; // 컴파일은 되지만 실행시 에러발생
     					   // 조상타압의 인스턴스를 자손타입의 참조변수로 참조하려고 함
+    car2 = fe;
 ```
 [[관련소스1]](https://github.com/HaeSeongPark/TIL/blob/master/JavaStudySource/src/ch7/ClassCastingTest1.java)
 [[관련소스2]](https://github.com/HaeSeongPark/TIL/blob/master/JavaStudySource/src/ch7/ClassCastingTest2.java)
@@ -54,6 +55,7 @@
  * 참조변수가 참조하는 인스턴스의 실제 타입을 체크한는데 사용.
  * 이항연산자이며 피연산자는 참조형 변수와 타입. 연산 결과는 true, false,
  * instanceof의 연산결과가 true이면, 해당 타입으로 형변환이 가능
+ 
  ```java
  	void doWork(Car c){
     	if(c instanceof FireEngine){
