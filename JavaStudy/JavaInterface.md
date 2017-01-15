@@ -169,3 +169,16 @@ class Figher extends Unit implements Fightable{
         ....
     }
 ```
+
+8 디폴트 메서드
+* 인터페이스에 메서드를 추가한다는 것은, 추상메서드를 추가한다는 것인데, 이 인터페이스를 구현한 기존의 모든 클래스들이 새로 추가된 메서드를 구현해야 하기 때문. 이때 디폴트 메서드가 필요하다. 
+* 디폴트 메서드는 추상 메서드의 기본적인 구현을 제공하는 메서드로 추상 메서드가 아니기 때문에 디폴트 메서드가 새로 추가되어도 해당 인터피으스를 구현한 클래스를 변경하지 않아도 된다. 
+* 디폴트 메서드 앞에 키워드 default를 붙이며, 추상메서드와 달리 일반메서드처럼 모모통{}이 있어야 한다. 
+* 접근 제어자 public이며 생략 가능
+
+```java
+	interface MyInterface{					interface MyInterface{
+    	void method();								void method();
+        void newMethod();							default void newMethod();
+    }										}
+```
