@@ -17,6 +17,5 @@ public class PriorityQueueEx1 {
 		//PriorityQueue에 저장된 요소를 하나씩 꺼낸다.
 		while((obj = pq.poll())!=null)
 			System.out.println(obj);
-		
 	}
 }
