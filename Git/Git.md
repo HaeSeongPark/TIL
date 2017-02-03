@@ -40,3 +40,5 @@
        -  git config user.emali abc.example.com
 
 > 우선수위 :  `프로젝트별 사용자` > `전역 사용자`
+
+* [gitflow](http://88240.tistory.com/286)
