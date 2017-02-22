@@ -20,7 +20,7 @@ public class Ch13_8 {
 			System.out.println(words);
 			
 			String prompt = ">>";
-			System.out.println(prompt);
+			System.out.print(prompt);
 			
 			Scanner s = new Scanner(System.in);
 			String input = s.nextLine().trim();
