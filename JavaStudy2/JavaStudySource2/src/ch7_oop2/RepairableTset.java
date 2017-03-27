@@ -10,6 +10,7 @@ public class RepairableTset {
 		scv.repair(tank);
 		scv.repair(dropship);
 //		scv.repair(marine);
+		scv.repair(scv);
 	}
 }
 
@@ -79,5 +80,9 @@ class SCV extends GroundUnit implements Repairable{
 			}
 			System.out.println(u.toString() + "의 수리가 끝났습니다.");
 		}
+	}
+	
+	public String toString(){
+		return "SCV";
 	}
 }
