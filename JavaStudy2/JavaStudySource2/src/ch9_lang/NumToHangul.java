@@ -12,9 +12,9 @@ public class NumToHangul {
 		int len = stringMoney.length();
 
 		for (int i = len - 1; i >= 0; i--) {
-			int index = stringMoney.charAt(len - 1 - i) - 48;
-			result.append(number[index]);
-			if (index > 0)
+			int num = stringMoney.charAt(len - 1 - i) - 48;
+			result.append(number[num]);
+			if (num > 0)
 				result.append(unit[i % 4]);
 			if (i % 4 == 0)
 				result.append(unitM[i / 4]);

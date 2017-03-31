@@ -28,7 +28,8 @@ public class StringTokenizerEx4 {
 			int check = NUMBER.indexOf(token);
 			
 			if(check==-1){ // 단위인 경우
-				if("만억조".indexOf(token)==-1){
+//				if("만억조".indexOf(token)==-1){
+				if("십백천".indexOf(token) != -1){
 					tmpResult += ( num!=0 ? num :1 ) * UNIT_NUM[UNIT.indexOf(token)];
 				} else {
 					tmpResult += num;
