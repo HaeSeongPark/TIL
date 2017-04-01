@@ -1,2 +1,0 @@
-Hello by System.out
-Hello by System.err
