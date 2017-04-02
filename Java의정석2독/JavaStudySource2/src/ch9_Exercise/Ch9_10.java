@@ -18,13 +18,16 @@ public class Ch9_10 {
 			char[] c = new char[length];
 			
 			// 정렬 조건에 따라 문자열(str)을 복사할 위치를 결정한다. (System.arrycopy()사용)
-			if(aligment == 0) // 왼쪽정렬
+			if(aligment == 0) { // 왼쪽정렬
 				System.arraycopy(srtCharArray, 0, c, 0, strLen);
+//				return String.format("%-"+length+"s",str);
+			}
 			else if(aligment == 1)  // 가운데 정렬
 				System.arraycopy(srtCharArray, 0, c, diff/2, strLen);
-			else if(aligment ==2)  // 오른쪽 정렬
+			else if(aligment ==2)  { // 오른쪽 정렬
 				System.arraycopy(srtCharArray, 0, c, diff, strLen);
-
+//				return String.format("%"+length+"s", str);
+			}
 			return String.valueOf(c);
 		}
 	}

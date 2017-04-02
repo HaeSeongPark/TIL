@@ -21,16 +21,19 @@ public class Ch9_6 {
 			return src.substring(0, length);
 	    }
 		
-		//4. 길이가 length인 char배열을 생성한다.
-		char[] c = new char[length];
-		
-		//5. 4에서 생성한 char배열을 '0'으로 채운다.
-		Arrays.fill(c, '0');
-		
-		//6. src에서 문자배열을 뽑아내서 4에서 생성한 배열에 복사한다.
-		int len = src.toCharArray().length;
-		System.arraycopy(src.toCharArray(), 0, c, length - len, len);
-		
-		return String.valueOf(c);
+//		//4. 길이가 length인 char배열을 생성한다.
+//		char[] c = new char[length];
+//		
+//		//5. 4에서 생성한 char배열을 '0'으로 채운다.
+//		Arrays.fill(c, '0');
+//		
+//		//6. src에서 문자배열을 뽑아내서 4에서 생성한 배열에 복사한다.
+//		int len = src.toCharArray().length;
+//		System.arraycopy(src.toCharArray(), 0, c, length - len, len);
+//			
+//		return String.valueOf(c);
+		// 포맷사용 5줄 -> 2줄
+		int srcInt = Integer.parseInt(src);
+		return String.format("%0"+length+"d",srcInt);
 	}
 }
