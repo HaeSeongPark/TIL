@@ -30,11 +30,11 @@ public class Time {
 		this.second = second;
 	}
 	
-	public StringBuffer diffTime(Time time){
-		StringBuffer diffTime = null;
+	public String diffTime(Time time){
+		StringBuffer diffTime = new StringBuffer();
 		diffTime.append(this.hour - time.hour + "h")
 				.append(this.minute - time.minute +"m")
 				.append(this.second - time.second +"s");                                                                                                                 
-		return diffTime;
+		return diffTime.toString();
 	}
 }
