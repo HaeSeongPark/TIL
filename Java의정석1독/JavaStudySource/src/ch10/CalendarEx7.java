@@ -40,6 +40,7 @@ public class CalendarEx7 {
 				
 				//1일이 속한 주의 일요일로 날짜설정.
 				sDay.add(Calendar.DATE, -sDay.get(Calendar.DAY_OF_WEEK)+1);
+
 				//말일이 속한 주의 토요일로 날짜설정
 				eDay.add(Calendar.DATE, 7 - eDay.get(Calendar.DAY_OF_WEEK));
 				
