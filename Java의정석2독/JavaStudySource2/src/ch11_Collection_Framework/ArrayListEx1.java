@@ -1,4 +1,4 @@
-package ch11_Coleection_Framework;
+package ch11_Collection_Framework;
 
 import java.awt.List;
 import java.util.ArrayList;
