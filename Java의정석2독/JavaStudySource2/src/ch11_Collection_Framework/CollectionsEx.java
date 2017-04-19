@@ -1,15 +1,11 @@
-package ch11;
+package ch11_Collection_Framework;
 
 import java.util.*;
-
 import static java.util.Collections.*;
-
 public class CollectionsEx {
-
 	public static void main(String[] args) {
 		List list = new ArrayList();
 		System.out.println(list);
-		
 		addAll(list,1,2,3,4,5);
 		System.out.println(list);
 		
@@ -28,7 +24,7 @@ public class CollectionsEx {
 		sort(list,reverseOrder()); // 역순 reverse(list);와 동일
 		System.out.println(list);
 		
-		int idx = binarySearch(list,3); // 3이 저장된 우치(index0를 반환
+		int idx = binarySearch(list,3); // 3이 저장된 위치(index)를 반환
 		System.out.println("index of 3 = "+idx);
 		
 		System.out.println("max="+max(list));
@@ -55,5 +51,4 @@ public class CollectionsEx {
 		ArrayList list2 = list(e);
 		System.out.println("list2="+list2);
 	}
-
 }
