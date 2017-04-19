@@ -24,10 +24,13 @@ public class StackQueueEx {
 //		while(it.hasNext())
 //			System.out.println("."+it.next());
 		
+		System.out.println("index"+st.lastIndexOf("0"));
+		
 		System.out.println(" = Stack = ");
 		while(!st.empty()){
 			System.out.println(st.pop());
 		}
+		
 		
 		System.out.println(" = Queue = ");
 		while(!q.isEmpty()){
