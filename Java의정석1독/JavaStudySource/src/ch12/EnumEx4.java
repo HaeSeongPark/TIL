@@ -16,7 +16,7 @@ abstract class MyEnum<T extends MyEnum<T>> implements Comparable<T>{
 	}
 }
 
-abstract class MyTransportation extends MyEnum{
+abstract class MyTransportation extends MyEnum<MyTransportation>{
 	static final MyTransportation BUS = new MyTransportation("BUS",100){
 		int fare(int distance){ return distance * BASIC_FARE; }
 	};
@@ -50,7 +50,7 @@ public class EnumEx4 {
 		MyTransportation t3 = MyTransportation.TRAIN;
 		MyTransportation t4 = MyTransportation.SHIP;
 		MyTransportation t5 = MyTransportation.AIRPLANE;
-		
+
 		System.out.printf("t1=%s, %d%n",t1.name,t1.ordinal);
 		System.out.printf("t2=%s, %d%n",t2.name,t2.ordinal);
 		System.out.printf("t3=%s, %d%n",t3.name,t3.ordinal);
