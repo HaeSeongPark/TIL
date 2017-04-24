@@ -1,6 +1,8 @@
 package ch13;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class ThreadWaitEx1 {
 	public static void main(String[] args)throws Exception{
@@ -9,6 +11,9 @@ public class ThreadWaitEx1 {
 		new Thread(new Cook(table),"COOK1").start();
 		new Thread(new Customer(table,"donut"),"CUST1").start();
 		new Thread(new Customer(table,"burger"),"CUST2").start();
+		
+		Thread.sleep(100);
+		System.exit(0);
 	}
 }
 class Customer implements Runnable{
@@ -51,7 +56,9 @@ class Table{
 	String[] dishNames = {"donut","donut","burger"};
 	final int MAX_FOOD = 6;
 	
-	private ArrayList<String> dishes = new ArrayList<>();
+//	private ArrayList<String> dishes = new ArrayList<>();
+	
+	private List<String> dishes = Collections.synchronizedList(new ArrayList<>());
 	
 	public void add(String dish){
 		//테이블에 음식이 가득찼으면, 테이블에 음식을 추가하지 않는다.
