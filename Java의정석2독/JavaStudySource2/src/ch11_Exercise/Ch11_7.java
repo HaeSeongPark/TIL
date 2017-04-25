@@ -4,7 +4,7 @@ package ch11_Exercise;
 import java.util.*;
 
 
-class Student3{
+class Student1{
 	String name;
 	int ban;
 	int no;
@@ -12,7 +12,7 @@ class Student3{
 	
 	
 	
-	public Student3(String name, int ban, int no, int kor, int eng, int math) {
+	public Student1(String name, int ban, int no, int kor, int eng, int math) {
 		super();
 		this.name = name;
 		this.ban = ban;
@@ -36,10 +36,10 @@ class Student3{
 	}
 }
 
-class BanNoAscending implements Comparator<Student3>{
+class BanNoAscending implements Comparator<Student>{
 
 	@Override
-	public int compare(Student3 o1, Student3 o2) {
+	public int compare(Student o1, Student o2) {
 		
 		return o1.ban == o2.ban ? o1.no-o2.no : o1.ban - o2.ban;
 	}
@@ -48,18 +48,18 @@ class BanNoAscending implements Comparator<Student3>{
 public class Ch11_7 {
 
 	public static void main(String[] args) {
-		ArrayList<Student3> list = new ArrayList<>();
+		ArrayList<Student> list = new ArrayList<>();
 		
 		
-		list.add(new Student3("ÀÌÁö¹Ù",2,1,70,90,70));
-		list.add(new Student3("¾ÈÁö¹Ù",2,2,60,100,80));
-		list.add(new Student3("È«±æµ¿",1,3,100,100,100));
-		list.add(new Student3("³²±Ã¼º",1,1,90,70,80));
-		list.add(new Student3("±èÀÚ¹Ù",1,2,80,80,90));
+		list.add(new Student("ÀÌÁö¹Ù",2,1,70,90,70));
+		list.add(new Student("¾ÈÁö¹Ù",2,2,60,100,80));
+		list.add(new Student("È«±æµ¿",1,3,100,100,100));
+		list.add(new Student("³²±Ã¼º",1,1,90,70,80));
+		list.add(new Student("±èÀÚ¹Ù",1,2,80,80,90));
 
 		Collections.sort(list, new BanNoAscending());
 		
-		Iterator<Student3> it = list.iterator();
+		Iterator<Student> it = list.iterator();
 		
 		while(it.hasNext())
 			System.out.println(it.next());
