@@ -1,0 +1,1 @@
+packagech15_IO;importjava.io.*;publicclassFileConversion{publicstaticvoidmain(String[]args){try(FileReaderfr=newFileReader(args[0]);FileWriterfw=newFileWriter(args[1])){intdata=0;while((data=fr.read())!=-1){if(data!='\t'&&data!='\n'&&data!=''&&data!='\r')fw.write(data);}}catch(Exceptione){System.out.println("err");}}}
