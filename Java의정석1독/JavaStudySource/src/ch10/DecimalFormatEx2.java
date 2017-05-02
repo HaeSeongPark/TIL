@@ -13,7 +13,7 @@ public class DecimalFormatEx2 {
 			System.out.print("1,234,567.89" + " -> ");
 			
 			double d = num.doubleValue();
-			System.out.print(d + " -> ");
+			System.out.print(d + " d-> ");
 			
 			System.out.println(df2.format(num));
 		} catch (ParseException e) {
