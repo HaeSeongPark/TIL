@@ -26,7 +26,7 @@ class Student implements Comparable<Student>{
 	}
 	public String toString(){
 		return name + "," + ban + "," + no + "," + kor + "," + eng
-				+ "," + math + "," + getTotal() + "," + getAverage();
+				+ "," + math + "," + getTotal() + "," + getAverage() + ",";
 	}
 
 	@Override
