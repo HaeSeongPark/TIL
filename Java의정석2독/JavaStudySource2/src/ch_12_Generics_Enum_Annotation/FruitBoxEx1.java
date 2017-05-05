@@ -31,7 +31,7 @@ public class FruitBoxEx1 {
 //		appleBox.add(new Toy()); 에러. Box<Apple>에는 Apple만 담을 수 있음
 		
 		toyBox.add(new Toy());
-//		toyBox.add(new Apple()); 에러. Box<Toy>에는 Apple만 담을 수 없음
+//		toyBox.add(new Apple()); 에러. Box<Toy>에는 Apple담을 수 없음
 		
 		System.out.println(fruitBox);
 		System.out.println(appleBox);
