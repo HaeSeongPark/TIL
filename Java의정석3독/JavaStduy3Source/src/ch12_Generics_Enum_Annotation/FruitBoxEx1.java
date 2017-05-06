@@ -2,115 +2,99 @@ package ch12_Generics_Enum_Annotation;
 
 import java.util.ArrayList;
 
-interface Eatable
-{
+interface Eatable {
 }
 
-class Fruit implements Eatable
-{
-	String name;
-	int weigth;
-	
-	public Fruit(){}
-	
-	public Fruit(String name, int weigth)
-	{
-		super();
-		this.name = name;
-		this.weigth = weigth;
-	}
+class Fruit implements Eatable {
+    String name;
+    int weigth;
+
+    public Fruit() {
+    }
+
+    public Fruit(String name, int weigth) {
+        super();
+        this.name = name;
+        this.weigth = weigth;
+    }
 
 
-	public String toString()
-	{
-		return name+"("+weigth+")";
-	}
+    public String toString() {
+        return name + "(" + weigth + ")";
+    }
 }
 
-class Apple extends Fruit
-{
-	public Apple(){}
-	
-	public Apple(String name, int weigth)
-	{
-		super(name , weigth);
-	}
+class Apple extends Fruit {
+    public Apple() {
+    }
+
+    public Apple(String name, int weigth) {
+        super(name, weigth);
+    }
 
 }
 
-class Grape extends Fruit
-{
-	public Grape(){}
+class Grape extends Fruit {
+    public Grape() {
+    }
 
-	public Grape(String name, int weigth)
-	{
-		super(name , weigth);
-	}
+    public Grape(String name, int weigth) {
+        super(name, weigth);
+    }
 }
 
-class Toy
-{
-	public String toString()
-	{
-		return "Toy";
-	}
+class Toy {
+    public String toString() {
+        return "Toy";
+    }
 }
 
-class FruitBox < T extends Fruit & Eatable> extends Box<T>
-{
+class FruitBox<T extends Fruit & Eatable> extends Box<T> {
 }
 
-class Box <T>
-{
-	ArrayList<T> list = new ArrayList<T>();
+class Box<T> {
+    ArrayList<T> list = new ArrayList<T>();
 
-	void add(T item)
-	{
-		list.add(item);
-	}
+    void add(T item) {
+        list.add(item);
+    }
 
-	T get(int i)
-	{
-		return list.get(i);
-	}
+    T get(int i) {
+        return list.get(i);
+    }
 
-	int size()
-	{
-		return list.size();
-	}
+    int size() {
+        return list.size();
+    }
 
-	ArrayList<T> getList()
-	{
-		return list;
-	}
+    ArrayList<T> getList() {
+        return list;
+    }
 
-	public String toString()
-	{
-		return list.toString();
-	}
+    public String toString() {
+        return list.toString();
+    }
 }
 
-public class FruitBoxEx1
-{
-	public static void main(String [] args)
-	{
-		Box<Fruit> fruitBox = new Box<Fruit>();
-		Box<Apple> appleBox = new Box<Apple>();
-		Box<Toy> toyBox = new Box<Toy>();
-		// Box<Grape> grapeBox = new Box<Apple>(); Å¸ÀÔ ºÒÀÏÄ¡ ¿¡·¯
+public class FruitBoxEx1 {
+    public static void main(String[] args) {
+        Box<Fruit> fruitBox = new Box<Fruit>();
+        Box<Apple> appleBox = new Box<Apple>();
+        Box<Toy> toyBox = new Box<Toy>();
+        // Box<Grape> grapeBox = new Box<Apple>(); Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 
-		fruitBox.add(new Fruit());
-		fruitBox.add(new Apple());
+        fruitBox.add(new Fruit());
+        fruitBox.add(new Apple());
 
-		appleBox.add(new Apple());
-		appleBox.add(new Apple());
-		// appleBox.add(new Toy()); ¿¡·¯. Box<Apple>¿¡´Â Apple¸¸ ´ãÀ» ¼ö ÀÖÀ½
+        appleBox.add(new Apple());
+        appleBox.add(new Apple());
+        // appleBox.add(new Toy()); ï¿½ï¿½ï¿½ï¿½. Box<Apple>ï¿½ï¿½ï¿½ï¿½ Appleï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-		toyBox.add(new Toy());
-		// toyBox.add(new Apple()); ¿¡·¯. Box<Toy>¿¡´Â A
+        toyBox.add(new Toy());
+        // toyBox.add(new Apple()); ï¿½ï¿½ï¿½ï¿½. Box<Toy>ï¿½ï¿½ï¿½ï¿½ A
 
-		System.out.println(fruitBox);
-		System.out.println(appleBox);
-		System.out.println(toyBox);
-	}
+        System.out.println(fruitBox);
+        System.out.println(appleBox);
+        System.out.println(toyBox);
+    }
 }
