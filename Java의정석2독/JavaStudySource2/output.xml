@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
-<properties>
-<comment>Properties Example</comment>
-<entry key="capacity">10</entry>
-<entry key="사이즈">10</entry>
-<entry key="timeout">30</entry>
-<entry key="language">kr</entry>
-</properties>
