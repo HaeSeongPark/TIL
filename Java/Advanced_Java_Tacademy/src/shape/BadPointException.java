@@ -8,5 +8,4 @@ public class BadPointException extends Exception
 		super("not proper point");
 	}
 	
-	
 }

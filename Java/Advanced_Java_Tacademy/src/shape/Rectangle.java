@@ -26,6 +26,7 @@ public class Rectangle extends Shape
 	}
 
 	@Override
+	public
 	int calculateArea()
 	{
 		return Math.abs((right - left) * (bottom - top));
@@ -43,6 +44,8 @@ public class Rectangle extends Shape
 	@Override
 	public String toString()
 	{
-		return "Type : Rectangle , left : " + left + ", top : " + top + ", right : " + right + ", bottom : " + bottom;
+		return "Type : Rectangle , left : " + left + ", top : " + top 
+				+ ", right : " + right + ", bottom : " + bottom
+				+ " Area : " + calculateArea();
 	}
 }

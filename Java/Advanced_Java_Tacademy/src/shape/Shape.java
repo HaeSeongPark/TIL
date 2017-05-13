@@ -10,7 +10,7 @@ public abstract class Shape
 	protected int boundsBottom = Integer.MIN_VALUE;
 
 	// 도형의 넓이
-	abstract int calculateArea();
+	public abstract int calculateArea();
 
 	// 도형의 영역을 나타내는 함수로 left, right, top, bottom값을 갖ㄴ느다.
 	abstract protected void setBounds();
@@ -40,7 +40,7 @@ public abstract class Shape
 	{
 		int minX = Math.min(Math.min(p1.getX() , p2.getX()) , p3.getX());
 		boundsLeft = Math.min(minX , boundsLeft);
-
+		
 		int maxX = Math.max(Math.max(p1.getX() , p2.getX()) , p3.getX());
 		boundsRight = Math.max(maxX , boundsRight);
 
@@ -49,11 +49,11 @@ public abstract class Shape
 
 		int maxY = Math.max(Math.max(p1.getY() , p2.getY()) , p3.getY());
 		boundsBottom = Math.max(maxY , boundsBottom);
-
+		
 		int rectArea = (maxX - minX) * (maxY - minY);
-		int p1p2Area = Math.abs((p2.getX() - p1.getX()) * (p2.getX() - p1.getY()) / 2);
-		int p1p3Area = Math.abs((p3.getX() - p1.getX()) * (p3.getX() - p1.getY()) / 2);
-		int p2p3Area = Math.abs((p3.getX() - p2.getX()) * (p3.getX() - p2.getY()) / 2);
+		int p1p2Area = Math.abs((p2.getX() - p1.getX()) * (p2.getY() - p1.getY()) / 2);
+		int p1p3Area = Math.abs((p3.getX() - p1.getX()) * (p3.getY() - p1.getY()) / 2);
+		int p2p3Area = Math.abs((p3.getX() - p2.getX()) * (p3.getY() - p2.getY()) / 2);
 
 		return (rectArea - p1p2Area - p1p3Area - p2p3Area);
 	}

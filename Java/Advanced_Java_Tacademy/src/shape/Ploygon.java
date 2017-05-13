@@ -30,7 +30,7 @@ public class Ploygon extends Shape
 	}
 
 	@Override
-	int calculateArea()
+	public int calculateArea()
 	{
 		if ( sum == NOT_CALCULATE )
 		{
@@ -52,7 +52,8 @@ public class Ploygon extends Shape
 	@Override
 	public String toString()
 	{
-		return "Type : " + points.length + " Polygon , Points : " + points;
+		return "Type : " + points.length + " Polygon , Points : " + points
+				+ " Area : " + calculateArea();
 	}
 
 }

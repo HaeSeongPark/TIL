@@ -32,7 +32,7 @@ public class Triangle extends Shape
 	}
 
 	@Override
-	int calculateArea()
+	public int calculateArea()
 	{
 		if ( sum == NOT_CALCULATE )
 			sum = calculateBaseArea(points[0] , points[1] , points[2]);
@@ -48,6 +48,6 @@ public class Triangle extends Shape
 	@Override
 	public String toString()
 	{
-		return "Type : Triangle, Point : " + points;
+		return "Type : Triangle, Point : " + points + " Area : " + calculateArea();
 	}
 }

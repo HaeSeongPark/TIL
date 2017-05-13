@@ -3,7 +3,7 @@ package shape;
 
 public class Main
 {
-	public static void main(String [] args)
+	public static void main(String [] args) throws BadPointException
 	{
 		Shape[] shapes = new Shape[100];
 		

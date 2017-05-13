@@ -14,7 +14,7 @@ public class Circle extends Shape
 		int y = 20 + r.nextInt(30);
 		center = new Point(x , y);
 		int min = Math.max(x , y);
-		radius = 20 + r.nextInt(min - 20);
+		radius = 20 + r.nextInt(min - 19);
 		setBounds();
 	}
 
@@ -27,7 +27,7 @@ public class Circle extends Shape
 	}
 
 	@Override
-	int calculateArea()
+	public int calculateArea()
 	{
 		return ( int ) (radius * radius * Math.PI);
 	}
@@ -45,7 +45,8 @@ public class Circle extends Shape
 	public String toString()
 	{
 		return "Type : Circle, radius : " + radius + 
-				" center : [" + center.getX() + "," + center.getY() + "]";
+				" center : [" + center.getX() + "," + center.getY() + "] "
+				+ "Area : " + calculateArea();
 	}
 
 }
