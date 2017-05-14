@@ -4,10 +4,12 @@ public class Counter
 {
 	private int mCount = 0;
 	CounterListener mListener;
+	
 	public void setCouterListener(CounterListener listener)
 	{
 		mListener = listener;
 	}
+	
 	public void inc()
 	{
 		mCount++;

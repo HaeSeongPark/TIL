@@ -14,16 +14,14 @@ public class Circle extends Shape
 		int y = 20 + r.nextInt(30);
 		center = new Point(x , y);
 		int min = Math.min(x , y);
-		radius = 20 + r.nextInt(min - 19);
+		radius = 20 + r.nextInt(min - 20);
 		setBounds();
 	}
 
 	public Circle(Point center, int radius)
 	{
-		super();
 		this.center = center;
 		this.radius = radius;
-		setBounds();
 	}
 
 	@Override
@@ -33,20 +31,22 @@ public class Circle extends Shape
 	}
 
 	@Override
-	protected void setBounds()
+	public void setBounds()
 	{
 		boundsLeft = center.getX() - radius;
 		boundsRight = center.getX() + radius;
 		boundsTop = center.getY() - radius;
-		boundsBottom = center.getX() + radius;
+		boundsBottom = center.getY() + radius;
 	}
-
+	
 	@Override
 	public String toString()
 	{
-		return "Type : Circle, radius : " + radius + 
-				" center : [" + center.getX() + "," + center.getY() + "] "
-				+ "Area : " + calculateArea();
+		return String.format("Type : Circle, "
+								  + "radius : %d, "
+								  + "center : [%d,%d], "
+								  + "Area : %d "
+								  , radius, center.getX(), center.getY(), calculateArea());
 	}
 
 }

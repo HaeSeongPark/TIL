@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.Random;
 import annotation.Enemy;
 import annotation.Friend;
+import drawable.AbstractDrawable;
 import drawable.Drawable;
+import drawable.OnDrawableChangeListener;
 import drawable.ShapeDrawable;
 
 public class Game
@@ -18,7 +20,15 @@ public class Game
 	Random sR = new Random();
 	DrawRunnable drawRunnable;
 	
-	ShapeDrawable sd = new ShapeDrawable();
+	OnDrawableChangeListener listener = new OnDrawableChangeListener()
+	{
+		@Override
+		public void onDrawableChanged(Drawable d)
+		{
+			AbstractDrawable aD = (AbstractDrawable)d;
+			System.out.println("has-a : º¯°æµÆÀ½ " + aD.getXY());
+		}
+	};
 	
 	public Game()
 	{
@@ -58,6 +68,7 @@ public class Game
 		{
 			int target = sR.nextInt(size);
 			Drawable d = allDrawable.get(target);
+			((AbstractDrawable)d).setOnDrawableChangeListener(listener);
 			d.incPosition();
 			drawRunnable.enqueue(d);
 		}

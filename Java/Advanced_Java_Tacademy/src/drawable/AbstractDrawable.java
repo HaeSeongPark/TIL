@@ -36,4 +36,9 @@ public abstract class AbstractDrawable implements Drawable, Serializable
 		// is-a 관계에서 변경을 알려주는 방법
 		onPositionChanged(x , y);
 	}
+	
+	public String getXY()
+	{
+		return ", x : " + x + ", y : " + y;
+	}
 }
