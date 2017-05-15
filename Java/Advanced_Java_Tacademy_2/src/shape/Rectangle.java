@@ -56,7 +56,6 @@ public class Rectangle extends Shape
 	public void setBounds()
 	{
 		calculateArea();
-
 	}
 	
 	@Override
