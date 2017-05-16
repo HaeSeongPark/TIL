@@ -1,6 +1,8 @@
 package shape;
 
-public abstract class Shape
+import java.io.Serializable;
+
+public abstract class Shape implements Serializable
 {
 	public static final int NOT_CALCULTAE = -1;
 	

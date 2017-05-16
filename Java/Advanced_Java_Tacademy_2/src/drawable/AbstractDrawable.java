@@ -1,8 +1,9 @@
 package drawable;
 
 import java.io.PrintStream;
+import java.io.Serializable;
 
-public abstract class AbstractDrawable implements Drawable
+public abstract class AbstractDrawable implements Drawable, Serializable
 {
 	protected int x;
 	protected int y;

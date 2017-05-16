@@ -24,7 +24,7 @@ public class ShapeDrawable extends AbstractDrawable
 	@Override
 	public void onPositionChanged(int x, int y)
 	{
-		System.out.printf("%d,%d으로 위치 바뀜",x,y);
+//		System.out.printf("%d,%d으로 위치 바뀜",x,y);
 	}
 
 }

@@ -10,7 +10,7 @@ public class ImageDrawable extends AbstractDrawable
 
 	Image image;
 	
-	public void setShape(Image image)
+	public void setImage(Image image)
 	{
 		this.image = image;
 	}
@@ -19,13 +19,13 @@ public class ImageDrawable extends AbstractDrawable
 	public void draw(PrintStream out)
 	{
 		out.println("Position : " + getXY());
-		out.print("image" + image);
+		out.println("image" + image);
 	}
 
 	@Override
 	public void onPositionChanged(int x, int y)
 	{
-		System.out.printf("%d,%d으로 위치 바뀜",x,y);
+//		System.out.printf("%d,%d으로 위치 바뀜",x,y);
 	}
 
 }
