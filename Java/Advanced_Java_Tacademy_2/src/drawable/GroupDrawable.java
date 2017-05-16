@@ -37,7 +37,6 @@ public class GroupDrawable<T extends Drawable> extends AbstractDrawable
 		for(T d : children)
 			d.draw(out);
 	}
-
 	@Override
 	public void onPositionChanged(int x, int y)
 	{
