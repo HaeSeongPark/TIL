@@ -36,45 +36,45 @@ public class NumOfPrime {
 //		
 //		return result;
 		
-//	    입력받은 수보다 작은 수의 소수들만 나누어보면 되는 것   // 83, 0.083초
-		ArrayList<Integer> prime = new ArrayList<>();
-		prime.add(2);
-		for(int i=2; i<=n; i++)
-		{
-			for(int j=0, primeSize = prime.size(); j < primeSize; j++ ){
-//				for(int i =0, length = array.length; i < length; i++){} // for문에 가급적 함수 nono 선언시 위처럼초기화후 사용
-				 
-				if(i%prime.get(j)==0) break; // 소수가 아닌경우
-				
-				if(j+1==prime.size()) // 소수일 때
-					prime.add(i);
-			}
-		}
-		System.out.println(prime);
-		return prime.size();
-		
-//		// 에라토스테네스의 체알고리즘 int배열사용 2, 0.002초
-//		int[] arr = new int[n+1];
-//
-//		for(int i=2; i<=n;i++){
-//			arr[i]=i;
-//		}
-//		for(int i=2; i*i<=n; i++){
-//			if(arr[i]==0) continue;
-//			for(int j=i+i; j<=n; j+=i){
-//				arr[j] = 0;
+////	    입력받은 수보다 작은 수의 소수들만 나누어보면 되는 것   // 83, 0.083초
+//		ArrayList<Integer> prime = new ArrayList<>();
+//		prime.add(2);
+//		for(int i=2; i<=n; i++)
+//		{
+//			for(int j=0, primeSize = prime.size(); j < primeSize; j++ ){
+////				for(int i =0, length = array.length; i < length; i++){} // for문에 가급적 함수 nono 선언시 위처럼초기화후 사용
+//				 
+//				if(i%prime.get(j)==0) break; // 소수가 아닌경우
+//				
+//				if(j+1==prime.size()) // 소수일 때
+//					prime.add(i);
 //			}
 //		}
-//		for(int i=2; i<=n; i++){
-//			if(arr[i]!=0)
-//				result++;
-//		}
-//		return result++;
+//		System.out.println(prime);
+//		return prime.size();
+		
+		// 에라토스테네스의 체알고리즘 int배열사용 2, 0.002초
+		int[] arr = new int[n+1];
+
+		for(int i=2; i<=n;i++){
+			arr[i]=i;
+		}
+		for(int i=2; i*i<=n; i++){
+			if(arr[i]==0) continue;
+			for(int j=i+i; j<=n; j+=i){
+				arr[j] = 0;
+			}
+		}
+		for(int i=2; i<=n; i++){
+			if(arr[i]!=0)
+				result++;
+		}
+		return result++;
 	}
 	public static void main(String[] args) {
 		NumOfPrime prime = new NumOfPrime();
 		long start = System.currentTimeMillis();
-		System.out.println( prime.numberOfPrime(6) );
+		System.out.println( prime.numberOfPrime(10000) );
 		long end = System.currentTimeMillis();
 		System.out.println(end-start);
 
