@@ -57,7 +57,9 @@ public class DrawRunnable implements Runnable
 		{
 			Drawable d = dequeue();
 			if( d instanceof EndDrawable)
+			{
 				break;
+			}
 			d.draw(System.out);
 		}
 	}

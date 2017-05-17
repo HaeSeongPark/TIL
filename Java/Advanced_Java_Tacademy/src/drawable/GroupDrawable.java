@@ -12,7 +12,7 @@ public class GroupDrawable<T extends Drawable> extends AbstractDrawable
 	public void addChild(T item)
 	{
 		children.add(item);
-		repositionChildren();
+//		repositionChildren();
 	}
 	
 	@Override
@@ -42,6 +42,6 @@ public class GroupDrawable<T extends Drawable> extends AbstractDrawable
 	@Override
 	public void onPositionChanged(int x, int y)
 	{
-		
+		System.out.println(" GroupDrawable has-a아래에 나와야함");
 	}
 }

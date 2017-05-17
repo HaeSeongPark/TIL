@@ -14,7 +14,7 @@ public class Circle extends Shape
 		int y = 20 + r.nextInt(30);
 		center = new Point(x , y);
 		int min = Math.min(x , y);
-		radius = 20 + r.nextInt(min - 20);
+		radius = 20 + r.nextInt(min - 19);
 		setBounds();
 	}
 

@@ -26,15 +26,15 @@ public class Main
 			catch ( BadPointException e )
 			{
 				e.printStackTrace();
-				try
-				{
-					shapes[i] = new Rectangle();
-				}
-				catch ( BadPointException e1 )
-				{
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+//				try
+//				{
+//					shapes[i] = new Rectangle();
+//				}
+//				catch ( BadPointException e1 )
+//				{
+//					// TODO Auto-generated catch block
+//					e1.printStackTrace();
+//				}
 			}
 		}
 		Game g = new Game();

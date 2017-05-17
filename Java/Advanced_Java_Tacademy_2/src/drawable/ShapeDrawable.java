@@ -18,7 +18,7 @@ public class ShapeDrawable extends AbstractDrawable
 	public void draw(PrintStream out)
 	{
 		out.println("Position : " + getXY());
-		out.print("Shape : " + s);
+		out.println("Shape : " + s);
 	}
 
 	@Override

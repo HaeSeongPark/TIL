@@ -19,7 +19,7 @@ public class ImageDrawable extends AbstractDrawable
 	public void draw(PrintStream out)
 	{
 		out.println("Position : " + getXY());
-		out.println("image" + image);
+		out.println("image : " + image);
 	}
 
 	@Override
