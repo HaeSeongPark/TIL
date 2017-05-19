@@ -3,11 +3,13 @@ package basic;
 
 public class Bubble {
 	public static void main(String[] args) {
-		int[] numArr = new int[10];
+		int[] numArr = {4,3,8,3,1,7,8,4,9,1 };
 
-		for (int i = 0; i < numArr.length; i++) {
-			System.out.print(numArr[i] = (int) (Math.random() * 10));
-		}
+//		for (int i = 0; i < numArr.length; i++) {
+//			System.out.print(numArr[i] = (int) (Math.random() * 10));
+//		}
+		
+		
 		System.out.println();
 
 		for (int i = 0; i < numArr.length - 1; i++) {
