@@ -31,12 +31,12 @@ public class Code15
 					data[j] = tmp;
 				}
 			}
+			
 			//Ãâ·Â
 			System.out.println(Arrays.toString(data));
 //			for(int k=0; k<=i; k++)
 //				System.out.print(data[k] + " ");
 //			System.out.println();
-			
 		}
 	}
 }
