@@ -44,6 +44,7 @@ public class Code20
 		{
 			for(int j=0; j<i; j++)
 			{
+				// str.compareTo(str2) 했을 때 str>str2이면 >0
 				if(name[j].compareToIgnoreCase(name[j+1]) > 0)
 				{
 					String tmpName = name[j];
