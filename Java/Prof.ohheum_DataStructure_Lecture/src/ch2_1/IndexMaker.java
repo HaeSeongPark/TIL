@@ -1,4 +1,4 @@
-package ch1_3;
+package ch2_1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,10 +7,17 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class Code23
+public class IndexMaker
 {
-	static String[] words = new String[100_000];
-	static int[] count = new int[100_000];
+//	static String[] words = new String[100_000];
+//	static int[] count = new int[100_000];
+	static Item[] items = new Item[100_000];
+	
+//	static
+//	{
+//		for(int i=0; i<items.length; i++)
+//			items[i] = new Item();
+//	}
 	static int idx = 0;
 	static String prompt = "$ ";
 	
@@ -32,14 +39,14 @@ public class Code23
 				String word = s.next();
 				int index = findWord(word);
 				if(index > -1)
-					System.out.println("The word \"" + word + "\" appears " + count[index] + " times.");
+					System.out.println("The word \"" + word + "\" appears " + items[index].count + " times.");
 				else
 					System.out.println("The word \"" + word + "\" doesn't appears ");
 			}
 			else if(command.equalsIgnoreCase("saveas"))
 			{
 				String fileName = s.next();
-				savaasFile(fileName);
+				saveasFile(fileName);
 			}
 			else if(command.equalsIgnoreCase("exit"))
 				break;
@@ -67,12 +74,20 @@ public class Code23
 		int index = findWord(word);
 		if(index > -1)
 		{
-			count[index]++;
+//			count[index]++;
+			items[index].count++;
 		}
 		else
 		{
-			words[idx] = word;
-			count[idx] = 1;
+			int i=idx-1;
+			while(i>=0 && items[i].word.compareTo(word)>0)
+			{
+				items[i+1] = items[i];
+				i--;
+			}
+			items[i+1] = new Item();
+			items[i+1].word = word;
+			items[i+1].count = 1;
 			idx++;
 		}
 	}
@@ -81,20 +96,20 @@ public class Code23
 	{
 		for(int i=0; i<idx; i++)
 		{
-			if(word.equalsIgnoreCase(words[i]))
+			if(word.equals(items[i].word))
 			{
 				return i;
 			}
 		}
 		return -1;
 	}
-	public static void savaasFile(String fileName)
+	public static void saveasFile(String fileName)
 	{
 		try(PrintWriter out = new PrintWriter(new FileWriter(fileName)))
 		{
 			for(int i=0; i<idx; i++)
 			{
-				out.println(words[i] + " " + count[i]);
+				out.println(items[i].word + " " + items[i].count);
 			}
 		}
 		catch ( IOException e )
