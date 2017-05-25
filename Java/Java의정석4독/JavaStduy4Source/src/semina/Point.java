@@ -62,6 +62,10 @@ public class Point implements Comparable<Point>
 	@Override
 	public int compareTo(Point p)
 	{
+//		if(!(o instanceof Point)) return -1;
+//		Point p = (Point)p;
+//		reutnr (x+y)-(p.x+p.y)
+		
 		nullCheck(p);
 		int thisSum = x+y;
 		int otherSum = p.x + p.y;

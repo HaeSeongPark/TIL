@@ -27,10 +27,7 @@ public class MyVector
 	// 용량과 크기가 같아진다.
 	public void trimToSize()
 	{
-		Object[] tmp = new Object[size];
-		System.arraycopy(objArr , 0 , tmp , 0 , size);
-		objArr = tmp;
-		capacity = size;
+		setCapacity(size);
 	}
 	
 	public void ensuerCapacity(int minCapacity)
@@ -57,6 +54,9 @@ public class MyVector
 	
 	public void setCapacity(int capacity)
 	{
+		if(this.capacity == capacity) return;
+		
+		this.capacity = capacity;
 		Object[] tmp = new Object[capacity];
 		System.arraycopy(objArr , 0 , tmp , 0 , size);
 		objArr = tmp;
@@ -122,8 +122,10 @@ public class MyVector
 		if ( index != size - 1 )
 			System.arraycopy(objArr , index + 1 , objArr , index , size - 1 - index);
 
-		objArr[size - 1] = null;
-		size--;
+		objArr[--size] = null;
+		
+//		objArr[size - 1] = null;
+//		size--;
 		return oldObj;
 	}
 	
