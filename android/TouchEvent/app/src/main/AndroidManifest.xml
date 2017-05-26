@@ -13,8 +13,12 @@
         <activity android:name=".ActivityClickListenerActivity" />
         <activity android:name=".XMLOnClickActivity" />
         <activity android:name=".anonymousClickListenerActivity" />
-        <activity android:name=".TouchEventTestActivity"/>
-        <activity android:name=".MultitouchActivity">
+        <activity android:name=".TouchEventTestActivity" />
+        <activity android:name=".MultitouchActivity" />
+        <activity android:name=".DialogActivity" />
+        <activity android:name=".Dialog2Activity" />
+        <activity android:name=".LoginDialogActivity"/>
+        <activity android:name=".NotificationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

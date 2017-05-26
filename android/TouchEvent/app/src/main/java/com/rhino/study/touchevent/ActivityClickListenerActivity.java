@@ -22,10 +22,8 @@ public class ActivityClickListenerActivity extends AppCompatActivity implements 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_click_listener);
-
         edit = (EditText)findViewById(R.id.edit);
         text = (TextView)findViewById(R.id.text);
-
         Button button = (Button)findViewById(R.id.button);
         button.setOnClickListener(this);
     }

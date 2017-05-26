@@ -16,6 +16,7 @@ public class MultitouchActivity extends AppCompatActivity {
 
         pointerText1 = (TextView)findViewById(R.id.pointer1);
         pointerText2 = (TextView)findViewById(R.id.pointer2);
+
     }
 
     @Override
