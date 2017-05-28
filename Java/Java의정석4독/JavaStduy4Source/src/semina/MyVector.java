@@ -1,5 +1,4 @@
 package semina;
-import java.util.Arrays;
 
 public class MyVector
 {
