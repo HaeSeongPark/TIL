@@ -17,7 +17,7 @@ public static ${enclosing_type} getInstance(){
 	[출처](http://vicki.tistory.com/611)
 
 - 단어 선택 단축키
-   Shift + Control + arrows
-   Shift + art + arrws
+   - Shift + Control + arrows
+   - Shift + art + arrws
    
    [출처](https://stackoverflow.com/questions/2049834/shortcut-key-to-select-word-in-eclipse)
