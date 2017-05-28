@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">TouchEvent</string>
+    <string name="menu1">menu1</string>
+    <string name="menu2">menu2</string>
+    <string name="menu3">menu3</string>
+    <string name="hello_world">hello_world</string>
+    <string name="menu_refresh">Refresh</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_share">Share</string>
+    <string name="home">home</string>
+
 </resources>
