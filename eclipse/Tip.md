@@ -14,4 +14,10 @@ public static ${enclosing_type} getInstance(){
 }
 // 위와 같이 해주시고 sing정보만 치고 Ctrl + Sapce를 하면 템플릿을 적용할 수 있다.
 ```
-[출처](http://vicki.tistory.com/611)
+	[출처](http://vicki.tistory.com/611)
+
+- 단어 선택 단축키
+   Shift + Control + arrows
+   Shift + art + arrws
+   
+   [출처](https://stackoverflow.com/questions/2049834/shortcut-key-to-select-word-in-eclipse)
