@@ -44,3 +44,7 @@
 
 ### toolbar_menu.xml
 ![](https://github.com/HaeSeongPark/TIL/blob/master/img/android/toolbar_menu.xml.PNG)
+
+
+### 결과
+![](https://github.com/HaeSeongPark/TIL/blob/master/img/android/videotogif_2017.05.28_16.33.05.gif)
