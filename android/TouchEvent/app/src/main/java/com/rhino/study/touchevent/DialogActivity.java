@@ -13,7 +13,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
                 .setIcon(R.mipmap.ic_launcher)
                 .setTitle("인사")
                 .setMessage("안녕하세요!")
-                .setNeutralButton("닫기",null)
+                .setNeutralButton("닫기",null) // null자리는 클릭리스너 자리, 눌렀을 때 어떤 동작
                 .show();
     }
 
