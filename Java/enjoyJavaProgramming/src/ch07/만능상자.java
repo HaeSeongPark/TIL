@@ -1,4 +1,4 @@
-package ch7;
+package ch07;
 
 public class 만능상자
 {

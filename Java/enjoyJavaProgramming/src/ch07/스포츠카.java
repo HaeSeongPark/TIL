@@ -1,4 +1,4 @@
-package ch7;
+package ch07;
 
 public class 스포츠카 extends 자동차
 {

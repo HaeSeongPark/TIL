@@ -1,4 +1,4 @@
-package ch8;
+package ch08;
 
 public class Note
 {
@@ -28,5 +28,14 @@ public class Note
 	 * Collection은 Iterator에 의존 : Iterator가 있어야물건(자료)들에 접근할 수 있다.
 	 * 
 	 * Iterator<interface> 물건(자료)을 꺼낼 때 쓰는 도구
+	 * 
+	 * interface를 이용해서 프로그램을 짜도록 노력!!!
+	 * 
+	 * 이름이 중요!!!
+	 * 
+	 * java가 기본적으로 제공해주는 것외에 오픈소스 라이브러리
+	 * eclipse 외부 jar 파일 사용하기
+	 * apache collection
+	 * google java collections api : guava
 	 */
 }

@@ -1,4 +1,4 @@
-package ch7;
+package ch07;
 
 public class 버스 extends 자동차
 {
