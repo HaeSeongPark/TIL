@@ -46,6 +46,11 @@
 
 ## 프래그먼트로 태블릿(가로), 폰(세로) 동시 지원
 ![fragment5 프래그먼트를 사용하여 태블릿과 폰을 동시에 지원하기.PNG](https://github.com/HaeSeongPark/TIL/blob/master/img/android/fragment5%20%ED%94%84%EB%9E%98%EA%B7%B8%EB%A8%BC%ED%8A%B8%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC%20%ED%83%9C%EB%B8%94%EB%A6%BF%EA%B3%BC%20%ED%8F%B0%EC%9D%84%20%EB%8F%99%EC%8B%9C%EC%97%90%20%EC%A7%80%EC%9B%90%ED%95%98%EA%B8%B0.PNG)
+* 태블릿에서는 액티비티가 몇 개? 1개(Main)
+* 폰에서는 액티비티가 몇 개? : 2개(Main, Details)
+* 프래그먼트는 태블릿과 폰에서 각 각 몇 개? (Titels, Details)
+* 프로젝트 내의 액티비티 개수와 프래그먼트 개수는? 2개(Main, Details), 2개(Titels, Details)
+* 포로젝트 내의 레이아웃 XML 파일은 몇 개? 3개 (세로, 가로, detail_view)
 * FraggmentActivity5.java의 xml 세로모드 하나 더 생성
 * TitlesFragment.java 가로세로모드일 때 나누서 코딩
 * [[FraggmentActivity5.java]](https://github.com/HaeSeongPark/TIL/blob/master/android/TouchEvent/app/src/main/java/com/rhino/study/touchevent/FragmentActivity5.java)
