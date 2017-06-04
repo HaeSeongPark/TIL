@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 이미지 경로를 요청하는 버튼이다. -->
+    <Button android:id="@+id/request_image_uri_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="다른 이미지 선택하기"/>
+
+    <!-- 요청한 경로를 전달 받아 그 경로를 보여주기 위한 텍스트뷰다.-->
+    <TextView android:id="@+id/show_response_image_uri_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="미전달"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/ic_launcher"/>
+
+</LinearLayout>

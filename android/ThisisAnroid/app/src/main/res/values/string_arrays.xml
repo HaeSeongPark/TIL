@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="IDSA_LIST_ITEM">
+        <item>텍스트 보기</item>
+        <item>이미지 보기</item>
+    </string-array>
+</resources>

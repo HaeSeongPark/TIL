@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="텍스트를 출력하는 부분입니다."/>
+
+    <Button
+        android:id="@+id/check_read_state_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="텍스트 읽음"/>
+
+    <Button
+        android:id="@+id/show_read_state_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="읽음 여부 확인"/>
+
+    <!-- 텍스트 경로를 요청하는 버튼 -->
+    <Button
+        android:id="@+id/request_text_uri_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="다른 텍스트 선택하기"/>
+
+    <!-- 요청한 경로를 전달 받아 그 경로를 보여주기 위한 텍스트뷰-->
+    <TextView
+        android:id="@+id/show_response_text_uri"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="미전달"/>
+
+</LinearLayout>
