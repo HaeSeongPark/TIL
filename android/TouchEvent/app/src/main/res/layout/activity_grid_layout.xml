@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:columnCount="4"
+    android:orientation="horizontal"
+    android:useDefaultMargins="true"
+    tools:context="com.rhino.study.layout.GridLayoutActivity">
+
+    <!-- 컬럼4개, 방향수평, 자동마진처리-->
+
+    <!-- 빈공간 차지, 컬럼과 로우 번호 0,0, 가로두칸(column)
+    을 합치고 꽉채우겠다-->
+    <Space
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill"
+        android:layout_row="0"/>
+
+    <Button
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill"
+        android:text="AC"/>
+
+    <Button android:text="7"/>
+    <Button android:text="8"/>
+    <Button android:text="9"/>
+    <Button
+        android:layout_gravity="fill"
+        android:layout_rowSpan="2"
+        android:text="+"/>
+    <Button android:text="4"/>
+    <Button android:text="5"/>
+    <Button android:text="6"/>
+
+    <Button android:text="1"/>
+    <Button android:text="2"/>
+    <Button android:text="3"/>
+
+    <Button
+        android:layout_gravity="fill"
+        android:layout_rowSpan="2"
+        android:text="enter"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:layout_gravity="fill"
+        android:layout_columnSpan="2"
+        android:text="0"/>
+
+    <Button android:text="."/>
+
+
+</GridLayout>

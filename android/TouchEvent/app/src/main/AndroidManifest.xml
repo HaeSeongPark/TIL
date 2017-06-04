@@ -28,7 +28,7 @@
         <activity android:name=".ViewFlipperActivity" />
         <activity android:name=".ViewPagerActivity" />
         <activity android:name=".FragmentActivity" />
-        <activity android:name=".FragmentActivity2"></activity>
+        <activity android:name=".FragmentActivity2" />
         <activity android:name=".FragmentActivity3" />
         <activity android:name=".FragmentActivity4" />
         <activity android:name=".FragmentActivity5" />
@@ -40,6 +40,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.rhino.study.layout.GridLayoutActivity"></activity>
     </application>
 
 </manifest>
