@@ -33,14 +33,16 @@
         <activity android:name=".FragmentActivity4" />
         <activity android:name=".FragmentActivity5" />
         <activity android:name=".DetailsActivity" />
-        <activity android:name="com.rhino.study.Activity.Main2Activity">
+        <activity android:name="com.rhino.study.Activity.Main2Activity"></activity>
+        <activity android:name="com.rhino.study.layout.GridLayoutActivity" />
+        <activity android:name="com.rhino.study.cardview.CardViewActivity"></activity>
+        <activity android:name="com.rhino.study.recyclerview.RecyclerViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.rhino.study.layout.GridLayoutActivity"></activity>
     </application>
 
 </manifest>
