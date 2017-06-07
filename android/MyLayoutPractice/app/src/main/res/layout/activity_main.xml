@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:orientation="vertical"
+    tools:context="com.rhino.study.mylayoutpractice.MainActivity">
+
+    <!--제목-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="레이아웃"
+        android:textSize="20dp"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <!--부제목-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="레이아웃 어렵지 않아요"
+        android:textColor="@android:color/black"
+        android:textSize="18dp"
+        android:layout_marginBottom="20dp"/>
+
+    <!--프로필 : 사진 이름 설명-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/img_profile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/ic_launcher"/>
+        <TextView
+            android:textColor="@android:color/black"
+            android:id="@+id/txt_profile_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="안드로이드를 이용해서 멋진 모바일앱을 만들어보아요"
+            android:layout_toRightOf="@id/img_profile"
+            android:layout_alignBottom="@id/img_profile"
+            android:textSize="14dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="나의사진"
+            android:textSize="14dp"
+            android:textColor="@android:color/black"
+            android:layout_toRightOf="@id/img_profile"
+            android:layout_above="@id/txt_profile_detail"
+            android:layout_marginBottom="20dp"/>
+
+    </RelativeLayout>
+
+    <!-- ID/Password 입력부-->
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1">
+        <TableRow>
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="ID"
+                android:textSize="18dp"
+                android:textColor="@android:color/black"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:textSize="18dp"
+                android:textColor="@android:color/black"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"/>
+        </TableRow>
+    </TableLayout>
+
+    <!-- 나기기/저장하기 버튼-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="저장하기"
+            android:textSize="18dp"
+            android:textColor="@android:color/black"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="나가기"
+            android:textSize="18dp"
+            android:textColor="@android:color/black"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@id/btn_save"
+            />
+    </RelativeLayout>
+
+
+</LinearLayout>
