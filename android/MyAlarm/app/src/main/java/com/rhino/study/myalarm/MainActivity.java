@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         btn_alarm_turn_on = (Button)findViewById(R.id.btn_turn_on_alarm);
         btn_alarm_turn_off = (Button)findViewById(R.id.btn_turn_off_alarm);
         intent = new Intent(this.context, Alarm_Receiver.class);
-        pendingIntent = PendingIntent.getBroadcast(MainActivity.this,0,intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
     }
 
     public void turnOnAlarm(View v)
@@ -54,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
         set_text_alarm.setText("Alarm set : "+ hour + ":" + (minute<10 ? "0"+minute : minute));
 
+        intent.putExtra("extra","alarm on");
+        pendingIntent = PendingIntent.getBroadcast(MainActivity.this,0,intent, PendingIntent.FLAG_UPDATE_CURRENT);
         alarm_manager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),pendingIntent);
     }
     public void turnOffAlarm(View v)
@@ -61,6 +63,11 @@ public class MainActivity extends AppCompatActivity {
         set_text_alarm.setText("AlarmOff!!!");
 
         alarm_manager.cancel(pendingIntent);
+
+        intent.putExtra("extra","alarm off");
+
+        // stop the ringtone;
+        sendBroadcast(intent);
     }
 
 }
