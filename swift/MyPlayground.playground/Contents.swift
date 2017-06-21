@@ -205,6 +205,21 @@ print("mini01은 연료로 \(mini01Fuel)을 씁니다.")
 print("mini02는 연료로 \(mini02Fuel)을 씁니다.")
 print("sedan01은 연료로 \(sedan01Fuel)을 씁니다.")
 
+func addTwoInts(a:Int, b:Int) -> Int
+{
+    return a+b
+}
+
+func multiplyTwoInts(a:Int, b:Int) -> Int
+{
+    return a * b
+}
+
+var mathFunction: (Int, Int) -> Int = addTwoInts
+mathFunction(2,3)
+
+mathFunction = multiplyTwoInts
+mathFunction(2,5)
 
 
 
