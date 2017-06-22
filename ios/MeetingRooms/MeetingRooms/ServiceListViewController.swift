@@ -1,16 +1,16 @@
 //
-//  MeetingRoomListViewController.swift
+//  ServiceListViewController.swift
 //  MeetingRooms
 //
-//  Created by cord7894 on 2017. 6. 21..
+//  Created by cord7894 on 2017. 6. 22..
 //  Copyright © 2017년 rhino. All rights reserved.
 //
 
 import UIKit
 
-class MeetingRoomListViewController: UITableViewController {
+class ServiceListViewController: UITableViewController {
 
-    var service:Service?
+    var branch:Branch?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +20,10 @@ class MeetingRoomListViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.title = branch?.name
+        self.navigationItem.title = "\(branch!.name) 정보"
+        self.navigationController?.isToolbarHidden = false
         
-        self.title = service?.name
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,14 +38,8 @@ class MeetingRoomListViewController: UITableViewController {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-//        let categoryValues = Array(meetingRooms.values)[section]
-//        let orderedMeetingRomms = meetingRooms.sorted(by: {$0.1.first!.1 < $1.1.first!.1})
-        
-        
-//        let rowCount = orderedMeetingRomms[section].1.count
-        guard let rowCount = service?.items?.count else {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let rowCount = branch?.services?.count else{
             return 0
         }
         return rowCount
@@ -51,36 +47,17 @@ class MeetingRoomListViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceCell", for: indexPath)
 
-        guard let mettingRoom = service?.items?[indexPath.row] else {
+        
+        guard let service = branch?.services?[indexPath.row] else{
             return cell
         }
-        
-        cell.textLabel?.text = mettingRoom.name
-        cell.detailTextLabel?.text = String(mettingRoom.capacity)
-        
+        cell.textLabel?.text = service.name
         return cell
     }
  
-//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        
-////        let orderedMeetingRomms = meetingRooms.sorted(by: {$0.1.first!.1 < $1.1.first!.1})
-//
-////        return orderedMeetingRomms[section].key
-//        
-//        return meetingRommsAtIndex(index: section).key
-//    }
-//    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-//        
-////        let orderedMeetingRomms = meetingRooms.sorted(by: {$0.1.first!.1 < $1.1.first!.1})
-////
-////        let rowCount = orderedMeetingRomms[section].value.count
-//        
-//        let rowCount = meetingRommsAtIndex(index: section).value.count
-//        return "\(rowCount) rooms"
-//    }
-    
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -124,13 +101,14 @@ class MeetingRoomListViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if segue.identifier == "ReservationSegue" {
-            guard let destination = segue.destination as? ReservationViewController, let selectedIndex = self.tableView.indexPathForSelectedRow?.row, let meetingRoom = service?.items?[selectedIndex] else {
-                return
+        if segue.identifier == "MeetingRoomSegue"
+        {
+            guard let destination = segue.destination as? MeetingRoomListViewController,
+            let selectedIndex = self.tableView.indexPathForSelectedRow?.row, let service =
+                branch?.services?[selectedIndex] else {
+                    return
             }
-            destination.meetingRoom = meetingRoom
+            destination.service = service
         }
     }
- 
-
 }

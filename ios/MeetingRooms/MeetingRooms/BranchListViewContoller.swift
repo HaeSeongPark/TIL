@@ -1,17 +1,15 @@
 //
-//  MeetingRoomListViewController.swift
+//  BranchListViewContoller.swift
 //  MeetingRooms
 //
-//  Created by cord7894 on 2017. 6. 21..
+//  Created by cord7894 on 2017. 6. 22..
 //  Copyright © 2017년 rhino. All rights reserved.
 //
 
 import UIKit
 
-class MeetingRoomListViewController: UITableViewController {
+class BranchListViewContoller: UITableViewController {
 
-    var service:Service?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,8 +18,8 @@ class MeetingRoomListViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationController?.isToolbarHidden = true
         
-        self.title = service?.name
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,51 +34,38 @@ class MeetingRoomListViewController: UITableViewController {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-//        let categoryValues = Array(meetingRooms.values)[section]
-//        let orderedMeetingRomms = meetingRooms.sorted(by: {$0.1.first!.1 < $1.1.first!.1})
+    @IBAction func locationTurnOn(_ sender: Any) {
+        let locationAlert = UIAlertController(title: "위치 저보 요청", message: "설명, 안내문구", preferredStyle: .actionSheet)
+        let locationAction = UIAlertAction(title: "위치정보 켜기", style: .default, handler: {(action:UIAlertAction)-> Void in
+            print("위치정보 켜기")
+        })
+        let openMapAction = UIAlertAction(title: "지도앱에서 열기", style: .default, handler: {(action:UIAlertAction)-> Void in
+            print("지도앱에서 열기 선택")
+        })
         
+        locationAlert.addAction(locationAction)
+        locationAlert.addAction(openMapAction)
         
-//        let rowCount = orderedMeetingRomms[section].1.count
-        guard let rowCount = service?.items?.count else {
-            return 0
-        }
+        self.present(locationAlert, animated: true, completion: nil)
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        let rowCount = dataCenter.branches.count
         return rowCount
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BranchCell", for: indexPath)
 
-        guard let mettingRoom = service?.items?[indexPath.row] else {
-            return cell
-        }
-        
-        cell.textLabel?.text = mettingRoom.name
-        cell.detailTextLabel?.text = String(mettingRoom.capacity)
+        let branch = dataCenter.branches[indexPath.row]
+        cell.textLabel?.text = branch.name
         
         return cell
     }
- 
-//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        
-////        let orderedMeetingRomms = meetingRooms.sorted(by: {$0.1.first!.1 < $1.1.first!.1})
-//
-////        return orderedMeetingRomms[section].key
-//        
-//        return meetingRommsAtIndex(index: section).key
-//    }
-//    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-//        
-////        let orderedMeetingRomms = meetingRooms.sorted(by: {$0.1.first!.1 < $1.1.first!.1})
-////
-////        let rowCount = orderedMeetingRomms[section].value.count
-//        
-//        let rowCount = meetingRommsAtIndex(index: section).value.count
-//        return "\(rowCount) rooms"
-//    }
     
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -120,17 +105,16 @@ class MeetingRoomListViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
-        if segue.identifier == "ReservationSegue" {
-            guard let destination = segue.destination as? ReservationViewController, let selectedIndex = self.tableView.indexPathForSelectedRow?.row, let meetingRoom = service?.items?[selectedIndex] else {
-                return
-            }
-            destination.meetingRoom = meetingRoom
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "ServiceSegue"
+        {
+            if let destination = segue.destination as? ServiceListViewController,
+                let selectedIndex = self.tableView.indexPathForSelectedRow?.row
+                {
+                    destination.branch = dataCenter.branches[selectedIndex] as Branch
+                }
         }
     }
- 
 
 }
