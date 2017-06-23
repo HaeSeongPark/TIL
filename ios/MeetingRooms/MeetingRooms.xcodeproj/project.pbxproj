@@ -13,7 +13,9 @@
 		8ACEDDCA1EFB9A7D0028BCBB /* RoomInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEDDC91EFB9A7D0028BCBB /* RoomInfoViewController.swift */; };
 		8ACEDDCC1EFBA8C00028BCBB /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEDDCB1EFBA8C00028BCBB /* ReservationViewController.swift */; };
 		8ACEDDCE1EFBA8FC0028BCBB /* ReserveRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEDDCD1EFBA8FC0028BCBB /* ReserveRoomViewController.swift */; };
-		8ACEDDD01EFBC89A0028BCBB /* TintColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEDDCF1EFBC89A0028BCBB /* TintColorViewController.swift */; };
+		8ACEDDD21EFC029A0028BCBB /* TintColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEDDD11EFC029A0028BCBB /* TintColorViewController.swift */; };
+		8ACEDDD41EFC0B810028BCBB /* EquipmentsDefault.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ACEDDD31EFC0B810028BCBB /* EquipmentsDefault.plist */; };
+		8ACEDDD61EFC0CC60028BCBB /* EqupmentsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEDDD51EFC0CC60028BCBB /* EqupmentsListViewController.swift */; };
 		8AE3D3371EF9FBA900A7D0BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE3D3361EF9FBA900A7D0BE /* AppDelegate.swift */; };
 		8AE3D3391EF9FBA900A7D0BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE3D3381EF9FBA900A7D0BE /* ViewController.swift */; };
 		8AE3D33C1EF9FBA900A7D0BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AE3D33A1EF9FBA900A7D0BE /* Main.storyboard */; };
@@ -48,7 +50,9 @@
 		8ACEDDC91EFB9A7D0028BCBB /* RoomInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfoViewController.swift; sourceTree = "<group>"; };
 		8ACEDDCB1EFBA8C00028BCBB /* ReservationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationViewController.swift; sourceTree = "<group>"; };
 		8ACEDDCD1EFBA8FC0028BCBB /* ReserveRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReserveRoomViewController.swift; sourceTree = "<group>"; };
-		8ACEDDCF1EFBC89A0028BCBB /* TintColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TintColorViewController.swift; sourceTree = "<group>"; };
+		8ACEDDD11EFC029A0028BCBB /* TintColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TintColorViewController.swift; path = ../TintColorViewController.swift; sourceTree = "<group>"; };
+		8ACEDDD31EFC0B810028BCBB /* EquipmentsDefault.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EquipmentsDefault.plist; sourceTree = "<group>"; };
+		8ACEDDD51EFC0CC60028BCBB /* EqupmentsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqupmentsListViewController.swift; sourceTree = "<group>"; };
 		8AE3D3331EF9FBA900A7D0BE /* MeetingRooms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingRooms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AE3D3361EF9FBA900A7D0BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AE3D3381EF9FBA900A7D0BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -113,10 +117,12 @@
 		8AE3D3351EF9FBA900A7D0BE /* MeetingRooms */ = {
 			isa = PBXGroup;
 			children = (
+				8ACEDDD11EFC029A0028BCBB /* TintColorViewController.swift */,
 				8AE3D3361EF9FBA900A7D0BE /* AppDelegate.swift */,
 				8AE3D3381EF9FBA900A7D0BE /* ViewController.swift */,
 				8AE3D33A1EF9FBA900A7D0BE /* Main.storyboard */,
-				8ACEDDCF1EFBC89A0028BCBB /* TintColorViewController.swift */,
+				8ACEDDD31EFC0B810028BCBB /* EquipmentsDefault.plist */,
+				8ACEDDD51EFC0CC60028BCBB /* EqupmentsListViewController.swift */,
 				8ACEDDCD1EFBA8FC0028BCBB /* ReserveRoomViewController.swift */,
 				8ACEDDCB1EFBA8C00028BCBB /* ReservationViewController.swift */,
 				8ACEDDC91EFB9A7D0028BCBB /* RoomInfoViewController.swift */,
@@ -260,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AE3D3411EF9FBA900A7D0BE /* LaunchScreen.storyboard in Resources */,
+				8ACEDDD41EFC0B810028BCBB /* EquipmentsDefault.plist in Resources */,
 				8AE3D33E1EF9FBA900A7D0BE /* Assets.xcassets in Resources */,
 				8AE3D33C1EF9FBA900A7D0BE /* Main.storyboard in Resources */,
 			);
@@ -290,12 +297,13 @@
 				8AE3D3391EF9FBA900A7D0BE /* ViewController.swift in Sources */,
 				8AE3D3371EF9FBA900A7D0BE /* AppDelegate.swift in Sources */,
 				8ACEDDCC1EFBA8C00028BCBB /* ReservationViewController.swift in Sources */,
+				8ACEDDD61EFC0CC60028BCBB /* EqupmentsListViewController.swift in Sources */,
 				8ACEDDC61EFAC3D40028BCBB /* BranchListViewContoller.swift in Sources */,
 				8ACEDDC41EFAC0CD0028BCBB /* DataCenter.swift in Sources */,
 				8ACEDDC81EFAC3F60028BCBB /* ServiceListViewController.swift in Sources */,
 				8AE3D3A11EFA1F2200A7D0BE /* MeetingRoomListViewController.swift in Sources */,
 				8ACEDDCE1EFBA8FC0028BCBB /* ReserveRoomViewController.swift in Sources */,
-				8ACEDDD01EFBC89A0028BCBB /* TintColorViewController.swift in Sources */,
+				8ACEDDD21EFC029A0028BCBB /* TintColorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

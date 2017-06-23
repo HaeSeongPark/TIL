@@ -32,6 +32,7 @@ class ReservationViewController: UITableViewController {
         if (self.meetingRoom?.reservations?.append(reservation)) == nil {
             self.meetingRoom?.reservations = [reservation]
         }
+        dataCenter.save()
         self.tableView.reloadData()
     }
 

@@ -1,5 +1,5 @@
 //
-//  TintColorViewController.swift
+//  EqupmentsListViewController.swift
 //  MeetingRooms
 //
 //  Created by cord7894 on 2017. 6. 22..
@@ -8,37 +8,12 @@
 
 import UIKit
 
-enum TintColor:Int{
-    case Blue = 0, Red, Green, Purple
+let EquipmentFileName = "EquipmentsDefault"
+
+class EqupmentsListViewController: UITableViewController {
     
-    var color:UIColor {
-        get{
-            switch self {
-            case .Blue:
-                return UIColor.blue
-            case .Red:
-                return UIColor.red
-            case .Green:
-                return UIColor.green
-            case .Purple:
-                return UIColor.purple
-            }
-        }
-    }
-}
-
-//let TintColorKey = "TintColor"
-//
-//func applyTintColor(color:UIColor)
-//{
-//    guard let window = UIApplication.shared.keyWindow else{
-//        return
-//    }
-//    window.tintColor = color
-//}
-
-class TintColorViewController: UITableViewController {
-
+    var equipments:Array<Any> = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,6 +22,18 @@ class TintColorViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        guard let equipmentURL = Bundle.main.url(forResource: EquipmentFileName, withExtension: "plist") else {
+            print("No File")
+            return
+        }
+        
+        
+        
+        if let equipmentArray = NSArray(contentsOf:equipmentURL){
+            print(equipmentArray)
+            equipments += Array(equipmentArray)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,23 +45,34 @@ class TintColorViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return equipments.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EquipmentCell", for: indexPath)
 
         // Configure the cell...
-
+        guard let equipment = equipments[indexPath.row] as? [String:AnyObject] else {
+            return cell
+        }
+        
+        if let name = equipment["name"] as? String {
+            cell.textLabel?.text = name
+        }
+        
+        if let amount = equipment["amount"] as? Int {
+            cell.detailTextLabel?.text = String(amount)
+        }
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
