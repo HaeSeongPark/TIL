@@ -21,6 +21,9 @@
 		8A6825B91F01FCC2007FBB94 /* RoomInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6825B81F01FCC2007FBB94 /* RoomInfoViewController.swift */; };
 		8A6825BB1F021F39007FBB94 /* ReservationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6825BA1F021F39007FBB94 /* ReservationListViewController.swift */; };
 		8A6825BD1F021F62007FBB94 /* ReserveRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6825BC1F021F62007FBB94 /* ReserveRoomViewController.swift */; };
+		8A6825BF1F025203007FBB94 /* TintColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6825BE1F025203007FBB94 /* TintColorViewController.swift */; };
+		8A6825C11F02778E007FBB94 /* EqupmentsDefault.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A6825C01F02778E007FBB94 /* EqupmentsDefault.plist */; };
+		8A6825C31F0278D0007FBB94 /* EquipmnetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6825C21F0278D0007FBB94 /* EquipmnetListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		8A6825B81F01FCC2007FBB94 /* RoomInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomInfoViewController.swift; sourceTree = "<group>"; };
 		8A6825BA1F021F39007FBB94 /* ReservationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationListViewController.swift; sourceTree = "<group>"; };
 		8A6825BC1F021F62007FBB94 /* ReserveRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReserveRoomViewController.swift; sourceTree = "<group>"; };
+		8A6825BE1F025203007FBB94 /* TintColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TintColorViewController.swift; sourceTree = "<group>"; };
+		8A6825C01F02778E007FBB94 /* EqupmentsDefault.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EqupmentsDefault.plist; sourceTree = "<group>"; };
+		8A6825C21F0278D0007FBB94 /* EquipmnetListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquipmnetListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +118,11 @@
 			isa = PBXGroup;
 			children = (
 				8A492F721F00F69B00EFE836 /* AppDelegate.swift */,
+				8A6825C01F02778E007FBB94 /* EqupmentsDefault.plist */,
+				8A6825C21F0278D0007FBB94 /* EquipmnetListViewController.swift */,
 				8A492F741F00F69B00EFE836 /* ViewController.swift */,
 				8A492F761F00F69B00EFE836 /* Main.storyboard */,
+				8A6825BE1F025203007FBB94 /* TintColorViewController.swift */,
 				8A6825BC1F021F62007FBB94 /* ReserveRoomViewController.swift */,
 				8A6825BA1F021F39007FBB94 /* ReservationListViewController.swift */,
 				8A6825B81F01FCC2007FBB94 /* RoomInfoViewController.swift */,
@@ -259,6 +268,7 @@
 				8A492F7D1F00F69B00EFE836 /* LaunchScreen.storyboard in Resources */,
 				8A492F7A1F00F69B00EFE836 /* Assets.xcassets in Resources */,
 				8A492F781F00F69B00EFE836 /* Main.storyboard in Resources */,
+				8A6825C11F02778E007FBB94 /* EqupmentsDefault.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,8 +300,10 @@
 				8A492FDD1F01454E00EFE836 /* DataCenter.swift in Sources */,
 				8A492FDF1F014F2700EFE836 /* BranchListViewController.swift in Sources */,
 				8A492FE11F014F4100EFE836 /* ServiceListViewController.swift in Sources */,
+				8A6825C31F0278D0007FBB94 /* EquipmnetListViewController.swift in Sources */,
 				8A492FA11F00F6DB00EFE836 /* MeetingRoomListViewController.swift in Sources */,
 				8A6825BD1F021F62007FBB94 /* ReserveRoomViewController.swift in Sources */,
+				8A6825BF1F025203007FBB94 /* TintColorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -37,8 +37,7 @@ class DataCenter
         }
     }
     
-    func save()
-    {
+    func save(){
         NSKeyedArchiver.archiveRootObject(self.branches, toFile: self.filePath)
     }
     
