@@ -31,7 +31,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             print(error)
             return
         }
-        print("Successfully logged in with facebook!")
+        print("Successfully logged in with facebook!!!")
     }
     
     override func didReceiveMemoryWarning() {
