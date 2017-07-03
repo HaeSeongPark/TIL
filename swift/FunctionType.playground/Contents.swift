@@ -198,6 +198,11 @@ print(pricesInString)
 let descriptionString = meetingRooms.reduce("We have meeting romms : \n", { $0 + "\($1.key) for \($1.value) person \n"})
 print(descriptionString)
 
+var cu = "dsafdsfsf"
+cu.endIndex
+cu.characters.count
+String.in
+cu.remove(at: 8)
 
 
 
