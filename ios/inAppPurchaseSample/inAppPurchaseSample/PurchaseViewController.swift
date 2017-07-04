@@ -38,7 +38,7 @@ class PurchaseViewController: UIViewController, SKPaymentTransactionObserver, SK
     
     func getProductInfo(){
         if SKPaymentQueue.canMakePayments(){
-            let request = SKProductsRequest(productIdentifiers: NSSet(object: self.productID) as! Set<String>)
+            let request = SKProductsRequest(productIdentifiers: NSSet(object: productID) as! Set<String>)
             request.delegate = self
             request.start()
         }else{
@@ -50,7 +50,7 @@ class PurchaseViewController: UIViewController, SKPaymentTransactionObserver, SK
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         var products = response.products
         // 상품 정보가 정상적으로 수신되었을 경우 화면에 상품 정보 갱신 및 구매 버튼 활성화 처리한다.
-        if products.count != 0 {
+        if products.count > 0 {
             product = products[0] as SKProduct
             purchase.isEnabled = true
             productTitle.text = product!.localizedTitle
