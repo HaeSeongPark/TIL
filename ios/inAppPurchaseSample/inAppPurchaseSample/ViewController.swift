@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // AppDelegate 클래스에 mainViewController를 참조하여 결제가 완료되었을때 버튼을 활성화 시킬수 있도록 한다.
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.mainViewController = self
     }

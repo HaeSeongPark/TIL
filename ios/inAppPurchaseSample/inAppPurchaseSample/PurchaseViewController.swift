@@ -21,12 +21,18 @@ class PurchaseViewController: UIViewController, SKPaymentTransactionObserver, SK
     }
     
     var product:SKProduct?
-    var productID = "okdapp4321"
+    var productID = "com.rhino.inAppPurchaseSample.consume"  // 제품아이디
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /*
+         제품 정보 수신후 사용자에게 표시할때까지 아이템 구매 버튼은 비활성화되어있어야 한다.
+         또한 이 클래스를 결제 작업을 위한 트랜잭션 감시자(transaction observer)로 설정해야 한다.
+         그후에는 결제를 위한 제품 정보를 얻어서 사용자에게 표시하는 메서드를 최초로 호출해야 한다.
+         */
 
-        purchase.isEnabled = false
+        purchase.isEnabled = false // 상품 정보 수신전까지는 구매버튼 비활성화처리
         SKPaymentQueue.default().add(self)
         getProductInfo()
     }
@@ -36,9 +42,16 @@ class PurchaseViewController: UIViewController, SKPaymentTransactionObserver, SK
         // Dispose of any resources that can be recreated.
     }
     
+    // 상품 정보 요청 함수
     func getProductInfo(){
         if SKPaymentQueue.canMakePayments(){
-            let request = SKProductsRequest(productIdentifiers: NSSet(object: productID) as! Set<String>)
+            
+            // 애플에 상품 정보 요청, 요청이 완료되면 바로 아래 함수인 productsRequest함수가 자동 호출된다.
+//          let productIndeifiers = NSSet(object: productID)
+//          let request = SKProductsRequest(productIdentifiers: productIndeifiers as! Set<String>)
+            
+            let productIndeifiers = Set([productID])
+            let request = SKProductsRequest(productIdentifiers: productIndeifiers)
             request.delegate = self
             request.start()
         }else{
@@ -47,6 +60,7 @@ class PurchaseViewController: UIViewController, SKPaymentTransactionObserver, SK
         
     }
     
+     // 상품 정보 수신 관련 delegate함수
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         var products = response.products
         // 상품 정보가 정상적으로 수신되었을 경우 화면에 상품 정보 갱신 및 구매 버튼 활성화 처리한다.
@@ -54,7 +68,7 @@ class PurchaseViewController: UIViewController, SKPaymentTransactionObserver, SK
             product = products[0] as SKProduct
             purchase.isEnabled = true
             productTitle.text = product!.localizedTitle
-            productDescription.text = product!.localizedDescription
+            productDescription.text = "\(product!.localizedDescription)" + "$\(product!.price)"
         }else{
             productTitle.text = "애플계정에 등록된 상품정보 확인불가"
         }
@@ -65,10 +79,11 @@ class PurchaseViewController: UIViewController, SKPaymentTransactionObserver, SK
         }
     }
     
+    // 상품 구매를 위해 결제 요청후 자동으로 호출되는 delegate함수
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions as [SKPaymentTransaction]{
             switch transaction.transactionState {
-            case SKPaymentTransactionState.purchased:
+            case .purchased:
                 // 구매가 정상적으로 완료될 경우 후처리 시작
                 self.unlockFeature()
                 SKPaymentQueue.default().finishTransaction(transaction)

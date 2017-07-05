@@ -201,12 +201,16 @@ print(descriptionString)
 var cu = "dsafdsfsf"
 cu.endIndex
 cu.characters.count
-String.in
-cu.remove(at: 8)
+//String.in
+//cu.remove(at: 8)
 
+for i in stride(from: 0.5, through: 5.0, by: 0.5){
+    print(i)
+}
 
-
-
+for i in stride(from: 0.5, to: 5.0, by: 0.5){
+    print(i)
+}
 
 
 
