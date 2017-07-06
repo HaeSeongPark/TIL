@@ -15,12 +15,7 @@ class PurchaseViewController: UIViewController, SKPaymentTransactionObserver, SK
     @IBOutlet weak var productDescription: UITextField!
     @IBOutlet weak var purchase: UIButton!
     
-    @IBAction func purchaseProduct(_ sender: UIButton) {
-        let payment = SKPayment(product: product!)
-        SKPaymentQueue.default().add(payment)
-    }
-    
-    var product:SKProduct?
+    var product:SKProduct!
     var productID = "com.rhino.inAppPurchaseSample.consume"  // 제품아이디
     
     override func viewDidLoad() {
@@ -36,20 +31,11 @@ class PurchaseViewController: UIViewController, SKPaymentTransactionObserver, SK
         SKPaymentQueue.default().add(self)
         getProductInfo()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     // 상품 정보 요청 함수
     func getProductInfo(){
         if SKPaymentQueue.canMakePayments(){
-            
             // 애플에 상품 정보 요청, 요청이 완료되면 바로 아래 함수인 productsRequest함수가 자동 호출된다.
-//          let productIndeifiers = NSSet(object: productID)
-//          let request = SKProductsRequest(productIdentifiers: productIndeifiers as! Set<String>)
-            
             let productIndeifiers = Set([productID])
             let request = SKProductsRequest(productIdentifiers: productIndeifiers)
             request.delegate = self
@@ -57,8 +43,8 @@ class PurchaseViewController: UIViewController, SKPaymentTransactionObserver, SK
         }else{
             productDescription.text = "설정에서 인앱결제를 활성화주세요"
         }
-        
     }
+
     
      // 상품 정보 수신 관련 delegate함수
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
@@ -66,9 +52,9 @@ class PurchaseViewController: UIViewController, SKPaymentTransactionObserver, SK
         // 상품 정보가 정상적으로 수신되었을 경우 화면에 상품 정보 갱신 및 구매 버튼 활성화 처리한다.
         if products.count > 0 {
             product = products[0] as SKProduct
+            productTitle.text = product.localizedTitle
+            productDescription.text = "\(product.localizedDescription)" + "$\(product.price)"
             purchase.isEnabled = true
-            productTitle.text = product!.localizedTitle
-            productDescription.text = "\(product!.localizedDescription)" + "$\(product!.price)"
         }else{
             productTitle.text = "애플계정에 등록된 상품정보 확인불가"
         }
@@ -79,6 +65,11 @@ class PurchaseViewController: UIViewController, SKPaymentTransactionObserver, SK
         }
     }
     
+    @IBAction func purchaseProduct(_ sender: UIButton) {
+        let payment = SKPayment(product: product)
+        SKPaymentQueue.default().add(payment)
+    }
+
     // 상품 구매를 위해 결제 요청후 자동으로 호출되는 delegate함수
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions as [SKPaymentTransaction]{
@@ -88,8 +79,11 @@ class PurchaseViewController: UIViewController, SKPaymentTransactionObserver, SK
                 self.unlockFeature()
                 SKPaymentQueue.default().finishTransaction(transaction)
                 break
-            case SKPaymentTransactionState.failed:
+            case .failed:
                 SKPaymentQueue.default().finishTransaction(transaction)
+//            case .deferred: break  // 지연된 구입?
+//            case .purchasing:break
+//            case .restored:break
             default: break
             }
         }
@@ -101,6 +95,12 @@ class PurchaseViewController: UIViewController, SKPaymentTransactionObserver, SK
         appDelegate.mainViewController!.enableScreenButton()
         purchase.isEnabled = false
         productTitle.text = "상품 구매 완료되었습니다."
+    }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
     /*

@@ -34,6 +34,7 @@
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="구매완료 후 활성화 버튼"/>
                                 <connections>
+                                    <action selector="enableScreentoggle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dpm-bv-N1r"/>
                                     <segue destination="rwX-3p-zVL" kind="show" id="skz-m2-pDG"/>
                                 </connections>
                             </button>

@@ -27,5 +27,9 @@ class ViewController: UIViewController {
     func enableScreenButton() {
         enableScreen.isEnabled = true
     }
+    
+    @IBAction func enableScreentoggle(_ sender: UIButton) {
+        enableScreen.isEnabled = false
+    }
 }
 

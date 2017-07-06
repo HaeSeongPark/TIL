@@ -1,24 +1,21 @@
 //
 //  AppDelegate.swift
-//  inAppPurchaseSample
+//  practiceIAP
 //
-//  Created by cord7894 on 2017. 7. 4..
+//  Created by cord7894 on 2017. 7. 6..
 //  Copyright © 2017년 rhino. All rights reserved.
 //
 
 import UIKit
 import StoreKit
+
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate{
 
     var window: UIWindow?
-    var mainViewController:ViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-//        SKPaymentQueue.default().add(PurchaseViewController.self as! SKPaymentTransactionObserver)
-        
         return true
     }
 
@@ -42,11 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        
-//        SKPaymentQueue.default().remove(PurchaseViewController.self as! SKPaymentTransactionObserver)
-        
     }
-
-
 }
 
