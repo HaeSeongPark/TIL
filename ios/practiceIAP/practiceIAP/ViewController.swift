@@ -55,11 +55,14 @@ class ViewController: UIViewController, SKPaymentTransactionObserver, SKProducts
     
     // 상품 정보 요청 함수
     func getProductInfo() {
-        // 인앱 결제가 가능 하면, 애플에 상품 정보 요청, 요청이 완료되면 productRequest함수가 자동 호출
+        // 인앱 결제가 가능 하면, 애플에 상품 정보 요청
         if SKPaymentQueue.canMakePayments(){
+            // 애플에 상품 정보 요청
             let productIndentifiers = Set([COINS_PRODUCT_ID, PREMIUM_PRODUCT_ID])
             let productsRequest = SKProductsRequest(productIdentifiers: productIndentifiers)
+            // 상품이 로드되면 앱에 정보를 전달
             productsRequest.delegate = self
+            //productRequest호출
             productsRequest.start()
         } else {
             consumeLabel.text = "설정에서 인앱결제를 활성화해주세요"
@@ -67,7 +70,7 @@ class ViewController: UIViewController, SKPaymentTransactionObserver, SKProducts
         }
     }
     
-    // 상품 정보 수신 관련 함수
+    // 상품 정보 수신 관련 자동 호출 함수
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         iapProducts = response.products
         // 상품 정보가 정상적으로 수신되었을 경우 화면에 상품 정보 갱신 및 구매 버튼 활성화 처리한다.
@@ -111,14 +114,19 @@ class ViewController: UIViewController, SKPaymentTransactionObserver, SKProducts
     }
     
     @IBAction func restorePurchaseBtn(_ sender: UIButton) {
-        SKPaymentQueue.default().add(self)
+//        SKPaymentQueue.default().add(self)
+//        복원합니다. 완성됐던 트랜잭션을 그리고 아래 paymentQueueRestoreCompletedTransactionsFinished 자동 호출
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
     
+    // restore버튼누른 후 자동 호출 함수, UPdate UI or alert
     func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+        // 복원된 내용이 없다면
         if (queue.transactions.count == 0){
             print("no purchases to restore")
-        } else {
+        }
+        // 복원된 내용이 있다면
+        else {
             nonConsumablePurchaseMade = true
             UserDefaults.standard.set(nonConsumablePurchaseMade, forKey: "nonConsumablePurchaseMade")
             premiumLabel.text = "Premium version RESTORED!"
