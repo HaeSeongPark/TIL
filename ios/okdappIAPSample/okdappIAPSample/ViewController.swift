@@ -80,6 +80,7 @@ class ViewController: UIViewController, SKPaymentTransactionObserver, SKProducts
             consumeLabel.text = "상품정보 비정상 처리"
             primiumLabel.text = "상품정보 비정상 처리"
         }
+        
         let invalidProductList = response.invalidProductIdentifiers
         for invalidProduct in invalidProductList{
             print("product not found : \(invalidProduct)")
@@ -100,16 +101,17 @@ class ViewController: UIViewController, SKPaymentTransactionObserver, SKProducts
     @IBAction func unlockPrimium(_ sender: UIButton) {
         pruchaseProudct(product: iapProducts[1])
     }
-    
+
     @IBAction func restorePurchase(_ sender: UIButton) {
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
     
-     // restore버튼누른 후 자동 호출 함수, UPdate UI or alert
-    func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+    // restore버튼누른 후 자동 호출 함수, UPdate UI or alert
+    func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue){
         if (queue.transactions.count == 0){
             print("no purchases to restore")
-        } else {
+        }
+        else{
             primiumLabel.text = "Premium version RESTORED!!!"
         }
     }
