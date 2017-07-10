@@ -321,6 +321,7 @@
 				8A7A56991F10952600EAF113 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

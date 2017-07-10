@@ -50,11 +50,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Muk-C0-wIS">
-                                <rect key="frame" x="111" y="207" width="84" height="30"/>
+                                <rect key="frame" x="111" y="207" width="148" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="but 10 coins"/>
+                                <state key="normal" title="buy 10 coins"/>
                                 <connections>
-                                    <action selector="but10coins:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fIC-dU-3RM"/>
+                                    <action selector="buy10Coins:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CdW-CW-OPE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u49-Nt-XDa">
@@ -62,7 +62,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="unlock premium"/>
                                 <connections>
-                                    <action selector="unlockPremium:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lgD-hx-N5r"/>
+                                    <action selector="unlockPrimium:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ADq-mT-JRn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TT8-wd-KUU">
@@ -70,7 +70,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="restore purchase"/>
                                 <connections>
-                                    <action selector="resotrePurchase:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W7S-EZ-lh7"/>
+                                    <action selector="restorePurchase:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D6t-eD-t9B"/>
                                 </connections>
                             </button>
                         </subviews>

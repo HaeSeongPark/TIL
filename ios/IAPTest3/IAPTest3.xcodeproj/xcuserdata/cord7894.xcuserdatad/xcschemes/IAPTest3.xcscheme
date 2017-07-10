@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8A06AF131F06A13F00F609BB"
-               BuildableName = "Calculator2.app"
-               BlueprintName = "Calculator2"
-               ReferencedContainer = "container:Calculator2.xcodeproj">
+               BlueprintIdentifier = "8A2144E61F1264C5007681DA"
+               BuildableName = "IAPTest3.app"
+               BlueprintName = "IAPTest3"
+               ReferencedContainer = "container:IAPTest3.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8A06AF131F06A13F00F609BB"
-            BuildableName = "Calculator2.app"
-            BlueprintName = "Calculator2"
-            ReferencedContainer = "container:Calculator2.xcodeproj">
+            BlueprintIdentifier = "8A2144E61F1264C5007681DA"
+            BuildableName = "IAPTest3.app"
+            BlueprintName = "IAPTest3"
+            ReferencedContainer = "container:IAPTest3.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8A06AF131F06A13F00F609BB"
-            BuildableName = "Calculator2.app"
-            BlueprintName = "Calculator2"
-            ReferencedContainer = "container:Calculator2.xcodeproj">
+            BlueprintIdentifier = "8A2144E61F1264C5007681DA"
+            BuildableName = "IAPTest3.app"
+            BlueprintName = "IAPTest3"
+            ReferencedContainer = "container:IAPTest3.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8A06AF131F06A13F00F609BB"
-            BuildableName = "Calculator2.app"
-            BlueprintName = "Calculator2"
-            ReferencedContainer = "container:Calculator2.xcodeproj">
+            BlueprintIdentifier = "8A2144E61F1264C5007681DA"
+            BuildableName = "IAPTest3.app"
+            BlueprintName = "IAPTest3"
+            ReferencedContainer = "container:IAPTest3.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

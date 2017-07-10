@@ -13,7 +13,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let loginButton = FBSDKLoginButton()
         loginButton.center = view.center
         

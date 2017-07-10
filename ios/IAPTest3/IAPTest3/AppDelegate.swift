@@ -1,13 +1,12 @@
 //
 //  AppDelegate.swift
-//  IAPSample2
+//  IAPTest3
 //
-//  Created by cord7894 on 2017. 7. 8..
+//  Created by cord7894 on 2017. 7. 9..
 //  Copyright © 2017년 rhino. All rights reserved.
 //
 
 import UIKit
-import StoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -41,5 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+
+
 }
 

@@ -10,7 +10,7 @@ import UIKit
 import StoreKit
 
 class ViewController: UIViewController, SKPaymentTransactionObserver, SKProductsRequestDelegate {
-
+    
     @IBOutlet weak var consumeLabel: UILabel!
     @IBOutlet weak var coinsLabel: UILabel!
     @IBOutlet weak var nonconsumeLabel: UILabel!
@@ -33,9 +33,6 @@ class ViewController: UIViewController, SKPaymentTransactionObserver, SKProducts
         super.viewDidLoad()
         
         
-        coinsLabel.text = "COINS : \(coins)"
-        primiumLabel.text = "Premium version LOCKED!"
-        
         // transaction observer를 등록
         SKPaymentQueue.default().add(self)
         
@@ -50,7 +47,7 @@ class ViewController: UIViewController, SKPaymentTransactionObserver, SKProducts
             // 상품정보 요청
             let productsIndentifirers = Set([COINS_PRODUCT_ID, PREMIUM_PRODUCTS_ID])
             let pr = SKProductsRequest(productIdentifiers: productsIndentifirers)
-            // 상품이 로드되면 앱에 정보를 전달
+            // 상품이 로드되면 앱에 정보를 전달할 준비
             pr.delegate = self
             // productRequest호출
             pr.start()
@@ -81,6 +78,7 @@ class ViewController: UIViewController, SKPaymentTransactionObserver, SKProducts
             primiumLabel.text = "상품정보 비정상 처리"
         }
         
+        // 추가적으로 유효하지 않은 제품아이디 색출
         let invalidProductList = response.invalidProductIdentifiers
         for invalidProduct in invalidProductList{
             print("product not found : \(invalidProduct)")
@@ -101,7 +99,7 @@ class ViewController: UIViewController, SKPaymentTransactionObserver, SKProducts
     @IBAction func unlockPrimium(_ sender: UIButton) {
         pruchaseProudct(product: iapProducts[1])
     }
-
+    
     @IBAction func restorePurchase(_ sender: UIButton) {
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
@@ -147,6 +145,6 @@ class ViewController: UIViewController, SKPaymentTransactionObserver, SKProducts
             }
         }
     }
-
+    
 }
 

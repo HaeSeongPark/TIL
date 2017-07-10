@@ -8,15 +8,15 @@
 
 import Foundation
 
-class CalculaotrBrain {
-    private var acumrator = 0.0
+struct CalculaotrBrain {
+    private var accumulator:Double?
     
-    func setOpend(input:Double) {
-        acumrator = input
+    mutating func setOpend(input:Double) {
+        accumulator = input
     }
     
     private var Operations:Dictionary<String,Operation> = [
-        "π":Operation.Constant(M_PI),
+        "π":Operation.Constant(.pi),
         "e":Operation.Constant(M_E),
         "cos":Operation.UnaryOperation(cos),
         "√":Operation.UnaryOperation(sqrt),
@@ -34,26 +34,31 @@ class CalculaotrBrain {
         case Equal
     }
     
-    func performOperation(symbol:String){
+    mutating func performOperation(symbol:String){
         if let operation = Operations[symbol]{
             switch operation {
             case .Constant(let value):
-                acumrator = value
+                accumulator = value
             case .UnaryOperation(let function):
-                acumrator = function(acumrator)
+                if accumulator != nil {
+                    accumulator = function(accumulator!)
+                }
             case .BinaryOperation(let function):
-                excutePendingBinaryOperation()
-                pending = PendingBinarayOperation(funtion: function, firstOperand: acumrator)
+                if accumulator != nil {
+                    excutePendingBinaryOperation()
+                    pending = PendingBinarayOperation(funtion: function, firstOperand: accumulator!)
+                    accumulator = nil
+                }
             case .Equal:
                 excutePendingBinaryOperation()
             }
         }
     }
     
-    private func excutePendingBinaryOperation()
+    private mutating func excutePendingBinaryOperation()
     {
-        if pending != nil{
-            acumrator = pending!.funtion(pending!.firstOperand,acumrator)
+        if pending != nil && accumulator != nil{
+            accumulator = pending!.funtion(pending!.firstOperand,accumulator!)
             pending = nil
         }
     }
@@ -66,9 +71,9 @@ class CalculaotrBrain {
     }
     
     
-    var result:Double{
+    var result:Double?{
         get{
-            return acumrator
+            return accumulator
         }
     }
 }

@@ -46,8 +46,10 @@ class ViewController: UIViewController {
         if let operation = sender.currentTitle{
             brain.performOperation(symbol: operation)
         }
-        displayValue = brain.result
+        
+        if let result = brain.result{
+           displayValue = result
+        }
     }
-    
 }
 

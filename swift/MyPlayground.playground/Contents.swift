@@ -224,13 +224,13 @@ mathFunction(2,5)
 
 
 
+var sb:Dictionary<String,Double> = [
+"sdfsdf":Double.pi]
 
-
-
-
-
-
-
+let i = 27
+var f:(Double) -> Double
+f = sqrt
+let x = f(81)
 
 
 
