@@ -221,7 +221,7 @@ mathFunction(2,3)
 mathFunction = multiplyTwoInts
 mathFunction(2,5)
 
-
+//this is markup
 
 
 var sb:Dictionary<String,Double> = [
@@ -232,8 +232,9 @@ var f:(Double) -> Double
 f = sqrt
 let x = f(81)
 
+var quer = " dsfsdf"
 
-
+print(quer)
 
 
 
