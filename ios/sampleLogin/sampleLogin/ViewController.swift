@@ -10,16 +10,20 @@ import UIKit
 import FBSDKLoginKit
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
+    var mainStroyboard:UIStoryboard? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.loginViewControler = self
 
         let loginButton = FBSDKLoginButton()
         loginButton.center = view.center
-        
         view.addSubview(loginButton)
-        
         loginButton.delegate = self
+        
+        mainStroyboard = self.storyboard!
+        print("ViewController viewDidLoad")
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
@@ -32,6 +36,15 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             return
         }
         print("Successfully logged in with facebook!!")
+        
+        ViewChange()
+    }
+    
+    func ViewChange(){
+        if (FBSDKAccessToken.current()) != nil{
+            let NC = mainStroyboard?.instantiateViewController(withIdentifier: "NC")
+            present(NC!, animated: true, completion: nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {

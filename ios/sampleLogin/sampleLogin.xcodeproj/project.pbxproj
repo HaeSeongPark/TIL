@@ -12,6 +12,8 @@
 		8A06AFAA1F08028A00F609BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A06AFA81F08028A00F609BB /* Main.storyboard */; };
 		8A06AFAC1F08028A00F609BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A06AFAB1F08028A00F609BB /* Assets.xcassets */; };
 		8A06AFAF1F08028A00F609BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A06AFAD1F08028A00F609BB /* LaunchScreen.storyboard */; };
+		8AD7832A1F176DE600BC5B3F /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD783291F176DE600BC5B3F /* RoomViewController.swift */; };
+		8AD7832C1F176F9200BC5B3F /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD7832B1F176F9200BC5B3F /* ChatViewController.swift */; };
 		F8CB20F0B6A8B234B06316EA /* Pods_sampleLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96775EE39DC599287148C1A8 /* Pods_sampleLogin.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +27,8 @@
 		8A06AFAB1F08028A00F609BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A06AFAE1F08028A00F609BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A06AFB01F08028A00F609BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AD783291F176DE600BC5B3F /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		8AD7832B1F176F9200BC5B3F /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatViewController.swift; path = ../ChatViewController.swift; sourceTree = "<group>"; };
 		96775EE39DC599287148C1A8 /* Pods_sampleLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sampleLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -69,9 +73,11 @@
 		8A06AFA31F08028A00F609BB /* sampleLogin */ = {
 			isa = PBXGroup;
 			children = (
+				8AD7832B1F176F9200BC5B3F /* ChatViewController.swift */,
 				8A06AFA41F08028A00F609BB /* AppDelegate.swift */,
 				8A06AFA61F08028A00F609BB /* ViewController.swift */,
 				8A06AFA81F08028A00F609BB /* Main.storyboard */,
+				8AD783291F176DE600BC5B3F /* RoomViewController.swift */,
 				8A06AFAB1F08028A00F609BB /* Assets.xcassets */,
 				8A06AFAD1F08028A00F609BB /* LaunchScreen.storyboard */,
 				8A06AFB01F08028A00F609BB /* Info.plist */,
@@ -118,7 +124,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = rhino;
 				TargetAttributes = {
 					8A06AFA01F08028A00F609BB = {
@@ -214,6 +220,8 @@
 			files = (
 				8A06AFA71F08028A00F609BB /* ViewController.swift in Sources */,
 				8A06AFA51F08028A00F609BB /* AppDelegate.swift in Sources */,
+				8AD7832C1F176F9200BC5B3F /* ChatViewController.swift in Sources */,
+				8AD7832A1F176DE600BC5B3F /* RoomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +265,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -307,6 +316,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -379,6 +389,7 @@
 				8A06AFB51F08028A00F609BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
