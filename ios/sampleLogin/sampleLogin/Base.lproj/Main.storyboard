@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -167,6 +168,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7vy-Ak-E6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2133.5999999999999" y="121.88905547226388"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="AO3-vi-Ldz">
+            <objects>
+                <viewController id="70h-Qe-20i" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="z80-Tb-tCt"/>
+                        <viewControllerLayoutGuide type="bottom" id="lOE-YB-ulL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cEm-XR-Bow">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EF9-zs-ZiV">
+                                <rect key="frame" x="16" y="629" width="343" height="30"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jyF-Cb-aBo">
+                                        <rect key="frame" x="0.0" y="0.0" width="287" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKw-sQ-jId">
+                                        <rect key="frame" x="297" y="0.0" width="46" height="30"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lOE-YB-ulL" firstAttribute="top" secondItem="EF9-zs-ZiV" secondAttribute="bottom" constant="8" symbolic="YES" id="BCW-o9-Onj"/>
+                            <constraint firstItem="EF9-zs-ZiV" firstAttribute="leading" secondItem="cEm-XR-Bow" secondAttribute="leadingMargin" id="bJd-e9-vAm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EF9-zs-ZiV" secondAttribute="trailing" id="byb-pI-rEa"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8LN-TL-UHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2854" y="68"/>
         </scene>
     </scenes>
 </document>

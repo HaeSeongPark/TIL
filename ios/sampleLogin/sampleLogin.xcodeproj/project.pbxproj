@@ -73,10 +73,10 @@
 		8A06AFA31F08028A00F609BB /* sampleLogin */ = {
 			isa = PBXGroup;
 			children = (
-				8AD7832B1F176F9200BC5B3F /* ChatViewController.swift */,
 				8A06AFA41F08028A00F609BB /* AppDelegate.swift */,
-				8A06AFA61F08028A00F609BB /* ViewController.swift */,
+				8AD7832B1F176F9200BC5B3F /* ChatViewController.swift */,
 				8A06AFA81F08028A00F609BB /* Main.storyboard */,
+				8A06AFA61F08028A00F609BB /* ViewController.swift */,
 				8AD783291F176DE600BC5B3F /* RoomViewController.swift */,
 				8A06AFAB1F08028A00F609BB /* Assets.xcassets */,
 				8A06AFAD1F08028A00F609BB /* LaunchScreen.storyboard */,
