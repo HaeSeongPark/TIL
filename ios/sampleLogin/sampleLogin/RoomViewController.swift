@@ -11,15 +11,40 @@ import UIKit
 class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     var RoomName:[String]?
     var mainStroyboard:UIStoryboard? = nil
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var roomTitleLable: UITextField!
-
+    
+    @IBOutlet weak var mainViewBottomConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-        mainStroyboard = self.storyboard!        
+        mainStroyboard = self.storyboard!
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(RoomViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RoomViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        print("keybordWillShow")
+        if let userInfoDict = notification.userInfo, let keyboardFrameValue = userInfoDict[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardFrame = keyboardFrameValue.cgRectValue
+            
+            //The view will scroll up only for the following textfield
+            UIView.animate(withDuration: 0.8) {
+                self.mainViewBottomConstraint.constant = keyboardFrame.size.height
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        print("ketboardWillHide")
+        UIView.animate(withDuration: 0.8) {
+            self.mainViewBottomConstraint.constant = 0
+            self.view.layoutIfNeeded()
+        }
     }
     
     @IBAction func addRoom(_ sender: UIButton) {
@@ -37,13 +62,13 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let LoginView = mainStroyboard?.instantiateViewController(withIdentifier: "LoginView")
         present(LoginView!, animated: true, completion: nil)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -55,7 +80,7 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         return rowCount
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RoomCell", for: indexPath)
         
@@ -68,7 +93,7 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -81,6 +106,6 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
             destination.title = roomTitle
         }
     }
- 
-
+    
+    
 }

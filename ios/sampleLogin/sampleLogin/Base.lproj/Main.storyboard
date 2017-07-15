@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,7 +19,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -55,21 +55,21 @@
                         <viewControllerLayoutGuide type="bottom" id="XRl-Q1-FZ5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MhU-45-W7o">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="R1I-6d-V6m" userLabel="Root Stack View">
-                                <rect key="frame" x="20" y="72" width="374" height="656"/>
+                                <rect key="frame" x="16" y="72" width="343" height="587"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="41" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Mb-Px-0mw">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="548"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="479"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RoomCell" id="cx7-aB-11s">
-                                                <rect key="frame" x="0.0" y="28" width="374" height="41"/>
+                                                <rect key="frame" x="0.0" y="28" width="343" height="41"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cx7-aB-11s" id="LtF-6Q-bFD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="41"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="41"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </tableViewCellContentView>
                                                 <connections>
@@ -84,10 +84,10 @@
                                         </connections>
                                     </tableView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K2u-Yg-bAa" userLabel="Footer Stack View">
-                                        <rect key="frame" x="0.0" y="556" width="374" height="100"/>
+                                        <rect key="frame" x="0.0" y="487" width="343" height="100"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="방제목" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="7Ce-aD-b8a">
-                                                <rect key="frame" x="0.0" y="0.0" width="266" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="235" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="yFe-o7-vbN"/>
                                                 </constraints>
@@ -96,7 +96,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6RF-Jh-JwJ">
-                                                <rect key="frame" x="274" y="0.0" width="100" height="100"/>
+                                                <rect key="frame" x="243" y="0.0" width="100" height="100"/>
                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="89V-7y-UmE"/>
@@ -127,6 +127,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mainViewBottomConstraint" destination="W2D-UD-ayg" id="gsp-pg-jQs"/>
                         <outlet property="roomTitleLable" destination="7Ce-aD-b8a" id="oig-ZG-vsq"/>
                         <outlet property="tableView" destination="1Mb-Px-0mw" id="jyM-dz-nlC"/>
                     </connections>
@@ -144,37 +145,37 @@
                         <viewControllerLayoutGuide type="bottom" id="c8L-bb-kZf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QFT-af-GKf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="t8f-8d-lSx">
-                                <rect key="frame" x="20" y="72" width="374" height="656"/>
+                                <rect key="frame" x="16" y="72" width="343" height="587"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SMn-Hs-xDl">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="548"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="479"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" id="NKs-uZ-jy9">
-                                                <rect key="frame" x="0.0" y="28" width="374" height="44"/>
+                                                <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NKs-uZ-jy9" id="Zd6-ge-JwQ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0t0-Fa-u6n">
-                                        <rect key="frame" x="0.0" y="556" width="374" height="100"/>
+                                        <rect key="frame" x="0.0" y="487" width="343" height="100"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="메시지 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="si0-i8-7qz">
-                                                <rect key="frame" x="0.0" y="0.0" width="266" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="235" height="100"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Wh-Fb-zSJ">
-                                                <rect key="frame" x="274" y="0.0" width="100" height="100"/>
+                                                <rect key="frame" x="243" y="0.0" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="B6d-AD-LMX"/>
                                                     <constraint firstAttribute="width" constant="100" id="vcc-1i-XbY"/>
