@@ -20,6 +20,9 @@ class SocketIoManager: NSObject {
     
     func establishConnection(){
         socket.connect()
+        socket.on("sendRoomList") { (dataArray, socketAck) -> Void in
+            NotificationCenter.default.post(name: Notification.Name("sendRoomListNotification"), object: dataArray[0] as? [[String: AnyObject]])
+        }
     }
     
     func closeConnection(){
