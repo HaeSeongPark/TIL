@@ -108,7 +108,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.tblChat.reloadData()
                 //self.scrollToBottom()
             })
-            
         }
     }
     

@@ -69,7 +69,8 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // MARK: IBAction Methods
     
-    @IBAction func exitChat(_ sender: AnyObject) {
+    @IBAction func exitChat(_ sender: AnyObject)
+    {
         SocketIOManager.sharedInstance.exitChatWithNickName(self.nickname) {() -> Void in
             DispatchQueue.main.async(execute: { () -> Void in
                 self.nickname = nil
@@ -97,16 +98,18 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.nickname = textfield.text
                 
                 SocketIOManager.sharedInstance.connectToServerWithNickname(self.nickname, completionHandler: {(userList) -> Void in
-                    DispatchQueue.main.async(execute: { () -> Void in
-                        if userList != nil {
+                    DispatchQueue.main.async(execute:
+                     {  () -> Void in
+                        if userList != nil
+                        {
                             self.users = userList!
                             self.tblUserList.reloadData()
                             self.tblUserList.isHidden = false
                         }
                     })
-                })
-            }
-        }
+                })//SocketIOMa~
+            } // else
+        } // end
         
         alertController.addAction(OKAction)
         present(alertController, animated: true, completion: nil)

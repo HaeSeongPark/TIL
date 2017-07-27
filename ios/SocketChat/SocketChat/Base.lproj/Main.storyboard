@@ -140,23 +140,23 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="wyb-Af-Gxw" secondAttribute="trailing" constant="-20" id="1U5-mV-skE"/>
-                            <constraint firstItem="mJc-Rc-8cP" firstAttribute="top" secondItem="RjW-sP-ToV" secondAttribute="bottom" priority="750" constant="476" id="4mV-5w-tJQ"/>
+                            <constraint firstItem="mJc-Rc-8cP" firstAttribute="top" secondItem="RjW-sP-ToV" secondAttribute="bottom" priority="750" constant="476" id="3UG-ga-9sA"/>
+                            <constraint firstItem="Bi3-RA-Zcz" firstAttribute="top" secondItem="nH2-nZ-yju" secondAttribute="bottom" constant="-44" id="Djk-YE-qsv"/>
                             <constraint firstItem="RjW-sP-ToV" firstAttribute="leading" secondItem="iYv-Qn-i8U" secondAttribute="leadingMargin" constant="5" id="M7g-xP-3ZT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Bi3-RA-Zcz" secondAttribute="trailing" constant="-20" id="PJ1-50-5NT"/>
                             <constraint firstItem="Bi3-RA-Zcz" firstAttribute="leading" secondItem="iYv-Qn-i8U" secondAttribute="leadingMargin" constant="-20" id="Smk-MP-66D"/>
                             <constraint firstItem="Urm-pu-INg" firstAttribute="top" secondItem="Bi3-RA-Zcz" secondAttribute="bottom" id="VAk-PC-Ulf"/>
                             <constraint firstItem="RjW-sP-ToV" firstAttribute="top" secondItem="iYv-Qn-i8U" secondAttribute="topMargin" constant="64" id="Y8R-V6-Sta"/>
-                            <constraint firstItem="mJc-Rc-8cP" firstAttribute="top" secondItem="wyb-Af-Gxw" secondAttribute="bottom" id="adk-D2-7YD"/>
                             <constraint firstItem="wyb-Af-Gxw" firstAttribute="leading" secondItem="iYv-Qn-i8U" secondAttribute="leadingMargin" constant="-20" id="fBd-o7-dUz"/>
                             <constraint firstItem="Urm-pu-INg" firstAttribute="trailing" secondItem="iYv-Qn-i8U" secondAttribute="trailingMargin" id="kCe-Na-VHY"/>
+                            <constraint firstItem="mJc-Rc-8cP" firstAttribute="top" secondItem="wyb-Af-Gxw" secondAttribute="bottom" id="uII-KQ-qgK"/>
                             <constraint firstItem="wyb-Af-Gxw" firstAttribute="top" secondItem="Urm-pu-INg" secondAttribute="bottom" constant="1" id="udb-CA-TQ5"/>
-                            <constraint firstItem="Bi3-RA-Zcz" firstAttribute="top" secondItem="nH2-nZ-yju" secondAttribute="bottom" constant="-44" id="vct-p5-hNX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RjW-sP-ToV" secondAttribute="trailing" constant="5" id="xUA-C8-AT5"/>
                             <constraint firstItem="Urm-pu-INg" firstAttribute="leading" secondItem="iYv-Qn-i8U" secondAttribute="leadingMargin" id="xzU-EG-G5l"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="conBottomEditor" destination="adk-D2-7YD" id="QV2-Vn-03V"/>
+                        <outlet property="conBottomEditor" destination="uII-KQ-qgK" id="Vwl-bX-jXw"/>
                         <outlet property="lblNewsBanner" destination="RjW-sP-ToV" id="4EA-x2-Am7"/>
                         <outlet property="lblOtherUserActivityStatus" destination="Urm-pu-INg" id="nj4-UC-cyh"/>
                         <outlet property="tblChat" destination="Bi3-RA-Zcz" id="x2Q-nN-YNu"/>
