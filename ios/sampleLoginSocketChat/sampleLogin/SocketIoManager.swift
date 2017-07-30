@@ -22,6 +22,7 @@ class SocketIoManager: NSObject {
         socket.connect()
         socket.on("sendRoomList") { (dataArray, socketAck) -> Void in
             NotificationCenter.default.post(name: Notification.Name("sendRoomListNotification"), object: dataArray[0] as? [[String: AnyObject]])
+//            print(dataArray[0] as? [[String:AnyObject]] as Any)
         }
     }
     
@@ -36,6 +37,29 @@ class SocketIoManager: NSObject {
         {
             (dataArray, ack) -> Void in
             completionHandler(dataArray[0] as? [[String: AnyObject]])
+        }
+    }
+    
+    func connectToServerWithNickname(_ nickname: String, _ roomTitle:String, completionHandler: @escaping (_ userList: [[String: AnyObject]]?) -> Void) {
+        socket.emit("connectUser", nickname, roomTitle)
+        
+        socket.on("userList") {(dataArray, ack) -> Void in
+            completionHandler(dataArray[0] as? [[String: AnyObject]])
+        }
+        listenForOtherMessages()
+    }
+    
+    private func listenForOtherMessages() {
+        socket.on("userConnectUpdate") { (dataArray, socketAck) -> Void in
+            NotificationCenter.default.post(name: Notification.Name("userWasConnectedNotification"), object: dataArray[0] as! [String: AnyObject])
+        }
+        
+        socket.on("userExitUpdate") { (dataArray, socketAck) -> Void in
+            NotificationCenter.default.post(name: Notification.Name("userWasDisconnectedNotification"), object: dataArray[0] as! String)
+        }
+        
+        socket.on("userTypingUpdate") { (dataArray, socketAck) -> Void in
+            NotificationCenter.default.post(name: Notification.Name("userTypingNotification"), object: dataArray[0] as? [String: AnyObject])
         }
     }
 }

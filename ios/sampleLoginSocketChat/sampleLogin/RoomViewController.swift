@@ -27,6 +27,7 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
         NotificationCenter.default.addObserver(self, selector: #selector(RoomViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleSendRoomListNotification), name: Notification.Name("sendRoomListNotification"), object: nil)
+        
     }
     
     func keyboardWillShow(notification: NSNotification) {
@@ -43,8 +44,11 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func handleSendRoomListNotification(notification: NSNotification) {
-        Rooms = notification.object as! [[String : AnyObject]]
-        tableView.reloadData()
+        self.Rooms = notification.object as! [[String : AnyObject]]
+        for room in Rooms{
+            print(room)
+        }
+        self.tableView.reloadData()
     }
     
     func keyboardWillHide(notification: NSNotification) {
