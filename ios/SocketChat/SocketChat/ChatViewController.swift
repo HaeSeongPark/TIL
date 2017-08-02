@@ -20,8 +20,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var lblNewsBanner: UILabel!
     
-    
-    
     var nickname: String!
     
     var chatMessages = [[String: AnyObject]]()

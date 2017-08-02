@@ -20,9 +20,14 @@ class SocketIoManager: NSObject {
     
     func establishConnection(){
         socket.connect()
-        socket.on("sendRoomList") { (dataArray, socketAck) -> Void in
-            NotificationCenter.default.post(name: Notification.Name("sendRoomListNotification"), object: dataArray[0] as? [[String: AnyObject]])
-//            print(dataArray[0] as? [[String:AnyObject]] as Any)
+        socket.on("sendRoomList") { (dataArray, ack) -> Void in
+//            print(dataArray[0] as? [[String: AnyObject]])
+            var roomsUsers = [String:AnyObject]()
+            roomsUsers["rooms"] = dataArray[0] as AnyObject
+            roomsUsers["users"] = dataArray[1] as AnyObject
+            //            NotificationCenter.default.post(name: Notification.Name("sendRoomListNotification"), object: dataArray[0] as? [[String: AnyObject]])
+            //        }
+            NotificationCenter.default.post(name: Notification.Name("sendRoomListNotification"), object:roomsUsers)
         }
     }
     
@@ -30,13 +35,16 @@ class SocketIoManager: NSObject {
         socket.disconnect()
     }
     
-    func connectToServerWithRoomname(_ roomname:String, completionHandler: @escaping(_ roomList:[[String:AnyObject]]?) -> Void)
+    func connectToServerWithRoomname(_ roomname:String, completionHandler: @escaping(_ roomsUsers:[String:AnyObject]?) -> Void)
     {
         socket.emit("connectRoom", roomname)
         socket.on("roomList")
         {
             (dataArray, ack) -> Void in
-            completionHandler(dataArray[0] as? [[String: AnyObject]])
+            var roomsUsers = [String:AnyObject]()
+            roomsUsers["rooms"] = dataArray[0] as AnyObject
+            roomsUsers["users"] = dataArray[1] as AnyObject
+            completionHandler(roomsUsers)
         }
     }
     
@@ -50,6 +58,7 @@ class SocketIoManager: NSObject {
     }
     
     private func listenForOtherMessages() {
+        
         socket.on("userConnectUpdate") { (dataArray, socketAck) -> Void in
             NotificationCenter.default.post(name: Notification.Name("userWasConnectedNotification"), object: dataArray[0] as! [String: AnyObject])
         }

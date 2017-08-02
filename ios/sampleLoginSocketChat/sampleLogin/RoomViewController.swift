@@ -6,12 +6,14 @@
 //  Copyright © 2017년 rhino. All rights reserved.
 //
 // 방삭제 기능은 어떻게 해야하지? 만든사람만 삭제 가능하게? 흠...
+// 처음 로딩될 때 한글 깨지는 것 해결하기  방 추가해서 받아올 때는 안 깨지는데...
 
 import UIKit
 
 class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
-    var Rooms = [[String: AnyObject]]()
-    
+    var roomsUsers = [String: AnyObject]()
+    var rooms = [String]()
+    var users = [Int]()
     var mainStroyboard:UIStoryboard? = nil
     
     @IBOutlet weak var tableView: UITableView!
@@ -30,6 +32,11 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        // 방에서 아이디 만들고 나왔을 때 서버에서 다시 받아와야 갱신된 유저목록이 보이겠네.
+        // 아니면 property obsever?
+    }
+    
     func keyboardWillShow(notification: NSNotification) {
         print("keybordWillShow")
         if let userInfoDict = notification.userInfo, let keyboardFrameValue = userInfoDict[UIKeyboardFrameEndUserInfoKey] as? NSValue {
@@ -44,10 +51,9 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func handleSendRoomListNotification(notification: NSNotification) {
-        self.Rooms = notification.object as! [[String : AnyObject]]
-        for room in Rooms{
-            print(room)
-        }
+        roomsUsers = notification.object as! [String:AnyObject]
+        self.rooms = roomsUsers["rooms"] as! [String]
+        self.users = roomsUsers["users"] as! [Int]
         self.tableView.reloadData()
     }
     
@@ -69,8 +75,6 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
         present(alertController, animated: true, completion: nil)
     }
     
-    
-    
     @IBAction func addRoom(_ sender: UIButton) {
         guard let roomName = roomTitleLable.text else{
             return
@@ -78,8 +82,9 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         var foundRoom = false
         
-        for room in Rooms{
-            if room["roomName"] as! String == roomName
+        for room in rooms
+        {
+            if room == roomName
             {
                 foundRoom = true
                 break
@@ -95,7 +100,8 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     { () -> Void in
                         if roomList != nil
                         {
-                            self.Rooms = roomList!
+                            self.rooms = roomList!["rooms"] as! [String]
+                            self.users = roomList!["users"] as! [Int]
                             self.tableView.reloadData()
                         }
                 })
@@ -109,26 +115,18 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
         present(LoginView!, animated: true, completion: nil)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Rooms.count
+       return rooms.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RoomCell", for: indexPath)
-        
-        // Configure the cell...
-        cell.textLabel?.text = Rooms[indexPath.row]["roomName"] as? String
+        cell.textLabel?.text = rooms[indexPath.row]
+        cell.detailTextLabel?.text = String(users[indexPath.row]) + " 명"
         return cell
     }
     
@@ -140,9 +138,10 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Pass the selected object to the new view controller.
         
         if segue.identifier == "ChatSegue"{
-            guard let destination = segue.destination as? ChatViewController, let selectedIndex = self.tableView.indexPathForSelectedRow?.row, let roomTitle = Rooms[selectedIndex]["roomName"] as? String else {
+            guard let destination = segue.destination as? ChatViewController, let selectedIndex = self.tableView.indexPathForSelectedRow?.row else {
                 return
             }
+            let roomTitle = rooms[selectedIndex]
             destination.title = roomTitle
         }
     }
