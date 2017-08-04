@@ -6,7 +6,6 @@
 //  Copyright © 2017년 rhino. All rights reserved.
 //
 // 방삭제 기능은 어떻게 해야하지? 만든사람만 삭제 가능하게? 흠...
-// 처음 로딩될 때 한글 깨지는 것 해결하기  방 추가해서 받아올 때는 안 깨지는데...
 
 import UIKit
 
@@ -15,6 +14,7 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var rooms = [String]()
     var users = [Int]()
     var mainStroyboard:UIStoryboard? = nil
+    var delay = 1000
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var roomTitleLable: UITextField!
@@ -28,13 +28,15 @@ class RoomViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         NotificationCenter.default.addObserver(self, selector: #selector(RoomViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.handleSendRoomListNotification), name: Notification.Name("sendRoomListNotification"), object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.handleSendRoomListNotification), name: Notification.Name("replyRoomListResetNotification"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // 방에서 아이디 만들고 나왔을 때 서버에서 다시 받아와야 갱신된 유저목록이 보이겠네.
-        // 아니면 property obsever?
+        let time = DispatchTime.now() + .milliseconds(delay)
+        DispatchQueue.main.asyncAfter(deadline: time){
+            SocketIoManager.sharedInstance.askRoomListReset()
+            self.delay = 1
+        }
     }
     
     func keyboardWillShow(notification: NSNotification) {

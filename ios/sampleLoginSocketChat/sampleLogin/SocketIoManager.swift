@@ -19,24 +19,21 @@ class SocketIoManager: NSObject {
     
     func establishConnection(){
         socket.connect()
-        socket.on("sendRoomList") { (dataArray, ack) -> Void in
-//            print(dataArray[0] as? [[String: AnyObject]])
+    }
+    func closeConnection(){
+        socket.disconnect()
+    }
+    
+    func askRoomListReset(){
+        socket.emit("askRoomListReset")
+        socket.on("replyRoomListReset") { (dataArray, ack) -> Void in
             var roomsUsers = [String:AnyObject]()
             if dataArray.count == 2{
                 roomsUsers["rooms"] = dataArray[0] as AnyObject
                 roomsUsers["users"] = dataArray[1] as AnyObject
             }
-            //            NotificationCenter.default.post(name: Notification.Name("sendRoomListNotification"), object: dataArray[0] as? [[String: AnyObject]])
-            //        }
-            NotificationCenter.default.post(name: Notification.Name("sendRoomListNotification"), object:roomsUsers)
+            NotificationCenter.default.post(name: Notification.Name("replyRoomListResetNotification"), object:roomsUsers)
         }
-//        let time = DispatchTime.now() + .seconds(3)
-//        DispatchQueue.main.asyncAfter(deadline: time){
-//            self.socket.emit("nothing")
-//        }
-    }
-    func closeConnection(){
-        socket.disconnect()
     }
     
     func connectToServerWithRoomname(_ roomname:String, completionHandler: @escaping(_ roomsUsers:[String:AnyObject]?) -> Void)
@@ -59,10 +56,6 @@ class SocketIoManager: NSObject {
             completionHandler(dataArray[0] as? [[String: AnyObject]])
         }
         listenForOtherMessages()
-    }
-    
-    func askRoomListReset(){
-        socket.emit("askRoomListReset")
     }
     
     private func listenForOtherMessages() {
