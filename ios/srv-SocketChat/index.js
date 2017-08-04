@@ -66,11 +66,13 @@ io.on('connection', function(clientSocket){
   });
 
 
-  clientSocket.on('chatMessage', function(clientNickname, message){
+  clientSocket.on('chatMessage', function(clientNickname, message, roomTitle){
     var currentDateTime = new Date().toLocaleString();
     delete typingUsers[clientNickname];
-    io.emit("userTypingUpdate", typingUsers);
-    io.emit('newChatMessage', clientNickname, message, currentDateTime);
+    io.in(roomTitle).emit("userTypingUpdate", typingUsers);
+    io.in(roomTitle).emit("newChatMessage",clientNickname, message, currentDateTime);
+    // io.emit("userTypingUpdate", typingUsers);
+    // io.emit('newChatMessage', clientNickname, message, currentDateTime);
   });
 
 
@@ -107,8 +109,15 @@ io.on('connection', function(clientSocket){
       }
 
       userList = Object.values(roomList[roomTitle].socket_ids);
-      io.emit("userList", userList);
-      io.emit("userConnectUpdate", userInfo)
+      clientSocket.to(roomTitle).emit("userList",userList);
+      clientSocket.to(roomTitle).emit("userConnectUpdate",userInfo);
+
+      // 방에 유저가 들어오면 모든 클라 룸과 유저 업데이트 
+      setUserRooms();
+      io.emit("roomList", rooms,users)
+
+      // io.emit("userList", userList);
+      // io.emit("userConnectUpdate", userInfo)
   });
 
   clientSocket.on("connectRoom", function(clientRoomname){
@@ -120,17 +129,17 @@ io.on('connection', function(clientSocket){
     users = [];
   });
 
-  clientSocket.on("startType", function(clientNickname){
+  clientSocket.on("startType", function(clientNickname, roomTitle){
     console.log("User " + clientNickname + " is writing a message...");
     typingUsers[clientNickname] = 1;
-    io.emit("userTypingUpdate", typingUsers);
+    clientSocket.to(roomTitle).emit("userTypingUpdate", typingUsers);
   });
 
 
-  clientSocket.on("stopType", function(clientNickname){
+  clientSocket.on("stopType", function(clientNickname, roomTitle){
     console.log("User " + clientNickname + " has stopped writing a message...");
     delete typingUsers[clientNickname];
-    io.emit("userTypingUpdate", typingUsers);
+    clientSocket.to(roomTitle).emit("userTypingUpdate", typingUsers);
   });
 
 });

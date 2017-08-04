@@ -11,7 +11,7 @@ import SocketIO
 
 class SocketIoManager: NSObject {
     static let sharedInstance = SocketIoManager()
-    var socket = SocketIOClient(socketURL:URL(string:"http://192.168.40.39:3000")!)
+    var socket = SocketIOClient(socketURL:URL(string:"http://192.168.30.37:3000")!)
     
     override init(){
         super.init()
@@ -58,6 +58,26 @@ class SocketIoManager: NSObject {
         listenForOtherMessages()
     }
     
+    func exitChatWithNickName(_ nickname:String, completionHandler: @escaping () -> Void){
+        socket.emit("exitUser", nickname)
+        completionHandler()
+    }
+    
+    func sendMessage(message: String, withNickName nickname: String, withRoomTitle roomTitle:String){
+        socket.emit("chatMessage", nickname, message, roomTitle)
+    }
+    
+    func getChatMessage(_ completionHandler: @escaping (_ messageInfo: [String: AnyObject]) -> Void) {
+        socket.on("newChatMessage") { (dataArray, socketAck) -> Void in
+            var messageDictionary = [String: AnyObject]()
+            messageDictionary["nickname"] = dataArray[0] as AnyObject
+            messageDictionary["message"] = dataArray[1] as AnyObject
+            messageDictionary["date"] = dataArray[2] as AnyObject
+            
+            completionHandler(messageDictionary)
+        }
+    }
+    
     private func listenForOtherMessages() {
         
         socket.on("userConnectUpdate") { (dataArray, socketAck) -> Void in
@@ -71,5 +91,13 @@ class SocketIoManager: NSObject {
         socket.on("userTypingUpdate") { (dataArray, socketAck) -> Void in
             NotificationCenter.default.post(name: Notification.Name("userTypingNotification"), object: dataArray[0] as? [String: AnyObject])
         }
+    }
+    
+    func sendStartTypingMessage(nickname: String, roomName:String) {
+        socket.emit("startType", nickname)
+    }
+    
+    func sendStopTypingMessage(nickname: String, roomName:String) {
+        socket.emit("stopType", nickname)
     }
 }
