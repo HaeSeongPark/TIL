@@ -3,7 +3,7 @@
 //  
 //
 //  Created by cord7894 on 2017. 7. 13..
-//
+// 기본에 닉네임 있었으면 묻지 않기도...
 // 채팅 클라이어튼쪽 유아이 로직 과 서버쪽 로직 다 수정해서 완성하기 채팅 되게끔
 //
 
@@ -40,7 +40,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.handleKeyboardDidShowNotification(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.handleKeyboardDidHideNotification(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 }
-    
     override func viewWillAppear(_ animated: Bool) {
         configureTableView()
         configureNewsBannerLabel()

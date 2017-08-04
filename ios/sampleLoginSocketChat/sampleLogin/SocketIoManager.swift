@@ -11,8 +11,7 @@ import SocketIO
 
 class SocketIoManager: NSObject {
     static let sharedInstance = SocketIoManager()
-    
-    var socket = SocketIOClient(socketURL:URL(string:"http://192.168.30.18:3000")!)
+    var socket = SocketIOClient(socketURL:URL(string:"http://192.168.40.39:3000")!)
     
     override init(){
         super.init()
@@ -23,14 +22,19 @@ class SocketIoManager: NSObject {
         socket.on("sendRoomList") { (dataArray, ack) -> Void in
 //            print(dataArray[0] as? [[String: AnyObject]])
             var roomsUsers = [String:AnyObject]()
-            roomsUsers["rooms"] = dataArray[0] as AnyObject
-            roomsUsers["users"] = dataArray[1] as AnyObject
+            if dataArray.count == 2{
+                roomsUsers["rooms"] = dataArray[0] as AnyObject
+                roomsUsers["users"] = dataArray[1] as AnyObject
+            }
             //            NotificationCenter.default.post(name: Notification.Name("sendRoomListNotification"), object: dataArray[0] as? [[String: AnyObject]])
             //        }
             NotificationCenter.default.post(name: Notification.Name("sendRoomListNotification"), object:roomsUsers)
         }
+//        let time = DispatchTime.now() + .seconds(3)
+//        DispatchQueue.main.asyncAfter(deadline: time){
+//            self.socket.emit("nothing")
+//        }
     }
-    
     func closeConnection(){
         socket.disconnect()
     }
@@ -55,6 +59,10 @@ class SocketIoManager: NSObject {
             completionHandler(dataArray[0] as? [[String: AnyObject]])
         }
         listenForOtherMessages()
+    }
+    
+    func askRoomListReset(){
+        socket.emit("askRoomListReset")
     }
     
     private func listenForOtherMessages() {
