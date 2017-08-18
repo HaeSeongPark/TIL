@@ -3,12 +3,14 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var mongoose = require('mongoose');
 
 var userList = [];
 var roomList = [];
 var typingUsers = {};
 var users = [];
 var rooms = [];
+
 app.get('/', function(req, res){
   res.send('<h1>AppCoda - SocketChat Server</h1>');
 });
@@ -18,6 +20,13 @@ http.listen(3000, function(){
   console.log('Listening on *:3000');
 });
 
+// var db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function() {
+//   console.log("we're connected to mongoose");
+// });
+
+mongoose.connect('mongodb://localhost/chat');
 
 io.on('connection', function(clientSocket){
   console.log('a user connected');
