@@ -1,33 +1,23 @@
 //
 //  ChatViewController.swift
-//  
+//
 //
 //  Created by cord7894 on 2017. 7. 13..
-// 기본에 닉네임 있었으면 묻지 않기도...
-// 채팅 클라이어튼쪽 유아이 로직 과 서버쪽 로직 다 수정해서 완성하기 채팅 되게끔
 
+// db...키 값을 어떻게 하지? 키 값만 해결되면 서버db는 끝인데
+// 닉네임입력한 것도 불러와서 넣어주면 있으니까 묻지 않아도 되고
+// 중복닉네임도 막을 수 있다...
 
-// 방나가기 만들기
-// db...채팅방에 유저목록을 어떻게 하죵?
-// 채팅방 갱신되는 것 뭔가 이상한데...?
-//-------
-// 수정한 것 
-// 조인배너 나를 제외한 방사람들에게만
-// 챗 커스텀으로
-// 타이핑 나오는 것과 없어지는 것 확인
-// 서버 방에 있는 사람에게만 채팅보내도록 변경
+// 닉네임 불러오긴하는데 왜 로그가 1개씩 증가하면서 찍히지...?
+// userTyping 메시지를 안 보내면 안뜨고 메시지를 보내야 타이핑하는게 보이는데 흠... 일단무시
 
 import UIKit
 
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, UIGestureRecognizerDelegate {
     var mainStroyboard:UIStoryboard? = nil
-    
     var users = [[String: AnyObject]]()
-    
     var roomTitle:String?
-    
     var nickname: String!
-    
     var chatMessages = [[String: AnyObject]]()
     
     @IBOutlet weak var conBottomEditor: NSLayoutConstraint!
@@ -62,7 +52,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleDisconnectedUserUpdateNotification), name: Notification.Name("userWasDisconnectedNotification"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleUserTypingNotification), name: Notification.Name("userTypingNotification"), object: nil)
-}
+    }
     
     func handleUserTypingNotification(notification: NSNotification) {
         if let typingUsersDictionary = notification.object as? [String: AnyObject] {
@@ -107,12 +97,14 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         configureOtherUserActivityLabel()
         
         tvMessageEditor.delegate = self
+        
+        getNickName()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if nickname == nil {
+        if nickname == nil  || nickname == "" {
             askForNickname()
         }
         
@@ -129,6 +121,14 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         NotificationCenter.default.removeObserver(self)
     }
     
+    func getNickName()
+    {
+        print("ChatView - getNickName")
+        SocketIoManager.sharedInstance.getNickName(roomTitle: self.title!) { (nickName) -> Void in
+            self.nickname = nickName
+            print(self.nickname)
+        }
+    }
     
     // MARK: IBAction Methods
     
@@ -141,10 +141,27 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    @IBAction func goTologinView(_ sender: UIBarButtonItem) {
-        let LoginView = mainStroyboard?.instantiateViewController(withIdentifier: "LoginView")
-        present(LoginView!, animated: true, completion: nil)
+    @IBAction func exitChat(_ sender: UIBarButtonItem) {
+        SocketIoManager.sharedInstance.exitChatWithNickName(self.nickname, roomTitle: self.title!) {() -> Void in
+            DispatchQueue.main.async(execute: { () -> Void in
+                self.nickname = nil
+                self.users.removeAll()
+//                self.tblUserList.isHidden = true
+//                self.askForNickname()
+                
+                // RoomList로 이동
+                let storyboard = self.storyboard!
+                let RoomListVC = storyboard.instantiateViewController(withIdentifier: "RoomList")
+                let navi = UINavigationController(rootViewController: RoomListVC)
+                self.present(navi, animated: true, completion: nil)
+            })
+        }
     }
+    
+//    @IBAction func goTologinView(_ sender: UIBarButtonItem) {
+//        let LoginView = mainStroyboard?.instantiateViewController(withIdentifier: "LoginView")
+//        present(LoginView!, animated: true, completion: nil)
+//    }
     
     // MARK: Custom Methods
     
@@ -167,8 +184,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                             if userList != nil
                             {
                                 self.users = userList!
-//                                self.tblUserList.reloadData()
-//                                self.tblUserList.isHidden = false
+                                //                                self.tblUserList.reloadData()
+                                //                                self.tblUserList.isHidden = false
                             }
                     })
                 })//SocketIOMa~
@@ -257,7 +274,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     func dismissKeyboard() {
         if tvMessageEditor.isFirstResponder {
             tvMessageEditor.resignFirstResponder()
-//            SocketIoManager.sharedInstance.sendStopTypingMessage(nickname: nickname, roomName: self.title!)
+            //            SocketIoManager.sharedInstance.sendStopTypingMessage(nickname: nickname, roomName: self.title!)
         }
     }
     
@@ -297,14 +314,14 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.deselectRow(at: indexPath, animated: false)
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     // MARK: UITextViewDelegate Methods
     

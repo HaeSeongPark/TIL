@@ -11,7 +11,7 @@ import SocketIO
 
 class SocketIoManager: NSObject {
     static let sharedInstance = SocketIoManager()
-    var socket = SocketIOClient(socketURL:URL(string:"http://192.168.30.37:3000")!)
+    var socket = SocketIOClient(socketURL:URL(string:"http://192.168.40.62:3000")!)
     
     override init(){
         super.init()
@@ -58,8 +58,8 @@ class SocketIoManager: NSObject {
         listenForOtherMessages()
     }
     
-    func exitChatWithNickName(_ nickname:String, completionHandler: @escaping () -> Void){
-        socket.emit("exitUser", nickname)
+    func exitChatWithNickName(_ nickname:String, roomTitle:String, completionHandler: @escaping () -> Void){
+        socket.emit("exitUser", nickname, roomTitle)
         completionHandler()
     }
     
@@ -75,6 +75,16 @@ class SocketIoManager: NSObject {
             messageDictionary["date"] = dataArray[2] as AnyObject
             
             completionHandler(messageDictionary)
+        }
+    }
+    
+    func getNickName(roomTitle:String,  completionHandler: @escaping (_ nickName: String ) -> Void) {
+        print("SocketIoManager - getNickName")
+        socket.emit("askNickName", roomTitle)
+        socket.on("sendNickName") { (dataArray, socketAck) -> Void in
+            let userNickName = dataArray[0] as! String
+            completionHandler(userNickName)
+            print("SocketIoManager - sendNicName")
         }
     }
     

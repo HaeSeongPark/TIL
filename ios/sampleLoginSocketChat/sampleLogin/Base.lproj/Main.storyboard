@@ -49,7 +49,7 @@
         <!--RoomList-->
         <scene sceneID="YHd-So-Ncm">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="XCR-f4-iAG" customClass="RoomViewController" customModule="sampleLogin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoomList" automaticallyAdjustsScrollViewInsets="NO" id="XCR-f4-iAG" customClass="RoomViewController" customModule="sampleLogin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OSS-0R-AL8"/>
                         <viewControllerLayoutGuide type="bottom" id="XRl-Q1-FZ5"/>
@@ -69,18 +69,18 @@
                                                 <rect key="frame" x="0.0" y="28" width="374" height="41"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cx7-aB-11s" id="LtF-6Q-bFD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="40.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PCt-Sc-LbI">
-                                                            <rect key="frame" x="15" y="10" width="34" height="21"/>
+                                                            <rect key="frame" x="15" y="10.999999999999998" width="33.333333333333336" height="20.333333333333332"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SzH-f5-nBz">
-                                                            <rect key="frame" x="315" y="10" width="44" height="21"/>
+                                                            <rect key="frame" x="315" y="10.999999999999998" width="44" height="20.333333333333332"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -175,18 +175,18 @@
                                                 <rect key="frame" x="0.0" y="28" width="374" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NKs-uZ-jy9" id="Zd6-ge-JwQ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iHi-Bd-2KW">
-                                                            <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                                            <rect key="frame" x="15" y="11.999999999999998" width="33.333333333333336" height="20.333333333333332"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RVB-7J-aj8">
-                                                            <rect key="frame" x="300" y="11" width="59" height="21"/>
+                                                            <rect key="frame" x="300.33333333333331" y="11.999999999999998" width="58.666666666666664" height="20.333333333333332"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -261,7 +261,7 @@
                     <navigationItem key="navigationItem" title="방제목" id="Nmb-aI-GGW">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="aT0-4P-ykR">
                             <connections>
-                                <action selector="goTologinView:" destination="7gZ-yF-VkA" id="g1A-lP-DFK"/>
+                                <action selector="exitChat:" destination="7gZ-yF-VkA" id="GZq-nW-bHz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -275,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7vy-Ak-E6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2155" y="121"/>
+            <point key="canvasLocation" x="2035" y="121"/>
         </scene>
     </scenes>
 </document>

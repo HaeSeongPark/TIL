@@ -37,6 +37,22 @@ io.on('connection', function(clientSocket){
     users = [];
   });
 
+  clientSocket.on('askNickName', function(roomTitle){
+    console.log("askNicName");
+      var userNickName = ""
+      userList = Object.values(roomList[roomTitle].socket_ids);
+      for (var i=0; i<userList.length; i++) {
+        if (userList[i]["id"] == clientSocket.id) {
+          userNickName = userList[i]["nickname"];
+          break;
+        } 
+      }
+    clientSocket.emit('sendNickName', userNickName);
+    console.log("sendNickName");
+  });
+
+  
+
   clientSocket.on('disconnect', function(){
     console.log('user disconnected');
 
@@ -55,14 +71,21 @@ io.on('connection', function(clientSocket){
     io.emit("userTypingUpdate", typingUsers);
   });
 
-  clientSocket.on("exitUser", function(clientNickname){
-    for (var i=0; i<userList.length; i++) {
-      if (userList[i]["id"] == clientSocket.id) {
-        userList.splice(i, 1);
-        break;
-      }
-    }
-    io.emit("userExitUpdate", clientNickname);
+  clientSocket.on("exitUser", function(clientNickname, roomTitle){
+    // 방에서 떠나고
+    clientSocket.leave(roomTitle);
+    // roomList정리 
+    delete roomList[roomTitle].socket_ids[clientNickname];
+    // 
+
+    // for (var i=0; i<userList.length; i++) {
+    //   if (userList[i]["id"] == clientSocket.id) {
+    //     userList.splice(i, 1);
+    //     break;
+    //   }
+    // }
+    // io.emit("userExitUpdate", clientNickname);
+    clientSocket.to(roomTitle).emit("userExitUpdate", clientNickname);
   });
 
 
@@ -95,6 +118,7 @@ io.on('connection', function(clientSocket){
         if (userList[i]["id"] == clientSocket.id) {
           roomList[roomTitle].socket_ids[clientNickname].isConnected = true
           roomList[roomTitle].socket_ids[clientNickname].id = clientSocket.id;
+          roomList[roomTitle].socket_ids[clientNickname].nickname = clientNickname;
           userInfo = roomList[roomTitle].socket_ids[clientNickname];
           foundUser = true;
           break;
@@ -112,7 +136,7 @@ io.on('connection', function(clientSocket){
       clientSocket.to(roomTitle).emit("userList",userList);
       clientSocket.to(roomTitle).emit("userConnectUpdate",userInfo);
 
-      // 방에 유저가 들어오면 모든 클라 룸과 유저 업데이트 
+      // 방에 유저가 들어오면 모든 클라이언트 룸과 유저 업데이트 
       setUserRooms();
       io.emit("roomList", rooms,users)
 
@@ -123,7 +147,7 @@ io.on('connection', function(clientSocket){
   clientSocket.on("connectRoom", function(clientRoomname){
     roomList[clientRoomname] = new Object();
     roomList[clientRoomname].socket_ids = new Object();
-
+    console.log('room create :' + clientRoomname)
     setUserRooms();
     io.emit("roomList", rooms, users);
     users = [];
