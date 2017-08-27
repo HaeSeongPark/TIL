@@ -5,14 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.rhino.study.myalarm.MainActivity"
-    android:layout_margin="16dp">
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp">
 
     <TimePicker
         android:id="@+id/timePicker"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:scaleX="0.7"
+        android:scaleY="0.7">
     </TimePicker>
+
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/timePicker"
+        android:layout_height="wrap_content">
+    </Spinner>
 
     <Button
         android:id="@+id/btn_turn_on_alarm"
@@ -20,7 +32,7 @@
         android:layout_height="wrap_content"
         android:text="Turn on alarm"
         android:textAllCaps="false"
-        android:layout_below="@id/timePicker"
+        android:layout_below="@id/spinner"
         android:onClick="turnOnAlarm"/>
 
     <Button
@@ -29,7 +41,7 @@
         android:layout_height="wrap_content"
         android:text="Turn off alarm"
         android:textAllCaps="false"
-        android:layout_below="@id/timePicker"
+        android:layout_below="@id/spinner"
         android:layout_alignParentRight="true"
         android:onClick="turnOffAlarm"/>
 
