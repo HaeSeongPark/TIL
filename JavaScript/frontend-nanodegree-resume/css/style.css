@@ -110,6 +110,7 @@ a {
 
 .orange-text {
   color: #f5ae23;
+  padding-right: 10px;
 }
 
 .white-text {
@@ -129,7 +130,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: gray;
 }
 
 .flex-box {
@@ -169,7 +170,6 @@ img {
 
 span {
   color: white;
-  padding: 5px;
 }
 
 #lets-connect {
