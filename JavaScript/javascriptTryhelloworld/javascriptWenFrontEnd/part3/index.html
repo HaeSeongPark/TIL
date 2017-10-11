@@ -8,7 +8,7 @@
 	<form
 	method="GET" action="b.html" id="form1">
 		이름: <input type="text" name="id"><br>
-		메세지 : <input type="text" name="msg" onkeydown="return false;"><br>
+		메세지 : <input type="text" name="msg"><br>
 		<input type="submit">
 	</form>
 	<script type="text/javascript">
@@ -22,7 +22,13 @@
 			console.log("from addEventListener");
 			return false;
 		}
+		function c() {
+			console.log("from addEventListener-2");
+			return false;
+		}		
 		t.addEventListener("submit",b);
+		t.addEventListener("submit",c);
+		t.removeEventListener("submit",b);
 	</script>
 </body>
 </html>

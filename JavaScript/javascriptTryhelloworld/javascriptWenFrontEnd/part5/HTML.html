@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="CSS.css">
+        <script>
+            function check(n) {
+                var sum = 0;
+                for ( var i = 0; i < 2000; i++ )
+                {
+                    sum += n;
+                }
+                alert(n);
+                console.log(n);
+                console.log( document.getElementById("songwriter"));
+                console.log( document.getElementsByClassName("lyric"));
+            }
+            check(1);
+        </script>
+    </head>
+    <body>
+        <script>check(2);</script>
+        <h1>
+            <img id="logo" src="https://t1.daumcdn.net/daumtop_chanel/op/20170927064335969.png" height="30px">
+            애국가
+        </h1>
+
+        <p id="songwriter">작곡 : 안익태</p>
+        <p id="lyricist" style="color:red" src="test"><strong>작사:</strong> <i>미상</i></p>
+        <script>check(3);</script>
+        <h2>1절</h2>
+        <p class="lyric">
+            동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세.<br>
+            무궁화 삼천리 화려강산대한 사람, 대한으로 길이 보전하세.
+        </p>
+        <script>check(4);</script>
+        <h2>2절</h2>
+        <p class="lyric">
+            남산 위에 저 소나무, 철갑을 두른 듯 바람서리 불변함은 우리 기상일세. <br>
+            무궁화 삼천리 화려강산대한 사람, 대한으로 길이 보전하세.
+        </p>
+        <script>check(5);</script>
+    </body>
+</html>
