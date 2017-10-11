@@ -54,11 +54,35 @@
 // 	return f;
 // }
 // console.log(factorial(3));
-"use strict";
-var hasStrictMode = (function() {
-	return this===undefined
-}());
-console.log(hasStrictMode);
+// "use strict";
+// var hasStrictMode = (function() {
+// 	return this===undefined
+// }());
+// console.log(hasStrictMode);
 
-var o = { x : 1 };
-console.log( o && o.x );
+// var o = { x : 1 };
+// console.log( o && o.x );
+	var cress = {
+		pad:function(num, width){
+			 num = num + '';
+			 return num.length >= width ? num : new Array(width - num.length + 1).join('0') + num;
+		}
+	}
+
+	// var popup_time = new Date (2017, 9, 13, 15)
+	var popup_time = new Date ()
+
+	var popup_time_string
+	;(function(){
+		if(popup_time.getDay() != 1){
+			while(popup_time.getDay() !=  1) {
+			console.log("not monday")
+			popup_time.setDate(popup_time.getDate() - 1)
+			}
+		} else if (popup_time.getHours() < 10 ){
+			popup_time.setDate(popup_time.getDate() - 7)
+		}
+		//20170707과 같은 형태로 변환 
+		popup_time_string = String(popup_time.getFullYear()) + String(cress.pad((popup_time.getMonth() + 1),2)) + String(cress.pad(popup_time.getDate(),2));
+	})()
+console.log(popup_time_string);
