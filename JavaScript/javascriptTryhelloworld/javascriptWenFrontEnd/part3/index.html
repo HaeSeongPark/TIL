@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form
+	method="GET" action="b.html" id="form1">
+		이름: <input type="text" name="id"><br>
+		메세지 : <input type="text" name="msg" onkeydown="return false;"><br>
+		<input type="submit">
+	</form>
+	<script type="text/javascript">
+		var t = document.getElementById("form1");
+		t.onsubmit = function a() {
+			console.log("from property");
+			return false;
+		}
+
+		function b() {
+			console.log("from addEventListener");
+			return false;
+		}
+		t.addEventListener("submit",b);
+	</script>
+</body>
+</html>
