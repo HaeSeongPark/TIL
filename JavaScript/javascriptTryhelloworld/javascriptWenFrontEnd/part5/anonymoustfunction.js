@@ -23,4 +23,4 @@ console.log(sum);
 setTimeout(
 	function(){
 		console.log("timeout");
-	});
+});
