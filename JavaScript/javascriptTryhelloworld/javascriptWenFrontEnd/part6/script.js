@@ -77,7 +77,7 @@ function slideShow(btn) {
     var index = 0;
     images[index].classList.add("image-magnified");
     var intervalId = setInterval(function () {
-        images[index].remove("image-magnified");
+        images[index].classList.remove("image-magnified");
         index++;
         if ( index < images.length)
         {
