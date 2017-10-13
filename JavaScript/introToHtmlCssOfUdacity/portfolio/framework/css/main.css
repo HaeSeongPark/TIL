@@ -1,0 +1,47 @@
+h1 {
+	color : green;
+}
+*{
+	border: 1px solid red !important;
+
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	box-sizing:border-box;
+}
+*{
+	font-family: 'Lato', sans-serif;
+}
+
+@media only screen and (max-width:500px){
+	p{
+		display: none;
+	}
+}
+
+.row {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+.col-1{
+	width: 8.33%;
+}
+.col-2{
+	width: 16.66%;
+}
+.col-3{
+	width: 25%;
+}
+.col-4{
+	width: 33.33%;
+}
+.col-5{
+	width:41.66%;
+}
+.col-6{
+	width: 49.99%;
+}
+.col-12{
+	width: 100%;
+}
