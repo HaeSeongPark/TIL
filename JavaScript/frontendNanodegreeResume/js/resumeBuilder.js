@@ -127,14 +127,16 @@ var education = {
 			"dates" : "From: 2010.03 ~ To: 2017.08" 
 		}
 	],
+}
+var onlineCourses ={
 	"onlineCourses":[
 		{
-			"title": "JavaScript Syntax",
-			"school" : "Udacity",
+			"title": "Intro to HTML and CSS",
+			"site" : "Udacity",
 			"dates" : 2014,
-			"url":"http://dfd.com"
+			"url":"https://classroom.udacity.com/courses/ud304"
 		}
-	]
+	],
 }
 education.display = function(){
 	education.schools.forEach(function(school){
@@ -146,14 +148,25 @@ education.display = function(){
 			formattedSchoolDates = HTMLschoolDates.replace("%data%",school.dates);
 			formattedSchoolMajors = HTMLschoolMajor.replace("%data%",school.majors);
 
-		$("#education").append(HTMLschoolStart)
-					   .append(HTMLonlineClasses);
+		$("#education").append(HTMLschoolStart);
 		
 		$(".education-entry:last").append(formattedSchoolNameDegree)
 								  .append(formattedSchoolLocation)
 								  .append(formattedSchoolDates)
 								  .append(formattedSchoolMajors);
 
+	});
+}
+
+onlineCourses.display = function(){
+	onlineCourses.onlineCourses.forEach(function(onlineCourse){
+		var formattedOnlineTitle = HTMLonlineTitle.replace("%data%",onlineCourse.title).replace("#",onlineCourse.url);
+			formattedOnlineSite = HTMLonlineSite.replace("%data%",onlineCourse.site),
+			formattedOnlineTitleSite = formattedOnlineTitle + formattedOnlineSite; 
+
+		$("#onlineCourses").append(HTMLonlineCoursesStart);
+
+		$(".onlineCourses-entry:last").append(formattedOnlineTitleSite);
 	});
 }
 
@@ -201,7 +214,7 @@ bio.display();
 works.display();
 projects.display();
 education.display();
-
+onlineCourses.display();
 /*
 var work = {
   "jobs": [
