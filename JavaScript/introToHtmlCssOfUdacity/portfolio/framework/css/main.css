@@ -1,29 +1,37 @@
-h1 {
-	color : green;
-}
+/*큰 영역 부터 작은영역 순으로 */
 *{
-	border: 1px solid red !important;
-
+	/*border: 1px solid red !important;*/
 	-webkit-box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-ms-box-sizing:border-box;
 	box-sizing:border-box;
 }
-*{
+
+body{
 	font-family: 'Lato', sans-serif;
+	color:#747704;
+	font-weight: 300;
 }
 
-@media only screen and (max-width:500px){
+/*@media only screen and (max-width:500px){
 	p{
 		display: none;
 	}
-}
+}*/
 
-.row {
+/*hr {
+    background-color: #747704 !important;
+    color: #747704 !important;
+    border: solid 2px #747704 !important;
+    height: 5px !important;
+    width: 100% !important;
+}*/
+
+/*.row {
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
-}
+}*/
 .col-1{
 	width: 8.33%;
 }
@@ -44,4 +52,20 @@ h1 {
 }
 .col-12{
 	width: 100%;
+}
+
+.text-muted{
+	color: #BCBBBB;
+}
+
+.text-thin{
+	font-weight: 100;
+}
+
+.title-super{
+	font-size: 60px;
+}
+
+.title-logo{
+	margin-top: 20px;
 }

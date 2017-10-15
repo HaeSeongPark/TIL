@@ -1,42 +1,101 @@
 
-<!doctype html>
-<html>
+<!doctype html> <!-- 문서 타입 -->
+<html lang="en"> <!-- 언어설정 영어  -->
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8"> <!-- 인코딩 설정 브라우저가 해당 인코딩 설정으로 문자를 출력  -->
+  
+<!-- 익스에게 가장 최신 엔진을 사용하도록 함
+     사용자에게 가장 최신의 경험을 제공 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+
+  <!-- 모바일을 위한 메타 태그, 페이지가 처음 로드 됐을 때 어떻게 출력할지를 알려준다.  -->
+  <meta name="viewport" content="width=device-width,  initial-scale=1">
+
+  <!-- 제목 항상 있어야 한다.  -->
   <title>Framework Test page</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300" rel="stylesheet">
+
+  <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
 </head>
 <body>
-  <div class="grid">
+  <div class="container">
     <div class="row">
-      <div class="col-6">
-        <img src="http:/via.placeholder.com/100x100" alt="100x100">
+      <div class="col-md-6">
+        <!-- alt는 항상 넣어야 한다. 접근성,  -->
+        <img class="title-logo" src="http:/via.placeholder.com/100x100" alt="Framework Test page logo">
       </div>
-      <div style="text-align: right;" class="col-6">
-        <h1>JANE DOETTE</h1>
-        <h3>Front-end Ninja</h3>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-12">
-        <img src="http:/via.placeholder.com/1000x350" alt="1000x350">
+      <div class="col-md-6 text-right text-uppercase">
+        <h1 class="title-super">Jane doette</h1>
+        <h4>Front-end Ninja</h4>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-12">
-        <h2>Featured Work</h2>
+      <div class="col-md-12">
+        <hr>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-4"><h3>APPIFY</h3></div>
-      <div class="col-4"><h3>SUNFLOWER</h3></div>
-      <div class="col-4 end"><h3>BOKEH</h3></div>
+      <div class="col-md-12">
+        <img class="img-responsive" src="http:/via.placeholder.com/1140x350" alt="page main img">
+      </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-muted">Featured Work</h2>
+      </div>
+    </div>
+
+      <div class="row text-center">
+        <div class="col-md-6">
+          <img class="img-responsive" src="http://placehold.it/555x300">
+          <h3>Appify</h3>
+          <p><a href="http://github.com">Link to project</a></p>
+        </div>
+        <div class="col-md-6">
+          <img class="img-responsive" src="http://placehold.it/555x300">
+          <h3>Appify</h3>
+          <p><a href="http://github.com">Link to project</a></p>
+        </div>
+      </div>
+
+      <div class="row text-center">
+        <div class="col-md-6">
+          <img class="img-responsive" src="http://placehold.it/555x300" data-toggle="modal" data-target="#project1">
+          <h3>Appify</h3>
+          <p><a href="http://github.com">Link to project</a></p>
+        </div>
+        <div class="col-md-6">
+          <img class="img-responsive" src="http://placehold.it/555x300">
+          <h3>Appify</h3>
+          <p><a href="http://github.com">Link to project</a></p>
+        </div>
+      </div>
   </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="project1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Favorite App Page</h4>
+                </div>
+                <div class="modal-body">
+                    <img class="img-responsive" src="http://placehold.it/555x300">
+                    This was my first project in this class. I learned a lot about HTML and CSS.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
