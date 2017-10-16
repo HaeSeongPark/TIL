@@ -26,7 +26,7 @@ bio.display = function(){
 		formattedEmail = HTMLemail.replace("%data%",bio.contacts.email),
 		formattedGithub = HTMLgithub.replace("%data%",bio.contacts.github),
 		formattedLocation = HTMLlocation.replace("%data%",bio.contacts.location);
-
+		
 	$("#header").append(formattedName)
 				.append(formattedRole)
 				.append(HTMLTopContacts)
