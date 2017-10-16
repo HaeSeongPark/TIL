@@ -86,7 +86,7 @@ var projects = {
             {
                 "title":"resume with udacity nanodegree",
                 "dates":"Sep 10th, 2017 ~ ",
-                "description":"first web frondend projcets, result:this page",
+                "description":"first web frondend projcets, result : this page",
                 "images": [],
                 "link": ""
             }
@@ -133,8 +133,8 @@ var onlineCourses ={
 		{
 			"title": "Intro to HTML and CSS",
 			"site" : "Udacity",
-			"dates" : 2014,
-			"url":"https://classroom.udacity.com/courses/ud304"
+			"dates" : "From: 2017.10.10 ~ To: 2017.10.15", 
+			"url" : "../introTOHtmlCssOfUdacity/portfolio/framework/test2.html"
 		}
 	],
 }
@@ -162,11 +162,15 @@ onlineCourses.display = function(){
 	onlineCourses.onlineCourses.forEach(function(onlineCourse){
 		var formattedOnlineTitle = HTMLonlineTitle.replace("%data%",onlineCourse.title).replace("#",onlineCourse.url);
 			formattedOnlineSite = HTMLonlineSite.replace("%data%",onlineCourse.site),
-			formattedOnlineTitleSite = formattedOnlineTitle + formattedOnlineSite; 
+			formattedOnlineTitleSite = formattedOnlineTitle + formattedOnlineSite,
+			formattedOnlineDate = HTMLonlineDates.replace("%data%",onlineCourse.dates),
+			formattedOnlineURL = HTMLonlineURL.replace("#",onlineCourse.url);
 
 		$("#onlineCourses").append(HTMLonlineCoursesStart);
 
-		$(".onlineCourses-entry:last").append(formattedOnlineTitleSite);
+		$(".onlineCourses-entry:last").append(formattedOnlineTitleSite)
+									  .append(formattedOnlineDate)
+									  .append(formattedOnlineURL);
 	});
 }
 
