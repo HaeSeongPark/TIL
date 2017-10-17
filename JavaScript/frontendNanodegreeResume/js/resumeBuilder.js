@@ -16,8 +16,8 @@ var bio = {
  	"welcomeMessage" : "Hi",
  	"skills" : ["javascript", "java&android", "swift&ios"],
  	"bioPic":"images/fry.jpg"
- }
-
+ } 
+ 
 bio.display = function(){
 	var formattedName = HTMLheaderName.replace("%data%",bio.name),
 		formattedRole = HTMLheaderRole.replace("%data%",bio.role),
