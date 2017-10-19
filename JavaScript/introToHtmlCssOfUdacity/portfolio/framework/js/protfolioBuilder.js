@@ -67,12 +67,6 @@ var modal = {
 	"modal":[
 		{
 			"imgUrl":"http://placehold.it/555x300",
-			"dataTarget":"#project0",
-			"title":"Appify",
-			"linkUrl":"http://github.com"
-		},
-		{
-			"imgUrl":"http://placehold.it/555x300",
 			"dataTarget":"#project1",
 			"title":"Appify",
 			"linkUrl":"http://github.com"
@@ -92,6 +86,12 @@ var modal = {
 		{
 			"imgUrl":"http://placehold.it/555x300",
 			"dataTarget":"#project4",
+			"title":"Appify",
+			"linkUrl":"http://github.com"
+		},
+		{
+			"imgUrl":"http://placehold.it/555x300",
+			"dataTarget":"#project5",
 			"title":"Appify",
 			"linkUrl":"http://github.com"
 		}
