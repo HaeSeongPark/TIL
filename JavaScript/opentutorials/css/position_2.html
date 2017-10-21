@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>position_2</title>
+	<style type="text/css">
+		#parent, #other, #grand{
+			border:5px solid tomato;
+		}
+		#grand{
+			position: relative;
+		}
+		#me{
+			background-color: black;
+			color:white;
+			position: absolute;
+			left:0;
+			top:0;
+		}
+	</style>
+</head>
+<body>
+	<div id="other">other</div>
+	<div id="grand">
+		grand
+		<div id="parent">
+			parent
+			<div id="me">
+				me
+			</div>			
+		</div>
+	</div>
+	absolute : position이 relative인 부모 엘리먼트를 기준으로 위치가 잡힌다.
+	부모 엘리먼트중에 position이 relative가 없다면 최종적으로 html태그가 부모가 된다.
+	position이 absolute인 자식을 가지고 있는 부모의 크기는 absolute인 자식을 고려하지 않는다.
+</body>
+
+</html>
