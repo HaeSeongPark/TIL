@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>holygraillayout</title>
+    <style type="text/css">
+	    html{
+	    }
+    	body{
+    		display: flex;
+    		align-items: center;
+    	}
+    	.container{
+    		display: flex;
+    		flex-direction: column;
+    	}
+    	header{
+    		border-bottom: 1px solid gray;
+    		padding-left: 20px;
+    	}
+    	.content{
+    		display: flex;
+    	}
+    	.content nav{
+    		border-right: 1px solid gray;
+    	}
+    	.content aside{
+    		border-left: 1px solid gray;
+    	}
+    	main{
+    		padding: 10px;
+    	}
+    	nav, aside{
+    		flex-basis: 150px;
+    		flex-shrink: 0; 
+    		/* shrink 0은 basis크기를 보장한다*/
+    	}
+    	footer{
+    		border-top: 1px solid gray;
+    		padding: 20px;
+    		text-align: center;
+    	}
+	@media(max-width: 500px){
+		.content{
+			flex-direction: column;
+		}
+		.content > nav, .content > aside{
+			border: none;
+
+			/* content 크기만큼 다른 box sizing이 없다면*/
+			flex-basis: auto;
+		}
+		main{
+			order:0;
+		}
+		nav{
+			order:1;
+		}
+		aside{
+			order:2;
+		}
+
+	}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>생활코딩</h1>
+        </header>
+        <section class="content">
+        	<nav>
+        		<ul>
+        			<li>html</li>
+        			<li>css</li>
+        			<li>javascript</li>
+        		</ul>
+        	</nav>
+        	<main>
+        		                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis veniam totam labore ipsum, nesciunt temporibus repudiandae facilis earum, sunt autem illum quam dolore, quae optio nemo vero quidem animi tempore aliquam voluptas assumenda ipsa voluptates. Illum facere dolor eos, corporis nobis, accusamus velit, similique cum iste unde vero harum voluptatem molestias excepturi. Laborum beatae, aliquid aliquam excepturi pariatur soluta asperiores laudantium iste, architecto ducimus fugiat sed, saepe quaerat recusandae exercitationem sapiente, impedit nostrum error. Doloremque 
+        		                <p>
+        		                	
+        		                </p>
+
+        	</main>
+        	<aside>
+        		AD
+        	</aside>
+        </section>
+        <footer>
+        	<a href="https://opentutorials.org/course/1">홈페이지</a>
+        </footer>
+    </div>
+</body>
+</html>

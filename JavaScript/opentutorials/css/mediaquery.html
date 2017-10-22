@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- meta:vp -->
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>mediaquery</title>
+	<style type="text/css">
+	/* 500px 일 때 배경색 빨강색으로 변함*/
+
+		@media (max-width: 600px){
+			body{
+				background-color: green;
+			}
+		}
+	
+		@media (max-width:500px){
+			body{
+				background-color: red;
+			}
+		}
+
+/*	 max-width 는 설정값 이하일 때 반응해라(최대 500까지), min은 반대 최소 500까지만
+		@media (min-width: 501px) and (max-width: 600px){
+			body{
+				background-color: green;
+			}
+		}*/
+
+		@media (min-width: 601px){
+			body{
+				background-color: blue;
+			}
+		}
+	</style>
+</head>
+<body>
+	~500px : red
+	501~600px : green
+	601px~ :blue
+</body>
+</html>

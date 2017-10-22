@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>gorw shrink</title>
+	<style type="text/css">
+		.container{
+			background-color: powderblue;
+			height:200px;
+			display:flex;
+			flex-direction: row;
+		}
+		.item{
+			background-color: tomato;
+			color:white;
+			border:1px solid white;
+		}
+		.item:nth-child(1){
+			flex-basis: 150px;
+			flex-shrink: 1;
+		}
+		.item:nth-child(2){
+			flex-basis: 150px;
+			flex-shrink: 2;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item">1</div>
+		<div class="item">2</div>
+		<div class="item">3</div>
+		<div class="item">4</div>
+		<div class="item">5</div>
+	</div>
+	flex-basis : item에 주는 속성으로 item의 기본 크기를 나타낸다. 화면이 작아짐에 따라서 basis크기도 줄어든다. 최대 콘텐츠크기만큼 작아진다.
+	부모의 방향에 따라 width나 height의 크기가 지정된다. column이면 height row이면 width <br>
+	flex-shrink : 화면이 줄어들 때 basis가 줄어드는 영역을 비율로 지정, 0이면 basis영역 줄어들지 않음, 1이면 1만큼의 비율로
+	default1 / 2이면 2만큼의 비율로 줄어든다. 즉, 숫자가 크면 가장먼저 줄어들게 된다. 중요한 컨텐츠를 작은 숫자를 주는 게 좋을 듯 하다.<br>
+	flex-grow : 0 : 기본값 아무런 변화 없음(콘텐츠자체의 크기만, 여백없음), 1 : 모든 item들이 1/n로 균등한 크기를 갖는다. 당연이 부모 방향에 따라서 달라진다
+			  : 특정 item에 2이상의 값을 주면 그 item의 크기는 2/n의 크기를 갖는다.
+</body>
+</html>

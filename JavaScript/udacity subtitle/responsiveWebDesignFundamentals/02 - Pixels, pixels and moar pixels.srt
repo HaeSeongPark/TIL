@@ -1,0 +1,167 @@
+1
+00:00:00,160 --> 00:00:05,670
+Instead of reporting the width in
+the number of physical hardware pixels,
+
+2
+00:00:05,670 --> 00:00:09,150
+the browser reports the width
+in the number of DIPs, or
+
+3
+00:00:09,150 --> 00:00:11,190
+device independent pixels.
+
+4
+00:00:11,190 --> 00:00:15,118
+As its name implies,
+a device independent pixel is a unit of
+
+5
+00:00:15,118 --> 00:00:19,453
+measurement, that actually relates
+pixels to a real distance.
+
+6
+00:00:19,453 --> 00:00:24,847
+The idea being that a device
+independent pixel will take up the same
+
+7
+00:00:24,847 --> 00:00:31,032
+amount of space on a display regardless
+of the pixel density of the display.
+
+8
+00:00:31,032 --> 00:00:34,052
+>> So if there are twice as
+many hardware pixels across as
+
+9
+00:00:34,052 --> 00:00:36,468
+there are pixels
+reported by the browser,
+
+10
+00:00:36,468 --> 00:00:40,700
+the chromebook pixel must have
+a device pixel ratio of two.
+
+11
+00:00:40,700 --> 00:00:41,400
+>> Right.
+
+12
+00:00:41,400 --> 00:00:44,540
+The browser has a view
+port width of 1280 dips.
+
+13
+00:00:45,980 --> 00:00:51,740
+The 1280 dips get scaled
+up to 2560 hardware pixels.
+
+14
+00:00:53,850 --> 00:00:55,680
+When the page is
+rendered on the display.
+
+15
+00:00:56,780 --> 00:00:59,140
+>> Back to my un-optimized website.
+
+16
+00:00:59,140 --> 00:01:01,960
+What's the browser doing,
+when the viewport isn't set?
+
+17
+00:01:01,960 --> 00:01:04,769
+>> Unless you tell the browser
+that your site was designed to
+
+18
+00:01:04,769 --> 00:01:08,720
+work on a small screen it
+assumes that they weren't.
+
+19
+00:01:08,720 --> 00:01:13,470
+And renders the page, as if it were
+on a screen that were 980 DIPs wide.
+
+20
+00:01:15,040 --> 00:01:17,840
+Now, imagine that content
+being scaled to fit on
+
+21
+00:01:17,840 --> 00:01:21,640
+a phone that's only 360 DIPs wide.
+
+22
+00:01:21,640 --> 00:01:24,130
+It gets scaled to less than half.
+
+23
+00:01:24,130 --> 00:01:25,280
+Yuck.
+
+24
+00:01:25,280 --> 00:01:27,960
+It then tries to make
+the content look better,
+
+25
+00:01:27,960 --> 00:01:30,670
+by doing something called font boosting.
+
+26
+00:01:30,670 --> 00:01:35,980
+The browser tries to pick the primary
+content on the page and scale it up.
+
+27
+00:01:35,980 --> 00:01:37,790
+>> Oh, wait a second.
+
+28
+00:01:37,790 --> 00:01:41,610
+So now the browsers actually trying to
+guess at what content is important?
+
+29
+00:01:41,610 --> 00:01:43,350
+Sounds like a problem.
+
+30
+00:01:43,350 --> 00:01:43,980
+>> Yep.
+
+31
+00:01:43,980 --> 00:01:48,260
+That means that some fonts are large and
+easy to read.
+
+32
+00:01:48,260 --> 00:01:52,200
+While others remain small,
+and are really hard to read.
+
+33
+00:01:53,490 --> 00:01:57,890
+Users will have to spend a lot of
+time pinching to zoom in order,
+
+34
+00:01:57,890 --> 00:02:00,300
+to see and interact with the content.
+
+35
+00:02:00,300 --> 00:02:02,060
+>> That is not ideal.
+
+36
+00:02:02,060 --> 00:02:02,560
+>> Nope.
+
