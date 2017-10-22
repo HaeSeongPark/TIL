@@ -1,0 +1,43 @@
+1
+00:00:00,350 --> 00:00:02,940
+Let's take a look at
+a few code snippets.
+
+2
+00:00:02,940 --> 00:00:06,990
+And I want you to tell me if you
+think they're responsive or not.
+
+3
+00:00:06,990 --> 00:00:11,150
+Which of these elements, will work
+well within a responsive layout?
+
+4
+00:00:11,150 --> 00:00:15,320
+In other words which of these elements
+could look great on any device?
+
+5
+00:00:15,320 --> 00:00:17,460
+If you're not sure about a code snippet.
+
+6
+00:00:17,460 --> 00:00:19,960
+Open it up in a browser and
+see what happens.
+
+7
+00:00:19,960 --> 00:00:22,560
+Make sure you test on
+several different devices.
+
+8
+00:00:22,560 --> 00:00:24,560
+When you're done,
+check the check boxes for
+
+9
+00:00:24,560 --> 00:00:26,010
+the ones that you think are responsive
+

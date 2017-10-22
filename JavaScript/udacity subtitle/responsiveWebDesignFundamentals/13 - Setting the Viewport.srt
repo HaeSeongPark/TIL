@@ -1,0 +1,61 @@
+1
+00:00:00,230 --> 00:00:03,280
+By adding the meta viewport tag to the head element of
+
+2
+00:00:03,280 --> 00:00:07,540
+the page we tell the browser that we know what we're doing.
+
+3
+00:00:07,540 --> 00:00:12,640
+We need to use the meta viewport value with =device-width, which
+
+4
+00:00:12,640 --> 00:00:17,820
+instructs the page to match the screen's width in device independent pixels.
+알려줍니다. 페이지가 매치된다고 화면의 넓이랑 dip로
+
+5
+00:00:17,820 --> 00:00:22,240
+This allows the page to reflow content to match the screen sizes,
+이렇게하면 페이지가 화면 크기와 일치하도록 콘텐츠를 리플로우 할 수 있습니다.
+
+6
+00:00:22,240 --> 00:00:27,120
+whether rendered on a small mobile device or on the laptop.
+작은 기기에서 랜더되거나 랩탑에서 랜더 될 때
+
+7
+00:00:27,120 --> 00:00:32,695
+Adding the attribute initial-scale=1 instructs the browsers to establish
+initial-scale = 1 은 나타냅니다. 브라우저가 확립하는 것을 
+
+8
+00:00:32,695 --> 00:00:40,110
+a one to one relationship between device independent pixels and CSS pixels.
+1:1 관계로 dip과 css픽셀을
+
+9
+00:00:41,110 --> 00:00:44,830
+CSS pixels are what we're used to working with most of the time, and
+css pixel은 우리가 사용한 것입니다. item에 적용시기 위해 그리고 
+
+10
+00:00:44,830 --> 00:00:47,772
+really the only one I need to worry about.
+정말 오직 하나다 내가 걱정할 필요가 있는 
+
+11
+00:00:47,772 --> 00:00:52,400
+Without initial-scale=1 some browsers will keep the page width
+initial-scale=1이 없으면 몇몇 브라우저는 유지할 겁니다. 페이지넓이를 
+
+12
+00:00:52,400 --> 00:00:56,260
+constant when rotating to landscape mode.
+일정하게 가로모드로 될 때에도 
+
+13
+00:00:56,260 --> 00:01:00,759
+They also scale the content rather than allowing it to reflow(콘텐츠가 차지하는 공간을 조정).
+initial-scale=1이 없는 것을 허용합니다 콘테츠를 크게하는 것 ~보다 그것이 역류하는 것을 허용하는
