@@ -1,0 +1,64 @@
+1
+00:00:00,350 --> 00:00:03,810
+I left one thing out when I said that the dot prototype objects that come for
+
+2
+00:00:03,810 --> 00:00:08,700
+free on functions were just as uninteresting as any other new object that we
+
+3
+00:00:08,700 --> 00:00:10,520
+could use for storing methods.
+
+4
+00:00:10,520 --> 00:00:13,490
+In fact, these prototype objects come with one
+
+5
+00:00:13,490 --> 00:00:17,328
+extra convenience property that almost no other object has.
+
+6
+00:00:17,328 --> 00:00:22,400
+Every dot prototype object has a .constructor property which points back to
+
+7
+00:00:22,400 --> 00:00:24,760
+the function it came attached to.
+
+8
+00:00:24,760 --> 00:00:27,520
+Thus, there is a mutual linking between any new function and
+
+9
+00:00:27,520 --> 00:00:32,380
+it's companion dot prototype object, because car links to dot prototype object,
+
+10
+00:00:32,380 --> 00:00:35,030
+and prototype links back to the car object.
+
+11
+00:00:35,030 --> 00:00:38,390
+Car dot prototype dot constructor is car itself.
+
+12
+00:00:38,390 --> 00:00:39,830
+The main use for this feature is so
+
+13
+00:00:39,830 --> 00:00:44,130
+that you can figure out which constructor function built a certain object.
+
+14
+00:00:44,130 --> 00:00:47,640
+All instances of a class delegate their failed lookups to their prototype,
+
+15
+00:00:47,640 --> 00:00:51,550
+and so they should all report as having the same constructor function.
+
+16
+00:00:51,550 --> 00:00:54,340
+What do you think would be logged as Amy's constructor property?
+

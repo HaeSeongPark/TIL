@@ -1,0 +1,97 @@
+1
+00:00:00,130 --> 00:00:03,210
+At this point,
+the execution context looks a lot
+
+2
+00:00:03,210 --> 00:00:07,010
+like a collection of key value pairs,
+sort of like an object.
+
+3
+00:00:07,010 --> 00:00:08,670
+Now noticing that similarity,
+
+4
+00:00:08,670 --> 00:00:11,640
+it would be tempting to
+think that in memory scopes.
+
+5
+00:00:11,640 --> 00:00:15,300
+And in memory objects are somehow
+actually the same thing.
+
+6
+00:00:15,300 --> 00:00:18,510
+This is a deceptive similarity,
+since the two are kept so
+
+7
+00:00:18,510 --> 00:00:20,260
+completely separate by the interpreter.
+
+8
+00:00:20,260 --> 00:00:24,620
+And there are so many limits on
+your access to an execution context
+
+9
+00:00:24,620 --> 00:00:27,240
+that don't exist to your
+access to an object.
+
+10
+00:00:27,240 --> 00:00:30,060
+Many of the rules that
+we've learned about objects
+
+11
+00:00:30,060 --> 00:00:33,330
+will also happen to be true for
+execution contexts, but
+
+12
+00:00:33,330 --> 00:00:35,950
+you can never mix and
+match the two in your programs.
+
+13
+00:00:35,950 --> 00:00:37,690
+Despite all of the similarities,
+
+14
+00:00:37,690 --> 00:00:41,230
+they live in completely different
+worlds that almost never interact.
+
+15
+00:00:41,230 --> 00:00:43,990
+Just as a few examples,
+you will never be able to
+
+16
+00:00:43,990 --> 00:00:48,211
+store an array full of contexts,
+even though you can do so with objects.
+
+17
+00:00:48,211 --> 00:00:51,795
+You can't iterate over the variable
+names in an execution context,
+
+18
+00:00:51,795 --> 00:00:54,760
+the way you would over
+the keys in an object.
+
+19
+00:00:54,760 --> 00:00:58,620
+So even though they are both key
+value data storage constructs,
+
+20
+00:00:58,620 --> 00:01:01,940
+you're going to be interacting with
+the two in completely different ways.
+

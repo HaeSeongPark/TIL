@@ -1,0 +1,16 @@
+1
+00:00:00,230 --> 00:00:01,760
+The answer is yes.
+
+2
+00:00:01,760 --> 00:00:06,270
+We've wired everything up correctly such that Van calls Car.
+
+3
+00:00:06,270 --> 00:00:08,940
+In such a way that new objects like Amy
+
+4
+00:00:08,940 --> 00:00:10,830
+get the location property attached to them.
+

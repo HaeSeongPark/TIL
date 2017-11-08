@@ -1,0 +1,28 @@
+1
+00:00:00,180 --> 00:00:01,870
+Let's zoom in a bit on this idea, and
+
+2
+00:00:01,870 --> 00:00:04,660
+see how it plays out in a bit more detailed code example.
+
+3
+00:00:04,660 --> 00:00:08,630
+Start by considering this function that takes two positional parameters and
+
+4
+00:00:08,630 --> 00:00:11,010
+makes no mention of the keyword this at all.
+
+5
+00:00:11,010 --> 00:00:12,720
+Looking at the code you see here,
+
+6
+00:00:12,720 --> 00:00:17,470
+what do you expect to be bound to the second positional parameter named "two"?
+
+7
+00:00:17,470 --> 00:00:18,600
+Fill in what you think it might be.
+

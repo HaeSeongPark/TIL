@@ -1,0 +1,48 @@
+1
+00:00:00,400 --> 00:00:03,760
+Let's start by discussing what the keyword this is for.
+
+2
+00:00:03,760 --> 00:00:08,530
+This is an identifier that gets a value bound to it, much like a variable.
+
+3
+00:00:08,530 --> 00:00:11,930
+But instead of identifying the values explicitly in your code,
+
+4
+00:00:11,930 --> 00:00:15,770
+this gets bound to the correct object automatically.
+
+5
+00:00:15,770 --> 00:00:18,580
+Now mostly, the rules for how the interpreter determines the what
+
+6
+00:00:18,580 --> 00:00:23,450
+the correct binding is, resemble the rules for positional function parameters.
+
+7
+00:00:23,450 --> 00:00:25,960
+The differences between positional function parameters and
+
+8
+00:00:25,960 --> 00:00:29,150
+the keyword this are designed to support your intuition about
+
+9
+00:00:29,150 --> 00:00:33,000
+which object should be focal when you're invoking a method or a constructor.
+
+10
+00:00:34,160 --> 00:00:36,590
+There are a lot of misconceptions out there.
+
+11
+00:00:36,590 --> 00:00:39,260
+So, let's clear them up by going through a list of the things that
+
+12
+00:00:39,260 --> 00:00:41,680
+the keyword this specifically won't be bound to
+

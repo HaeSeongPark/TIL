@@ -1,0 +1,12 @@
+1
+00:00:00,070 --> 00:00:03,810
+So lastly, we should make an effort to predict what we actually expect to
+
+2
+00:00:03,810 --> 00:00:08,029
+get logged as the binding for the parameter this within our function.
+
+3
+00:00:08,029 --> 00:00:09,610
+What do you expect will get logged?
+

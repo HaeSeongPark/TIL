@@ -1,0 +1,56 @@
+1
+00:00:00,130 --> 00:00:02,670
+Surprisingly, the answer is the car would be logged.
+
+2
+00:00:02,670 --> 00:00:03,600
+Let's examine why.
+
+3
+00:00:03,600 --> 00:00:07,211
+The amy object doesn't have a local dot constructor property, but
+
+4
+00:00:07,211 --> 00:00:09,451
+amy does delegate the van dot prototype.
+
+5
+00:00:09,451 --> 00:00:12,503
+Van dot prototype is a brand new object that has been set up to
+
+6
+00:00:12,503 --> 00:00:14,370
+delegate the Car dot.prototype.
+
+7
+00:00:14,370 --> 00:00:17,733
+That brand new object does not have its own dot constructor property,
+
+8
+00:00:17,733 --> 00:00:21,140
+much like any object coming out of Object dot create should not.
+
+9
+00:00:21,140 --> 00:00:25,370
+At best, it is an object that delegates to an object that has its own dot
+
+10
+00:00:25,370 --> 00:00:26,313
+constructor property.
+
+11
+00:00:26,313 --> 00:00:30,650
+Car dot prototype has a dot constructor property because every single dot
+
+12
+00:00:30,650 --> 00:00:32,530
+prototype object that comes for
+
+13
+00:00:32,530 --> 00:00:35,480
+free with the function when it's created is given one
+
+14
+00:00:35,480 --> 00:00:39,160
+of these dot constructor properties pointing back to the original function
+

@@ -1,0 +1,40 @@
+1
+00:00:00,200 --> 00:00:03,340
+It's hard to write a constructor function that is robust against this
+
+2
+00:00:03,340 --> 00:00:04,480
+kind of misuse.
+
+3
+00:00:04,480 --> 00:00:05,575
+And we don't actually need to.
+
+4
+00:00:05,575 --> 00:00:10,940
+Object.create sets up the prototype delegation that we need to just like new,
+
+5
+00:00:10,940 --> 00:00:13,810
+but without running the constructor function in the process.
+
+6
+00:00:13,810 --> 00:00:14,870
+Be careful though.
+
+7
+00:00:14,870 --> 00:00:17,390
+Due to a long misunderstanding of JavaScript,
+
+8
+00:00:17,390 --> 00:00:21,930
+this technique has been widely accepted and standardized on for many years.
+
+9
+00:00:21,930 --> 00:00:25,840
+You'll see a lot of misguided documentation out there on reputable sites that
+
+10
+00:00:25,840 --> 00:00:27,290
+endorses this broken pattern.
+

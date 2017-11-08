@@ -1,0 +1,40 @@
+1
+00:00:00,460 --> 00:00:03,190
+We now know a great deal about all three class patterns,
+
+2
+00:00:03,190 --> 00:00:06,410
+functional, prototypal and pseudo-classical.
+
+3
+00:00:06,410 --> 00:00:06,930
+Let's move on to
+
+4
+00:00:06,930 --> 00:00:11,450
+thinking about the slightly more advanced code-sharing technique of subclassing.
+
+5
+00:00:11,450 --> 00:00:14,490
+After that, we'll explore how we could achieve these same goals using
+
+6
+00:00:14,490 --> 00:00:15,540
+a pseudo-classical pattern.
+
+7
+00:00:16,540 --> 00:00:19,660
+Note that the pseudo-classical pattern is a lot more widely documented on
+
+8
+00:00:19,660 --> 00:00:23,340
+the internet than the functional pattern that we're about to explore here.
+
+9
+00:00:23,340 --> 00:00:26,140
+So, external resources may be confusing until after you've
+
+10
+00:00:26,140 --> 00:00:27,990
+completed the section after this one.
+

@@ -1,0 +1,32 @@
+1
+00:00:00,510 --> 00:00:04,320
+To provide access to this function via dot notation on Amy and
+
+2
+00:00:04,320 --> 00:00:09,000
+Ben we'll add a move property to each car as it's being built.
+
+3
+00:00:09,000 --> 00:00:12,620
+But notice the function that we're adding there is no longer being used in
+
+4
+00:00:12,620 --> 00:00:15,170
+such a way that it takes a first argument.
+
+5
+00:00:15,170 --> 00:00:18,180
+Instead we will see that the target object is going to
+
+6
+00:00:18,180 --> 00:00:21,710
+appear on the left of the dot when the function is invoked.
+
+7
+00:00:21,710 --> 00:00:26,070
+Luckily, JavaScript supports the automatically bound parameter this.
+
+8
+00:00:26,070 --> 00:00:28,930
+Which will refer to the object on the left of the call time dot.
+
