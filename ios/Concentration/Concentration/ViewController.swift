@@ -10,19 +10,23 @@ import UIKit
 
 class ViewController: UIViewController
 {
-    lazy var game  = Concentration(numberOfPairsOfCards: (cardButtons.count+1)/2)
+    private lazy var game  = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
     
-    var flipCount = 0 {
+    private var numberOfPairsOfCards: Int{
+        return (cardButtons.count+1) / 2
+    }
+    
+    private(set) var flipCount = 0 {
         didSet{
             flipCountLable.text = "Flipss : \(flipCount)"
         }
     }
     
-    @IBOutlet weak var flipCountLable: UILabel!
+    @IBOutlet private weak var flipCountLable: UILabel!
     
-    @IBOutlet var cardButtons: [UIButton]!
+    @IBOutlet private var cardButtons: [UIButton]!
     
-    @IBAction func touchCard(_ sender: UIButton)
+    @IBAction private func touchCard(_ sender: UIButton)
     {
         flipCount += 1
         if let cardNumber = cardButtons.index(of: sender)
@@ -36,7 +40,16 @@ class ViewController: UIViewController
         }
     }
     
-    func updateViewFromModel(){
+    
+    @IBAction private func startNewGame(_ sender: UIButton) {
+        game = Concentration(numberOfPairsOfCards: (cardButtons.count+1)/2)
+        emojiChoices = ["🦇", "😱", "🙀", "👿","🎃","👻","🍭","🍬","🍎"];
+        updateViewFromModel()
+        flipCount = 0
+    }
+    
+    
+    private func updateViewFromModel(){
         for index in cardButtons.indices{
             let button = cardButtons[index]
             let card = game.cards[index]
@@ -52,11 +65,11 @@ class ViewController: UIViewController
             }
         }
     }
-    var emojiChoices = ["🦇", "😱", "🙀", "👿","🎃","👻","🍭","🍬","🍎"];
+    private var emojiChoices = ["🦇", "😱", "🙀", "👿","🎃","👻","🍭","🍬","🍎"];
     
-    var emoji = [Int:String]()
+    private var emoji = [Int:String]()
     
-    func emoji(for card: Card) -> String {
+    private func emoji(for card: Card) -> String {
         if emoji[card.identifier] == nil, emojiChoices.count > 0 {
             let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
             emoji[card.identifier] = emojiChoices.remove(at: randomIndex)
