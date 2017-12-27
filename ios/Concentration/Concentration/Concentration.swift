@@ -8,18 +8,20 @@
 
 import Foundation
 
-class Concentration
+struct Concentration
 {
-    var cards = [Card]()
+    private(set) var cards = [Card]()
     
-    var indexOfOneAndOnlyFacUpCard :Int? {
+    private var indexOfOneAndOnlyFacUpCard :Int? {
         get{
             var foundIndex: Int?
             for index in cards.indices{
-                if foundIndex == nil {
-                    foundIndex = index
-                } else {
-                    return nil
+                if cards[index].isFaceUP {
+                    if foundIndex == nil {
+                        foundIndex = index
+                    } else {
+                        return nil
+                    }
                 }
             }
             return foundIndex
@@ -32,14 +34,15 @@ class Concentration
         }
     }
     
-    func chooseCard(at index:Int)
+    mutating func chooseCard(at index:Int)
     {
+        assert(cards.indices.contains(index), "Concentration.chooseCard(at:\(index)): chosen index not in the cards")
         if !cards[index].isMatched
         {
             if let matchIndex = indexOfOneAndOnlyFacUpCard, matchIndex != index
             {
                 // check if cards match
-                if cards[matchIndex].identifier == cards[index].identifier
+                if cards[matchIndex] == cards[index]
                 {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
@@ -54,14 +57,20 @@ class Concentration
     }
     init(numberOfPairsOfCards:Int)
     {
+        assert(numberOfPairsOfCards > 0, "Concentration.init(\(numberOfPairsOfCards): you must at least one pair of cards")
         for _ in 0..<numberOfPairsOfCards
         {
             let card = Card()
             cards += [card, card]
         }
-        for index in cards.indices{
-            let randomIndex = Int(arc4random_uniform(UInt32(cards.count)))
-            (cards[index], cards[randomIndex]) = (cards[randomIndex], cards[index])
+        cards.shuffle()
+    }
+}
+extension Array{
+    mutating func shuffle(){
+        for index in self.indices{
+            let randomIndex = self.count.arc4random
+            (self[index], self[randomIndex]) = (self[randomIndex], self[index])
         }
     }
 }

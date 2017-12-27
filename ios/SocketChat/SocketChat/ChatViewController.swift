@@ -48,7 +48,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleUserTypingNotification), name: Notification.Name("userTypingNotification"), object: nil)
     }
     
-    func handleUserTypingNotification(notification: NSNotification) {
+    @objc func handleUserTypingNotification(notification: NSNotification) {
         if let typingUsersDictionary = notification.object as? [String: AnyObject] {
             var names = ""
             var totalTypingUsers = 0
@@ -72,13 +72,13 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    func handleDisconnectedUserUpdateNotification(notification: NSNotification) {
+    @objc func handleDisconnectedUserUpdateNotification(notification: NSNotification) {
         let disconnectedUserNickname = notification.object as! String
         lblNewsBanner.text = "User \(disconnectedUserNickname.uppercased()) has left."
         showBannerLabelAnimated()
     }
     
-    func handleConnectedUserUpdateNotification(notification: Notification) {
+    @objc func handleConnectedUserUpdateNotification(notification: Notification) {
         let connectedUserInfo = notification.object as! [String: AnyObject]
         let connectedUserNickname = connectedUserInfo["nickname"] as? String
         lblNewsBanner.text = "User \(connectedUserNickname!.uppercased()) was just connected."
@@ -168,7 +168,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    func handleKeyboardDidShowNotification(_ notification: Notification) {
+    @objc func handleKeyboardDidShowNotification(_ notification: Notification) {
         if let userInfo = notification.userInfo {
             if let keyboardFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
                 conBottomEditor.constant = keyboardFrame.size.height
@@ -178,7 +178,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    func handleKeyboardDidHideNotification(_ notification: Notification) {
+    @objc func handleKeyboardDidHideNotification(_ notification: Notification) {
         conBottomEditor.constant = 0
         view.layoutIfNeeded()
     }
@@ -206,7 +206,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    func hideBannerLabel() {
+    @objc func hideBannerLabel() {
         if bannerLabelTimer != nil {
             bannerLabelTimer.invalidate()
             bannerLabelTimer = nil
@@ -221,7 +221,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     
     
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         if tvMessageEditor.isFirstResponder {
             tvMessageEditor.resignFirstResponder()
             SocketIOManager.sharedInstance.sendStopTypingMessage(nickname: nickname)
