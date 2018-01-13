@@ -10,3 +10,8 @@ for index in a.indices
     print("\(a[index])")
 }
 
+let date = Date()
+let formatter = DateFormatter()
+formatter.dateFormat = "hh:mm aaa"
+print("\(formatter.string(from: date))")
+
