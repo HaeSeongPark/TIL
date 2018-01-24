@@ -31,3 +31,31 @@ func times(x:Int, y:Int) -> Int{
 }
 times(x:5, y:10)
 times(x:y:)(5,10)
+
+
+
+protocol PoliceCodes{
+    func nineOhTwo()
+    
+}
+
+class Officer{
+    var radio:PoliceCodes?
+    func callItIn(){
+        radio?.nineOhTwo()
+    }
+}
+
+
+class Dispatcher:PoliceCodes{
+    func nineOhTwo() {
+        print("902 received and handled")
+    }
+}
+
+var o = Officer()
+var d = Dispatcher()
+
+o.radio = d
+o.callItIn()
+
