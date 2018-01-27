@@ -16,7 +16,16 @@ class recordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let memoNumber = UserDefaults.standard.object(forKey: "memoNumber") as! Int
+        
+        if memoNumber == -1 {
+            memoData = UserDefaults.standard.object(forKey: "memodata") as! [String]
+            recordTextVIew.text = "..."
+        } else {
+            memoData = UserDefaults.standard.object(forKey: "memodata") as! [String]
+            recordTextVIew.text = memoData[memoNumber]
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,8 +35,26 @@ class recordViewController: UIViewController {
     
     
     @IBAction func save(_ sender: UIButton) {
-        memoData.insert(recordTextVIew.text, at: 0)
-        UserDefaults.standard.set(memoData, forKey: "memodata")
+        let memoNumber = UserDefaults.standard.object(forKey: "memoNumber") as! Int
+        
+        if memoNumber == -1 {
+            memoData.insert(recordTextVIew.text, at: 0)
+            UserDefaults.standard.set(memoData, forKey: "memodata")
+        } else {
+            memoData.remove(at: memoNumber)
+            memoData.insert(recordTextVIew.text, at: memoNumber)
+            UserDefaults.standard.set(memoData, forKey: "memodata")
+        }
+        
+    }
+    
+    @IBAction func delte(_ sender: UIButton) {
+        let memoNumber = UserDefaults.standard.object(forKey: "memoNumber") as! Int
+        
+        if memoNumber != -1 {
+            memoData.remove(at: memoNumber)
+            UserDefaults.standard.set(memoData, forKey: "memodata")
+        }
     }
     
     /*

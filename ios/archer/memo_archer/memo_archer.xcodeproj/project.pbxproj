@@ -13,6 +13,7 @@
 		97A8C18E201B58F6006EAEA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97A8C18D201B58F6006EAEA8 /* Assets.xcassets */; };
 		97A8C191201B58F6006EAEA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97A8C18F201B58F6006EAEA8 /* LaunchScreen.storyboard */; };
 		97A8C199201B6686006EAEA8 /* recordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A8C198201B6686006EAEA8 /* recordViewController.swift */; };
+		97A8C19B201C4FC3006EAEA8 /* ViewControllerCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A8C19A201C4FC3006EAEA8 /* ViewControllerCellTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		97A8C190201B58F6006EAEA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97A8C192201B58F6006EAEA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97A8C198201B6686006EAEA8 /* recordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recordViewController.swift; sourceTree = "<group>"; };
+		97A8C19A201C4FC3006EAEA8 /* ViewControllerCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCellTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				97A8C18A201B58F6006EAEA8 /* Main.storyboard */,
 				97A8C188201B58F6006EAEA8 /* ViewController.swift */,
 				97A8C198201B6686006EAEA8 /* recordViewController.swift */,
+				97A8C19A201C4FC3006EAEA8 /* ViewControllerCellTableViewCell.swift */,
 				97A8C186201B58F6006EAEA8 /* AppDelegate.swift */,
 				97A8C18D201B58F6006EAEA8 /* Assets.xcassets */,
 				97A8C18F201B58F6006EAEA8 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			files = (
 				97A8C189201B58F6006EAEA8 /* ViewController.swift in Sources */,
 				97A8C187201B58F6006EAEA8 /* AppDelegate.swift in Sources */,
+				97A8C19B201C4FC3006EAEA8 /* ViewControllerCellTableViewCell.swift in Sources */,
 				97A8C199201B6686006EAEA8 /* recordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
