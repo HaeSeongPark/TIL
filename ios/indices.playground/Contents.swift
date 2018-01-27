@@ -59,3 +59,32 @@ var d = Dispatcher()
 o.radio = d
 o.callItIn()
 
+
+class 강아지{
+    var 품종:String
+    var 짖는소리:String
+    func 짖기(){
+        print(짖는소리)
+    }
+    fileprivate init(품종:String, 짖는소리:String) {
+        self.품종 = 품종
+        self.짖는소리 = 짖는소리
+    }
+}
+
+
+class 사람:강아지{
+    var age:Int = 0
+}
+
+var 해성 = 사람(품종: "사람", 짖는소리: "아아아아아")
+var 백구 = 강아지(품종: "진돗개", 짖는소리: "왈왈")
+
+
+func 짖는다(dog:강아지){
+    dog.짖기()
+}
+
+짖는다(dog: 백구)
+짖는다(dog: 해성)
+
