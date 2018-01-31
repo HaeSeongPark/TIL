@@ -4,8 +4,6 @@
 //
 //  Created by rhino Q on 2018. 1. 26..
 //  Copyright © 2018년 rhino Q. All rights reserved.
-
-// 주석 달기 설명 어떻게 하지?
 //
 
 import UIKit
@@ -38,7 +36,6 @@ class recordViewController: UIViewController {
     
     @IBAction func save(_ sender: UIButton) {
         let memoNumber = UserDefaults.standard.object(forKey: "memoNumber") as! Int
-        
         if memoNumber == -1 {
             memoData.insert(recordTextVIew.text, at: 0)
             UserDefaults.standard.set(memoData, forKey: "memodata")
