@@ -19,10 +19,10 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
     // 메모를 저장한 배열을 만든다.
     var memodata = [String]()
     
+    @IBOutlet weak var memolist: UITableView!
     // 테이블 행의 개수를 반환한다.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
      memodata = UserDefaults.standard.object(forKey: "memodata") as? [String] ?? [String]()
@@ -33,8 +33,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ViewControllerCellTableViewCell
         
-        cell.textLabel?.text = memodata[indexPath.row]
-        
+        print("memodata[\(indexPath.row)] : \(memodata[indexPath.row])")
+        cell.titleLabel.text = memodata[indexPath.row]
         return cell
     }
     
@@ -44,9 +44,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.performSegue(withIdentifier: "toRecord", sender: self)
     }
     
-
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            memodata.remove(at: indexPath.row)
+            UserDefaults.standard.set(memodata, forKey: "memodata")
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    override var prefersStatusBarHidden: Bool { return true }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        memolist.estimatedRowHeight = 44.0
+//        memolist.rowHeight = UITableViewAutomaticDimension
     }
 
     override func didReceiveMemoryWarning() {

@@ -18,12 +18,11 @@ class recordViewController: UIViewController {
         super.viewDidLoad()
         
         let memoNumber = UserDefaults.standard.object(forKey: "memoNumber") as! Int
+        memoData = UserDefaults.standard.object(forKey: "memodata") as? [String] ?? [String]()
         
         if memoNumber == -1 {
-            memoData = UserDefaults.standard.object(forKey: "memodata") as! [String]
             recordTextVIew.text = "..."
         } else {
-            memoData = UserDefaults.standard.object(forKey: "memodata") as! [String]
             recordTextVIew.text = memoData[memoNumber]
         }
     }
@@ -36,12 +35,19 @@ class recordViewController: UIViewController {
     
     @IBAction func save(_ sender: UIButton) {
         let memoNumber = UserDefaults.standard.object(forKey: "memoNumber") as! Int
+        // 글쓰기 버튼을 누르면 memoNumber는 -1 이다.
         if memoNumber == -1 {
-            memoData.insert(recordTextVIew.text, at: 0)
+            // 글쓰기 버튼이면 새로운 글을 추가하고
+            memoData.insert(recordTextVIew.text, at: memoData.count)
+            //저장한다.
             UserDefaults.standard.set(memoData, forKey: "memodata")
         } else {
+            // 테이블뷰를 클릭. 즉, 수정을 하는 경우
+            // 기존에 있는 건 지운다.
             memoData.remove(at: memoNumber)
+            // 지우고 새로운 내용을 해당 index에 넣는다.
             memoData.insert(recordTextVIew.text, at: memoNumber)
+            //저장한다.
             UserDefaults.standard.set(memoData, forKey: "memodata")
         }
         
