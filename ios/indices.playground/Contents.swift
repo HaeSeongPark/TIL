@@ -88,3 +88,18 @@ func 짖는다(dog:강아지){
 짖는다(dog: 백구)
 짖는다(dog: 해성)
 
+/**
+ Concatenate two strings separaed by a space and use this for the elements of an array.
+ 
+ - Autor:
+ An Author
+ 
+ */
+func printing(){
+    print("ab")
+}
+
+
+
+printing()
+
