@@ -38,7 +38,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="158" height="224"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crad1" translatesAutoresizingMaskIntoConstraints="NO" id="MvX-a5-NMb" userLabel="Front Image Veiw">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MvX-a5-NMb" userLabel="Front Image Veiw">
                                                     <rect key="frame" x="0.0" y="0.0" width="158" height="224"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="BMN-aW-R0L">
@@ -88,6 +88,5 @@
     <resources>
         <image name="back" width="158" height="224"/>
         <image name="background" width="736" height="414"/>
-        <image name="crad1" width="16" height="16"/>
     </resources>
 </document>
