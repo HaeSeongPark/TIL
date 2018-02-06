@@ -67,16 +67,20 @@ func isAnswer() -> Bool{
 
 // TODO: 유효성검사 : 숫자로만 돼 있으면서 3자리 수여야 함.
 
-// TODO: 서로 다른 번호로 해야함
 /**
- 1부터 9까지의 숫자 중 랜덤으로 3개를 뽑아서 배열로 만들어서 리턴한다.
+ 1부터 9까지의 서로 다른 숫자 중 랜덤으로 3개를 뽑아서 배열로 만들어서 리턴한다.
  */
+// TODO: randomNumber 생성하는 것 자세히 알기
 func makeRandomAnswer() -> [Int] {
-    var randomAnswer = [Int]()
-    for _  in 0...2 {
-        randomAnswer.append(Int(arc4random_uniform(UInt32(10))))
+    var randomAnswerArray = [Int]()
+    while randomAnswerArray.count < 3 {
+        let randomNumber = arc4random_uniform(UInt32(10))
+        
+        if randomAnswerArray.contains(Int(randomNumber)) == false {
+            randomAnswerArray.append(Int(randomNumber))
+        }
     }
-    return randomAnswer
+    return randomAnswerArray
 }
 
 /**
@@ -100,6 +104,10 @@ func makeInputIntArray(_ input:String) -> [Int] {
     return intArray
 }
 
+func compare(com:[Int], user:[Int]){
+    
+}
+
 func startNumberBsseBallGame(){
     // makeRandomAnswer, 정답은 바뀌면 안되니까 let으로 선언
     let randomAnswer = makeRandomAnswer()
@@ -108,6 +116,7 @@ func startNumberBsseBallGame(){
     let inputArray =  makeInputIntArray(input())
     print("inputArray : \(inputArray)")
     
+    compare(com: randomAnswer, user: inputArray)
     //비교를 하고 결과 출력
     // 정답이 아닐 때까지 반복
     // 정답이면 종료
