@@ -99,7 +99,8 @@ func printing(){
     print("ab")
 }
 
-
+var testString = "123"
+testString.count
 
 printing()
 
