@@ -26,7 +26,6 @@ class CardCollectionViewCell: UICollectionViewCell {
 //                UIView.transition(from: frontImageView, to: backImageView, duration: 0, options: [.transitionFlipFromRight, .showHideTransitionViews], completion: nil)
 //        }
     }
-    
     func flip() {
         UIView.transition(from: backImageView, to: frontImageView, duration: 0.3, options: [.transitionFlipFromLeft, .showHideTransitionViews], completion: nil)
     }
