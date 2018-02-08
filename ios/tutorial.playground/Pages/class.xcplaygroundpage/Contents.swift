@@ -23,7 +23,7 @@ function:함수(행위)
 class 사람{
     var 이름:String = "박해성"
     let 고향:String = "서울"
-    var has운전면허증:Bool?
+    var 운전면허증:Bool?
     
     func sayHello(){
         print("Hello there!")
