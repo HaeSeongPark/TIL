@@ -245,7 +245,7 @@ func startNumberBsseBallGame()
         
         // 입력받은 값을 비교하기 편하게 Int Array로 만든다.
         let inputArray =  makeInputIntArray(inputData)
-        print("inputArray : \(inputArray)")
+        print("입력값 : \(inputArray)")
         
         // 컴퓨터와 사용자 값을 비교해서 strikeCount와 ballCount를 알아낸다.
         let (strikeCount, ballCount) = compare(com: randomAnswer, user: inputArray)
