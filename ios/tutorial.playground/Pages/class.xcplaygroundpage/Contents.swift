@@ -21,16 +21,23 @@ function:함수(행위)
  */
 
 class 사람{
+    /*속성*/
     var 이름:String = "박해성"
     let 고향:String = "서울"
-    var has운전면허증:Bool?
+    var 운전면허증:Bool?
+    var 나이:Int = 29
     
+    
+    /*행위*/
     func sayHello(){
         print("Hello there!")
     }
     
-    func 먹는다(food:String){
-        print("\(self.이름)이 \(food)를 먹는다.")
+    func 개명하다(이름:String){
+        self.이름 = 이름
+    }
+    func 먹는다(이름:String){
+        print("\(이름)이 를 먹는다.")
     }
     
     func 운동한다() -> Int {
@@ -40,13 +47,13 @@ class 사람{
     func 세금을낸다(income:Double) -> Double {
         let tax:Double = income * 0.154 // 15.4%
         return tax
-        
     }
 }
 
 var 사람1 = 사람()
+사람1.개명하다(이름: "해릿개똥")
 사람1.sayHello()
-사람1.먹는다(food: "햄버거")
+사람1.먹는다(이름: "햄버거")
 print("사람1이 운동해서 소모한 kcal : \(사람1.운동한다())")
 print("사람1이 세금 \(사람1.세금을낸다(income: 154))원 낸다.")
 //: [Next](@next)

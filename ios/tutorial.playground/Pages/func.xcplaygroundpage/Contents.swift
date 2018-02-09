@@ -13,6 +13,16 @@
 
  **✅ Parameters, ✅ return value**\
  `sayHello(to:String) -> String`
+ 
+ 
+---------------------------------
+ 
+ 
+    func 함수명(p1, p2) -> return type
+    {
+        return value
+    }
  */
+
 
 //: [Next](@next)

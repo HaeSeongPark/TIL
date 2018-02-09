@@ -22,8 +22,7 @@ import Foundation
  문자열 마지막에 \n까지 포함해야 해서 4자리 수인지 아닌지 체크, 숫자인지 아닌지 체크
  왜 \n까지 포함되는지 모르겠다.
  */
-func inValidCheck(input:String) -> Bool
-{
+func inValidCheck(input:String) -> Bool{
     return input.count == 4 && Int(input[..<input.index(before: input.endIndex)]) != nil
 }
 
@@ -43,15 +42,12 @@ func inValidCheck(input:String) -> Bool
  - returns:
  컴퓨터가 랜덤으로 생성한 숫자들의 배열
  */
-func makeRandomAnswer() -> [Int]
-{
+func makeRandomAnswer() -> [Int]{
     var randomAnswerArray = [Int]()
-    while randomAnswerArray.count < 3
-    {
+    while randomAnswerArray.count < 3{
         let randomNumber = Int(arc4random_uniform(UInt32(9))) + 1
         
-        if randomAnswerArray.contains(randomNumber) == false
-        {
+        if randomAnswerArray.contains(randomNumber) == false{
             randomAnswerArray.append(randomNumber)
         }
     }
@@ -68,8 +64,7 @@ func makeRandomAnswer() -> [Int]
  - returns:
  사용자가 입력한 값
  */
-func input() -> String
-{
+func input() -> String{
     print("숫자를 입력해주세요 ex)123 :")
     let keyboard = FileHandle.standardInput
     let inputData = keyboard.availableData
@@ -92,13 +87,11 @@ func input() -> String
    - input : 사용자가 입력한 값
  
  */
-func makeInputIntArray(_ input:String) -> [Int]
-{
+func makeInputIntArray(_ input:String) -> [Int]{
     // 문자열 끝 \n 제거
     let makeValidString = input[..<input.index(before: input.endIndex)]
     var intArray = [Int]()
-    for i in makeValidString
-    {
+    for i in makeValidString{
         intArray.append(Int(String(i))!)
     }
     return intArray
@@ -120,19 +113,15 @@ func makeInputIntArray(_ input:String) -> [Int]
      - user : 사용자가 입력한 숫자 배열
  
  */
-func checkStrike(_ com:[Int], _ user:[Int]) -> (Int,[Int])
-{
+func checkStrike(_ com:[Int], _ user:[Int]) -> (Int,[Int]){
     var strikeCount = 0
     var tempBallArray = [Int]()
     
-    for i in 0..<com.count
-    {
-        if (com[i] == user[i])
-        {
+    for i in 0..<com.count{
+        if (com[i] == user[i]){
             strikeCount += 1
         }
-        else
-        {
+        else{
             tempBallArray.append(user[i])
         }
     }
@@ -156,17 +145,13 @@ func checkStrike(_ com:[Int], _ user:[Int]) -> (Int,[Int])
  
  */
 
-func checkBall(_ com:[Int], _ tempBallArray:[Int]) -> Int
-{
+func checkBall(_ com:[Int], _ tempBallArray:[Int]) -> Int{
     var ballCount = 0
-    if tempBallArray.count <= 0
-    {
+    if tempBallArray.count <= 0{
         return 0
     }
-    for i in 0..<tempBallArray.count
-    {
-        if com.contains(tempBallArray[i])
-        {
+    for i in 0..<tempBallArray.count{
+        if com.contains(tempBallArray[i]){
             ballCount += 1
         }
     }
@@ -190,8 +175,7 @@ func checkBall(_ com:[Int], _ tempBallArray:[Int]) -> Int
  
  */
 
-func compare(com:[Int], user:[Int]) ->(Int,Int)
-{
+func compare(com:[Int], user:[Int]) ->(Int,Int){
     var strikeCount = 0, ballCount = 0
     var tempBallArray = [Int]()
     
@@ -214,29 +198,35 @@ func compare(com:[Int], user:[Int]) ->(Int,Int)
       - ballCount : 볼 갯수
  
  */
-func printResult(_ strikeCount:Int, _ ballCount:Int)
-{
-    if strikeCount != 0
-    {
+func printResult(_ strikeCount:Int, _ ballCount:Int){
+    if strikeCount != 0{
         print("\(strikeCount) 스트라이크 ", terminator:"")
     }
-    if ballCount != 0
-    {
+    if ballCount != 0{
         print("\(ballCount)볼")
     }
 }
+
+/**
+    게임을 끝내는 함수
+ */
+func endNumberBaseBallGame(strikeCount:Int){
+    if(strikeCount == 3){
+        print("\n\(strikeCount)개의 숫자를 모두 맞히셨습니다! 게임종료")
+        exit(0)
+    }
+}
+
 /**
  게임을 시작하는 함수
  */
-func startNumberBsseBallGame()
-{
+func startNumberBsseBallGame(){
     // makeRandomAnswer, 정답은 바뀌면 안되니까 let으로 선언
     let randomAnswer = makeRandomAnswer()
     print("randomAnswer : \(randomAnswer)" )
     
     //정답일 때까지 계속 돌기
-    while true
-    {
+    while true{
         let inputData = input()
         if inValidCheck(input: inputData) == false{
             print("유효하지 않는 값입니다. 다시입력해주세요!")
@@ -254,11 +244,7 @@ func startNumberBsseBallGame()
         printResult(strikeCount, ballCount)
         
         // strikeCount가 3이면 정답이다. 게임을 끝낸다.
-        if(strikeCount == 3)
-        {
-            print("\n\(strikeCount)개의 숫자를 모두 맞히셨습니다! 게임종료")
-            break
-        }
+        endNumberBaseBallGame(strikeCount: strikeCount)
     }
 }
 startNumberBsseBallGame()
