@@ -1,7 +1,7 @@
 
 import Foundation
 //hello(to: "해성")
-
+// 궁금한점 알려주시면 그 것에 대한 것만 집중적으로
 /*
  수업과 연관 된 것 설명 후 각자 주석달게 하기
  View와 ViewController
@@ -12,6 +12,7 @@ import Foundation
  */
 
 
+
 /**
    누군가에게 인사하다
  
@@ -19,6 +20,7 @@ import Foundation
 func greet(to name:String){
     print("hello \(name)")
 }
+
 greet(to: "박해성")
 
 func greet2(_ name:String){
@@ -26,6 +28,16 @@ func greet2(_ name:String){
 }
 // to = "박해성"이 아니라 to:"박해성"
 greet2("박해성")
+
+
+
+
+
+
+
+
+
+
 /*
     영역 설명
     같은 영역에 같은 이름은 있을 수 없다.
