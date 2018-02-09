@@ -223,7 +223,7 @@ func endNumberBaseBallGame(strikeCount:Int){
 func startNumberBsseBallGame(){
     // makeRandomAnswer, 정답은 바뀌면 안되니까 let으로 선언
     let randomAnswer = makeRandomAnswer()
-    print("randomAnswer : \(randomAnswer)" )
+//    print("randomAnswer : \(randomAnswer)" )
     
     //정답일 때까지 계속 돌기
     while true{
