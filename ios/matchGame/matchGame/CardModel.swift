@@ -8,16 +8,13 @@
 
 import Foundation
 
-class CardModel
-{
-    func getCards() -> [Card]
-    {
+class CardModel{
+    func getCards() -> [Card]{
         // Declare an array to store the generated cards
         var generatedCardsArray = [Card]()
         
         // Randomly generate pairs of cards
-        for _ in 1...8
-        {
+        for _ in 1...8{
             // Get a random number
             let randomNumber = arc4random_uniform(13) + 1
             
