@@ -22,8 +22,8 @@ import Foundation
  문자열 마지막에 \n까지 포함해야 해서 4자리 수인지 아닌지 체크, 숫자인지 아닌지 체크
  왜 \n까지 포함되는지 모르겠다.
  */
-func inValidCheck(input:String) -> Bool{
-    return input.count == 4 && Int(input[..<input.index(before: input.endIndex)]) != nil
+func inValidCheck(_ numberLenght:Int, _ input:String) -> Bool{
+    return input.count == numberLenght+1 && Int(input[..<input.index(before: input.endIndex)]) != nil
 }
 
 
@@ -42,9 +42,9 @@ func inValidCheck(input:String) -> Bool{
  - returns:
  컴퓨터가 랜덤으로 생성한 숫자들의 배열
  */
-func makeRandomAnswer() -> [Int]{
+func makeRandomAnswer(_ numberLenght:Int) -> [Int]{
     var randomAnswerArray = [Int]()
-    while randomAnswerArray.count < 3{
+    while randomAnswerArray.count < numberLenght{
         let randomNumber = Int(arc4random_uniform(UInt32(9))) + 1
         
         if randomAnswerArray.contains(randomNumber) == false{
@@ -64,8 +64,13 @@ func makeRandomAnswer() -> [Int]{
  - returns:
  사용자가 입력한 값
  */
-func input() -> String{
-    print("숫자를 입력해주세요 ex)123 :")
+func input(_ numberLenght:Int) -> String{
+    var exString = ""
+    for i in 1...numberLenght {
+        exString += String(i)
+    }
+    
+    print("숫자를 입력해주세요 ex)\(exString) :")
     let keyboard = FileHandle.standardInput
     let inputData = keyboard.availableData
     return String(data: inputData, encoding: String.Encoding.utf8)!
@@ -210,8 +215,8 @@ func printResult(_ strikeCount:Int, _ ballCount:Int){
 /**
     게임을 끝내는 함수
  */
-func endNumberBaseBallGame(strikeCount:Int){
-    if(strikeCount == 3){
+func endNumberBaseBallGame(_ numberLength:Int, _ strikeCount:Int){
+    if(strikeCount == numberLength){
         print("\n\(strikeCount)개의 숫자를 모두 맞히셨습니다! 게임종료")
         exit(0)
     }
@@ -221,14 +226,15 @@ func endNumberBaseBallGame(strikeCount:Int){
  게임을 시작하는 함수
  */
 func startNumberBsseBallGame(){
+    let numberLength = 5 // 자리수
     // makeRandomAnswer, 정답은 바뀌면 안되니까 let으로 선언
-    let randomAnswer = makeRandomAnswer()
-//    print("randomAnswer : \(randomAnswer)" )
+    let randomAnswer = makeRandomAnswer(numberLength)
+    print("randomAnswer : \(randomAnswer)" )
     
     //정답일 때까지 계속 돌기
     while true{
-        let inputData = input()
-        if inValidCheck(input: inputData) == false{
+        let inputData = input(numberLength)
+        if inValidCheck(numberLength, inputData) == false{
             print("유효하지 않는 값입니다. 다시입력해주세요!")
             continue
         }
@@ -244,7 +250,7 @@ func startNumberBsseBallGame(){
         printResult(strikeCount, ballCount)
         
         // strikeCount가 3이면 정답이다. 게임을 끝낸다.
-        endNumberBaseBallGame(strikeCount: strikeCount)
+        endNumberBaseBallGame(numberLength, strikeCount)
     }
 }
 startNumberBsseBallGame()
