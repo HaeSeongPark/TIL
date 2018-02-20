@@ -119,3 +119,46 @@ a %= 2
  ```
  */
 
+
+/*:
+ ## 타입
+ 
+ Int -> 1 2 3 4
+ Double -> 1.1 2.2 3.3 4.4
+ Bool -> true false
+ String -> "헬로네이처"
+ 
+ 예제
+ 
+ var abc = "abc"
+ let finger = "10"
+ let pi = 75.6
+ */
+
+/*:
+ ## 보기 편하게 camelCase
+ 단어 2개 이상을 붙여서 변수 명을 만들 때는 보기 편하게
+ */
+var numberOfLikes = 39
+var numberoflikes = 39
+
+var numberOfComments = 23
+var numberofcomments = 23
+
+let yearCreated = 2018
+let yearcreated = 2018
+
+
+/*:
+ ## 숫자도 보기 편하게 with _
+ 
+ */
+var uglyBillion =  100000000
+var prettyBillion =  100_000_000
+
+/*
+ 참조필
+ https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html
+ */
+
+
