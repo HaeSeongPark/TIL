@@ -124,16 +124,75 @@ a %= 2
  ## 타입
  
  Int -> 1 2 3 4
+ 
  Double -> 1.1 2.2 3.3 4.4
+ 
  Bool -> true false
+ 
  String -> "헬로네이처"
  
  예제
  
  var abc = "abc"
+ 
  let finger = "10"
+ 
  let pi = 75.6
  */
+
+var uglyBillion:Int =  100000000
+var prettyBillion:Int =  100_000_000
+
+/*
+ 참조필
+ https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html
+ */
+
+/*:
+ ## var, let
+ 
+ */
+let 하루인출한도:Int = 100
+var 인출금액:Int = 10
+인출금액 += 100
+if 인출금액 > 하루인출한도 {
+    print("인출한도를 넘었습니다.")
+}
+
+
+ // 변수명 지을 때 주의 사항
+ // 예약어나 키워든는 안 됨
+
+//var is:Int = 10
+
+// 한 영역에 동일 이름 안 됨
+func 함수(){
+    let a = 10
+//    var a = 20
+}
+
+// 연산자로 사용될 수 있는 기호 안 됨
+//var a+b = 10
+
+// 숫자나 특수문자로 시작하는 것 안 됨
+//var $abc = 10
+//var 1dollor = 1
+//var %dd = 1
+
+// 공백 포함 안 됨
+//var d ff = 10
+
+// 대소문자 구별
+func 대소문자구별(){
+    var a = 10
+    var A = 20
+}
+
+// 예약어를 사용하고 싶으면 ` 를 이용
+var `let` = 10
+print(`let`)
+
+
 
 /*:
  ## 보기 편하게 camelCase
@@ -142,23 +201,15 @@ a %= 2
 var numberOfLikes = 39
 var numberoflikes = 39
 
-var numberOfComments = 23
-var numberofcomments = 23
+var numberOfComments:Int = 23
+var numberofcomments:Int = 23
 
-let yearCreated = 2018
-let yearcreated = 2018
+let yearCreated:Int = 2018
+let yearcreated:Int = 2018
 
 
 /*:
  ## 숫자도 보기 편하게 with _
  
  */
-var uglyBillion =  100000000
-var prettyBillion =  100_000_000
-
-/*
- 참조필
- https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html
- */
-
 
