@@ -2,6 +2,7 @@
 /*:
  ## 반복문
   같거나 비슷한 명령을 반복
+ 
   반복문의 유용함.
  */
 // "Hello world"를 5번 출력하기.
@@ -13,7 +14,11 @@
 //print("hello world")
 //
 //
-//for i in 1...5{
+
+
+
+
+//for i in 1...5{ // 1~5까지 진행됩니다.
 //    print("hello world")
 //}
 
@@ -44,23 +49,40 @@
  ...A A이하의 수를 묶어 범위를 표현 A포함
  ..<A A미만의 수를 묶어 범위를 표현 A미포함
  */
+
+
 //for i in 1...5 {
 //    print("hello world")
 //}
 //
-//for i in 1..<5 {
+//for i in 1..<5 {  //1~4
 //    print("hello world 2")
 //}
 
 //임시상수
-
-for i in 1..<5 {
-    print("hello world \(i)")
-}
+//
+//for i in 1..<5 {  // 1~4
+//    print("hello world \(i)")
+//}
 
 // 임시상수가 필요없으면 _(underbar)를 이용
-for _ in 1..<5{
-    print("hello world")
+//for _ in 1..<5{
+//    print("hello world")
+//}
+
+
+/*
+ 1.  for value in 0...10
+     for value in 0..<10
+     for _ in 0...10
+     for _ in 0..<10
+ */
+
+
+// 구구단
+
+for i in 1...9 {
+    print("3 * \(i) = \(i*3)")
 }
 
 // 배열을 이용한 for - in 문
@@ -70,36 +92,36 @@ for name in names{
     print("디자이너 \(name)")
 }
 
-for name in names[2...]{
-    print(name)
-}
+//for name in names[2...]{
+//    print(name)
+//}
 
-for name in names[...2] {
-    print(name)
-}
+//for name in names[...2] {
+//    print(name)
+//}
 
 // string을 이용한 for - in 문
-for letter in "ABCD"{
-    print("The letter is \(letter)")
-}
+//for letter in "ABCD"{
+//    print("The letter is \(letter)")
+//}
 
 // 반복문과 함께 알아야 할 것 break, continue
 // break 반복문은 종료한다.
 // continue 해당 차례를 건너띤다.
 
-for counter in -3...3 {
-    if counter == 0 {
-        break
-    }
-    print(counter)
-}
-
-for counter in -3...3 {
-    if counter == 0 {
-        continue
-    }
-    print(counter)
-}
+//for counter in -3...3 {
+//    if counter == 0 {
+//        break
+//    }
+//    print(counter)
+//}
+//
+//for counter in -3...3 {
+//    if counter == 0 {
+//        continue
+//    }
+//    print(counter)
+//}
 
 //while <#condition#> {
 //    <#code#>
@@ -132,11 +154,11 @@ for counter in -3...3 {
 //    beerVolume -= sip
 //} while beerVolume > 0
 
-for i in 1...5{
-    if i % 2 == 0 {
-        print("\(i) == 짝수")
-    } else {
-        print("\(i) == 홀수")
-    }
-}
+//for i in 1...5{
+//    if i % 2 == 0 {
+//        print("\(i) == 짝수")
+//    } else {
+//        print("\(i) == 홀수")
+//    }
+//}
 //: [Next](@next)
