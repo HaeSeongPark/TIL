@@ -17,10 +17,17 @@
 
 
 
-
+//
 //for i in 1...5{ // 1~5까지 진행됩니다.
 //    print("hello world")
 //}
+
+
+// 반복문의 3요소
+// 무엇을 반복할 건가요? 선택할 수 있지만 필수
+// 반복할 때 마다 뭘 한건가요? 선택
+// 얼마나 반복할건가요? 필수
+
 
 //for <#item#> in <#items#> {
 //    <#code#>
@@ -34,7 +41,9 @@
  }
  */
 
-
+//for i in 1...5{ // 1~5까지 진행됩니다.
+//    print("hello world")
+//}
 /* 위 예제 hello world는
  for 임시상수 in 범위연산자 {
     반복되는 것 : print("hello world")
@@ -42,7 +51,7 @@
  */
 
 /*
- 범위 연사자 : 값이나 수의 범위를 나타낸다.
+ 범위 연산자 : 값이나 수의 범위를 나타낸다.
  A...B : A부터 B까지의 수를 묶어 범위를 표현, A와 B를 포함.
  A..<B : A부터 B미만까지의 수를 묶어 범위를 표현, A만 포함, B는 미 포함
  A... A이상의 수를 묶어 범위를 표현 A포함
@@ -51,11 +60,11 @@
  */
 
 
-//for i in 1...5 {
+//for i in 20...27 {
 //    print("hello world")
 //}
 //
-//for i in 1..<5 {  //1~4
+//for i in 21..<24 {  //1~4
 //    print("hello world 2")
 //}
 
@@ -70,14 +79,18 @@
 //    print("hello world")
 //}
 
+//for i in 3..<8 {
+//    print("hello world \(i)")
+//}
 
-/*
- 1.  for value in 0...10
-     for value in 0..<10
-     for _ in 0...10
-     for _ in 0..<10
- */
 
+ for i in stride(from: 1, through: 10, by: 3) {
+    print("helloworld\(i)")
+}
+
+for i in stride(from: 1, to: 10 , by: 3){
+    print("helloworld\(i)")
+}
 
 // 구구단
 
