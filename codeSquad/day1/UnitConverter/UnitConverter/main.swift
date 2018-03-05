@@ -8,7 +8,19 @@
 
 import Foundation
 
-print("Hello, World!")
+//let cm:String = "120cm"
+//let cmIndex = cm.index(of: "c") ?? cm.endIndex
+//let numberOfCm = cm[..<cmIndex]
+//let doubleOfCm = Double(numberOfCm)!
+//let numberOfm = doubleOfCm * 0.01
+//print("\(numberOfm)m")
 
-var cm:String = "120cm"
-var numberOfCm:Int = cm.sb
+
+
+let m:String = "1.86m"
+let mIndex = m.index(of: "m") ?? m.endIndex
+let numberOfm = m[..<mIndex]
+let doubleOfm = Double(numberOfm)!
+let numberOfcm = Int(doubleOfm * 100)
+print("\(numberOfcm)cm")
+

@@ -2,7 +2,6 @@
 
 import UIKit
 
-var str = "Hello, playground"
 
 var a = [1,2,3,4,5]
 for index in a.indices
@@ -10,10 +9,10 @@ for index in a.indices
     print("\(a[index])")
 }
 
-let date = Date()
-let formatter = DateFormatter()
-formatter.dateFormat = "hh:mm aaa"
-print("\(formatter.string(from: date))")
+//let date = Date()
+//let formatter = DateFormatter()
+//formatter.dateFormat = "hh:mm aaa"
+//print("\(formatter.string(from: date))")
 
 var value = (5,3)
 
@@ -103,4 +102,10 @@ var testString = "123"
 testString.count
 
 printing()
+var abc = Date(timeIntervalSince1970: 1520149641.23533)
+Date(timeIntervalSince1970: 1520149598.98535)
+
+let formatter = DateFormatter()
+formatter.dateFormat = "hh:mm a"
+let str = formatter.string(from: abc)
 
