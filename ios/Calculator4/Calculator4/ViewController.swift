@@ -26,11 +26,21 @@ class ViewController: UIViewController {
         userIsInTheMiddleOfTyping = true
     }
     
+    var displayValue: Double {
+        get{
+            return Double(display.text!)!
+        } set {
+            display.text = String(newValue)
+        }
+    }
+    
     @IBAction func performOperation(_ sender: UIButton) {
         userIsInTheMiddleOfTyping = false
         if let mathematicalSSymbol = sender.currentTitle{
             if mathematicalSSymbol == "π" {
-                display.text = String(Double.pi)
+                displayValue = Double.pi
+            } else if mathematicalSSymbol == "√" {
+                displayValue = sqrt(displayValue)
             }
         }
     }

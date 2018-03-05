@@ -99,7 +99,7 @@ for i in 1...9 {
 }
 
 // 배열을 이용한 for - in 문
-
+var a:Array<String> = ["a"]
 let names = ["홍재진","전진수","윤재연","조수연"]
 for name in names{
     print("디자이너 \(name)")

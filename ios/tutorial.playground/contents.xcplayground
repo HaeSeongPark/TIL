@@ -9,6 +9,7 @@
         <page name='review'/>
         <page name='start'/>
         <page name='변수와상수'/>
-        <page name='반복문'/>
+        <page name='반복문'/>
+        <page name='swift_api_design_guidelines'/>
     </pages>
 </playground>
