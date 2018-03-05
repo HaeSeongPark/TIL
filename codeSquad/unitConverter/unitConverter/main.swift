@@ -36,6 +36,7 @@ func convertCmtoM(cmValue:String) -> String {
 }
 
 func convertMtoCm(mValue:String) -> String {
+    // 함수이름에 정보가 있으므로 meter 단어 삭제
     let unitIndex = extractUnitIndex(inputValue: mValue, unit: "m")
     let valueWithOutUnit = mValue[..<unitIndex]
     let convertedToCentimeter = Double(valueWithOutUnit)! * multiplierMToCm
@@ -46,8 +47,15 @@ func convertMtoCm(mValue:String) -> String {
 func extractUnitIndex(inputValue:String, unit:Character) -> String.Index{
     return inputValue.index(of: unit) ?? inputValue.endIndex
 }
-checkUnit(inputValue: "170cm")
-checkUnit(inputValue: "1.8m")
+
+func getUserInputValue() -> String?{
+    print("변화하고 싶은 값과 단위를 입력하세요. ex)180cm")
+    return readLine()
+}
+
+let userInputValue = getUserInputValue()
+checkUnit(inputValue: userInputValue!)
+//checkUnit(inputValue: userInputValue)
 
 
 
