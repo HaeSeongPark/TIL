@@ -8,29 +8,46 @@
 
 import Foundation
 
+/*
+ cm : centimeter
+ m : meter
+ */
+
 let multiplierCmtoM:Double = 0.01
 let multiplierMToCm:Double = 100
 
-func unitConverter(input:String){
+func checkUnit(inputValue:String){
+    var result:String = ""
     // "c"가 있으면 cm 그렇지 않으면 m
-    if input.contains("c") {
-        let centimeterValueWithUnit:String = input
-        let centimeterUnitIndex = centimeterValueWithUnit.index(of: "c") ?? centimeterValueWithUnit.endIndex
-        let centimeterValueWithOutUnit = centimeterValueWithUnit[..<centimeterUnitIndex]
-        let convertedToDouble = Double(centimeterValueWithOutUnit)!
-        let convertedToMeter = convertedToDouble * multiplierCmtoM
-        print("\(convertedToMeter)m")
+    if inputValue.contains("c") {
+        result = convertCmtoM(cmValue: inputValue)
     } else {
-        let meterValueWithUnit:String = input
-        let meterUnitIndex = meterValueWithUnit.index(of: "m") ?? meterValueWithUnit.endIndex
-        let meterValueWithOutUnit = meterValueWithUnit[..<meterUnitIndex]
-        let convertedToDouble = Double(meterValueWithOutUnit)!
-        let convertedToCentimeter = convertedToDouble * multiplierMToCm
-        print("\(convertedToCentimeter)cm")
+        result = convertMtoCm(mValue: inputValue)
     }
+    print("result : \(result)")
 }
-unitConverter(input: "170cm")
-unitConverter(input: "1.8m")
+
+func convertCmtoM(cmValue:String) -> String {
+    // 함수이름에 정보가 있으므로 centimeter 단어 삭제
+    let unitIndex = extractUnitIndex(inputValue: cmValue, unit: "c")
+    let valueWithoutUnit = cmValue[..<unitIndex]
+    let convertedToMeter = Double(valueWithoutUnit)! * multiplierCmtoM
+    return "\(convertedToMeter)m"
+}
+
+func convertMtoCm(mValue:String) -> String {
+    let unitIndex = extractUnitIndex(inputValue: mValue, unit: "m")
+    let valueWithOutUnit = mValue[..<unitIndex]
+    let convertedToCentimeter = Double(valueWithOutUnit)! * multiplierMToCm
+    return "\(convertedToCentimeter)cm"
+
+}
+
+func extractUnitIndex(inputValue:String, unit:Character) -> String.Index{
+    return inputValue.index(of: unit) ?? inputValue.endIndex
+}
+checkUnit(inputValue: "170cm")
+checkUnit(inputValue: "1.8m")
 
 
 
