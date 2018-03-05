@@ -6,21 +6,19 @@
 //  Copyright © 2018년 rhino Q. All rights reserved.
 //
 
-import Foundation
+let centimeterValueWithUnit:String = "120cm"
+let centimeterUnitIndex = centimeterValueWithUnit.index(of: "c") ?? centimeterValueWithUnit.endIndex
+let centimeterValueWithOutUnit = centimeterValueWithUnit[..<centimeterUnitIndex]
+let convertedToDouble = Double(centimeterValueWithOutUnit)!
+let convertedToMeter = convertedToDouble * 0.01
+print("\(convertedToMeter)m")
 
-//let cm:String = "120cm"
-//let cmIndex = cm.index(of: "c") ?? cm.endIndex
-//let numberOfCm = cm[..<cmIndex]
-//let doubleOfCm = Double(numberOfCm)!
-//let numberOfm = doubleOfCm * 0.01
-//print("\(numberOfm)m")
+//let meterValueWithUnit:String = "1.86m"
+//let meterUnitIndex = meterValueWithUnit.index(of: "m") ?? meterValueWithUnit.endIndex
+//let meterValueWithOutUnit = meterValueWithUnit[..<meterUnitIndex]
+//let convertedToDouble = Double(meterValueWithOutUnit)!
+//let convertedToCentimeter = convertedToDouble * 100
+//print("\(convertedToCentimeter)cm")
 
 
-
-let m:String = "1.86m"
-let mIndex = m.index(of: "m") ?? m.endIndex
-let numberOfm = m[..<mIndex]
-let doubleOfm = Double(numberOfm)!
-let numberOfcm = Int(doubleOfm * 100)
-print("\(numberOfcm)cm")
 
