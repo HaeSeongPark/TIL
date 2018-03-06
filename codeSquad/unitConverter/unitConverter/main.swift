@@ -50,16 +50,16 @@ struct Length{
         lenghtCm = length / lengthUnit.ratio
     }
     
-    func valueOfLengthUnit(lengthUnit:LengthUnit) -> String{
+    func convert(to lengthUnit:LengthUnit) -> String{
         return "\(lenghtCm * lengthUnit.ratio)\(lengthUnit.symbol)"
     }
     
     func printResult(_ result:Length, _ resultUnit:LengthUnit){
         switch resultUnit {
         case .cm:
-            print(self.valueOfLengthUnit(lengthUnit:.m))
+            print(self.convert(to:.m))
         case .m:
-            print(self.valueOfLengthUnit(lengthUnit: .cm))
+            print(self.convert(to: .cm))
         }
     }
 }
