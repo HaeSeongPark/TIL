@@ -8,6 +8,13 @@
 
 import Foundation
 
+/* custom chracterset */
+extension CharacterSet {
+    static var digitAndDot: CharacterSet {
+        return CharacterSet(charactersIn: "0123456789.").union(.decimalDigits)
+    }
+}
+
 enum LengthUnit:Int{
     case cm
     case m
@@ -64,7 +71,7 @@ struct Length{
 struct RhinoUnitConverter{
     func start(){
         let userInput = self.getUserInputValue()
-        let (lengthWithoutUnit,unit) = self.splitIntoLenghtAndUnit(inputValue: userInput)
+        let (lengthWithoutUnit,unit) = self.split(inputValue: userInput)
         let resultUnit = Units[unit]! // 이미 invalidCheck를 했기 때문에 !
         let result = Length(lengthWithoutUnit, lengthUnit: resultUnit)
         result.printResult(result, resultUnit)
@@ -86,7 +93,7 @@ struct RhinoUnitConverter{
             return false
         }
         
-        let (_ ,unit) = splitIntoLenghtAndUnit(inputValue: userInput)
+        let (_ ,unit) = split(inputValue: userInput)
         
         guard Units[unit] != nil else {
             print("단위를 적지 않았거나 지원하지 않는 단위를 입력하셨습니다. 다시입력해주세요")
@@ -96,18 +103,23 @@ struct RhinoUnitConverter{
         return true
     }
     //TODO: 정규식으로 간단히 할 수 없는지 알아보기
-    func splitIntoLenghtAndUnit(inputValue:String) -> (lenghtWithoutUnit:Double, unit:String){
-        // 숫자 셋 지정
-        let digitsAndDot:[Character] = ["0","1","2","3","4","5","6","7","8","9","."]
-        //문자열의 첫번 째 인 덱스
-        var tempIndex = inputValue.startIndex
-        // 숫자와 닷이 아닐 때까지 돈다
-        while tempIndex < inputValue.endIndex && digitsAndDot.contains(inputValue[tempIndex]) == true {
-            tempIndex = inputValue.index(after: tempIndex)
+    func split(inputValue:String) -> (lenghtWithoutUnit:Double, unit:String){
+        // inputValue의 시작위치
+        var countIndex:String.Index = inputValue.startIndex
+        
+        // inputValue 문자열의 하나하나를 unicodeScalars로 가지고와서
+        for tempChar in inputValue.unicodeScalars {
+            // custom characterset에 있는지 검사하고 없으면 for문 중지하고
+            if CharacterSet.digitAndDot.contains(tempChar) == false {
+                break
+            }
+            // 있으면 countIndex를 하나 증가
+            countIndex = inputValue.index(after: countIndex)
         }
+        
         // 이미 위에서 확인 했으므로 !
-        let lenghtWithoutUnit = Double(inputValue[..<tempIndex].description)!
-        let unit:String = inputValue[tempIndex...].description
+        let lenghtWithoutUnit = Double(inputValue[..<countIndex].description)!
+        let unit:String = inputValue[countIndex...].description
         
         return (lenghtWithoutUnit,unit)
     }
@@ -115,3 +127,4 @@ struct RhinoUnitConverter{
 
 var rhinoUnitConverter = RhinoUnitConverter()
 rhinoUnitConverter.start()
+
