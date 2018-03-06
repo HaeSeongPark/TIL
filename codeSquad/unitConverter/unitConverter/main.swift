@@ -8,54 +8,95 @@
 
 import Foundation
 
-/*
- cm : centimeter
- m : meter
- */
-
-let multiplierCmtoM:Double = 0.01
-let multiplierMToCm:Double = 100
-
-func checkUnit(inputValue:String){
-    var result:String = ""
-    // "c"가 있으면 cm 그렇지 않으면 m
-    if inputValue.contains("c") {
-        result = convertCmtoM(cmValue: inputValue)
-    } else {
-        result = convertMtoCm(mValue: inputValue)
+enum LengthUnit:Int{
+    case cm
+    case m
+    
+    var ratio:Double{
+        get{
+            switch self {
+            case .cm: return 1.0
+            case .m: return 0.01
+            }
+        }
     }
-    print("result : \(result)")
+    
+    var symbol:String{
+        get{
+            switch self {
+            case .cm: return "cm"
+            case .m: return "m"
+            }
+        }
+    }
 }
 
-func convertCmtoM(cmValue:String) -> String {
-    // 함수이름에 정보가 있으므로 centimeter 단어 삭제
-    let unitIndex = extractUnitIndex(inputValue: cmValue, unit: "c")
-    let valueWithoutUnit = cmValue[..<unitIndex]
-    let convertedToMeter = Double(valueWithoutUnit)! * multiplierCmtoM
-    return "\(convertedToMeter)m"
-}
+var Units:Dictionary<String,LengthUnit> = [
+    "cm" : LengthUnit.cm,
+    "m" : LengthUnit.m
+]
 
-func convertMtoCm(mValue:String) -> String {
-    // 함수이름에 정보가 있으므로 meter 단어 삭제
-    let unitIndex = extractUnitIndex(inputValue: mValue, unit: "m")
-    let valueWithOutUnit = mValue[..<unitIndex]
-    let convertedToCentimeter = Double(valueWithOutUnit)! * multiplierMToCm
-    return "\(convertedToCentimeter)cm"
-
-}
-
-func extractUnitIndex(inputValue:String, unit:Character) -> String.Index{
-    return inputValue.index(of: unit) ?? inputValue.endIndex
+struct Length{
+    var lenghtCm = 0.0 // 기본 단위 cm
+    
+    init(_ length:Double, lengthUnit:LengthUnit){
+        lenghtCm = length / lengthUnit.ratio
+    }
+    
+    func valueOfLengthUnit(lengthUnit:LengthUnit) -> String{
+        return "\(lenghtCm * lengthUnit.ratio)\(lengthUnit.symbol)"
+    }
 }
 
 func getUserInputValue() -> String?{
-    print("변화하고 싶은 값과 단위를 입력하세요. ex)180cm")
-    return readLine()
+    print("변환할 값과 단위를 입력해주세요 ex)180cm")
+        return readLine()
 }
 
-let userInputValue = getUserInputValue()
-checkUnit(inputValue: userInputValue!)
-//checkUnit(inputValue: userInputValue)
+func startConvert(){
+    guard let inputValue = getUserInputValue() else {
+        print("유효하지 않은 값입니다")
+        return
+    }
+    let (lengthWithoutUnit,unit) = splitIntoLenghtAndUnit(inputValue: inputValue)
+    
+    guard let resultUnit = Units[unit] else {
+        print("지원하지 않는 단위입니다.")
+        return
+    }
+    
+    let result = Length(lengthWithoutUnit, lengthUnit: resultUnit)
+    printResult(result, resultUnit)
+}
+
+func printResult(_ result:Length, _ resultUnit:LengthUnit){
+    switch resultUnit {
+    case .cm:
+        print(result.valueOfLengthUnit(lengthUnit:.m))
+    case .m:
+        print(result.valueOfLengthUnit(lengthUnit: .cm))
+    }
+}
+
+// TODO : 정규식으로 간단히 할 수 없는지 알아보기
+func splitIntoLenghtAndUnit(inputValue:String) -> (lenghtWithoutUnit:Double, unit:String){
+    // 숫자 셋 지정
+    let digitsAndDot:[Character] = ["0","1","2","3","4","5","6","7","8","9","."]
+    //문자열의 첫번 째 인 덱스
+    var tempIndex = inputValue.startIndex
+    // 숫자와 닷이 아닐 때까지 돈다
+    while digitsAndDot.contains(inputValue[tempIndex]) == true {
+        tempIndex = inputValue.index(after: tempIndex)
+    }
+    // 이미 위에서 확인 했으므로 !
+    let lenghtWithoutUnit = Double(inputValue[..<tempIndex].description)!
+    let unit:String = inputValue[tempIndex...].description
+    
+    return (lenghtWithoutUnit,unit)
+}
+
+startConvert()
+
 
 
 
