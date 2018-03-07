@@ -5,6 +5,7 @@
 //  Created by rhino Q on 2018. 3. 5..
 //  Copyright © 2018년 rhino Q. All rights reserved.
 //
+// ToDo : // 입력받은 값이 모두 문자열이면 예외처리
 
 import Foundation
 
@@ -55,7 +56,7 @@ struct Length{
     }
     
     func convert(to lengthUnit:LengthUnit) -> String{
-        return "\(lenghtCm * lengthUnit.ratio)\(lengthUnit.symbol)"
+        return "\(lenghtCm * lengthUnit.ratio) \(lengthUnit.symbol)"
     }
     
     func printResult(_ userLength:Length, _ convetUnit:LengthUnit){
@@ -88,7 +89,8 @@ struct RhinoUnitConverter{
     }
     
     func invalidCheck(_ userInput:String) -> Bool{
-        guard userInput != "" else {
+                                // 입력받은 값이 모두 문자열이면 예외처리
+        guard userInput != "" && getMatchIndex(for: "[0-9]", in: userInput) != nil else {
             print("유효하지 않은 값입니다. 다시입력해주세요")
             return false
         }
@@ -102,37 +104,22 @@ struct RhinoUnitConverter{
         
         return true
     }
-    //TODO: 정규식으로 간단히 할 수 없는지 알아보기
+    //TODO: 정규식으로 더 간단히 할 수 없느지 알아보기
     func split(inputValue:String) -> (lengthWithoutUnit:Double, lengthUnit:String, convertUnit:String){
-        /* ChracterSet 사용 */
-        
-//        inputValue의 시작위치
-//        var countIndex:String.Index = inputValue.startIndex
-//
-//        // inputValue 문자열의 하나하나를 unicodeScalars로 가지고와서
-//        for tempChar in inputValue.unicodeScalars {
-//            // custom characterset에 있는지 검사하고 없으면 for문 중지하고
-//            if CharacterSet.digitAndDot.contains(tempChar) == false {
-//                break
-//            }
-//            // 있으면 countIndex를 하나 증가
-//            countIndex = inputValue.index(after: countIndex)
-//        }
-        
-        /* 정규식 사용 */
+
         guard let countIndex = self.getMatchIndex(for: "[a-zA-Z]", in: inputValue) else {
             return (0.0,"", "")
         }
         let countStringIndex = inputValue.index(inputValue.startIndex, offsetBy: countIndex)
-        
+
         // 이미 위에서 확인 했으므로 !
         let lengthWithoutUnit = Double(inputValue[..<countStringIndex].description)!
         let units:String = inputValue[countStringIndex...].description
         var separatedUnits = units.split(separator: " ")
-        
+
         let lengthunit = separatedUnits[0].description
         var convertUnit:String = "cm"
-        
+
         if separatedUnits.count == 1 {
             convertUnit = addConvertUnitWhenNoConvertUnit(lengthunit)
         } else {
