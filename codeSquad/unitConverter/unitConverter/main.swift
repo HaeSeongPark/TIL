@@ -18,12 +18,14 @@ extension CharacterSet {
 enum LengthUnit:Int{
     case cm
     case m
+    case inch
     
     var ratio:Double{
         get{
             switch self {
             case .cm: return 1.0
             case .m: return 0.01
+            case .inch: return 0.3937
             }
         }
     }
@@ -33,6 +35,7 @@ enum LengthUnit:Int{
             switch self {
             case .cm: return "cm"
             case .m: return "m"
+            case .inch: return "inch"
             }
         }
     }
@@ -40,7 +43,8 @@ enum LengthUnit:Int{
 
 var Units:Dictionary<String,LengthUnit> = [
     "cm" : LengthUnit.cm,
-    "m" : LengthUnit.m
+    "m" : LengthUnit.m,
+    "inch": LengthUnit.inch
 ]
 
 struct Length{
@@ -54,13 +58,8 @@ struct Length{
         return "\(lenghtCm * lengthUnit.ratio)\(lengthUnit.symbol)"
     }
     
-    func printResult(_ result:Length, _ resultUnit:LengthUnit){
-        switch resultUnit {
-        case .cm:
-            print(self.convert(to:.m))
-        case .m:
-            print(self.convert(to: .cm))
-        }
+    func printResult(_ userLength:Length, _ convetUnit:LengthUnit){
+        print(userLength.convert(to: convetUnit))
     }
 }
 
@@ -71,14 +70,15 @@ struct Length{
 struct RhinoUnitConverter{
     func start(){
         let userInput = self.getUserInputValue()
-        let (lengthWithoutUnit,unit) = self.split(inputValue: userInput)
-        let resultUnit = Units[unit]! // 이미 invalidCheck를 했기 때문에 !
-        let result = Length(lengthWithoutUnit, lengthUnit: resultUnit)
-        result.printResult(result, resultUnit)
+        let (lengthWithoutUnit,lenghtunit, convertUnit) = self.split(inputValue: userInput)
+        let resultLengthUnit = Units[lenghtunit]! // 이미 invalidCheck를 했기 때문에 !
+        let resultConvertUnit = Units[convertUnit]!
+        let userLength = Length(lengthWithoutUnit, lengthUnit: resultLengthUnit)
+        userLength.printResult(userLength, resultConvertUnit)
     }
     
     func getUserInputValue() -> String{
-        print("변환할 값과 단위를 입력해주세요 ex)180cm")
+        print("변환할 값, 단위와 변환하고 싶은 단위가 있으면 입력해주세요 ex)180cm inch")
         
         var userInput:String = readLine()!
         while self.invalidCheck(userInput) == false {
@@ -93,9 +93,9 @@ struct RhinoUnitConverter{
             return false
         }
         
-        let (_ ,unit) = split(inputValue: userInput)
+        let (_ ,lengthunit, convertUnit) = split(inputValue: userInput)
         
-        guard Units[unit] != nil else {
+        guard Units[lengthunit] != nil && Units[convertUnit] != nil else {
             print("단위를 적지 않았거나 지원하지 않는 단위를 입력하셨습니다. 다시입력해주세요")
             return false
         }
@@ -103,8 +103,10 @@ struct RhinoUnitConverter{
         return true
     }
     //TODO: 정규식으로 간단히 할 수 없는지 알아보기
-    func split(inputValue:String) -> (lenghtWithoutUnit:Double, unit:String){
-        // inputValue의 시작위치
+    func split(inputValue:String) -> (lengthWithoutUnit:Double, lengthUnit:String, convertUnit:String){
+        /* ChracterSet 사용 */
+        
+//        inputValue의 시작위치
 //        var countIndex:String.Index = inputValue.startIndex
 //
 //        // inputValue 문자열의 하나하나를 unicodeScalars로 가지고와서
@@ -116,16 +118,34 @@ struct RhinoUnitConverter{
 //            // 있으면 countIndex를 하나 증가
 //            countIndex = inputValue.index(after: countIndex)
 //        }
+        
+        /* 정규식 사용 */
         guard let countIndex = self.getMatchIndex(for: "[a-zA-Z]", in: inputValue) else {
-            return (0.0,"")
+            return (0.0,"", "")
         }
         let countStringIndex = inputValue.index(inputValue.startIndex, offsetBy: countIndex)
         
         // 이미 위에서 확인 했으므로 !
-        let lenghtWithoutUnit = Double(inputValue[..<countStringIndex].description)!
-        let unit:String = inputValue[countStringIndex...].description
+        let lengthWithoutUnit = Double(inputValue[..<countStringIndex].description)!
+        let units:String = inputValue[countStringIndex...].description
+        var separatedUnits = units.split(separator: " ")
         
-        return (lenghtWithoutUnit,unit)
+        let lengthunit = separatedUnits[0].description
+        var convertUnit:String = "cm"
+        
+        if separatedUnits.count == 1 {
+            convertUnit = addConvertUnitWhenNoConvertUnit(lengthunit)
+        } else {
+            convertUnit = separatedUnits[1].description
+        }
+        return (lengthWithoutUnit,lengthunit, convertUnit)
+    }
+    
+    func addConvertUnitWhenNoConvertUnit(_ lengtUnit:String) -> String{
+        switch lengtUnit {
+        case "cm": return "m"
+        default: return "cm"
+        }
     }
     
     func getMatchIndex(for regex:String, in text:String) ->Int?{
