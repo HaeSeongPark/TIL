@@ -105,23 +105,38 @@ struct RhinoUnitConverter{
     //TODO: 정규식으로 간단히 할 수 없는지 알아보기
     func split(inputValue:String) -> (lenghtWithoutUnit:Double, unit:String){
         // inputValue의 시작위치
-        var countIndex:String.Index = inputValue.startIndex
-        
-        // inputValue 문자열의 하나하나를 unicodeScalars로 가지고와서
-        for tempChar in inputValue.unicodeScalars {
-            // custom characterset에 있는지 검사하고 없으면 for문 중지하고
-            if CharacterSet.digitAndDot.contains(tempChar) == false {
-                break
-            }
-            // 있으면 countIndex를 하나 증가
-            countIndex = inputValue.index(after: countIndex)
+//        var countIndex:String.Index = inputValue.startIndex
+//
+//        // inputValue 문자열의 하나하나를 unicodeScalars로 가지고와서
+//        for tempChar in inputValue.unicodeScalars {
+//            // custom characterset에 있는지 검사하고 없으면 for문 중지하고
+//            if CharacterSet.digitAndDot.contains(tempChar) == false {
+//                break
+//            }
+//            // 있으면 countIndex를 하나 증가
+//            countIndex = inputValue.index(after: countIndex)
+//        }
+        guard let countIndex = self.getMatchIndex(for: "[a-zA-Z]", in: inputValue) else {
+            return (0.0,"")
         }
+        let countStringIndex = inputValue.index(inputValue.startIndex, offsetBy: countIndex)
         
         // 이미 위에서 확인 했으므로 !
-        let lenghtWithoutUnit = Double(inputValue[..<countIndex].description)!
-        let unit:String = inputValue[countIndex...].description
+        let lenghtWithoutUnit = Double(inputValue[..<countStringIndex].description)!
+        let unit:String = inputValue[countStringIndex...].description
         
         return (lenghtWithoutUnit,unit)
+    }
+    
+    func getMatchIndex(for regex:String, in text:String) ->Int?{
+        do{
+            let regex = try NSRegularExpression(pattern:regex,options:[])
+            let results = regex.firstMatch(in: text, options: [], range: NSRange(text.startIndex..., in: text))
+            return results?.range(at: 0).location
+        }catch let error {
+            print("invalid regex: \(error.localizedDescription)")
+            return nil
+        }
     }
 }
 
