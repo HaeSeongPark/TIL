@@ -8,7 +8,10 @@
         -> if - else 는 nil일 때와 아닐 때로 구분해서 처리 할 때 사용
         -> guard else 는 nil일 때 예외사항만 처리하고 싶으면 사용 if else보다 코드가 깔끔해진다.
  
-    이제 다음 단계도 진행해보세요.
+    ✅ 무게 추가
+    Length를 Unit으로 바꾸고
+    무게 단위들 추가 (g, kg, oz, lb)
+ 
  */
 
 //TODO: struct getter setter 좀 알아보기
@@ -22,8 +25,9 @@ extension CharacterSet {
     }
 }
 
-enum LengthUnit:Int{
-    case cm, m, inch, yard
+
+enum Unit:Int{
+    case cm, m, inch, yard, g, kg, oz, lb
 
     
     var ratio:Double{
@@ -33,6 +37,10 @@ enum LengthUnit:Int{
             case .m: return 0.01
             case .inch: return 0.3937
             case .yard: return 0.0109
+            case .g: return 1.0
+            case .kg: return 0.001
+            case .lb : return 0.0022
+            case .oz : return 0.03527
             }
         }
     }
@@ -44,41 +52,47 @@ enum LengthUnit:Int{
             case .m: return "m"
             case .inch: return "inch"
             case .yard: return "yard"
+            case .g: return "g"
+            case .kg: return "kg"
+            case .lb: return "lb"
+            case .oz: return "oz"
             }
         }
     }
 }
 
-var Units:Dictionary<String,LengthUnit> = [
-    "cm" : LengthUnit.cm,
-    "m" : LengthUnit.m,
-    "inch": LengthUnit.inch,
-    "yard": LengthUnit.yard
+var Units:Dictionary<String,Unit> = [
+    "cm" : Unit.cm,
+    "m" : Unit.m,
+    "inch": Unit.inch,
+    "yard": Unit.yard,
+    "g": Unit.g,
+    "kg": Unit.kg,
+    "lb": Unit.lb,
+    "oz": Unit.oz
 ]
+
 
 struct Length{
     // 기본단위cm
-    private var length:Double
-    private var unit:LengthUnit
-    private var convertUnit:LengthUnit
+    private var value:Double
+    private var unit:Unit
+    private var convertUnit:Unit
     
-    init(length:Double, unit:LengthUnit, convertUnit:LengthUnit){
-        self.length = length
+    init(length:Double, unit:Unit, convertUnit:Unit){
+        self.value = length
         self.unit = unit
         self.convertUnit = convertUnit
     }
     
     mutating func changeToCm(){
-        self.length = self.length / self.unit.ratio
+        self.value = self.value / self.unit.ratio
     }
     
     mutating func convert(){
-        print("\(self.length * self.convertUnit.ratio)\(self.convertUnit.symbol)")
+        print("\(self.value * self.convertUnit.ratio)\(self.convertUnit.symbol)")
     }
 }
-
-
-
 struct RhinoUnitConverter{
     
     var length:Length = Length(length: 0.0, unit: .cm, convertUnit: .cm)
@@ -130,6 +144,7 @@ struct RhinoUnitConverter{
             print("단위를 적지 않았거나 지원하지 않는 단위를 입력하셨습니다. 다시입력해주세요")
             return false
         }
+        
         return true
     }
     
@@ -171,8 +186,11 @@ struct RhinoUnitConverter{
     
     func addConvertUnitWhenNoConvertUnit(_ lengtUnit:String) -> String{
         switch lengtUnit {
+        case "m": return "cm"
         case "cm","yard": return "m"
-        default: return "cm"
+        case "g": return "kg"
+        case "kg","oz","lb" : return "g"
+        default: return ""
         }
     }
     
