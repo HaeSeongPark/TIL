@@ -1,31 +1,17 @@
 
-// ToDo
-// ✅ 입력받은 값이 모두 문자열이면 예외처리
-
-//  ✅ RhinoUnitConverter 구조체에 함수가 많은데 매개변수나 리턴타입이 긴 편입니다.
-//  혹시 내부에 인스턴스 변수를 두면 줄어들 수 있는 부분이 있을까요?
-
+// TODO
 /*
- var user:Length = Length(length: 0.0, unit: .cm, convertUnit: .cm)
- var rawUserLenthUnit:String = ""
- var rawUserConvertUnit:String = ""
- var rawUserLenth:Double = 0.0
- 인스턴스를 사용하요 split 리턴타입을 제거했습니다.
+    ✅ readLine()! 부분에서 강제 언래핑을 하고 있네요. 옵셔널 처리를 안전하게 하도록 개선해보세요.
+        ->line 100 ~ 110
+ 
+    ✅ guard else 를 쓰는 것과 if-else 를 쓰는 것 기준을 정해보세요.
+        -> if - else 는 nil일 때와 아닐 때로 구분해서 처리 할 때 사용
+        -> guard else 는 nil일 때 예외사항만 처리하고 싶으면 사용 if else보다 코드가 깔끔해진다.
+ 
+    이제 다음 단계도 진행해보세요.
  */
 
-//  ✅ getUserInputValue() 나 getMatchIndex() 처럼 특정한 값을 리턴하는 경우는 동사를 붙이기 위해서 get-을 붙이기보다,
-//   그냥 그 값을 표현하는 명사형으로 표현해도 됩니다. get- set- 을 의식적으로 붙일 필요는 없어요
-// 제거
-
-//  ✅ 이미 위에서 확인 했으므로 ! 처럼 흐름상 옵셔널을 강제로 띄어낼 수 있더라도
-//  if let 이나 guard let 으로 바인딩을 해서 쓰는 습관을 갖는게 좋습니다.
-// 128줄 guard let 바인딩후 116줄 사용
-// 나머지 하나는 개선하면서 삭제 됨
-
-// ✅ 반복입력
-// ✅ yard추가
-
-// struct getter setter 좀 알아보기
+//TODO: struct getter setter 좀 알아보기
 
 import Foundation
 
@@ -105,16 +91,27 @@ struct RhinoUnitConverter{
             self.userInputValue()
             length.changeToCm()
             length.convert()
+            self.rawInit()
+            
         }
+    }
+    
+    mutating func rawInit(){
+        self.rawUserLengthUnit = ""
+        self.rawUserConvertUnit = ""
+        self.rawUserLength = 0.0
     }
     
     mutating func userInputValue(){
         print("변환할 값, 단위와 변환하고 싶은 단위가 있으면 입력해주세요 ex)180cm inch")
         
-        var userInput:String = readLine()!
-        self.checkQuit(userInput)
-        while self.invalidCheck(userInput) == false {
-            userInput = readLine()!
+        while let userInput = readLine() {
+            self.checkQuit(userInput)
+            if self.invalidCheck(userInput) == false {
+                continue
+            } else {
+                break
+            }
         }
         
         length = Length(length: rawUserLength, unit: Units[rawUserLengthUnit]!, convertUnit: Units[rawUserConvertUnit]!)
