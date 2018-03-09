@@ -16,7 +16,6 @@
 //TODO: struct getter setter 좀 알아보기
 
 import Foundation
-
 /* custom chracterset */
 extension CharacterSet {
     static var digitAndDot: CharacterSet {
@@ -24,7 +23,6 @@ extension CharacterSet {
     }
 }
 
-CharacterSet.punctuationCharacters
 
 enum Unit:Int{
     case cm, m, inch, yard, g, kg, oz, lb
@@ -106,7 +104,6 @@ struct RhinoUnitConverter{
             length.changeToCm()
             length.convert()
             self.rawInit()
-            
         }
     }
     
