@@ -1,16 +1,15 @@
 
 // TODO
 /*
-    ✅ readLine()! 부분에서 강제 언래핑을 하고 있네요. 옵셔널 처리를 안전하게 하도록 개선해보세요.
-        ->line 100 ~ 110
+ 무게와 부피가 추가됐는데, Unit 이나 Units 에는 들어갔는데 객체는 Length 뿐이네요. 무게랑 부피는 객체가 없나요?
  
-    ✅ guard else 를 쓰는 것과 if-else 를 쓰는 것 기준을 정해보세요.
-        -> if - else 는 nil일 때와 아닐 때로 구분해서 처리 할 때 사용
-        -> guard else 는 nil일 때 예외사항만 처리하고 싶으면 사용 if else보다 코드가 깔끔해진다.
+ Unit 에 길이, 무게, 부피가 다 들어있는데 다 합쳐서 표현하는게 좋을까요? 아니면 의미 단위로 분리하는게 좋을까요?
+ 어떻게 생각하세요?
  
-    ✅ 무게 추가
-    Length를 Unit으로 바꾸고
-    무게 단위들 추가 (g, kg, oz, lb)
+ RhinoUnitConverter 객체가 조금 복잡해 보입니다.
+ 입력하고 검사하는 객체와 변환을 담당하는 객체, 그리고 결과를 출력하는 객체로... 분리해봅시다.
+ start() 함수는 어디에 포함되야 할까요?
+
  
  */
 
@@ -25,10 +24,11 @@ extension CharacterSet {
     }
 }
 
+CharacterSet.punctuationCharacters
 
 enum Unit:Int{
     case cm, m, inch, yard, g, kg, oz, lb
-
+    
     
     var ratio:Double{
         get{
@@ -132,7 +132,7 @@ struct RhinoUnitConverter{
     }
     
     mutating func invalidCheck(_ userInput:String) -> Bool{
-                                // 입력받은 값이 모두 문자열이면 예외처리
+        // 입력받은 값이 모두 문자열이면 예외처리
         guard userInput != "" && self.matchIndex(for: "[0-9]", in: userInput) != nil else {
             print("유효하지 않은 값입니다. 다시입력해주세요")
             return false
@@ -157,23 +157,23 @@ struct RhinoUnitConverter{
     
     //TODO: 정규식으로 더 간단히 할 수 없느지 알아보기
     mutating func split(inputValue:String){
-
+        
         guard let countIndex = self.matchIndex(for: "[a-zA-Z]", in: inputValue) else {
             return
         }
         
         let countStringIndex = inputValue.index(inputValue.startIndex, offsetBy: countIndex)
-
+        
         guard let lengthWithoutUnit = Double(inputValue[..<countStringIndex].description) else {
             return
         }
         
         let units:String = inputValue[countStringIndex...].description
         var separatedUnits = units.split(separator: " ")
-
+        
         let lengthunit = separatedUnits[0].description
         var convertUnit:String = "cm"
-
+        
         if separatedUnits.count == 1 {
             convertUnit = addConvertUnitWhenNoConvertUnit(lengthunit)
         } else {
@@ -208,4 +208,5 @@ struct RhinoUnitConverter{
 
 var rhinoUnitConverter = RhinoUnitConverter()
 rhinoUnitConverter.start()
+
 
