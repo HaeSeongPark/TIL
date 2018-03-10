@@ -11,19 +11,20 @@
  Unit 에 길이, 무게, 부피가 다 들어있는데 다 합쳐서 표현하는게 좋을까요? 아니면 의미 단위로 분리하는게 좋을까요?
  어떻게 생각하세요?
  분리해야 한다고 생각합니다!
- ➡️  LengthUnit, Length, WeightUnit, Weigth, Volume, VolumeWeigth 만들어서 의미 단위로 분리했습니다!
+ ➡️  Length, Weigth, Volume, 만들어서 의미 단위로 분리했습니다!
  
  RhinoUnitConverter 객체가 조금 복잡해 보입니다.
  입력하고 검사하는 객체와 변환을 담당하는 객체, 그리고 결과를 출력하는 객체로... 분리해봅시다.
  start() 함수는 어디에 포함되야 할까요?
  
- ➡️ 변환과 출력은 Length, Weigth, Volume 각각 객체에서 담당하게 했습니다.
+ ➡️ 변환은 Unit
  
- ➡️ RhinoUnitConverter가 복잡해 보이는 것은 유효체크를 하는 것 때문이라고 판단되서
- 입력하는 것과 start()는 그대로 RhinoUnitConverter에 두고
- 검사하는 객체만 InvalidChecker로 따로 만들기
+ ➡️ 검사는 InvalidChecker
  
- 값나오게 하기
+ ➡️ 입력과, 결과 출력하는 것, start()는 RhinoUnitConverter에 두었습니다.
+ 
+ ➡️ RhinoUnitConverter에서 유효값 체크가 가장 복잡해 보여서 InvalidChecker만 따로 만들었는데
+    RhinoUnitConvert에서 입력과 출력도 분리를 해야 될까요?
  
  */
 
@@ -66,14 +67,14 @@ protocol UnitRatioAndSymbol {
 
 protocol Unit{
     func changeToBasicValue(_ value:Double, _ unit:UnitRatioAndSymbol) -> Double
-    func convert(basicValue:Double, to convertUnit:UnitRatioAndSymbol) -> String
+    func convert(_ basicValue:Double, to convertUnit:UnitRatioAndSymbol) -> String
 }
 
 extension Unit{
     func changeToBasicValue(_ value:Double, _ unit:UnitRatioAndSymbol) -> Double{
         return value / unit.ratio
     }
-    func convert(basicValue: Double, to convertUnit:UnitRatioAndSymbol) -> String {
+    func convert(_ basicValue: Double, to convertUnit:UnitRatioAndSymbol) -> String {
         return "\(basicValue * convertUnit.ratio)\(convertUnit.symbol)"
     }
 }
@@ -145,10 +146,10 @@ struct Volume:Unit {
         
         var symbol:String{
             switch self {
-            case .hop: return "g"
-            case .doe: return "kg"
-            case .mal: return "lb"
-            case .L: return "oz"
+            case .hop: return "hop"
+            case .doe: return "doe"
+            case .mal: return "mal"
+            case .L: return "L"
             }
         }
     }
@@ -204,12 +205,10 @@ struct RhinoUnitConverter{
     
     
     mutating func start(){
+        getAllUnits()
         while true {
-            getAllUnits()
             userInputValue()
-            // 기본값으로 변경 후
-            // 변환값으로 변경 하기
-            
+            printResult()
             rawInit(0.0, "", "")
         }
     }
@@ -219,12 +218,34 @@ struct RhinoUnitConverter{
         allUnits += Volume.VolumeUnit.allValues.map{ return $0.rawValue }
     }
     
-    func unitCheck(){
+    func printResult(){
+        var basicValue = 0.0
+        var convertValue = ""
+        
+        
+        if let unit = Length.LengthUnit(rawValue:rawUserUnit), let convertUnit = Length.LengthUnit(rawValue: rawUserConvertUnit){
+            basicValue = Length().changeToBasicValue(rawUserValue, unit)
+            convertValue = Length().convert(basicValue, to: convertUnit)
+        }
+        
+        if let unit = Weigth.WeigthUnit(rawValue:rawUserUnit), let convertUnit = Weigth.WeigthUnit(rawValue: rawUserConvertUnit){
+            basicValue = Weigth().changeToBasicValue(rawUserValue, unit)
+            convertValue = Weigth().convert(basicValue, to: convertUnit)
+        }
+        
+        if let unit = Volume.VolumeUnit(rawValue:rawUserUnit), let convertUnit = Volume.VolumeUnit(rawValue: rawUserConvertUnit){
+            basicValue = Volume().changeToBasicValue(rawUserValue, unit)
+            convertValue = Volume().convert(basicValue, to: convertUnit)
+        }
+        
+        print(convertValue)
+        return
         
     }
     
     mutating func userInputValue(){
         print("변환할 값, 단위와 변환하고 싶은 단위가 있으면 입력해주세요 ex)180cm inch")
+        print("종료는 quit 또는 q입니다.")
         while let userInput = readLine(){
             self.checkQuit(userInput)
             
@@ -243,6 +264,8 @@ struct RhinoUnitConverter{
             if invalidChecker.isSupportUnit(allUnits,rawUserUnit, rawUserConvertUnit) == false {
                 continue
             }
+            
+            break
         }
     }
     
@@ -251,8 +274,7 @@ struct RhinoUnitConverter{
             exit(0)
         }
     }
-    
-    //흠...
+
     mutating func split(inputValue:String){
         
         guard let countIndex = invalidChecker.matchIndex(for: "[a-zA-Z]", in: inputValue) else {
@@ -290,9 +312,11 @@ struct RhinoUnitConverter{
     func addConvertUnitWhenNoConvertUnit(_ lengtUnit:String) -> String{
         switch lengtUnit {
         case "m": return "cm"
-        case "cm","yard": return "m"
+        case "cm","yard","inch": return "m"
         case "g": return "kg"
         case "kg","oz","lb" : return "g"
+        case "hop": return "doe"
+        case "doe", "mal","L": return "hop"
         default: return ""
         }
     }
