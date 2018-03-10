@@ -3,5 +3,9 @@
     <pages>
         <page name='unitConverter'/>
         <page name='Untitled Page'/>
+        <page name='justField'/>
+        <page name='Units'/>
+        <page name='swiftEnumAllValue'/>
+        <page name='enum'/>
     </pages>
 </playground>

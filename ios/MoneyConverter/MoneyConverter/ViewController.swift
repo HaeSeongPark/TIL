@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     @IBOutlet weak var curencySegment: UISegmentedControl!
     
     @IBOutlet weak var sourceMoneyField: UITextField!
@@ -25,9 +24,8 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func convertMoney(_ sender: Any) {
-        
         guard let sourceCurrnecy = Currency(rawValue:curencySegment.selectedSegmentIndex)
             else{
             print("Source currenct error")
@@ -38,7 +36,6 @@ class ViewController: UIViewController {
             targetMoneyLabel.text = "error"
             return
         }
-        
         let sourceMoney = Money(sourceAmount, currency:sourceCurrnecy)
     
         var targetMoneyString = ""

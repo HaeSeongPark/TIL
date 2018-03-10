@@ -88,12 +88,3 @@ class Units{
     }
 }
 
-
-enum City: Int {
-    case Melbourne = 1, Chelyabinsk, Bursa
-}
-let city = City.Melbourne
-
-print(city)
-var sdfd = City.init(rawValue: 1)
-print(City.init(rawValue: 1)!)

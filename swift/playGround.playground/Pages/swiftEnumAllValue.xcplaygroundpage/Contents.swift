@@ -29,7 +29,14 @@ enum Weekdays: String, EnumCollection {
 }
 
 for weekday in Weekdays.cases() {
+    if "sunday" == weekday.rawValue as String!{
+        print("true")
+    }
     print(weekday.rawValue)
 }
-
+var adfsd = Weekdays.allValues.description
+print(adfsd)
+var sdf = [String]()
+Weekdays.allValues.map({ sdf.append($0.rawValue) })
+sdf
 print(Weekdays.allValues.map { $0.rawValue })

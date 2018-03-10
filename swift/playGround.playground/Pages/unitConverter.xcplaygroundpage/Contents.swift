@@ -102,6 +102,41 @@ startConvert()
 //let matched = matches(for: "[0-9]", in: string)
 //print(matched)
 
+extension String {
+    public var fullRange: NSRange {
+        return NSRange(location:0, length:characters.count)
+    }
+}
+
+//extension String {
+//    public func range(with r: NSRange) -> String.Index {
+//        let a = index(startIndex, offsetBy: r.location)
+//        let b = index(startIndex, offsetBy: r.location + r.length)
+//        return (a..<b).
+//    }
+//
+//    public subscript(range: NSRange) -> String {
+//        return self[self.range(with:range)]
+//    }
+//}
+//var str2 = "1.8m"
+//var regex = try! NSRegularExpression(pattern: "[0-9]", options:[])
+////let n = regex.numberOfMatches(in: str2, options: [], range: str2.fullRange)
+//if let n = regex.firstMatch(in:str2, options:[], range:str2.fullRange) {
+//    n.range(at: 1).location
+//}
+
+
+
+
+
+//let str = "1234567890"
+//let pattern = "\\d{3}(?=8)" // 8앞의 숫자 3개 --> 567 밖에 없다.
+//let regex = try! NSRegularExpression(pattern:pattern, options:[])
+//
+//if let n = regex.firstMatch(in:str, options:[], range:str.fullRange) {
+//    print(str[n.range]) // prints "567"
+//}
 
 //var abcString:String = "1.8m"
 //abcString.startIndex
@@ -154,4 +189,66 @@ startConvert()
 //    return (valueWithoutUnit,unit)
 //}
 //splitIntoNumberAndString(inputValue: "1.8inch")
+extension CharacterSet {
+    static var digitAndDot: CharacterSet {
+        return CharacterSet(charactersIn: "0123456789.").union(.decimalDigits)
+    }
+}
 
+
+var abc:String = "1.8m"
+for temp in abc.unicodeScalars {
+    if CharacterSet.digitAndDot.contains(temp){
+        print("\(temp) is digitxxv")
+    } else if CharacterSet.digitAndDot.contains(temp) {
+        print("\(temp) is punctuation")
+    } else {
+        print("\(temp) is nothing")
+    }
+}
+
+
+//CharacterSet.decimalDigits.
+
+func matches(for regex: String, in text: String) -> [String] {
+    
+    do {
+        let regex = try NSRegularExpression(pattern: regex)
+        let results = regex.matches(in: text,
+                                    range: NSRange(text.startIndex..., in: text))
+        
+        let results2 = regex.firstMatch(in: text, options: [], range: NSRange(text.startIndex..., in: text))
+        var safd = results2?.range(at: 0).location
+        
+        return results.map {
+            String(text[Range($0.range, in: text)!])
+        }
+    } catch let error {
+        print("invalid regex: \(error.localizedDescription)")
+        return []
+    }
+}
+let string = "1.8"
+let matched = matches(for: "[a-zA-Z]", in: string)
+print(matched)
+// ["4", "9"]
+
+let myString = "Test string"
+let index = 4
+let firstCharacter = myString[String.Index(encodedOffset: index)]
+
+print("sdfsdf\n")
+print("sdf")
+
+
+func getMatchIndex(for regex:String, in text:String) ->Int?{
+    do{
+        let regex = try NSRegularExpression(pattern:regex,options:[])
+        let results = regex.firstMatch(in: text, options: [], range: NSRange(text.startIndex..., in: text))
+        return results?.range(at: 0).location
+    }catch let error {
+        print("invalid regex: \(error.localizedDescription)")
+        return nil
+    }
+}
+getMatchIndex(for: "[0-9]", in: "abc")

@@ -32,8 +32,6 @@ enum Currency:Int{
             }
         }
     }
-    
-    
 }
 
 struct Money {
