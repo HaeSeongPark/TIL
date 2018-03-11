@@ -7,5 +7,10 @@
         <page name='Units'/>
         <page name='swiftEnumAllValue'/>
         <page name='enum'/>
+        <page name='extension'/>
+        <page name='protocol'/>
+        <page name='matrix'/>
+        <page name='SetCharacter'/>
+        <page name='typeProperties'/>
     </pages>
 </playground>
