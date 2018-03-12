@@ -1,32 +1,17 @@
-//
-//  main.swift
-//  test
-//
-//  Created by rhino Q on 2018. 3. 8..
-//  Copyright © 2018년 rhino Q. All rights reserved.
-//
-/*
- // 단위변환기 step7 무게단위변환 JK피드백 반영
- ✅  무게와 부피가 추가됐는데, Unit 이나 Units 에는 들어갔는데 객체는 Length 뿐이네요. 무게랑 부피는 객체가 없나요?
- Unit 에 길이, 무게, 부피가 다 들어있는데 다 합쳐서 표현하는게 좋을까요? 아니면 의미 단위로 분리하는게 좋을까요?
- 어떻게 생각하세요?
- 분리해야 한다고 생각합니다!
- ➡️  Length, Weigth, Volume, 만들어서 의미 단위로 분리했습니다!
- 
- RhinoUnitConverter 객체가 조금 복잡해 보입니다.
- 입력하고 검사하는 객체와 변환을 담당하는 객체, 그리고 결과를 출력하는 객체로... 분리해봅시다.
- start() 함수는 어디에 포함되야 할까요?
- 
- ➡️ 변환은 Unit
- 
- ➡️ 검사는 InvalidChecker
- 
- ➡️ 입력과, 결과 출력하는 것, start()는 RhinoUnitConverter에 두었습니다.
- 
- ➡️ RhinoUnitConverter에서 유효값 체크가 가장 복잡해 보여서 InvalidChecker만 따로 만들었는데
-    RhinoUnitConvert에서 입력과 출력도 분리를 해야 될까요?
- 
- */
+////
+////  main.swift
+////  test
+////
+////  Created by rhino Q on 2018. 3. 8..
+////  Copyright © 2018년 rhino Q. All rights reserved.
+////
+////
+//// ✅변한가능 단위 출력 추가
+////
+//// ✅
+//// 1.83m -> cm inch yard로
+//// 1.83cm inch,yard -> inch, yard로
+//// convertUnit:UnitRationAndSymbol 을 convertUnits:[UnitRatioAndSymbol]로 바꿈.
 
 import Foundation
 
@@ -67,19 +52,26 @@ protocol UnitRatioAndSymbol {
 
 protocol Unit{
     func changeToBasicValue(_ value:Double, _ unit:UnitRatioAndSymbol) -> Double
-    func convert(_ basicValue:Double, to convertUnit:UnitRatioAndSymbol) -> String
+    func convert(_ basicValue:Double, to convertUnits:[UnitRatioAndSymbol]) -> String
 }
 
 extension Unit{
     func changeToBasicValue(_ value:Double, _ unit:UnitRatioAndSymbol) -> Double{
         return value / unit.ratio
     }
-    func convert(_ basicValue: Double, to convertUnit:UnitRatioAndSymbol) -> String {
-        return "\(basicValue * convertUnit.ratio)\(convertUnit.symbol)"
+    func convert(_ basicValue: Double, to convertUnits:[UnitRatioAndSymbol]) -> String {
+        var result = ""
+        
+        for convertUnit in convertUnits{
+            result += "\(basicValue * convertUnit.ratio)\(convertUnit.symbol)   "
+        }
+        
+        return result
     }
 }
 
 struct Length:Unit {
+    
     
     enum LengthUnit:String,UnitRatioAndSymbol, EnumCollection{
         case cm, m, inch, yard
@@ -166,20 +158,31 @@ struct InvalidChecker{
         return true
     }
     
-    func isThereUnit(_ rawUserUnit:String, _ rawUserConvertUnit:String ) -> Bool {
-        if rawUserUnit == "" && rawUserConvertUnit == "" {
-            print("단위를 입력하지 않았습니다. 다시입력해주세요")
-            return false
+    func isThereUnit(_ rawUserUnit:String) -> Bool {
+        if rawUserUnit == "" {
+            print("단위를 입력하지 않았습니다.")
         }
         return true
     }
     
-    func isSupportUnit(_ allUnits:[String],_ rawUserUnit:String, _ rawUserConvertUnit:String) -> Bool{
-        if allUnits.contains(rawUserUnit) && allUnits.contains(rawUserConvertUnit){
-            return true
+    func isSupportUnit(_ allUnits:[String],_ rawUserUnit:String, _ rawUserConvertUnits:[String]) -> Bool{
+        
+        var result = true
+        
+        for rawUserConvertUnit in rawUserConvertUnits {
+            if allUnits.contains(rawUserConvertUnit) == false {
+                result = false
+                break
+            }
         }
-        print("지원하지 않는 단위입니다. 다시입력해주세요")
-        return false
+        
+        result =  result && allUnits.contains(rawUserUnit)
+        
+        if result == false {
+            print("지원하지 않는 단위입니다. 다시입력해주세요")
+            return false
+        }
+        return true
     }
     
     func matchIndex(for regex:String, in text:String) ->Int?{
@@ -201,7 +204,7 @@ struct RhinoUnitConverter{
     
     var rawUserValue:Double = 0.0
     var rawUserUnit:String = ""
-    var rawUserConvertUnit:String = ""
+    var rawUserConvertUnits = [String]()
     
     
     mutating func start(){
@@ -209,34 +212,73 @@ struct RhinoUnitConverter{
         while true {
             userInputValue()
             printResult()
-            rawInit(0.0, "", "")
+            rawInit(0.0, "", [""])
         }
     }
     mutating func getAllUnits(){
-        allUnits += Length.LengthUnit.allValues.map{ return $0.rawValue }
-        allUnits += Weigth.WeigthUnit.allValues.map{ return $0.rawValue }
-        allUnits += Volume.VolumeUnit.allValues.map{ return $0.rawValue }
+        print("지원가능한 단위")
+        print("Length : ", terminator:"")
+        allUnits += Length.LengthUnit.allValues.map{
+            print("\($0.rawValue)", terminator:" ");
+            return $0.rawValue
+        }
+        print()
+        
+        print("Weigth : ", terminator:"")
+        allUnits += Weigth.WeigthUnit.allValues.map{
+            print("\($0.rawValue)", terminator:" ");
+            return $0.rawValue
+        }
+        print()
+        
+        print("Volume: ", terminator:"")
+        allUnits += Volume.VolumeUnit.allValues.map{
+            print("\($0.rawValue)", terminator:" ");
+            return $0.rawValue
+        }
+        print()
     }
     
     func printResult(){
         var basicValue = 0.0
         var convertValue = ""
         
-        
-        if let unit = Length.LengthUnit(rawValue:rawUserUnit), let convertUnit = Length.LengthUnit(rawValue: rawUserConvertUnit){
+        if let unit = Length.LengthUnit(rawValue: rawUserUnit){
+            var convertUnits = [UnitRatioAndSymbol]()
+            for rawUserConvertUnit in rawUserConvertUnits{
+                
+                if let convertUnit = Length.LengthUnit(rawValue: rawUserConvertUnit){
+                    convertUnits.append(convertUnit)
+                }
+            }
             basicValue = Length().changeToBasicValue(rawUserValue, unit)
-            convertValue = Length().convert(basicValue, to: convertUnit)
+            convertValue = Length().convert(basicValue, to: convertUnits)
         }
         
-        if let unit = Weigth.WeigthUnit(rawValue:rawUserUnit), let convertUnit = Weigth.WeigthUnit(rawValue: rawUserConvertUnit){
+        if let unit = Weigth.WeigthUnit(rawValue: rawUserUnit){
+            var convertUnits = [UnitRatioAndSymbol]()
+            for rawUserConvertUnit in rawUserConvertUnits{
+                
+                if let convertUnit = Weigth.WeigthUnit(rawValue: rawUserConvertUnit){
+                    convertUnits.append(convertUnit)
+                }
+            }
             basicValue = Weigth().changeToBasicValue(rawUserValue, unit)
-            convertValue = Weigth().convert(basicValue, to: convertUnit)
+            convertValue = Weigth().convert(basicValue, to: convertUnits)
         }
         
-        if let unit = Volume.VolumeUnit(rawValue:rawUserUnit), let convertUnit = Volume.VolumeUnit(rawValue: rawUserConvertUnit){
+        if let unit = Volume.VolumeUnit(rawValue: rawUserUnit){
+            var convertUnits = [UnitRatioAndSymbol]()
+            for rawUserConvertUnit in rawUserConvertUnits{
+                
+                if let convertUnit = Volume.VolumeUnit(rawValue: rawUserConvertUnit){
+                    convertUnits.append(convertUnit)
+                }
+            }
             basicValue = Volume().changeToBasicValue(rawUserValue, unit)
-            convertValue = Volume().convert(basicValue, to: convertUnit)
+            convertValue = Volume().convert(basicValue, to: convertUnits)
         }
+        
         
         print(convertValue)
         return
@@ -256,12 +298,12 @@ struct RhinoUnitConverter{
             self.split(inputValue: userInput)
             
             
-            if invalidChecker.isThereUnit(rawUserUnit, rawUserConvertUnit) == false{
+            if invalidChecker.isThereUnit(rawUserUnit) == false{
                 continue
             }
             
             // 이게 지원하는지 않하는지 체크하기
-            if invalidChecker.isSupportUnit(allUnits,rawUserUnit, rawUserConvertUnit) == false {
+            if invalidChecker.isSupportUnit(allUnits,rawUserUnit, rawUserConvertUnits) == false {
                 continue
             }
             
@@ -274,7 +316,7 @@ struct RhinoUnitConverter{
             exit(0)
         }
     }
-
+    
     mutating func split(inputValue:String){
         
         guard let countIndex = invalidChecker.matchIndex(for: "[a-zA-Z]", in: inputValue) else {
@@ -292,34 +334,32 @@ struct RhinoUnitConverter{
         var separatedUnits = units.split(separator: " ")
         
         let unit = separatedUnits[0].description
-        var convertUnit:String = "cm"
+        var convertUnits = [String]()
         
         if separatedUnits.count == 1 {
-            convertUnit = addConvertUnitWhenNoConvertUnit(unit)
+            convertUnits = addConvertUnitWhenNoConvertUnit(unit)
         } else {
-            convertUnit = separatedUnits[1].description
+            convertUnits = separatedUnits[1].split(separator: ",").map{ String($0) }
         }
         
-        self.rawInit(userValue, unit, convertUnit)
+        self.rawInit(userValue, unit, convertUnits)
     }
     
-    mutating func rawInit(_ rawUserValue:Double, _ rawUserUnit:String, _ rawUserConvertUnit:String){
+    mutating func rawInit(_ rawUserValue:Double, _ rawUserUnit:String, _ rawUserConvertUnits:[String]){
         self.rawUserValue = rawUserValue
         self.rawUserUnit = rawUserUnit
-        self.rawUserConvertUnit = rawUserConvertUnit
+        self.rawUserConvertUnits = rawUserConvertUnits
     }
     
-    func addConvertUnitWhenNoConvertUnit(_ lengtUnit:String) -> String{
+    func addConvertUnitWhenNoConvertUnit(_ lengtUnit:String) -> [String]{
         switch lengtUnit {
-        case "m": return "cm"
-        case "cm","yard","inch": return "m"
-        case "g": return "kg"
-        case "kg","oz","lb" : return "g"
-        case "hop": return "doe"
-        case "doe", "mal","L": return "hop"
-        default: return ""
+        case "cm", "m", "inch", "yard" : return ["cm","m","inch","yard"]
+        case "g", "kg", "oz", "lb" : return ["g","kg","oz","lb"]
+        case "hop","doe", "mal", "L" : return ["hop","doe","mal","L"]
+        default: return [""]
         }
     }
 }
 var rhinoUnitConverter = RhinoUnitConverter()
 rhinoUnitConverter.start()
+
