@@ -26,6 +26,13 @@ class SomeClass{
     class var overrideableComputedTypeProperty:Int{
         return 107
     }
+    var overrideableComputedTypeProperty:Int{
+        get {
+            return 1
+        } set {
+            
+        }
+    }
 }
 
 // class가 붙은 건 뭐지
@@ -53,7 +60,6 @@ childClass.computedTypeProperty
 childClass.overrideableComputedTypeProperty
 
 struct AudioChanner{
-    var abc = 5
     static let thresholdLevel = 10
     static var maxInputLevelForAllChannels = 0
     var currentLevel:Int = 0{
@@ -67,6 +73,10 @@ struct AudioChanner{
             }
         }
     }
+    
+//    static func funcUserInstanceVar(){
+//        currentLevel
+//    }
 }
 var leftChanner = AudioChanner()
 var rightChannel = AudioChanner()
@@ -79,7 +89,23 @@ AudioChanner.maxInputLevelForAllChannels
 rightChannel.currentLevel = 11
 rightChannel.currentLevel
 AudioChanner.maxInputLevelForAllChannels
-//: [Next](@next)
 
 
+struct Product{
+    static var count:Int = 0
+    var serialNo:Int
+    init(_ serialNo:Int = 0) {
+        Product.count = Product.count + 1
+        self.serialNo = Product.count
+    }
+}
+
+var p1 = Product()
+var p2 = Product()
+var p3 = Product()
+print(p1.serialNo) // 1
+print(p2.serialNo) // 2
+print(p3.serialNo) // 3
+
+Double.pi
 

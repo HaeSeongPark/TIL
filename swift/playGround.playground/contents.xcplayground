@@ -12,5 +12,6 @@
         <page name='matrix'/>
         <page name='SetCharacter'/>
         <page name='typeProperties'/>
+        <page name='guard_let'/>
     </pages>
 </playground>

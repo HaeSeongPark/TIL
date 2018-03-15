@@ -30,7 +30,7 @@ struct Person: Talkable {
 //person.topic
 
 
-
+var sdf:String
 
 
 struct Cuboid {
@@ -120,4 +120,72 @@ for strr in splitstr{
     }
 }
 
+// protocol 에 static 사용
+//protocol AnotherProtocol {
+//    static var someTypeProperty: Int { get set }
+//}
+//
+//class clsssConform:AnotherProtocol{
+//    class var someTypeProperty: Int {
+//        get {
+//            return 10
+//        }
+//        set{
+//    }
+//     // 타입프로퍼티는 초기화를 하거나 get set을 써야함
+//}
+//}
 
+//protocol classTypePropertyP{
+//    class var classTypeProperty: Int { get set }
+//}
+protocol AnotherProtocol {
+    static var someTypeProperty: Int { get }
+}
+
+class clsssConform:AnotherProtocol{
+    class var someTypeProperty: Int {
+        return 10
+    }
+//    class 타입 프로퍼티는 인스턴스에 값이 저장되는게 아니라서 computed property 로 선언해야 합니다.
+}
+
+
+class SomeClass{
+    static var storedTypeProperty = "Some value."
+    static var computedTypeProperty:Int {
+        return 27
+    }
+    class var overrideableComputedTypeProperty:Int{
+        return 107
+    }
+}
+
+protocol FullNamed{
+    var fullName:String { get }
+}
+
+class StarShip:FullNamed{
+    var prefix:String?
+    var name:String
+    var fullName: String
+    init(name:String, prefix:String? = nil, fullName:String) {
+        self.name = name
+        self.prefix = prefix
+        self.fullName = fullName
+    }
+    //   return (prefix != nil ? prefix! + " " : "") + name
+//    var fullName: String {
+//        return (prefix != nil ? prefix! + " " : "") + name
+//    }
+}
+// var ncc1701 = Starship(name: "Enterprise", prefix: "USS")
+var ncc1701 = StarShip(name: "Enterprise", prefix: "USS", fullName:"uss enterprise")
+ncc1701.fullName // USS Enterprise
+//var noPreFix = StarShip(name: "noPreFix")
+//noPreFix.fullName
+
+MemoryLayout<Character>.size
+MemoryLayout<String>.size // 24
+MemoryLayout<Bool>.size // 1
+MemoryLayout<Int>.size // 8
