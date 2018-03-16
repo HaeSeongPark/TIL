@@ -13,5 +13,6 @@
         <page name='SetCharacter'/>
         <page name='typeProperties'/>
         <page name='guard_let'/>
+        <page name='typeAlias'/>
     </pages>
 </playground>
