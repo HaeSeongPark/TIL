@@ -1,7 +1,45 @@
-//: [Previous](@previous)
-
 import Foundation
+let input = "(11,2)-(3,4)-(5,6)"
+//let input = "(1,2)"
 
-var str = "Hello, playground"
+typealias Points = [(x:Int,y:Int)]
+var points:Points = []
+let pattern = "\\(([0-9]|1[0-9]|2[0-4]),([0-9]|1[0-9]|2[0-4])\\)"
+let regex = try! NSRegularExpression(pattern: pattern, options: [])
+let matches = regex.matches(in: input, options: [], range: NSRange(location: 0, length: input.count))
+matches.count
 
-//: [Next](@next)
+let replacedInput = regex.stringByReplacingMatches(in: input,
+                                                   options: [],
+                                                   range: NSRange(location: 0, length: input.count),
+                                                   withTemplate: "$1,$2")
+
+let separatedInput = replacedInput.split(separator: "-")
+separatedInput.count
+
+for index in 0..<separatedInput.count {
+    let separatedInput2 = separatedInput[index].description.split(separator: ",")
+    points.append((Int(separatedInput2[0].description)!, Int(separatedInput2[1].description)!))
+}
+
+
+for index in 0..<points.count {
+    print("\(points[index].x) \(points[index].y)")
+}
+let emailRegEx = "\\(([0-9]|1[0-9]|2[0-4]),([0-9]|1[0-9]|2[0-4])\\)"
+let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+emailTest.evaluate(with: input)
+/*
+ func isValidEmail(testStr:String) -> Bool {
+ // print("validate calendar: \(testStr)")
+ let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+ 
+ let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+ return emailTest.evaluate(with: testStr)
+ }
+ */
+//let separatedInput2 = separatedInput[0].description.split(separator: ",")
+//let sdf = separatedInput2[0].description
+//let separatedInput3 = separatedInput[1].description.split(separator: ",")
+//let separaredInput4 = separatedInput[2].description.split(separator: ",")
+
