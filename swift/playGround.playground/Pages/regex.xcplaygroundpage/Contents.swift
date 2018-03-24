@@ -43,3 +43,8 @@ emailTest.evaluate(with: input)
 //let separatedInput3 = separatedInput[1].description.split(separator: ",")
 //let separaredInput4 = separatedInput[2].description.split(separator: ",")
 
+
+//https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Predicates/AdditionalChapters/Introduction.html
+
+//JSONSerialization
+//https://github.com/apple/swift-corelibs-foundation/blob/master/Foundation/JSONSerialization.swift
