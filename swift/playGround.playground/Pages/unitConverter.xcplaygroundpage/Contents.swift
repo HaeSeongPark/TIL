@@ -104,7 +104,7 @@ startConvert()
 
 extension String {
     public var fullRange: NSRange {
-        return NSRange(location:0, length:characters.count)
+        return NSRange(location:0, length:self.count)
     }
 }
 
@@ -218,7 +218,7 @@ func matches(for regex: String, in text: String) -> [String] {
                                     range: NSRange(text.startIndex..., in: text))
         
         let results2 = regex.firstMatch(in: text, options: [], range: NSRange(text.startIndex..., in: text))
-        var safd = results2?.range(at: 0).location
+//        var safd = results2?.range(at: 0).location
         
         return results.map {
             String(text[Range($0.range, in: text)!])
@@ -252,3 +252,5 @@ func getMatchIndex(for regex:String, in text:String) ->Int?{
     }
 }
 getMatchIndex(for: "[0-9]", in: "abc")
+//JSONSerialization
+

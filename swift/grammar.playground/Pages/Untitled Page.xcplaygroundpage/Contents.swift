@@ -1,4 +1,6 @@
 /////////////////// all case in enum from google
+
+import Foundation
 protocol EnumCollection: Hashable {
     static func cases() -> AnySequence<Self>
     static var allValues: [Self] { get }
@@ -76,5 +78,5 @@ print(Length())
 var length = Length()
 var basicValue = length.changeToBasicValue(1.8, Length.LengthUnit(rawValue: "m")!)
 var convertValue = length.convert(basicValue: basicValue, to: Length.LengthUnit.inch)
-
-
+sqrt(4)
+pow(4, 0.5)

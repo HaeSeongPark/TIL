@@ -13,6 +13,12 @@
         <page name='SetCharacter'/>
         <page name='typeProperties'/>
         <page name='guard_let'/>
-        <page name='typeAlias'/>
+        <page name='class refactoring'/>
+        <page name='error Handling'/>
+        <page name='regex'/>
+        <page name='typeAliasAndTuple'/>
+        <page name='unittest_quicksort'/>
+        <page name='JK ladder game'/>
+        <page name='JK ladder game2'/>
     </pages>
 </playground>

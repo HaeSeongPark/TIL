@@ -5,5 +5,12 @@
         <page name='BigNerdRanchExtension'/>
         <page name='BigNerdRanchGeneric'/>
         <page name='BigNerdRanchProtocolExtension'/>
+        <page name='BNRErrorHandling'/>
+        <page name='Untitled Page 2'/>
+        <page name='yagom error Handling'/>
+        <page name='Untitled Page'/>
+        <page name='yagom error handling2'/>
+        <page name='yagom where'/>
+        <page name='yagom error defer'/>
     </pages>
 </playground>
