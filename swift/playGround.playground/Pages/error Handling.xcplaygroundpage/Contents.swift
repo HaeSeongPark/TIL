@@ -1,10 +1,10 @@
 import Foundation
 // from developer document
 
-//enum IntParsingError: Error {
-//    case overflow
-//    case invalidInput(String)
-//}
+enum IntParsingError: Error {
+    case overflow
+    case invalidInput(String)
+}
 //
 //extension Int {
 //    init(validating input: String) throws {

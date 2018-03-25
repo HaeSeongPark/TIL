@@ -12,5 +12,6 @@
         <page name='yagom error handling2'/>
         <page name='yagom where'/>
         <page name='yagom error defer'/>
+        <page name='myErrorHandling'/>
     </pages>
 </playground>

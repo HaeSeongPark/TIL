@@ -183,11 +183,11 @@ func Prints<T: CustomStringConvertible, U:CustomStringConvertible>(first:T, seco
 
 // 타입 매개변수 S1과 S2가 Sequence 프로토콜을 준수하며
 // S1과 S2가 준수하는 프로토콜인 Sequence 프로토콜의 연관 타입인 SubSequence가 같은 타입
-func compareTwoSequences<S1, S2>(a: S1, b: S2) where S1 : Sequence, S1.SubSequence: Equatable, S2.SubSequence: Equatable{
+func compareTwoSequences<S1, S2>(a: S1, b: S2) where S1 : Sequence, S2 : Sequence, S1.SubSequence: Equatable, S2.SubSequence: Equatable{
     
 }
 
-func CompareTowSequences<S1, S2>(a: S1, b:s2) where S1 : Sequence, S1.SubSequence:Equatable, S1.SubSequence == S2.SubSequence {
+func CompareTowSequences<S1, S2>(a: S1, b: S2) where S1 : Sequence, S2 : Sequence, S1.SubSequence:Equatable, S1.SubSequence == S2.SubSequence {
     
 }
 
