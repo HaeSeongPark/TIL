@@ -4,6 +4,8 @@ enum Token {
     case number(value:Int,index:Int)
     case plus(Int)
     case minus(Int)
+    case multiply(Int)
+    case divide(Int)
 }
 class Lexer{
     enum Error:Swift.Error {
@@ -18,11 +20,14 @@ class Lexer{
     }
     
     func peek() -> Character? {
-        guard position < input.endIndex else {
-            return nil
-        }
+//        guard position < input.endIndex else {
+//            return nil
+//        }
+//
+//        return input[position]
         
-        return input[position]
+        return position < input.endIndex ? input[position] : nil
+
     }
     
     func advance() {
@@ -63,6 +68,12 @@ class Lexer{
             case "-":
                 tokens.append(.minus(distanceToPosition))
                 advance()
+            case "*" :
+                tokens.append(.multiply(distanceToPosition))
+                advance()
+            case "/":
+                tokens.append(.divide(distanceToPosition))
+                advance()
             case " ":
                 // 공백 무시 계속 진행
                 advance()
@@ -78,7 +89,7 @@ class Lexer{
 class Parser {
     enum Error: Swift.Error {
         case unexpectedEndOfInput
-        case invalidToken(Token)
+        case invalidToken(Int, String)
     }
     let tokens: [Token]
     var position = 0
@@ -105,8 +116,14 @@ class Parser {
         switch token {
         case .number(let value, _):
             return value
-        case .plus, .minus:
-            throw Parser.Error.invalidToken(token)
+        case .plus(let position):
+            throw Parser.Error.invalidToken(position,"+")
+        case .minus(let position):
+            throw Parser.Error.invalidToken(position,"-")
+        case .multiply(let position):
+            throw Parser.Error.invalidToken(position,"*")
+        case .divide(let position):
+            throw Parser.Error.invalidToken(position,"/")
         }
     }
     
@@ -119,14 +136,20 @@ class Parser {
             // 숫자 뒤 더하기는 옮음
             case .plus:
                 // 더하기 뒤에는 다른 숫자가 와야 함
-                let nextNumber = try getNumber()
+                let nextNumber = try parse()
                 value += nextNumber
             case .minus:
-                let nextNumber = try getNumber()
+                let nextNumber = try parse()
                 value -= nextNumber
+            case .multiply:
+                let nextNumber = try getNumber()
+                value *= nextNumber
+            case .divide:
+                let nextNumber = try getNumber()
+                value /= nextNumber
             // 숫자 뒤 숫자는 그름
-            case .number:
-                throw Parser.Error.invalidToken(token)
+            case .number(let value, let position):
+                throw Parser.Error.invalidToken(position, String(value))
             }
         }
         return value
@@ -139,7 +162,7 @@ func evaluate(_ input:String) {
     
     do {
         let tokens = try lexer.lex()
-        print("Lexer output: \(tokens)")
+//        print("Lexer output: \(tokens)")
         
 //        checkToens(tokens)
         
@@ -152,11 +175,14 @@ func evaluate(_ input:String) {
         print("Input contained an invalid at index \(distanceToPosition) : \(chracter)")
     } catch Parser.Error.unexpectedEndOfInput {
         print("Unexpected end of input during parsing")
-    } catch Parser.Error.invalidToken(let token) {
-            print("Invalid token during parsing : \(token)")
-    } catch  {
+    } catch Parser.Error.invalidToken(let distanceToPosition, let token) {
+        let emptySapce = repeatElement(" ", count: "Evaluation: ".count + distanceToPosition).joined(separator: "")
+        print("\(emptySapce)^")
+        print("Invalid token during parsing at index \(distanceToPosition): \(token)")    }
+    catch  {
         print("An error occurred: \(error)")
     }
+    print("------------------------------------------------------")
 }
 
 //func checkToens(_ tokens:[Token]){
@@ -180,9 +206,31 @@ func evaluate(_ input:String) {
 evaluate("10 + 5 - 3 - 1")
 evaluate("1 + 3 + 7a + 8")
 evaluate("10 + 3 3 + 7")
-//evaluate("10 + 3 5")
-//evaluate("10 + ")
-//evaluate("1 +2 + abcdefg")
+evaluate("10 + 3 5")
+evaluate("10 + ")
+evaluate("1 +2 + abcdefg")
+evaluate("12000 + 3 + 5")
+evaluate("10 + 5 + ab")
+evaluate("10 + 5 5 - 1")
+evaluate("45 + 5 -- 1")
+evaluate("40-30+20-15+65-95+15")
+evaluate("10*3+5*3")
+evaluate("10+3*5+3")
+evaluate("10+3*5*3")
+evaluate("10/2*20+12/3")
+evaluate("10 + 3 + 5") // 18
+evaluate("10 + 5 - 3 - 1") // 11
+evaluate("1 + 3 + 7a + 8") // error
+evaluate("10 + 3 + + 7") // error
+evaluate("10 + 3 3 + 7") // error
+evaluate("10 * 3 * * + 5 * 3") // error
+
+evaluate("10 * 10 - 10 * 5") // 50
+evaluate("10 * 3 + 5 * 3") // 45
+evaluate("10 + 3 * 5 + 3") // 28
+evaluate("10 + 3 * 5 * 3") // 55
+evaluate("10 * 4 + 9 / 3 - 3") // 40
+evaluate("10 * 4 + 9 / 3 / 3") // 41
 
 // 추가적으로 하 것
 // 예선, 본선, 결승 과제
