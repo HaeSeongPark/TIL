@@ -7,7 +7,7 @@ enum Token {
     case multiply(Int)
     case divide(Int)
 }
-class Lexer{
+struct Lexer{
     enum Error:Swift.Error {
         case invalidCharacter(Int,Character)
     }
@@ -30,12 +30,12 @@ class Lexer{
 
     }
     
-    func advance() {
+    mutating func advance() {
         assert( position < input.endIndex, "Cannot advance past endIndex!")
         position = input.index(after: position)
     }
     
-    func getNumber() -> Int {
+    mutating func getNumber() -> Int {
         var value = 0
         
         while let nextCharacter = peek() {
@@ -52,7 +52,7 @@ class Lexer{
         return value
     }
     
-    func lex() throws -> [Token] {
+    mutating func lex() throws -> [Token] {
         var tokens = [Token]()
         
         while let nextCharacter = peek() {
@@ -158,7 +158,7 @@ class Parser {
 
 func evaluate(_ input:String) {
     print("Evaluation: \(input)")
-    let lexer = Lexer(input: input)
+    var lexer = Lexer(input: input)
     
     do {
         let tokens = try lexer.lex()
@@ -178,7 +178,8 @@ func evaluate(_ input:String) {
     } catch Parser.Error.invalidToken(let distanceToPosition, let token) {
         let emptySapce = repeatElement(" ", count: "Evaluation: ".count + distanceToPosition).joined(separator: "")
         print("\(emptySapce)^")
-        print("Invalid token during parsing at index \(distanceToPosition): \(token)")    }
+        print("Invalid token during parsing at index \(distanceToPosition): \(token)")
+    }
     catch  {
         print("An error occurred: \(error)")
     }

@@ -1,8 +1,9 @@
 import Foundation
 
-let input = "15,7, 3 ,, [1,2,[3, 4, 5], 6],8"
+let input = "15,7, 3.0, ,, [1,2,[3, 4, 5], 6],8"
 //let input = "5,7,[1]"
-var index = input.characters.startIndex
+//[ 10, 21, 4, 314, 99, 0, 72 ]
+var index = input.startIndex
 var lookahead = input[index]
 var done = false
 

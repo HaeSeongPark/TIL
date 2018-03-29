@@ -20,5 +20,7 @@
         <page name='unittest_quicksort'/>
         <page name='JK ladder game'/>
         <page name='JK ladder game2'/>
+        <page name='arraySort'/>
+        <page name='JSONPractice'/>
     </pages>
 </playground>
