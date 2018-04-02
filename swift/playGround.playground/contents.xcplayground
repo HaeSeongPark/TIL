@@ -24,5 +24,6 @@
         <page name='JSONPractice'/>
         <page name='enummerationCasePattern'/>
         <page name='Type-Casting-Parrern'/>
+        <page name='ExpressionPattern'/>
     </pages>
 </playground>
