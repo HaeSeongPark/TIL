@@ -22,5 +22,7 @@
         <page name='JK ladder game2'/>
         <page name='arraySort'/>
         <page name='JSONPractice'/>
+        <page name='enummerationCasePattern'/>
+        <page name='Type-Casting-Parrern'/>
     </pages>
 </playground>
