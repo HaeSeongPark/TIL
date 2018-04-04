@@ -25,5 +25,7 @@
         <page name='enummerationCasePattern'/>
         <page name='Type-Casting-Parrern'/>
         <page name='ExpressionPattern'/>
+        <page name='ChracterToAsciiCode'/>
+        <page name='polymopism'/>
     </pages>
 </playground>
