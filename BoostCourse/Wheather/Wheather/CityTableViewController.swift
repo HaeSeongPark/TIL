@@ -8,7 +8,8 @@
 
 import UIKit
 
-class CityTableViewController: UITableViewController {
+class CitiesTableViewController: UITableViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,7 @@ class CityTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.title = "kk"
     }
 
     override func didReceiveMemoryWarning() {

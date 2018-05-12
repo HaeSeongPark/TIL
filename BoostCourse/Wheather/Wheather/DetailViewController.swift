@@ -9,27 +9,23 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    @IBOutlet weak var wheatherImage: UIImageView!
+    @IBOutlet weak var wheatherNameLbl: UILabel!
+    @IBOutlet weak var celsiusAndFahrenheitLbl: UILabel!
+    @IBOutlet weak var rainProbabilityLbl: UILabel!
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    var selectedCityWeatherImage:UIImage?
+    var selectedCityWeatherName:String?
+    var selectedCityCelsiusAndFahrenheit:String?
+    var selectedCitiyRainProbability:String?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        wheatherImage.image = selectedCityWeatherImage
+        wheatherNameLbl.text = selectedCityWeatherName
+        celsiusAndFahrenheitLbl.text = selectedCityCelsiusAndFahrenheit
+        rainProbabilityLbl.text = selectedCitiyRainProbability
     }
-    */
 
 }

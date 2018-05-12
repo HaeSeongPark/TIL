@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CountryTableViewController: UITableViewController {
+class CountriesTableViewController: UITableViewController {
     
     let cellIdentifier = "Country"
     var countries:[Country] = []
@@ -49,7 +49,7 @@ class CountryTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CountryTableViewCell
         
         let country = countries[indexPath.row]
-        cell.flag.image = UIImage(contentsOfFile: "falg_\(country.assetName)")
+        cell.flag.image = UIImage(named: "flag_\(country.assetName)")
         cell.countryName.text = country.koreanName
         // Configure the cell...
 

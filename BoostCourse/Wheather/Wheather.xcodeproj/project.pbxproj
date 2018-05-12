@@ -11,12 +11,13 @@
 		97CC1FB120A54EC70068EEC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97CC1FAF20A54EC70068EEC2 /* Main.storyboard */; };
 		97CC1FB320A54EC80068EEC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97CC1FB220A54EC80068EEC2 /* Assets.xcassets */; };
 		97CC1FB620A54EC80068EEC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97CC1FB420A54EC80068EEC2 /* LaunchScreen.storyboard */; };
-		97CC1FBE20A5D9420068EEC2 /* CountryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CC1FBD20A5D9420068EEC2 /* CountryTableViewController.swift */; };
-		97CC1FC020A5D9560068EEC2 /* CityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CC1FBF20A5D9560068EEC2 /* CityTableViewController.swift */; };
 		97CC1FC220A5D96E0068EEC2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CC1FC120A5D96E0068EEC2 /* DetailViewController.swift */; };
 		97CC1FC420A5D9820068EEC2 /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CC1FC320A5D9820068EEC2 /* CountryTableViewCell.swift */; };
 		97CC1FC620A5D98D0068EEC2 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CC1FC520A5D98D0068EEC2 /* CityTableViewCell.swift */; };
 		97CC1FC820A5DA710068EEC2 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CC1FC720A5DA710068EEC2 /* Country.swift */; };
+		97EF2BA320A688E500A08F88 /* CountriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EF2BA220A688E500A08F88 /* CountriesTableViewController.swift */; };
+		97EF2BA520A68A0F00A08F88 /* CitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EF2BA420A68A0F00A08F88 /* CitiesTableViewController.swift */; };
+		97EF2BA720A690AC00A08F88 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EF2BA620A690AC00A08F88 /* City.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,12 +27,13 @@
 		97CC1FB220A54EC80068EEC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97CC1FB520A54EC80068EEC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97CC1FB720A54EC80068EEC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		97CC1FBD20A5D9420068EEC2 /* CountryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewController.swift; sourceTree = "<group>"; };
-		97CC1FBF20A5D9560068EEC2 /* CityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewController.swift; sourceTree = "<group>"; };
 		97CC1FC120A5D96E0068EEC2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		97CC1FC320A5D9820068EEC2 /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
 		97CC1FC520A5D98D0068EEC2 /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		97CC1FC720A5DA710068EEC2 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		97EF2BA220A688E500A08F88 /* CountriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesTableViewController.swift; sourceTree = "<group>"; };
+		97EF2BA420A68A0F00A08F88 /* CitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesTableViewController.swift; sourceTree = "<group>"; };
+		97EF2BA620A690AC00A08F88 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,14 +66,15 @@
 		97CC1FAA20A54EC70068EEC2 /* Wheather */ = {
 			isa = PBXGroup;
 			children = (
+				97EF2BA420A68A0F00A08F88 /* CitiesTableViewController.swift */,
+				97EF2BA620A690AC00A08F88 /* City.swift */,
+				97EF2BA220A688E500A08F88 /* CountriesTableViewController.swift */,
 				97CC1FAB20A54EC70068EEC2 /* AppDelegate.swift */,
 				97CC1FAF20A54EC70068EEC2 /* Main.storyboard */,
-				97CC1FBF20A5D9560068EEC2 /* CityTableViewController.swift */,
 				97CC1FC120A5D96E0068EEC2 /* DetailViewController.swift */,
 				97CC1FC320A5D9820068EEC2 /* CountryTableViewCell.swift */,
 				97CC1FC720A5DA710068EEC2 /* Country.swift */,
 				97CC1FC520A5D98D0068EEC2 /* CityTableViewCell.swift */,
-				97CC1FBD20A5D9420068EEC2 /* CountryTableViewController.swift */,
 				97CC1FB220A54EC80068EEC2 /* Assets.xcassets */,
 				97CC1FB420A54EC80068EEC2 /* LaunchScreen.storyboard */,
 				97CC1FB720A54EC80068EEC2 /* Info.plist */,
@@ -153,10 +156,11 @@
 				97CC1FC820A5DA710068EEC2 /* Country.swift in Sources */,
 				97CC1FC420A5D9820068EEC2 /* CountryTableViewCell.swift in Sources */,
 				97CC1FC620A5D98D0068EEC2 /* CityTableViewCell.swift in Sources */,
-				97CC1FC020A5D9560068EEC2 /* CityTableViewController.swift in Sources */,
 				97CC1FC220A5D96E0068EEC2 /* DetailViewController.swift in Sources */,
+				97EF2BA520A68A0F00A08F88 /* CitiesTableViewController.swift in Sources */,
+				97EF2BA320A688E500A08F88 /* CountriesTableViewController.swift in Sources */,
+				97EF2BA720A690AC00A08F88 /* City.swift in Sources */,
 				97CC1FAC20A54EC70068EEC2 /* AppDelegate.swift in Sources */,
-				97CC1FBE20A5D9420068EEC2 /* CountryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
