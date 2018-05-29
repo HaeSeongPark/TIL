@@ -71,7 +71,6 @@ import UIKit
             
             button.addTarget(self, action: #selector(ratingButtonTapped(button:)), for: .touchUpInside)
             addArrangedSubview(button)
-            
             ratingButtons.append(button)
         }
         

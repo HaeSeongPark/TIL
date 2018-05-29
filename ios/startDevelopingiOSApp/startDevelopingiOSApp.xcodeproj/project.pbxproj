@@ -8,26 +8,53 @@
 
 /* Begin PBXBuildFile section */
 		97278C1E20AE859A00E106E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97278C1D20AE859A00E106E6 /* AppDelegate.swift */; };
-		97278C2020AE859A00E106E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97278C1F20AE859A00E106E6 /* ViewController.swift */; };
+		97278C2020AE859A00E106E6 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97278C1F20AE859A00E106E6 /* MealViewController.swift */; };
 		97278C2320AE859A00E106E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97278C2120AE859A00E106E6 /* Main.storyboard */; };
 		97278C2520AE859C00E106E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97278C2420AE859C00E106E6 /* Assets.xcassets */; };
 		97278C2820AE859C00E106E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97278C2620AE859C00E106E6 /* LaunchScreen.storyboard */; };
 		97278C3020AEAB0800E106E6 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97278C2F20AEAB0800E106E6 /* RatingControl.swift */; };
+		9736E90020BD41A500F71565 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E8FF20BD41A500F71565 /* Meal.swift */; };
+		9736E90820BD435C00F71565 /* startDevelopingiOSAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E90720BD435C00F71565 /* startDevelopingiOSAppTests.swift */; };
+		9736E91020BD482600F71565 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E90F20BD482600F71565 /* MealTableViewCell.swift */; };
+		9736E91220BD4AA900F71565 /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E91120BD4AA900F71565 /* MealTableViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9736E90A20BD435C00F71565 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97278C1220AE859A00E106E6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97278C1920AE859A00E106E6;
+			remoteInfo = startDevelopingiOSApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		97278C1A20AE859A00E106E6 /* startDevelopingiOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = startDevelopingiOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97278C1D20AE859A00E106E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		97278C1F20AE859A00E106E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		97278C1F20AE859A00E106E6 /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
 		97278C2220AE859A00E106E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97278C2420AE859C00E106E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97278C2720AE859C00E106E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97278C2920AE859C00E106E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97278C2F20AEAB0800E106E6 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		9736E8FF20BD41A500F71565 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		9736E90520BD435C00F71565 /* startDevelopingiOSAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = startDevelopingiOSAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9736E90720BD435C00F71565 /* startDevelopingiOSAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = startDevelopingiOSAppTests.swift; sourceTree = "<group>"; };
+		9736E90920BD435C00F71565 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9736E90F20BD482600F71565 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
+		9736E91120BD4AA900F71565 /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		97278C1720AE859A00E106E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9736E90220BD435C00F71565 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				97278C1C20AE859A00E106E6 /* startDevelopingiOSApp */,
+				9736E90620BD435C00F71565 /* startDevelopingiOSAppTests */,
 				97278C1B20AE859A00E106E6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				97278C1A20AE859A00E106E6 /* startDevelopingiOSApp.app */,
+				9736E90520BD435C00F71565 /* startDevelopingiOSAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,15 +85,27 @@
 		97278C1C20AE859A00E106E6 /* startDevelopingiOSApp */ = {
 			isa = PBXGroup;
 			children = (
+				9736E90F20BD482600F71565 /* MealTableViewCell.swift */,
 				97278C1D20AE859A00E106E6 /* AppDelegate.swift */,
-				97278C1F20AE859A00E106E6 /* ViewController.swift */,
+				97278C1F20AE859A00E106E6 /* MealViewController.swift */,
+				9736E8FF20BD41A500F71565 /* Meal.swift */,
 				97278C2120AE859A00E106E6 /* Main.storyboard */,
 				97278C2F20AEAB0800E106E6 /* RatingControl.swift */,
 				97278C2420AE859C00E106E6 /* Assets.xcassets */,
+				9736E91120BD4AA900F71565 /* MealTableViewController.swift */,
 				97278C2620AE859C00E106E6 /* LaunchScreen.storyboard */,
 				97278C2920AE859C00E106E6 /* Info.plist */,
 			);
 			path = startDevelopingiOSApp;
+			sourceTree = "<group>";
+		};
+		9736E90620BD435C00F71565 /* startDevelopingiOSAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				9736E90720BD435C00F71565 /* startDevelopingiOSAppTests.swift */,
+				9736E90920BD435C00F71565 /* Info.plist */,
+			);
+			path = startDevelopingiOSAppTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +128,24 @@
 			productReference = 97278C1A20AE859A00E106E6 /* startDevelopingiOSApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9736E90420BD435C00F71565 /* startDevelopingiOSAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9736E90C20BD435C00F71565 /* Build configuration list for PBXNativeTarget "startDevelopingiOSAppTests" */;
+			buildPhases = (
+				9736E90120BD435C00F71565 /* Sources */,
+				9736E90220BD435C00F71565 /* Frameworks */,
+				9736E90320BD435C00F71565 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9736E90B20BD435C00F71565 /* PBXTargetDependency */,
+			);
+			name = startDevelopingiOSAppTests;
+			productName = startDevelopingiOSAppTests;
+			productReference = 9736E90520BD435C00F71565 /* startDevelopingiOSAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -99,6 +158,10 @@
 				TargetAttributes = {
 					97278C1920AE859A00E106E6 = {
 						CreatedOnToolsVersion = 9.3.1;
+					};
+					9736E90420BD435C00F71565 = {
+						CreatedOnToolsVersion = 9.3.1;
+						TestTargetID = 97278C1920AE859A00E106E6;
 					};
 				};
 			};
@@ -116,6 +179,7 @@
 			projectRoot = "";
 			targets = (
 				97278C1920AE859A00E106E6 /* startDevelopingiOSApp */,
+				9736E90420BD435C00F71565 /* startDevelopingiOSAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -131,6 +195,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9736E90320BD435C00F71565 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -138,13 +209,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97278C2020AE859A00E106E6 /* ViewController.swift in Sources */,
+				9736E90020BD41A500F71565 /* Meal.swift in Sources */,
+				97278C2020AE859A00E106E6 /* MealViewController.swift in Sources */,
 				97278C3020AEAB0800E106E6 /* RatingControl.swift in Sources */,
 				97278C1E20AE859A00E106E6 /* AppDelegate.swift in Sources */,
+				9736E91220BD4AA900F71565 /* MealTableViewController.swift in Sources */,
+				9736E91020BD482600F71565 /* MealTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9736E90120BD435C00F71565 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9736E90820BD435C00F71565 /* startDevelopingiOSAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9736E90B20BD435C00F71565 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 97278C1920AE859A00E106E6 /* startDevelopingiOSApp */;
+			targetProxy = 9736E90A20BD435C00F71565 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		97278C2120AE859A00E106E6 /* Main.storyboard */ = {
@@ -314,6 +404,44 @@
 			};
 			name = Release;
 		};
+		9736E90D20BD435C00F71565 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = startDevelopingiOSAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhino.startDevelopingiOSAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/startDevelopingiOSApp.app/startDevelopingiOSApp";
+			};
+			name = Debug;
+		};
+		9736E90E20BD435C00F71565 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = startDevelopingiOSAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhino.startDevelopingiOSAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/startDevelopingiOSApp.app/startDevelopingiOSApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -331,6 +459,15 @@
 			buildConfigurations = (
 				97278C2D20AE859C00E106E6 /* Debug */,
 				97278C2E20AE859C00E106E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9736E90C20BD435C00F71565 /* Build configuration list for PBXNativeTarget "startDevelopingiOSAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9736E90D20BD435C00F71565 /* Debug */,
+				9736E90E20BD435C00F71565 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

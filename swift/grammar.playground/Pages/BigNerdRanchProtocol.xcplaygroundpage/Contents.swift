@@ -549,3 +549,10 @@ enum Lightbulb{
     }
 }
 
+
+func calculator(n1:Int, n2:Int, operation:(Int, Int) -> Int) -> Int {
+    return operation(n1,n2)
+}
+
+
+calculator(n1: 1, n2: 2, operation: { $0 + $1 })
