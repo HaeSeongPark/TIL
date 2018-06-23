@@ -16,6 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let verticalCompacTrait = UITraitCollection(verticalSizeClass: .compact)
+        let compactAppearance = UINavigationBar.appearance(for: verticalCompacTrait)
+        compactAppearance.setBackgroundImage(nil, for: .default)
+        
+        let verticalRegularTrait = UITraitCollection(verticalSizeClass: .regular)
+        let verticalAppearance = UINavigationBar.appearance(for: verticalRegularTrait)
+        verticalAppearance.setBackgroundImage(UIImage(), for: .default)
+        
         return true
     }
 

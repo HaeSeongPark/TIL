@@ -35,6 +35,11 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             ratingControl.rating = meal.rating
         }
         
+//        nameTextField.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.)
+//        nameTextField.adjustsFontForContentSizeCategory = true
+//        let verticalCompactTrait = UITraitCollection(verticalSizeClass: .compact)
+//        UIFont.preferredFont(forTextStyle: .body, compatibleWith: verticalCompactTrait)
+        // appearance
         
         // Enable the Save button only if the text field has a valid Meal name.
         updateSaveButtonState()

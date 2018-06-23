@@ -44,6 +44,7 @@ class Meal: NSObject, NSCoding {
         self.name = name
         self.photo = photo
         self.rating = rating
+        
     }
     
     //MARK: NSCoding
