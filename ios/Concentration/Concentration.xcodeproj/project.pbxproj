@@ -10,10 +10,11 @@
 		6A43B4821FDCD566005006D0 /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A43B4811FDCD566005006D0 /* Concentration.swift */; };
 		6A43B4841FDCD66E005006D0 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A43B4831FDCD66E005006D0 /* Card.swift */; };
 		6AC3EF321FD8B23000B0A260 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC3EF311FD8B23000B0A260 /* AppDelegate.swift */; };
-		6AC3EF341FD8B23000B0A260 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC3EF331FD8B23000B0A260 /* ViewController.swift */; };
+		6AC3EF341FD8B23000B0A260 /* ConcentrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC3EF331FD8B23000B0A260 /* ConcentrationViewController.swift */; };
 		6AC3EF371FD8B23000B0A260 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AC3EF351FD8B23000B0A260 /* Main.storyboard */; };
 		6AC3EF391FD8B23000B0A260 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AC3EF381FD8B23000B0A260 /* Assets.xcassets */; };
 		6AC3EF3C1FD8B23000B0A260 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AC3EF3A1FD8B23000B0A260 /* LaunchScreen.storyboard */; };
+		97992D0C212A57FE00500213 /* ConcentrationThemeChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97992D0B212A57FE00500213 /* ConcentrationThemeChooserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +22,12 @@
 		6A43B4831FDCD66E005006D0 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		6AC3EF2E1FD8B23000B0A260 /* Concentration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Concentration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AC3EF311FD8B23000B0A260 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6AC3EF331FD8B23000B0A260 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6AC3EF331FD8B23000B0A260 /* ConcentrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationViewController.swift; sourceTree = "<group>"; };
 		6AC3EF361FD8B23000B0A260 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6AC3EF381FD8B23000B0A260 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6AC3EF3B1FD8B23000B0A260 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6AC3EF3D1FD8B23000B0A260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97992D0B212A57FE00500213 /* ConcentrationThemeChooserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationThemeChooserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +63,9 @@
 				6A43B4811FDCD566005006D0 /* Concentration.swift */,
 				6A43B4831FDCD66E005006D0 /* Card.swift */,
 				6AC3EF431FD8B3FE00B0A260 /* Supporting Files */,
-				6AC3EF331FD8B23000B0A260 /* ViewController.swift */,
+				6AC3EF331FD8B23000B0A260 /* ConcentrationViewController.swift */,
 				6AC3EF351FD8B23000B0A260 /* Main.storyboard */,
+				97992D0B212A57FE00500213 /* ConcentrationThemeChooserViewController.swift */,
 				6AC3EF3D1FD8B23000B0A260 /* Info.plist */,
 			);
 			path = Concentration;
@@ -105,7 +108,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = rhino;
 				TargetAttributes = {
 					6AC3EF2D1FD8B23000B0A260 = {
@@ -150,7 +153,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AC3EF341FD8B23000B0A260 /* ViewController.swift in Sources */,
+				97992D0C212A57FE00500213 /* ConcentrationThemeChooserViewController.swift in Sources */,
+				6AC3EF341FD8B23000B0A260 /* ConcentrationViewController.swift in Sources */,
 				6AC3EF321FD8B23000B0A260 /* AppDelegate.swift in Sources */,
 				6A43B4821FDCD566005006D0 /* Concentration.swift in Sources */,
 				6A43B4841FDCD66E005006D0 /* Card.swift in Sources */,
@@ -193,6 +197,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -200,6 +205,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -250,6 +256,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -257,6 +264,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

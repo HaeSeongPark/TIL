@@ -108,16 +108,16 @@ class MealTableViewController: UITableViewController {
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "MealTableViewCell"
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MealTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? testTableViewCell else {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
 
         // Fetches the appropriate meal for the data source layout.
         
         let meal = meals[indexPath.row]
-        cell.nameLabel.text = meal.name
-        cell.photoImageView.image = meal.photo
-        cell.ratingControl.rating = meal.rating
+//        cell.nameLabel.text = meal.name
+//        cell.photoImageView.image = meal.photo
+//        cell.ratingControl.rating = meal.rating
 
         return cell
     }

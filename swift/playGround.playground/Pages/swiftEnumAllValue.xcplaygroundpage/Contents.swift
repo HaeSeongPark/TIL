@@ -40,3 +40,11 @@ var sdf = [String]()
 Weekdays.allValues.map({ sdf.append($0.rawValue) })
 sdf
 print(Weekdays.allValues.map { $0.rawValue })
+
+enum OrderType:Int, EnumCollection {
+    case reservationRrate = 0
+    case curation = 1
+    case releaseDate = 2
+}
+
+OrderType.allValues.count

@@ -17,6 +17,7 @@
 		9736E90820BD435C00F71565 /* startDevelopingiOSAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E90720BD435C00F71565 /* startDevelopingiOSAppTests.swift */; };
 		9736E91020BD482600F71565 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E90F20BD482600F71565 /* MealTableViewCell.swift */; };
 		9736E91220BD4AA900F71565 /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9736E91120BD4AA900F71565 /* MealTableViewController.swift */; };
+		97D36DD220EF0FE500EC0A0C /* testTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D36DD120EF0FE500EC0A0C /* testTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		9736E90920BD435C00F71565 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9736E90F20BD482600F71565 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		9736E91120BD4AA900F71565 /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
+		97D36DD120EF0FE500EC0A0C /* testTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		97278C1C20AE859A00E106E6 /* startDevelopingiOSApp */ = {
 			isa = PBXGroup;
 			children = (
+				97D36DD120EF0FE500EC0A0C /* testTableViewCell.swift */,
 				9736E90F20BD482600F71565 /* MealTableViewCell.swift */,
 				97278C1D20AE859A00E106E6 /* AppDelegate.swift */,
 				97278C1F20AE859A00E106E6 /* MealViewController.swift */,
@@ -212,6 +215,7 @@
 				9736E90020BD41A500F71565 /* Meal.swift in Sources */,
 				97278C2020AE859A00E106E6 /* MealViewController.swift in Sources */,
 				97278C3020AEAB0800E106E6 /* RatingControl.swift in Sources */,
+				97D36DD220EF0FE500EC0A0C /* testTableViewCell.swift in Sources */,
 				97278C1E20AE859A00E106E6 /* AppDelegate.swift in Sources */,
 				9736E91220BD4AA900F71565 /* MealTableViewController.swift in Sources */,
 				9736E91020BD482600F71565 /* MealTableViewCell.swift in Sources */,
@@ -376,6 +380,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = startDevelopingiOSApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -393,6 +398,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = startDevelopingiOSApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
