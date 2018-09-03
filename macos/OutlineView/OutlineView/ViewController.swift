@@ -8,7 +8,18 @@
 
 import Cocoa
 
+class undoData:NSObject {
+    var nsnode:NSTreeNode?
+    var indexPath:IndexPath?
+    
+    init(nsnode:NSTreeNode?, indexPath:IndexPath?) {
+        self.nsnode = nsnode
+        self.indexPath = indexPath
+    }
+}
+
 class ViewController: NSViewController {
+    
     @IBOutlet weak var outlineView: NSOutlineView!
     @IBOutlet var treeController: NSTreeController!
     
@@ -102,10 +113,26 @@ extension ViewController: NSOutlineViewDataSource, NSOutlineViewDelegate {
         if sourceNode == nil {
             return false
         }
+        
+        let fromIndexPath = treeController.selectionIndexPath
+        
         let indexArr: [Int] = [0, index]
         let toIndexPath = NSIndexPath(indexes: indexArr, length: 2)
         treeController.move(sourceNode!, to: toIndexPath as IndexPath)
+        
+        undoManager?.registerUndo(withTarget: self, selector: #selector(reverse(data:)), object: undoData(nsnode: sourceNode, indexPath: fromIndexPath))
+        
         return true
     }
+    
+    @objc func reverse(data:undoData) {
+        if data.nsnode != nil, data.indexPath != nil {
+            treeController.move(data.nsnode!, to: data.indexPath! as IndexPath)
+        }
+    }
+    
+//    @objc func reverse(sourceNode: NSTreeNode?, fromIndexPath: NSIndexPath?) {
+//        treeController.move(sourceNode!, to: fromIndexPath! as IndexPath)
+//    }
 }
 
