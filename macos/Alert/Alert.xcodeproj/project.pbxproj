@@ -11,7 +11,18 @@
 		97D4278D213D713500A3B4B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D4278C213D713500A3B4B3 /* ViewController.swift */; };
 		97D4278F213D713600A3B4B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97D4278E213D713600A3B4B3 /* Assets.xcassets */; };
 		97D42792213D713600A3B4B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97D42790213D713600A3B4B3 /* Main.storyboard */; };
+		97D427A1213D753D00A3B4B3 /* AlertUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D427A0213D753D00A3B4B3 /* AlertUITests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		97D427A3213D753D00A3B4B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97D4277F213D713500A3B4B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97D42786213D713500A3B4B3;
+			remoteInfo = Alert;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		97D42787213D713500A3B4B3 /* Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alert.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -21,10 +32,20 @@
 		97D42791213D713600A3B4B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97D42793213D713600A3B4B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97D42794213D713600A3B4B3 /* Alert.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Alert.entitlements; sourceTree = "<group>"; };
+		97D4279E213D753D00A3B4B3 /* AlertUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlertUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		97D427A0213D753D00A3B4B3 /* AlertUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUITests.swift; sourceTree = "<group>"; };
+		97D427A2213D753D00A3B4B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		97D42784213D713500A3B4B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97D4279B213D753D00A3B4B3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				97D42789213D713500A3B4B3 /* Alert */,
+				97D4279F213D753D00A3B4B3 /* AlertUITests */,
 				97D42788213D713500A3B4B3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				97D42787213D713500A3B4B3 /* Alert.app */,
+				97D4279E213D753D00A3B4B3 /* AlertUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,6 +84,15 @@
 				97D42794213D713600A3B4B3 /* Alert.entitlements */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		97D4279F213D753D00A3B4B3 /* AlertUITests */ = {
+			isa = PBXGroup;
+			children = (
+				97D427A0213D753D00A3B4B3 /* AlertUITests.swift */,
+				97D427A2213D753D00A3B4B3 /* Info.plist */,
+			);
+			path = AlertUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +115,24 @@
 			productReference = 97D42787213D713500A3B4B3 /* Alert.app */;
 			productType = "com.apple.product-type.application";
 		};
+		97D4279D213D753D00A3B4B3 /* AlertUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97D427A5213D753D00A3B4B3 /* Build configuration list for PBXNativeTarget "AlertUITests" */;
+			buildPhases = (
+				97D4279A213D753D00A3B4B3 /* Sources */,
+				97D4279B213D753D00A3B4B3 /* Frameworks */,
+				97D4279C213D753D00A3B4B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				97D427A4213D753D00A3B4B3 /* PBXTargetDependency */,
+			);
+			name = AlertUITests;
+			productName = AlertUITests;
+			productReference = 97D4279E213D753D00A3B4B3 /* AlertUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -95,6 +145,10 @@
 				TargetAttributes = {
 					97D42786213D713500A3B4B3 = {
 						CreatedOnToolsVersion = 9.4.1;
+					};
+					97D4279D213D753D00A3B4B3 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 97D42786213D713500A3B4B3;
 					};
 				};
 			};
@@ -112,6 +166,7 @@
 			projectRoot = "";
 			targets = (
 				97D42786213D713500A3B4B3 /* Alert */,
+				97D4279D213D753D00A3B4B3 /* AlertUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -123,6 +178,13 @@
 			files = (
 				97D4278F213D713600A3B4B3 /* Assets.xcassets in Resources */,
 				97D42792213D713600A3B4B3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97D4279C213D753D00A3B4B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +200,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		97D4279A213D753D00A3B4B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97D427A1213D753D00A3B4B3 /* AlertUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		97D427A4213D753D00A3B4B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 97D42786213D713500A3B4B3 /* Alert */;
+			targetProxy = 97D427A3213D753D00A3B4B3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		97D42790213D713600A3B4B3 /* Main.storyboard */ = {
@@ -301,6 +379,42 @@
 			};
 			name = Release;
 		};
+		97D427A6213D753D00A3B4B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = AlertUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhino.AlertUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = Alert;
+			};
+			name = Debug;
+		};
+		97D427A7213D753D00A3B4B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = AlertUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhino.AlertUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = Alert;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -318,6 +432,15 @@
 			buildConfigurations = (
 				97D42798213D713600A3B4B3 /* Debug */,
 				97D42799213D713600A3B4B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97D427A5213D753D00A3B4B3 /* Build configuration list for PBXNativeTarget "AlertUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97D427A6213D753D00A3B4B3 /* Debug */,
+				97D427A7213D753D00A3B4B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
