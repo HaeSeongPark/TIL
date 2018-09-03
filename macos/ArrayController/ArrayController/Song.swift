@@ -9,6 +9,6 @@
 import Cocoa
 
 class Song: NSObject {
-    @objc var name: String? = "New Song"
-    @objc var bpm: Int = 100
+    @objc dynamic var name: String? = "New Song"
+    @objc dynamic var bpm: Int = 100
 }
