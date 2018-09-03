@@ -27,7 +27,7 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         addData()
         outlineView.expandItem(nil, expandChildren: true)
-        
+        outlineView.deselectRow(0)
         outlineView.registerForDraggedTypes([.string])
     }
 
@@ -133,6 +133,18 @@ extension ViewController: NSOutlineViewDataSource, NSOutlineViewDelegate {
     
 //    @objc func reverse(sourceNode: NSTreeNode?, fromIndexPath: NSIndexPath?) {
 //        treeController.move(sourceNode!, to: fromIndexPath! as IndexPath)
+//    }
+    
+//    func outlineView(_ outlineView: NSOutlineView, isGroupItem item: Any) -> Bool {
+//        return isHeader(item: true)
+//    }
+//
+//    func outlineView(_ outlineView: NSOutlineView, shouldSelectItem item: Any) -> Bool {
+//        return !isHeader(item: item)
+//    }
+    
+//    func outlineView(_ outlineView: NSOutlineView, shouldShowOutlineCellForItem item: Any) -> Bool {
+//        return !isHeader(item: item)
 //    }
 }
 
