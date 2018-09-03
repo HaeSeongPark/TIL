@@ -10,7 +10,7 @@ import Cocoa
 
 class Document: NSDocument {
     
-    var songs: [Song] = []
+    @objc var songs: [Song] = []
     
     override init() {
         super.init()
