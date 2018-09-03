@@ -12,6 +12,7 @@
 		97D42751213D04BE00A3B4B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97D42750213D04BE00A3B4B3 /* Assets.xcassets */; };
 		97D42754213D04BE00A3B4B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97D42752213D04BE00A3B4B3 /* Main.storyboard */; };
 		97D4275D213D11FE00A3B4B3 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D4275C213D11FE00A3B4B3 /* WeatherViewController.swift */; };
+		97D4275F213D142500A3B4B3 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D4275E213D142500A3B4B3 /* EventMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		97D42755213D04BE00A3B4B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97D42756213D04BE00A3B4B3 /* MenuBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MenuBar.entitlements; sourceTree = "<group>"; };
 		97D4275C213D11FE00A3B4B3 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		97D4275E213D142500A3B4B3 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				97D4274C213D04BD00A3B4B3 /* AppDelegate.swift */,
+				97D4275E213D142500A3B4B3 /* EventMonitor.swift */,
 				97D4275C213D11FE00A3B4B3 /* WeatherViewController.swift */,
 				97D4274E213D04BD00A3B4B3 /* ViewController.swift */,
 				97D42750213D04BE00A3B4B3 /* Assets.xcassets */,
@@ -139,6 +142,7 @@
 				97D4274F213D04BD00A3B4B3 /* ViewController.swift in Sources */,
 				97D4275D213D11FE00A3B4B3 /* WeatherViewController.swift in Sources */,
 				97D4274D213D04BD00A3B4B3 /* AppDelegate.swift in Sources */,
+				97D4275F213D142500A3B4B3 /* EventMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

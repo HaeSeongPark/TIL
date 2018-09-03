@@ -5,7 +5,6 @@
 //  Created by rhino Q on 03/09/2018.
 //  Copyright © 2018 rhino Q. All rights reserved.
 // - http://stackoverflow.com/questions/4565820/cocoa-right-click-nsstatusitem﻿
-// - when user click on desktop, the popover view should dismiss
 
 import Cocoa
 
@@ -14,6 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.variableLength)
 //    let menu = NSMenu()
     let popover = NSPopover()
+    var eventMonitor: EventMonitor?
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -23,6 +23,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         popover.contentViewController = WeatherViewController.loadFromNib()
+        eventMonitor = EventMonitor(mask: [.leftMouseUp, .rightMouseUp], handler: { (event) in
+            if self.popover.isShown {
+                self.popover.performClose(event)
+            }
+        })
         
 //        menu.addItem(NSMenuItem(title: "Show Weather", action: #selector(showWeather(sender:)), keyEquivalent: "S"))
 //        menu.addItem(NSMenuItem.separator())
@@ -38,9 +43,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func showWeather(sender:NSStatusBarButton){
         if popover.isShown {
             popover.performClose(sender)
+            eventMonitor?.stop()
         } else {
             if let button = statusItem.button {
                 popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+                eventMonitor?.start()
             }
         }
     }
