@@ -9,9 +9,12 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
+    @IBOutlet weak var collectionView: NSCollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.backgroundColors = [.gray]
+        
     }
 
     override var representedObject: Any? {
@@ -32,6 +35,13 @@ extension ViewController: NSCollectionViewDataSource {
         
         return item
         
+    }
+}
+
+extension ViewController: NSCollectionViewDelegate {
+    
+    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+        print(indexPaths)
     }
 }
 

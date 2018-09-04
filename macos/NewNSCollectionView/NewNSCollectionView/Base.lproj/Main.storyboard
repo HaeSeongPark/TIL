@@ -715,7 +715,7 @@
                                     <rect key="frame" x="1" y="1" width="478" height="268"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView id="DfT-6o-NnG">
+                                        <collectionView selectable="YES" allowsMultipleSelection="YES" id="DfT-6o-NnG">
                                             <rect key="frame" x="0.0" y="0.0" width="478" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="eLB-v7-r3f">
@@ -724,6 +724,7 @@
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
                                                 <outlet property="dataSource" destination="XfG-lQ-9wD" id="tYF-oX-UTg"/>
+                                                <outlet property="delegate" destination="XfG-lQ-9wD" id="sAS-HQ-Lj0"/>
                                             </connections>
                                         </collectionView>
                                     </subviews>
@@ -746,6 +747,9 @@
                             <constraint firstAttribute="bottom" secondItem="9ES-mE-nqC" secondAttribute="bottom" id="yM0-BJ-gvc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="DfT-6o-NnG" id="w7D-uZ-u4N"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
