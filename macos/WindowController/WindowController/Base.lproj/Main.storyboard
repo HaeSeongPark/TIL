@@ -696,7 +696,11 @@
                                 <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="6AP-Hw-q7e"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="AhM-ku-crB"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="DnO-qZ-2XL"/>
-                                <toolbarItem implicitItemIdentifier="3E4B530E-7641-4230-9950-86C8D941F40A" label="Settings" paletteLabel="Settings" tag="-1" image="NSActionTemplate" id="4UG-hl-gIn"/>
+                                <toolbarItem implicitItemIdentifier="3E4B530E-7641-4230-9950-86C8D941F40A" label="Settings" paletteLabel="Settings" tag="-1" image="NSActionTemplate" id="4UG-hl-gIn">
+                                    <connections>
+                                        <segue destination="MO1-TC-Pzd" kind="sheet" id="1Zn-OR-dyt"/>
+                                    </connections>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="LsA-ge-hyL"/>
@@ -715,6 +719,127 @@
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
+        </scene>
+        <!--Tab View Controller-->
+        <scene sceneID="7XP-n2-Nju">
+            <objects>
+                <tabViewController id="MO1-TC-Pzd" sceneMemberID="viewController">
+                    <tabViewItems>
+                        <tabViewItem identifier="" id="3bZ-fv-gVH"/>
+                        <tabViewItem identifier="" id="SWB-HB-Eg7"/>
+                        <tabViewItem id="S4O-2k-T21"/>
+                    </tabViewItems>
+                    <tabView key="tabView" type="noTabsNoBorder" id="VD2-rA-qIW">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <font key="font" metaFont="message"/>
+                        <connections>
+                            <outlet property="delegate" destination="MO1-TC-Pzd" id="f86-Br-Gng"/>
+                        </connections>
+                    </tabView>
+                    <connections>
+                        <outlet property="tabView" destination="VD2-rA-qIW" id="khK-gf-7XS"/>
+                        <segue destination="CI6-Nh-AUt" kind="relationship" relationship="tabItems" id="aH1-k3-VNW"/>
+                        <segue destination="N4V-8c-kc8" kind="relationship" relationship="tabItems" id="qXo-VX-v76"/>
+                        <segue destination="Yii-Bx-dI4" kind="relationship" relationship="tabItems" id="cdU-x3-cMk"/>
+                    </connections>
+                </tabViewController>
+                <customObject id="xMo-Pe-jg7" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="599" y="373"/>
+        </scene>
+        <!--First Tab-->
+        <scene sceneID="Edo-20-v0T">
+            <objects>
+                <viewController title="First Tab" id="CI6-Nh-AUt" customClass="FirstTabViewController" customModule="WindowController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="fZp-rA-t1r">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qf7-iB-z1u">
+                                <rect key="frame" x="211" y="141" width="28" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="first" id="Ayn-Is-bx4">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fSN-TS-jyA">
+                                <rect key="frame" x="185" y="35" width="80" height="32"/>
+                                <buttonCell key="cell" type="push" title="cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4vu-4b-vXH">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="dismiss:" target="CI6-Nh-AUt" id="J4r-dK-rWa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="qf7-iB-z1u" firstAttribute="centerY" secondItem="fZp-rA-t1r" secondAttribute="centerY" id="1CR-CJ-s3F"/>
+                            <constraint firstItem="fSN-TS-jyA" firstAttribute="centerX" secondItem="fZp-rA-t1r" secondAttribute="centerX" id="NmL-W6-i70"/>
+                            <constraint firstAttribute="bottom" secondItem="fSN-TS-jyA" secondAttribute="bottom" constant="42" id="jgw-kC-367"/>
+                            <constraint firstItem="qf7-iB-z1u" firstAttribute="centerX" secondItem="fZp-rA-t1r" secondAttribute="centerX" id="y5t-hq-E9D"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="mNr-5U-NrT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1269" y="187"/>
+        </scene>
+        <!--second tab-->
+        <scene sceneID="9Fq-RK-hds">
+            <objects>
+                <viewController title="second tab" id="N4V-8c-kc8" sceneMemberID="viewController">
+                    <view key="view" id="vh6-TZ-hFv">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NTU-8a-MxT">
+                                <rect key="frame" x="201" y="142" width="49" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="second" id="jgu-B0-ip2">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="NTU-8a-MxT" firstAttribute="centerY" secondItem="vh6-TZ-hFv" secondAttribute="centerY" id="Nbx-EB-7B5"/>
+                            <constraint firstItem="NTU-8a-MxT" firstAttribute="centerX" secondItem="vh6-TZ-hFv" secondAttribute="centerX" id="brS-c1-1xZ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="nrY-K4-bqh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1269" y="559"/>
+        </scene>
+        <!--third tab-->
+        <scene sceneID="xDI-LU-1wR">
+            <objects>
+                <viewController title="third tab" id="Yii-Bx-dI4" sceneMemberID="viewController">
+                    <view key="view" id="TkY-cU-bZX">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oyi-LD-bK2">
+                                <rect key="frame" x="209" y="142" width="33" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="third" id="fGK-KJ-IVX">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="oyi-LD-bK2" firstAttribute="centerY" secondItem="TkY-cU-bZX" secondAttribute="centerY" id="9Jy-0j-sgA"/>
+                            <constraint firstItem="oyi-LD-bK2" firstAttribute="centerX" secondItem="TkY-cU-bZX" secondAttribute="centerX" id="m1t-mk-7Jz"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="l98-MR-2oD" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1172" y="1029"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
