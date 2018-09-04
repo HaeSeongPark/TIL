@@ -682,12 +682,12 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="69" y="-45"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
+                <windowController id="B8D-0N-5wS" customClass="WindowController" customModule="WindowController" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -705,9 +705,25 @@
                                         <segue destination="MO1-TC-Pzd" kind="sheet" id="1Zn-OR-dyt"/>
                                     </connections>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="95CB663F-621A-48F5-BFF8-4A882310CD9B" label="Custom View" paletteLabel="Custom View" id="emo-4s-XSh">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="38" height="11"/>
+                                    <size key="maxSize" width="92" height="46"/>
+                                    <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="yWk-nV-QAU">
+                                        <rect key="frame" x="1" y="14" width="75" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="WindowVC" id="KYi-I6-I82">
+                                            <font key="font" metaFont="system" size="11"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
-                                <toolbarItem reference="LsA-ge-hyL"/>
+                                <toolbarItem reference="AhM-ku-crB"/>
+                                <toolbarItem reference="DnO-qZ-2XL"/>
+                                <toolbarItem reference="emo-4s-XSh"/>
                                 <toolbarItem reference="DnO-qZ-2XL"/>
                                 <toolbarItem reference="4UG-hl-gIn"/>
                             </defaultToolbarItems>
@@ -967,7 +983,7 @@
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ni-ER-uqk">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                 <clipView key="contentView" id="5Oz-2P-f8y">
-                                    <rect key="frame" x="1" y="23" width="448" height="276"/>
+                                    <rect key="frame" x="1" y="0.0" width="448" height="299"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="IF8-Wj-ej0" viewBased="YES" id="zvM-oh-G3l">
@@ -1078,7 +1094,7 @@
         <image name="NSActionTemplate" width="14" height="14"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mwr-cA-veT"/>
-        <segue reference="1Zn-OR-dyt"/>
+        <segue reference="gOc-Xq-hXT"/>
+        <segue reference="TB2-Ij-hWt"/>
     </inferredMetricsTieBreakers>
 </document>
