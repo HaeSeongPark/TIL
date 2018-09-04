@@ -9,4 +9,17 @@
 import Cocoa
 
 class RightVC: ViewLifeCycleLoggingVC {
+    @IBOutlet weak var clickCountLabel: NSTextField!
+    private var clickCount = 0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(reveiceNoti(noti:)), name: Notification.Name.clickNoti, object: nil)
+    }
+    
+    @objc func reveiceNoti(noti: Notification){
+        clickCount += 1
+        clickCountLabel.stringValue = "Click \(clickCount) tiems"
+    }
+    
 }

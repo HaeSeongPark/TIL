@@ -8,5 +8,13 @@
 
 import Cocoa
 
+extension Notification.Name {
+    static let clickNoti = Notification.Name("click")
+}
+
 class LeftVC: ViewLifeCycleLoggingVC {
+    
+    @IBAction func pushNoti(_ sender: NSButton) {
+        NotificationCenter.default.post(name: Notification.Name.clickNoti, object: nil)
+    }
 }

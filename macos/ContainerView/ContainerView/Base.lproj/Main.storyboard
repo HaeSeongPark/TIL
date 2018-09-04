@@ -748,8 +748,8 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nM0-r2-5FV">
-                                <rect key="frame" x="207" y="141" width="36" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Right" id="hbo-TL-PNI">
+                                <rect key="frame" x="184" y="141" width="83" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Click 0 times" id="hbo-TL-PNI">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -761,6 +761,9 @@
                             <constraint firstItem="nM0-r2-5FV" firstAttribute="centerX" secondItem="9PE-nq-pvo" secondAttribute="centerX" id="vSN-dm-8f9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="clickCountLabel" destination="nM0-r2-5FV" id="NUZ-Yv-IKG"/>
+                    </connections>
                 </viewController>
                 <customObject id="DGB-HB-hcf" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -774,18 +777,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="t2A-zY-4XZ">
-                                <rect key="frame" x="211" y="142" width="28" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Left" id="sMe-vf-Zwp">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wMd-g5-Xey">
+                                <rect key="frame" x="185" y="133" width="81" height="32"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5BN-IN-PNk">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="pushNoti:" target="B8G-8D-efs" id="Hab-3f-gO6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="t2A-zY-4XZ" firstAttribute="centerY" secondItem="cof-LG-MMB" secondAttribute="centerY" id="bNp-39-YqB"/>
-                            <constraint firstItem="t2A-zY-4XZ" firstAttribute="centerX" secondItem="cof-LG-MMB" secondAttribute="centerX" id="frQ-IN-e1F"/>
+                            <constraint firstItem="wMd-g5-Xey" firstAttribute="centerX" secondItem="cof-LG-MMB" secondAttribute="centerX" id="8MR-dw-9s7"/>
+                            <constraint firstItem="wMd-g5-Xey" firstAttribute="centerY" secondItem="cof-LG-MMB" secondAttribute="centerY" id="ipc-6e-iaO"/>
                         </constraints>
                     </view>
                 </viewController>
