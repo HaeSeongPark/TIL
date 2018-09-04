@@ -13,8 +13,12 @@ extension Notification.Name {
 }
 
 class LeftVC: ViewLifeCycleLoggingVC {
+    @IBOutlet weak var button: NSButton!
     
     @IBAction func pushNoti(_ sender: NSButton) {
-        NotificationCenter.default.post(name: Notification.Name.clickNoti, object: nil)
+//        NotificationCenter.default.post(name: Notification.Name.clickNoti, object: nil)
+        let vc = PopoverVC.loadFromNib()
+        vc.showPopover(view: sender)
+        
     }
 }

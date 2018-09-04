@@ -713,13 +713,13 @@
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="hUl-Bh-PUx">
                                 <rect key="frame" x="160" y="0.0" width="320" height="270"/>
                                 <connections>
-                                    <segue destination="B8G-8D-efs" kind="embed" id="gVl-wX-uX6"/>
+                                    <segue destination="BeP-Pb-cu4" kind="embed" id="6Ke-Ya-z4r"/>
                                 </connections>
                             </containerView>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="Efc-RF-Qj9">
                                 <rect key="frame" x="0.0" y="0.0" width="160" height="270"/>
                                 <connections>
-                                    <segue destination="BeP-Pb-cu4" kind="embed" id="p9O-V8-SO9"/>
+                                    <segue destination="B8G-8D-efs" kind="embed" id="jEe-a0-i8o"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -778,8 +778,8 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wMd-g5-Xey">
-                                <rect key="frame" x="185" y="133" width="81" height="32"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5BN-IN-PNk">
+                                <rect key="frame" x="190" y="133" width="70" height="32"/>
+                                <buttonCell key="cell" type="push" title="Click" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5BN-IN-PNk">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -793,10 +793,54 @@
                             <constraint firstItem="wMd-g5-Xey" firstAttribute="centerY" secondItem="cof-LG-MMB" secondAttribute="centerY" id="ipc-6e-iaO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="button" destination="wMd-g5-Xey" id="dZ7-T6-yGe"/>
+                    </connections>
                 </viewController>
                 <customObject id="wXW-Qd-XP1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-155" y="1134"/>
         </scene>
+        <!--PopoverVC-->
+        <scene sceneID="rkY-Ex-gu4">
+            <objects>
+                <viewController storyboardIdentifier="Popover" id="yYs-DD-iV7" customClass="PopoverVC" customModule="ContainerView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="qhb-Wn-64z">
+                        <rect key="frame" x="0.0" y="0.0" width="226" height="184"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3qh-R1-XLp">
+                                <rect key="frame" x="146" y="74" width="38" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="MXa-AB-Juw">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="click:" target="yYs-DD-iV7" id="fSj-26-OEq"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BWb-Jv-dqa">
+                                <rect key="frame" x="20" y="81" width="96" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="gmM-93-cV2">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="textField" destination="BWb-Jv-dqa" id="Wfr-sB-8HU"/>
+                    </connections>
+                </viewController>
+                <customObject id="0Lc-qj-z86" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="119" y="1533"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="NSAddTemplate" width="11" height="11"/>
+    </resources>
 </document>

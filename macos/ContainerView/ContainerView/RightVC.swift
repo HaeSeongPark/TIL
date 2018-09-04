@@ -18,8 +18,16 @@ class RightVC: ViewLifeCycleLoggingVC {
     }
     
     @objc func reveiceNoti(noti: Notification){
-        clickCount += 1
-        clickCountLabel.stringValue = "Click \(clickCount) tiems"
+        if let content = noti.userInfo?[CVNotiUserInfo.Content] as? String, content != "" {
+                clickCountLabel.stringValue = content
+        } else {
+            clickCount += 1
+            clickCountLabel.stringValue = "Click \(clickCount) tiems"
+        }
     }
     
+}
+
+enum CVNotiUserInfo:String {
+    case Content = "com.rhnino.ContainerView.content"
 }

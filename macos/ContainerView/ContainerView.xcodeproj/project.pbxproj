@@ -14,6 +14,7 @@
 		972836C5213E16E1003C7ABE /* LeftVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972836C4213E16E1003C7ABE /* LeftVC.swift */; };
 		972836C7213E16E9003C7ABE /* RightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972836C6213E16E9003C7ABE /* RightVC.swift */; };
 		972836C9213E17D5003C7ABE /* ViewLifeCycleLoggingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972836C8213E17D5003C7ABE /* ViewLifeCycleLoggingVC.swift */; };
+		972836CB213E29DD003C7ABE /* PopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972836CA213E29DD003C7ABE /* PopoverVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		972836C4213E16E1003C7ABE /* LeftVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftVC.swift; sourceTree = "<group>"; };
 		972836C6213E16E9003C7ABE /* RightVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightVC.swift; sourceTree = "<group>"; };
 		972836C8213E17D5003C7ABE /* ViewLifeCycleLoggingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLifeCycleLoggingVC.swift; sourceTree = "<group>"; };
+		972836CA213E29DD003C7ABE /* PopoverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				972836B8213E151E003C7ABE /* Assets.xcassets */,
 				972836BA213E151E003C7ABE /* Main.storyboard */,
 				972836C4213E16E1003C7ABE /* LeftVC.swift */,
+				972836CA213E29DD003C7ABE /* PopoverVC.swift */,
 				972836C6213E16E9003C7ABE /* RightVC.swift */,
 				972836C8213E17D5003C7ABE /* ViewLifeCycleLoggingVC.swift */,
 				972836BD213E151E003C7ABE /* Info.plist */,
@@ -146,6 +149,7 @@
 				972836B7213E151D003C7ABE /* ViewController.swift in Sources */,
 				972836B5213E151D003C7ABE /* AppDelegate.swift in Sources */,
 				972836C9213E17D5003C7ABE /* ViewLifeCycleLoggingVC.swift in Sources */,
+				972836CB213E29DD003C7ABE /* PopoverVC.swift in Sources */,
 				972836C7213E16E9003C7ABE /* RightVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
