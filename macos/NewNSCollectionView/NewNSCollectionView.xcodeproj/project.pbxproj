@@ -13,6 +13,7 @@
 		97F412AA213E6094003B12E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97F412A8213E6094003B12E1 /* Main.storyboard */; };
 		97F412B4213E65A8003B12E1 /* imageCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F412B2213E65A8003B12E1 /* imageCollectionViewItem.swift */; };
 		97F412B5213E65A8003B12E1 /* imageCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97F412B3213E65A8003B12E1 /* imageCollectionViewItem.xib */; };
+		97F412B7213E895C003B12E1 /* CollectionViewListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F412B6213E895C003B12E1 /* CollectionViewListLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		97F412AC213E6094003B12E1 /* NewNSCollectionView.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NewNSCollectionView.entitlements; sourceTree = "<group>"; };
 		97F412B2213E65A8003B12E1 /* imageCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageCollectionViewItem.swift; sourceTree = "<group>"; };
 		97F412B3213E65A8003B12E1 /* imageCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = imageCollectionViewItem.xib; sourceTree = "<group>"; };
+		97F412B6213E895C003B12E1 /* CollectionViewListLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewListLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				97F412A4213E6093003B12E1 /* ViewController.swift */,
 				97F412A6213E6094003B12E1 /* Assets.xcassets */,
 				97F412A8213E6094003B12E1 /* Main.storyboard */,
+				97F412B6213E895C003B12E1 /* CollectionViewListLayout.swift */,
 				97F412B2213E65A8003B12E1 /* imageCollectionViewItem.swift */,
 				97F412B3213E65A8003B12E1 /* imageCollectionViewItem.xib */,
 				97F412AB213E6094003B12E1 /* Info.plist */,
@@ -142,6 +145,7 @@
 			files = (
 				97F412A5213E6093003B12E1 /* ViewController.swift in Sources */,
 				97F412A3213E6093003B12E1 /* AppDelegate.swift in Sources */,
+				97F412B7213E895C003B12E1 /* CollectionViewListLayout.swift in Sources */,
 				97F412B4213E65A8003B12E1 /* imageCollectionViewItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

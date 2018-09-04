@@ -718,7 +718,7 @@
                                         <collectionView selectable="YES" allowsMultipleSelection="YES" id="DfT-6o-NnG">
                                             <rect key="frame" x="0.0" y="0.0" width="478" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                            <collectionViewGridLayout key="collectionViewLayout" id="bBi-gf-3xk"/>
+                                            <collectionViewLayout key="collectionViewLayout" id="Xed-mp-8rl" customClass="CollectionViewListLayout" customModule="NewNSCollectionView" customModuleProvider="target"/>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
                                                 <outlet property="dataSource" destination="XfG-lQ-9wD" id="tYF-oX-UTg"/>
