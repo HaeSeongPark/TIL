@@ -55,6 +55,12 @@ extension ViewController: NSCollectionViewDataSource {
         
         let view = collectionView.makeSupplementaryView(ofKind: kind, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: nibName!), for: indexPath)
         
+        if let view = view as? HeaderView {
+           view.titleTextField?.stringValue = "Custom Header"
+        } else if let view = view as? FooterView {
+            view.titleTextField?.stringValue = "Custom Footer"
+        }
+        
         return view
     }
 }
