@@ -9,7 +9,7 @@
 import Cocoa
 
 extension Notification.Name {
-    static let clickNoti = Notification.Name("click")
+    static let clickNoti = Notification.Name("com.rhino.ContainerView.click")
 }
 
 class LeftVC: ViewLifeCycleLoggingVC {
