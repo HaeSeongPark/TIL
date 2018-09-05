@@ -14,6 +14,10 @@ class PlayerManager: NSObject, AVAudioPlayerDelegate {
     
     var isPlaying = false
     var player: AVAudioPlayer?
+    var currentSong: Song? = nil
+    var isRepeated = false
+    var isShuffle = false
+    var volume:Float = 0.5
     
     // MARK: Player Control
     
