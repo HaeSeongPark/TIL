@@ -11,6 +11,8 @@ import Cocoa
 class ViewController: NSViewController {
     @IBOutlet weak var collectionView: NSCollectionView!
     
+    var strings = ["a", "b", "c", "d"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColors = [.gray]
@@ -23,22 +25,18 @@ class ViewController: NSViewController {
 //        collectionView.collectionViewLayout = layout
         
     }
-
-    override var representedObject: Any? {
-        didSet {
-            
-        }
-    }
 }
 
 
 extension ViewController: NSCollectionViewDataSource {
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return strings.count
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "imageCollectionViewItem"), for: indexPath)
+        
+        item.textField?.stringValue = strings[indexPath.item]
         
         return item
     }
@@ -69,6 +67,14 @@ extension ViewController: NSCollectionViewDelegate {
     
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         print(indexPaths)
+        
+        let fromIndexPath = indexPaths.first!
+        let toIndexPath = NSIndexPath(forItem: strings.count - 1, inSection: 0)
+        
+        collectionView.performBatchUpdates({
+            self.collectionView.moveItem(at: fromIndexPath, to: toIndexPath as IndexPath)
+        }, completionHandler: nil)
+        
     }
 }
 

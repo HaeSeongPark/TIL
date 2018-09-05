@@ -32,6 +32,7 @@
         </customView>
         <customObject id="UJ4-sc-Nhl" customClass="imageCollectionViewItem" customModule="NewNSCollectionView" customModuleProvider="target">
             <connections>
+                <outlet property="textField" destination="jLW-5w-ism" id="Fi9-r9-oTX"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="EZM-c8-pyX"/>
             </connections>
         </customObject>
