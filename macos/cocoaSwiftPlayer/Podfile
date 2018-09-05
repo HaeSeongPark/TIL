@@ -1,0 +1,8 @@
+# Uncomment the next line to define a global platform for your project
+platform :osx, '10.13'
+
+  use_frameworks!
+target 'cocoaSwiftPlayer' do
+  # Pods for cocoaSwiftPlayer
+  pod 'RealmSwift'
+end
