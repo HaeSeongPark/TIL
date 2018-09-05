@@ -18,16 +18,28 @@ class PlayerViewController: NSViewController {
     @IBOutlet weak var repeatButton: NSButton!
     
     let manager = PlayerManager.sharedManager
+    var songTimer: Timer?
+    var songProgress: Double = 0.0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        timeLabel.stringValue = "0:00"
+        addNotifications()
+    }
+    
+    fileprivate func addNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(startPlaying(noti:)), name: Notification.Name.StartPlaying, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(pausePlaying(noti:)), name: Notification.Name.PausePlaying, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(changeSong(noti:)), name: Notification.Name.ChangeSong, object: nil)
     }
     
     //MARK: -IBAction
     @IBAction func play(_ sender: NSButton) {
-        timeLabel.stringValue = "1:00"
         manager.play()
+        playButton.image = PlayerManager.sharedManager.isPlaying ? #imageLiteral(resourceName: "Pause") : #imageLiteral(resourceName: "Play")
     }
     
     @IBAction func rewind(_ sender: NSButton) {
@@ -44,5 +56,32 @@ class PlayerViewController: NSViewController {
     
     @IBAction func repeatPlayList(_ sender: NSButton) {
         manager.isRepeated = !manager.isRepeated
+    }
+    
+    //MARK: - Helpers
+    
+    @objc func changeSong(noti:Notification) {
+        timeLabel.stringValue = "0:00"
+        songProgress = 0
+        songTimer?.invalidate()
+        songTimer = nil
+    }
+    
+    @objc func startPlaying(noti: NSNotification) {
+        songTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateProgress), userInfo: nil, repeats: true)
+    }
+    
+    @objc func pausePlaying(noti: Notification) {
+        songTimer?.invalidate()
+        songTimer = nil
+    }
+    
+    // MARK: - Timer
+    @objc func updateProgress() {
+        songProgress += 1
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.minute, .second]
+        formatter.zeroFormattingBehavior = .pad
+        timeLabel.stringValue = "\(formatter.string(from: songProgress)!)"
     }
 }

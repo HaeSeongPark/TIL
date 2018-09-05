@@ -21,6 +21,8 @@
 		97276E26213FBDB40065CED7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97276E25213FBDB40065CED7 /* ViewController.swift */; };
 		97276E28213FBDB50065CED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97276E27213FBDB50065CED7 /* Assets.xcassets */; };
 		97276E2B213FBDB50065CED7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97276E29213FBDB50065CED7 /* Main.storyboard */; };
+		972A3E3121409BED00831A13 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E3021409BED00831A13 /* NotificationName.swift */; };
+		972A3E3321409E4500831A13 /* Constatns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E3221409E4500831A13 /* Constatns.swift */; };
 		FAC93822FACF7B30A89A2633 /* Pods_cocoaSwiftPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61618DE6C27DE75E6AF6AF66 /* Pods_cocoaSwiftPlayer.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,8 @@
 		97276E2A213FBDB50065CED7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97276E2C213FBDB50065CED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97276E2D213FBDB50065CED7 /* cocoaSwiftPlayer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = cocoaSwiftPlayer.entitlements; sourceTree = "<group>"; };
+		972A3E3021409BED00831A13 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
+		972A3E3221409E4500831A13 /* Constatns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constatns.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 		97097333213FC1A400764EA1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				972A3E3221409E4500831A13 /* Constatns.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 			children = (
 				9709734D214020E100764EA1 /* Collection.swift */,
 				9709734F214021BA00764EA1 /* MutableCollection.swift */,
+				972A3E3021409BED00831A13 /* NotificationName.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -297,11 +303,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				97097350214021BA00764EA1 /* MutableCollection.swift in Sources */,
+				972A3E3121409BED00831A13 /* NotificationName.swift in Sources */,
 				97097349213FEF0800764EA1 /* SongListViewController.swift in Sources */,
 				97097342213FDB0000764EA1 /* SongManager.swift in Sources */,
 				97097340213FD5B500764EA1 /* PlayerManager.swift in Sources */,
 				97097336213FC22900764EA1 /* Song.swift in Sources */,
 				9709734B213FF64F00764EA1 /* RealmMigrationManager.swift in Sources */,
+				972A3E3321409E4500831A13 /* Constatns.swift in Sources */,
 				9709734E214020E100764EA1 /* Collection.swift in Sources */,
 				9709733E213FD23F00764EA1 /* PlayerViewController.swift in Sources */,
 				97276E26213FBDB40065CED7 /* ViewController.swift in Sources */,

@@ -35,6 +35,7 @@ class PlayerManager: NSObject, AVAudioPlayerDelegate {
                     player = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: currentSong.location))
                     player?.volume = volume
                 }
+                NotificationCenter.default.post(name: Notification.Name.ChangeSong, object: self, userInfo: [NotiicationUserInfos.Song:currentSong])
             } else {
                 stop()
                 player = nil
@@ -98,10 +99,12 @@ class PlayerManager: NSObject, AVAudioPlayerDelegate {
         }
         
         player?.play()
+        NotificationCenter.default.post(name: Notification.Name.StartPlaying, object: self, userInfo: [NotiicationUserInfos.Song:currentSong!])
     }
     
     func pause() {
         player?.pause()
+        NotificationCenter.default.post(name: Notification.Name.PausePlaying, object: self, userInfo: [NotiicationUserInfos.Song: currentSong!])
     }
     
     func stop() {
@@ -136,10 +139,6 @@ class PlayerManager: NSObject, AVAudioPlayerDelegate {
             currentSong = currentPlayList[currentIndex - 1]
             play()
         }
-    }
-    
-    func shuffle() {
-        
     }
     
     private func loadAllSongs() {
