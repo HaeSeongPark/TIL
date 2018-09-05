@@ -24,6 +24,19 @@ class ViewController: NSViewController {
 //
 //        collectionView.collectionViewLayout = layout
         
+        collectionView.addGestureRecognizer(NSClickGestureRecognizer(target: self, action: #selector(click(gesture:))))
+        
+    }
+    
+    @objc func click(gesture:NSGestureRecognizer) {
+        collectionView.performBatchUpdates({
+            self.strings.append("New")
+            
+            var set = Set<IndexPath>()
+            set.insert(IndexPath(item: self.strings.count-1, section: 0))
+            
+            self.collectionView.insertItems(at: set)
+        }, completionHandler: nil)
     }
 }
 
@@ -74,7 +87,6 @@ extension ViewController: NSCollectionViewDelegate {
         collectionView.performBatchUpdates({
             self.collectionView.moveItem(at: fromIndexPath, to: toIndexPath as IndexPath)
         }, completionHandler: nil)
-        
     }
 }
 
