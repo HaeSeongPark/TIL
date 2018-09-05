@@ -25,7 +25,20 @@ class ViewController: NSViewController {
 //        collectionView.collectionViewLayout = layout
         
         collectionView.addGestureRecognizer(NSClickGestureRecognizer(target: self, action: #selector(click(gesture:))))
+        collectionView.addGestureRecognizer(NSPanGestureRecognizer(target:self, action: #selector(pan(gesture:))))
         
+    }
+    
+    // add checking empty case
+    @objc func pan(gesture:NSGestureRecognizer){
+        switch gesture.state {
+        case .ended:
+            self.strings.removeLast()
+            var set = Set<IndexPath>()
+            set.insert(IndexPath(item: self.strings.count, section: 0))
+            self.collectionView.deleteItems(at: set)
+        default: break
+        }
     }
     
     @objc func click(gesture:NSGestureRecognizer) {
