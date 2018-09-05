@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		97097336213FC22900764EA1 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97097335213FC22900764EA1 /* Song.swift */; };
 		9709733B213FC89100764EA1 /* Song.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97097339213FC89100764EA1 /* Song.storyboard */; };
+		9709733E213FD23F00764EA1 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9709733D213FD23F00764EA1 /* PlayerViewController.swift */; };
+		97097340213FD5B500764EA1 /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9709733F213FD5B500764EA1 /* PlayerManager.swift */; };
 		97276E24213FBDB40065CED7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97276E23213FBDB40065CED7 /* AppDelegate.swift */; };
 		97276E26213FBDB40065CED7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97276E25213FBDB40065CED7 /* ViewController.swift */; };
 		97276E28213FBDB50065CED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97276E27213FBDB50065CED7 /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 		61618DE6C27DE75E6AF6AF66 /* Pods_cocoaSwiftPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cocoaSwiftPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97097335213FC22900764EA1 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		9709733A213FC89100764EA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Song.storyboard; sourceTree = "<group>"; };
+		9709733D213FD23F00764EA1 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		9709733F213FD5B500764EA1 /* PlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
 		97276E20213FBDB40065CED7 /* cocoaSwiftPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cocoaSwiftPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97276E23213FBDB40065CED7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97276E25213FBDB40065CED7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +75,7 @@
 		97097332213FC19900764EA1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9709733C213FD1D700764EA1 /* PlayViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -85,8 +90,17 @@
 		97097334213FC1B400764EA1 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				9709733F213FD5B500764EA1 /* PlayerManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		9709733C213FD1D700764EA1 /* PlayViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9709733D213FD23F00764EA1 /* PlayerViewController.swift */,
+			);
+			path = PlayViewController;
 			sourceTree = "<group>";
 		};
 		97276E17213FBDB40065CED7 = {
@@ -247,7 +261,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97097340213FD5B500764EA1 /* PlayerManager.swift in Sources */,
 				97097336213FC22900764EA1 /* Song.swift in Sources */,
+				9709733E213FD23F00764EA1 /* PlayerViewController.swift in Sources */,
 				97276E26213FBDB40065CED7 /* ViewController.swift in Sources */,
 				97276E24213FBDB40065CED7 /* AppDelegate.swift in Sources */,
 			);
