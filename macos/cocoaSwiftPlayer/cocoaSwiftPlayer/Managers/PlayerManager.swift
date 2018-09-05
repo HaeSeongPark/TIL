@@ -4,7 +4,9 @@
 //
 //  Created by rhino Q on 05/09/2018.
 //  Copyright © 2018 rhino Q. All rights reserved.
-//
+//  한곡반복
+// numberOfLoops = -1
+// player?.play(atTime: <#T##TimeInterval#>) 이용 구간 반복
 
 import Cocoa
 import AVFoundation
@@ -39,9 +41,43 @@ class PlayerManager: NSObject, AVAudioPlayerDelegate {
             }
         }
     }
+    
+    // currently using list
     var currentPlayList: [Song] = []
-    var isRepeated = false
-    var isShuffle = false
+    
+    // made of default originalPlayList
+    var shufflePlayList: [Song] = []
+    var originalPlayList:[Song] = [] {
+        didSet {
+            if !isShuffle {
+                currentPlayList = originalPlayList
+            }
+        }
+    }
+    
+    var isRepeated = false {
+        didSet {
+            print("isRepeated : \(isRepeated)")
+        }
+    }
+    var isShuffle = false {
+        didSet {
+            print("isShuffle: \(isShuffle)")
+            if isShuffle {
+                if let currentSong = currentSong {
+                    let list = originalPlayList.filter {
+                        return $0.location != currentSong.location
+                    }
+                    shufflePlayList = [currentSong] + list.shuffle()
+                } else {
+                    shufflePlayList = originalPlayList.shuffle()
+                }
+                currentPlayList = shufflePlayList
+            } else {
+                currentPlayList = originalPlayList
+            }
+        }
+    }
     var volume:Float = 0.5
     
     // MARK: Player Control
@@ -76,8 +112,11 @@ class PlayerManager: NSObject, AVAudioPlayerDelegate {
         //TODO: 마지막이면 첫번째걸로
         guard let currentIndex = currentIndex else { return }
         
-        if currentIndex == currentPlayList.count - 1 {
+        if !isRepeated && currentIndex == currentPlayList.count - 1 {
             currentSong = nil
+        } else if isRepeated && currentIndex == currentPlayList.count - 1 {
+            currentSong = currentPlayList.first
+            play()
         } else {
             currentSong = currentPlayList[currentIndex + 1]
             play()
@@ -88,8 +127,11 @@ class PlayerManager: NSObject, AVAudioPlayerDelegate {
         //TODO: 첫 번째면 마지막 걸로
         guard let currentIndex = currentIndex else { return }
         
-        if currentIndex == 0 {
+        if !isRepeated && currentIndex == 0 {
             currentSong = nil
+        } else if isRepeated && currentIndex == 0 {
+            currentSong = currentPlayList.last
+            play()
         } else {
             currentSong = currentPlayList[currentIndex - 1]
             play()
@@ -97,10 +139,6 @@ class PlayerManager: NSObject, AVAudioPlayerDelegate {
     }
     
     func shuffle() {
-        
-    }
-    
-    func repeatPlaylist() {
         
     }
     

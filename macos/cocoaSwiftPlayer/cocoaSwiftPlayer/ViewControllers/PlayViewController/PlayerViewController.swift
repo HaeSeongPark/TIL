@@ -39,11 +39,10 @@ class PlayerViewController: NSViewController {
     }
     
     @IBAction func shuffle(_ sender: NSButton) {
-        manager.shuffle()
+        manager.isShuffle = !manager.isShuffle
     }
     
     @IBAction func repeatPlayList(_ sender: NSButton) {
-        manager.repeatPlaylist()
+        manager.isRepeated = !manager.isRepeated
     }
-    
 }
