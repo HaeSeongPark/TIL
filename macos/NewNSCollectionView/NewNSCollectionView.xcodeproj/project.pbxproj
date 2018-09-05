@@ -18,6 +18,7 @@
 		97F412BF213EBFE1003B12E1 /* Footer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97F412BD213EBFE1003B12E1 /* Footer.xib */; };
 		97F412C1213EC5FB003B12E1 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F412C0213EC5FB003B12E1 /* HeaderView.swift */; };
 		97F412C5213EC913003B12E1 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F412C4213EC913003B12E1 /* FooterView.swift */; };
+		97F412C7213F6679003B12E1 /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F412C6213F6679003B12E1 /* CustomScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		97F412BD213EBFE1003B12E1 /* Footer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Footer.xib; sourceTree = "<group>"; };
 		97F412C0213EC5FB003B12E1 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		97F412C4213EC913003B12E1 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		97F412C6213F6679003B12E1 /* CustomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				97F412C4213EC913003B12E1 /* FooterView.swift */,
 				97F412A2213E6093003B12E1 /* AppDelegate.swift */,
 				97F412A4213E6093003B12E1 /* ViewController.swift */,
+				97F412C6213F6679003B12E1 /* CustomScrollView.swift */,
 				97F412BD213EBFE1003B12E1 /* Footer.xib */,
 				97F412C0213EC5FB003B12E1 /* HeaderView.swift */,
 				97F412A6213E6094003B12E1 /* Assets.xcassets */,
@@ -159,6 +162,7 @@
 			files = (
 				97F412A5213E6093003B12E1 /* ViewController.swift in Sources */,
 				97F412A3213E6093003B12E1 /* AppDelegate.swift in Sources */,
+				97F412C7213F6679003B12E1 /* CustomScrollView.swift in Sources */,
 				97F412B7213E895C003B12E1 /* CollectionViewListLayout.swift in Sources */,
 				97F412C5213EC913003B12E1 /* FooterView.swift in Sources */,
 				97F412B4213E65A8003B12E1 /* imageCollectionViewItem.swift in Sources */,
