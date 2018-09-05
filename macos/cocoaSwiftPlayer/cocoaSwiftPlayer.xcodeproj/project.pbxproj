@@ -13,6 +13,7 @@
 		97097340213FD5B500764EA1 /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9709733F213FD5B500764EA1 /* PlayerManager.swift */; };
 		97097342213FDB0000764EA1 /* SongManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97097341213FDB0000764EA1 /* SongManager.swift */; };
 		97097344213FDF3100764EA1 /* iTunesLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97097343213FDF3100764EA1 /* iTunesLibrary.framework */; };
+		97097349213FEF0800764EA1 /* SongListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97097348213FEF0800764EA1 /* SongListViewController.swift */; };
 		97276E24213FBDB40065CED7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97276E23213FBDB40065CED7 /* AppDelegate.swift */; };
 		97276E26213FBDB40065CED7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97276E25213FBDB40065CED7 /* ViewController.swift */; };
 		97276E28213FBDB50065CED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97276E27213FBDB50065CED7 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		9709733F213FD5B500764EA1 /* PlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
 		97097341213FDB0000764EA1 /* SongManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongManager.swift; sourceTree = "<group>"; };
 		97097343213FDF3100764EA1 /* iTunesLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iTunesLibrary.framework; path = ../../../../../../../Library/Frameworks/iTunesLibrary.framework; sourceTree = "<group>"; };
+		97097348213FEF0800764EA1 /* SongListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListViewController.swift; sourceTree = "<group>"; };
 		97276E20213FBDB40065CED7 /* cocoaSwiftPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cocoaSwiftPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97276E23213FBDB40065CED7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97276E25213FBDB40065CED7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		97097332213FC19900764EA1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				97097345213FEECB00764EA1 /* SongListViewContoller */,
 				9709733C213FD1D700764EA1 /* PlayViewController */,
 			);
 			path = ViewControllers;
@@ -108,6 +111,14 @@
 				9709733D213FD23F00764EA1 /* PlayerViewController.swift */,
 			);
 			path = PlayViewController;
+			sourceTree = "<group>";
+		};
+		97097345213FEECB00764EA1 /* SongListViewContoller */ = {
+			isa = PBXGroup;
+			children = (
+				97097348213FEF0800764EA1 /* SongListViewController.swift */,
+			);
+			path = SongListViewContoller;
 			sourceTree = "<group>";
 		};
 		97276E17213FBDB40065CED7 = {
@@ -268,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97097349213FEF0800764EA1 /* SongListViewController.swift in Sources */,
 				97097342213FDB0000764EA1 /* SongManager.swift in Sources */,
 				97097340213FD5B500764EA1 /* PlayerManager.swift in Sources */,
 				97097336213FC22900764EA1 /* Song.swift in Sources */,

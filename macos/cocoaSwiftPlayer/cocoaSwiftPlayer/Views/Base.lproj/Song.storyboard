@@ -142,7 +142,7 @@
         <scene sceneID="N0h-uK-OMD">
             <objects>
                 <customObject id="Q3J-jB-NsW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController id="q1O-Ey-kua" userLabel="SongList" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SongListViewController" id="q1O-Ey-kua" userLabel="SongList" customClass="SongListViewController" customModule="cocoaSwiftPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="BpO-W3-RwP">
                         <rect key="frame" x="0.0" y="0.0" width="570" height="393"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -185,6 +185,9 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="S7z-z2-vc0" name="value" keyPath="objectValue.title" id="3UP-L4-kzs"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <connections>
@@ -218,6 +221,9 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="oEp-k7-TZP" name="value" keyPath="objectValue.lengthText" id="QPY-ES-Ybw"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <connections>
@@ -293,6 +299,9 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <binding destination="q1O-Ey-kua" name="content" keyPath="self.songs" id="8bb-Jm-9dt"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
