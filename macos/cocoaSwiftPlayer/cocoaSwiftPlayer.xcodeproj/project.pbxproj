@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97097336213FC22900764EA1 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97097335213FC22900764EA1 /* Song.swift */; };
+		9709733B213FC89100764EA1 /* Song.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97097339213FC89100764EA1 /* Song.storyboard */; };
 		97276E24213FBDB40065CED7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97276E23213FBDB40065CED7 /* AppDelegate.swift */; };
 		97276E26213FBDB40065CED7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97276E25213FBDB40065CED7 /* ViewController.swift */; };
 		97276E28213FBDB50065CED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97276E27213FBDB50065CED7 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 		31C70B42C2D1B998CE1F50DF /* Pods-cocoaSwiftPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cocoaSwiftPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-cocoaSwiftPlayer/Pods-cocoaSwiftPlayer.release.xcconfig"; sourceTree = "<group>"; };
 		487721006B8EC5826A02A70B /* Pods-cocoaSwiftPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cocoaSwiftPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cocoaSwiftPlayer/Pods-cocoaSwiftPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		61618DE6C27DE75E6AF6AF66 /* Pods_cocoaSwiftPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cocoaSwiftPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97097335213FC22900764EA1 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		9709733A213FC89100764EA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Song.storyboard; sourceTree = "<group>"; };
 		97276E20213FBDB40065CED7 /* cocoaSwiftPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cocoaSwiftPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97276E23213FBDB40065CED7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97276E25213FBDB40065CED7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +51,44 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		97097330213FC18700764EA1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				97097335213FC22900764EA1 /* Song.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		97097331213FC19100764EA1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				97276E29213FBDB50065CED7 /* Main.storyboard */,
+				97097339213FC89100764EA1 /* Song.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		97097332213FC19900764EA1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		97097333213FC1A400764EA1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		97097334213FC1B400764EA1 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		97276E17213FBDB40065CED7 = {
 			isa = PBXGroup;
 			children = (
@@ -68,10 +110,14 @@
 		97276E22213FBDB40065CED7 /* cocoaSwiftPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				97097334213FC1B400764EA1 /* Managers */,
+				97097333213FC1A400764EA1 /* Helpers */,
+				97097332213FC19900764EA1 /* ViewControllers */,
+				97097331213FC19100764EA1 /* Views */,
+				97097330213FC18700764EA1 /* Models */,
 				97276E23213FBDB40065CED7 /* AppDelegate.swift */,
 				97276E25213FBDB40065CED7 /* ViewController.swift */,
 				97276E27213FBDB50065CED7 /* Assets.xcassets */,
-				97276E29213FBDB50065CED7 /* Main.storyboard */,
 				97276E2C213FBDB50065CED7 /* Info.plist */,
 				97276E2D213FBDB50065CED7 /* cocoaSwiftPlayer.entitlements */,
 			);
@@ -147,6 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9709733B213FC89100764EA1 /* Song.storyboard in Resources */,
 				97276E28213FBDB50065CED7 /* Assets.xcassets in Resources */,
 				97276E2B213FBDB50065CED7 /* Main.storyboard in Resources */,
 			);
@@ -200,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97097336213FC22900764EA1 /* Song.swift in Sources */,
 				97276E26213FBDB40065CED7 /* ViewController.swift in Sources */,
 				97276E24213FBDB40065CED7 /* AppDelegate.swift in Sources */,
 			);
@@ -208,6 +256,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		97097339213FC89100764EA1 /* Song.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9709733A213FC89100764EA1 /* Base */,
+			);
+			name = Song.storyboard;
+			sourceTree = "<group>";
+		};
 		97276E29213FBDB50065CED7 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -338,10 +394,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = cocoaSwiftPlayer/cocoaSwiftPlayer.entitlements;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Q7MBG3B536;
 				INFOPLIST_FILE = cocoaSwiftPlayer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rhino.cocoaSwiftPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -354,10 +415,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = cocoaSwiftPlayer/cocoaSwiftPlayer.entitlements;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Q7MBG3B536;
 				INFOPLIST_FILE = cocoaSwiftPlayer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rhino.cocoaSwiftPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
