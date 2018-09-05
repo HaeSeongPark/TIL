@@ -25,6 +25,14 @@ class ViewController: NSViewController, NSGestureRecognizerDelegate{
         doubleClick.numberOfClicksRequired = 2
         view.addGestureRecognizer(doubleClick)
         self.doubleClick = doubleClick
+        
+        let shiftClick = ShiftClickGestureRecognizer(target: self, action: #selector(shiftClick(gesture:)))
+        view.addGestureRecognizer(shiftClick)
+    }
+    
+    @objc func shiftClick(gesture:ShiftClickGestureRecognizer) {
+        print("shiftClick")
+        statusLabel.stringValue = "shiftclick"
     }
     
     @objc func click(gesture:NSGestureRecognizer){

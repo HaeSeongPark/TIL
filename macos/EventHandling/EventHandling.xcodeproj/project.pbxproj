@@ -11,6 +11,7 @@
 		97276DB2213F84C50065CED7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97276DB1213F84C50065CED7 /* ViewController.swift */; };
 		97276DB4213F84C70065CED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97276DB3213F84C70065CED7 /* Assets.xcassets */; };
 		97276DB7213F84C70065CED7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97276DB5213F84C70065CED7 /* Main.storyboard */; };
+		97276DFA213FA1E90065CED7 /* ShiftClickGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97276DF9213FA1E90065CED7 /* ShiftClickGestureRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		97276DB6213F84C70065CED7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97276DB8213F84C70065CED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97276DB9213F84C70065CED7 /* EventHandling.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EventHandling.entitlements; sourceTree = "<group>"; };
+		97276DF9213FA1E90065CED7 /* ShiftClickGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftClickGestureRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				97276DB1213F84C50065CED7 /* ViewController.swift */,
 				97276DB3213F84C70065CED7 /* Assets.xcassets */,
 				97276DB5213F84C70065CED7 /* Main.storyboard */,
+				97276DF9213FA1E90065CED7 /* ShiftClickGestureRecognizer.swift */,
 				97276DB8213F84C70065CED7 /* Info.plist */,
 				97276DB9213F84C70065CED7 /* EventHandling.entitlements */,
 			);
@@ -133,6 +136,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97276DFA213FA1E90065CED7 /* ShiftClickGestureRecognizer.swift in Sources */,
 				97276DB2213F84C50065CED7 /* ViewController.swift in Sources */,
 				97276DB0213F84C50065CED7 /* AppDelegate.swift in Sources */,
 			);
