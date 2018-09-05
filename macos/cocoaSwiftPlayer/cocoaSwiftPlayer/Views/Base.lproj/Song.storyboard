@@ -257,6 +257,9 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="xwM-Sg-Yv3" name="value" keyPath="objectValue.artist" id="228-sO-Asz"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <connections>
@@ -290,6 +293,9 @@
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="SE7-ju-dGA" name="value" keyPath="objectValue.playCount" id="DHN-hL-7VH"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <connections>

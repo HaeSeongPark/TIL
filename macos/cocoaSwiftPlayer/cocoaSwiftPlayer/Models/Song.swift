@@ -17,6 +17,8 @@ class Song: Object {
     @objc dynamic var title: String = ""
     @objc dynamic var location : String = ""
     @objc dynamic var length: Double = 0.0
+    @objc dynamic var artist: String = ""
+    @objc dynamic var playCount:Int = 0
     @objc dynamic var lengthText: String {
         return Song.formatter.string(from: length)!
     }
@@ -24,6 +26,7 @@ class Song: Object {
     convenience init(item : ITLibMediaItem) {
         self.init()
         self.title = item.title
+        self.artist = item.artist?.name ?? ""
         self.location = item.location?.path ?? ""
         self.length = TimeInterval(item.totalTime) / 1000.0
     }
