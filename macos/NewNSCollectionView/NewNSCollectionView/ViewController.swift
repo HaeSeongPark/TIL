@@ -11,7 +11,7 @@ import Cocoa
 class ViewController: NSViewController {
     @IBOutlet weak var collectionView: NSCollectionView!
     
-    var strings = ["a", "b", "c", "d"]
+    var strings = ["a", "b", "c", "d", "e", "f", "g", "h"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

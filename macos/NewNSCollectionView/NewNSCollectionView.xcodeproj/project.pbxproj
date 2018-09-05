@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97276DA2213F7D8E0065CED7 /* ImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97276DA1213F7D8E0065CED7 /* ImageCollectionView.swift */; };
 		97F412A3213E6093003B12E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F412A2213E6093003B12E1 /* AppDelegate.swift */; };
 		97F412A5213E6093003B12E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F412A4213E6093003B12E1 /* ViewController.swift */; };
 		97F412A7213E6094003B12E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97F412A6213E6094003B12E1 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		97276DA1213F7D8E0065CED7 /* ImageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionView.swift; sourceTree = "<group>"; };
 		97F4129F213E6093003B12E1 /* NewNSCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewNSCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97F412A2213E6093003B12E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97F412A4213E6093003B12E1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				97F412A8213E6094003B12E1 /* Main.storyboard */,
 				97F412B9213EBF42003B12E1 /* Header.xib */,
 				97F412B6213E895C003B12E1 /* CollectionViewListLayout.swift */,
+				97276DA1213F7D8E0065CED7 /* ImageCollectionView.swift */,
 				97F412B2213E65A8003B12E1 /* imageCollectionViewItem.swift */,
 				97F412B3213E65A8003B12E1 /* imageCollectionViewItem.xib */,
 				97F412AB213E6094003B12E1 /* Info.plist */,
@@ -166,6 +169,7 @@
 				97F412B7213E895C003B12E1 /* CollectionViewListLayout.swift in Sources */,
 				97F412C5213EC913003B12E1 /* FooterView.swift in Sources */,
 				97F412B4213E65A8003B12E1 /* imageCollectionViewItem.swift in Sources */,
+				97276DA2213F7D8E0065CED7 /* ImageCollectionView.swift in Sources */,
 				97F412C1213EC5FB003B12E1 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
