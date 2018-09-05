@@ -8,17 +8,50 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSGestureRecognizerDelegate{
     @IBOutlet weak var statusLabel: NSTextField!
+    var click:NSGestureRecognizer?
+    var doubleClick:NSGestureRecognizer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let click = NSClickGestureRecognizer(target: self, action: #selector(click(gesture:)))
+        view.addGestureRecognizer(click)
+        click.delegate = self
+        self.click = click
+        
+        let doubleClick = NSClickGestureRecognizer(target: self, action: #selector(doubleClick(gestrue:)))
+        doubleClick.numberOfClicksRequired = 2
+        view.addGestureRecognizer(doubleClick)
+        self.doubleClick = doubleClick
+    }
+    
+    @objc func click(gesture:NSGestureRecognizer){
+        print("click gr")
+        statusLabel.stringValue = "click for gr"
+    }
+    
+    @objc func doubleClick(gestrue:NSGestureRecognizer) {
+        print("double click gr")
+        statusLabel.stringValue = "double click for gr"
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: NSGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: NSGestureRecognizer) -> Bool {
+        if gestureRecognizer == click && otherGestureRecognizer == doubleClick {
+            return true
+        }
+        return false
     }
     
     override func viewDidAppear() {
         super.viewDidAppear()
         view.window?.makeFirstResponder(self)
     }
+    
+    // MARK: Gesture Recognizers
+    
+    // MARK: Key Events
     
     override func keyDown(with event: NSEvent) {
 //        statusLabel.stringValue = "KeyDown: \(event.characters)"
