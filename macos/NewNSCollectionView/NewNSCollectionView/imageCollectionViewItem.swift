@@ -19,6 +19,23 @@ class imageCollectionViewItem: NSCollectionViewItem {
         // Do view setup here.
         view.wantsLayer = true
         view.layer?.backgroundColor = NSColor.red.cgColor
+        
+        textField?.delegate = self
+        
+        let clickGR = NSClickGestureRecognizer(target: self, action: #selector(click(gestrue:)))
+        view.addGestureRecognizer(clickGR)
+    }
+    
+    @objc func click(gestrue: NSGestureRecognizer) {
+        let location = gestrue.location(in: view)
+        
+        if location.x > 50 {
+            if let textField = textField {
+                textField.isEditable = true
+                textField.focusRingType = .none
+                textField.becomeFirstResponder()
+            }
+        }
     }
     
     func updateColor() {
@@ -32,6 +49,15 @@ class imageCollectionViewItem: NSCollectionViewItem {
           }
         } else {
             view.layer?.backgroundColor = NSColor.red.cgColor
+        }
+    }
+}
+
+extension imageCollectionViewItem: NSTextFieldDelegate {
+    override func controlTextDidEndEditing(_ obj: Notification) {
+        if let textField = textField {
+            textField.isEditable = false
+            textField.resignFirstResponder()
         }
     }
 }

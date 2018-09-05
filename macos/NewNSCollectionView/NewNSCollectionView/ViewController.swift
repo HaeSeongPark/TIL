@@ -24,8 +24,8 @@ class ViewController: NSViewController {
 //
 //        collectionView.collectionViewLayout = layout
         
-        collectionView.addGestureRecognizer(NSClickGestureRecognizer(target: self, action: #selector(click(gesture:))))
-        collectionView.addGestureRecognizer(NSPanGestureRecognizer(target:self, action: #selector(pan(gesture:))))
+//        collectionView.addGestureRecognizer(NSClickGestureRecognizer(target: self, action: #selector(click(gesture:))))
+//        collectionView.addGestureRecognizer(NSPanGestureRecognizer(target:self, action: #selector(pan(gesture:))))
         
     }
     
@@ -104,6 +104,10 @@ extension ViewController: NSCollectionViewDelegate {
 }
 
 extension ViewController: NSCollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> NSSize {
+        return NSSize(width: collectionView.bounds.width, height: 50)
+    }
+    
     func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize {
         return NSSize(width: 0, height: 20)
     }
