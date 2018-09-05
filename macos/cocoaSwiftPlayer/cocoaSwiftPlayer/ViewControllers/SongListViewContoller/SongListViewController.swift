@@ -10,6 +10,7 @@ import Cocoa
 import RealmSwift
 
 class SongListViewController: NSViewController {
+    @IBOutlet weak var tableView: NSTableView!
     
     @objc dynamic var songs:[Song] = []
     
@@ -29,5 +30,16 @@ class SongListViewController: NSViewController {
         let realm = try! Realm()
         let result = realm.objects(Song.self)
         songs = result.map { $0 }
+        
+        tableView.doubleAction = #selector(doubleCLick(sender:))
+    }
+    
+    @objc func doubleCLick(sender: NSTableView) {
+        let manager = PlayerManager.sharedManager
+        if tableView.selectedRow != -1 {
+            manager.currentPlayList = songs
+            manager.currentSong = songs[tableView.selectedRow]
+            manager.play()
+        }
     }
 }

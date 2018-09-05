@@ -794,7 +794,7 @@
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="play:" target="n1V-df-A2R" id="XKa-1b-eXf"/>
+                                                            <action selector="shuffle:" target="n1V-df-A2R" id="k8u-wR-p2N"/>
                                                         </connections>
                                                     </button>
                                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="uSQ-jh-BaM">
@@ -808,7 +808,7 @@
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="play:" target="n1V-df-A2R" id="paT-u7-Rao"/>
+                                                            <action selector="repeatPlayList:" target="n1V-df-A2R" id="t2t-kf-hg4"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -847,7 +847,7 @@
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <action selector="play:" target="n1V-df-A2R" id="fPE-ge-gRL"/>
+                                                    <action selector="rewind:" target="n1V-df-A2R" id="Jgw-Ir-ZBA"/>
                                                 </connections>
                                             </button>
                                             <button translatesAutoresizingMaskIntoConstraints="NO" id="7nN-mq-7JG">
@@ -875,7 +875,7 @@
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <action selector="play:" target="n1V-df-A2R" id="Avf-WT-Bor"/>
+                                                    <action selector="next:" target="n1V-df-A2R" id="HT8-8O-qv1"/>
                                                 </connections>
                                             </button>
                                         </subviews>

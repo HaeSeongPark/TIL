@@ -21,13 +21,21 @@ class PlayerManager: NSObject, AVAudioPlayerDelegate {
         }
     }
     var player: AVAudioPlayer?
+    var currentIndex: Int?
+    
+    // TODO: 유효하지 않은 url처리...
     var currentSong: Song? = nil {
         didSet {
             if let currentSong = currentSong {
+                currentIndex = currentPlayList.index(of: currentSong)
+                
                 if currentSong.location != player?.url?.path {
                     player = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: currentSong.location))
                     player?.volume = volume
                 }
+            } else {
+                stop()
+                player = nil
             }
         }
     }
@@ -60,12 +68,32 @@ class PlayerManager: NSObject, AVAudioPlayerDelegate {
         player?.pause()
     }
     
+    func stop() {
+        player?.stop()
+    }
+    
     func next() {
+        //TODO: 마지막이면 첫번째걸로
+        guard let currentIndex = currentIndex else { return }
         
+        if currentIndex == currentPlayList.count - 1 {
+            currentSong = nil
+        } else {
+            currentSong = currentPlayList[currentIndex + 1]
+            play()
+        }
     }
     
     func rewind() {
+        //TODO: 첫 번째면 마지막 걸로
+        guard let currentIndex = currentIndex else { return }
         
+        if currentIndex == 0 {
+            currentSong = nil
+        } else {
+            currentSong = currentPlayList[currentIndex - 1]
+            play()
+        }
     }
     
     func shuffle() {
