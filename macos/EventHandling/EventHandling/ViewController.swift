@@ -37,5 +37,25 @@ class ViewController: NSViewController {
             }
         }
     }
+    
+    override func mouseDown(with event: NSEvent) {
+        print("mouseDown")
+        statusLabel.stringValue = "mouseDown \(event.locationInWindow)"
+    }
+    
+    override func mouseUp(with event: NSEvent) {
+        print("mouseUp")
+        statusLabel.stringValue = "mouseUp \(event.locationInWindow)"
+    }
+    
+    override func mouseDragged(with event: NSEvent) {
+        print("mouseDragged")
+        statusLabel.stringValue = "mouseDragged \(event.locationInWindow)"
+    }
+    
+    override func rightMouseDown(with event: NSEvent) {
+        print("rightMouseDown")
+        statusLabel.stringValue = "rightMouseDown \(event.locationInWindow)"
+    }
 }
 
