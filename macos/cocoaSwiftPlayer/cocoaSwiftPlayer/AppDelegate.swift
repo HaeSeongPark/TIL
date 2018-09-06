@@ -13,9 +13,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let popover = NSPopover()
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     var eventMonitor:EventMonitor?
-
+    
+    var mainWC:MainWindoeController?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        
+        print("applicationDidFinishLaunching")
         
         PlayerManager.sharedManager.statusItem = statusItem
         
@@ -30,6 +33,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 self.closePopover(sender: event)
             }
         })
+        
+//        let mainStoryBoard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
+//        mainWC = mainStoryBoard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "MainWindoController")) as? MainWindoeController
+//
+//        mainWC?.showWindow(self)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

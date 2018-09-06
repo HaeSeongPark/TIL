@@ -16,7 +16,7 @@ class SongListViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("SongListViewController viewDidLoad")
         RealmMigrationManager.migrate()
         
         let defaults = UserDefaults.standard

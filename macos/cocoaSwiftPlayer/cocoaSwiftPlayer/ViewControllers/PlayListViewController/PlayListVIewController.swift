@@ -28,6 +28,7 @@ class PlayListVIewController: NSViewController {
         menu.addItem(NSMenuItem(title: "Delete", action: #selector(deletePlayList(sender:)), keyEquivalent: ""))
         outlineView.menu = menu
         
+        print("PlayListVIewController viewdidLoad")
         RealmMigrationManager.migrate()
         
         let realm = try! Realm()
