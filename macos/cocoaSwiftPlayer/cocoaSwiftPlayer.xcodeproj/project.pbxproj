@@ -26,6 +26,8 @@
 		972A3E362140B59E00831A13 /* PlayListVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E352140B59E00831A13 /* PlayListVIewController.swift */; };
 		972A3E382140BAF200831A13 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E372140BAF200831A13 /* Playlist.swift */; };
 		972A3E3A2140D57E00831A13 /* CustomTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E392140D57E00831A13 /* CustomTableCellView.swift */; };
+		972A3E3C2140E5B800831A13 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E3B2140E5B800831A13 /* EventMonitor.swift */; };
+		972A3E3F2140E84100831A13 /* StatusItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E3E2140E84100831A13 /* StatusItemViewController.swift */; };
 		FAC93822FACF7B30A89A2633 /* Pods_cocoaSwiftPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61618DE6C27DE75E6AF6AF66 /* Pods_cocoaSwiftPlayer.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,8 @@
 		972A3E352140B59E00831A13 /* PlayListVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListVIewController.swift; sourceTree = "<group>"; };
 		972A3E372140BAF200831A13 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		972A3E392140D57E00831A13 /* CustomTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableCellView.swift; sourceTree = "<group>"; };
+		972A3E3B2140E5B800831A13 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		972A3E3E2140E84100831A13 /* StatusItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 		97097332213FC19900764EA1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				972A3E3D2140E81900831A13 /* StatusItemViewController */,
 				972A3E342140B58400831A13 /* PlayListViewController */,
 				97097345213FEECB00764EA1 /* SongListViewContoller */,
 				9709733C213FD1D700764EA1 /* PlayViewController */,
@@ -111,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				972A3E3221409E4500831A13 /* NotificationUserInfos.swift */,
+				972A3E3B2140E5B800831A13 /* EventMonitor.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -194,6 +200,14 @@
 				972A3E392140D57E00831A13 /* CustomTableCellView.swift */,
 			);
 			path = PlayListViewController;
+			sourceTree = "<group>";
+		};
+		972A3E3D2140E81900831A13 /* StatusItemViewController */ = {
+			isa = PBXGroup;
+			children = (
+				972A3E3E2140E84100831A13 /* StatusItemViewController.swift */,
+			);
+			path = StatusItemViewController;
 			sourceTree = "<group>";
 		};
 		C7258CC6AA0A8CA15D3877B7 /* Pods */ = {
@@ -326,12 +340,14 @@
 				97097342213FDB0000764EA1 /* SongManager.swift in Sources */,
 				97097340213FD5B500764EA1 /* PlayerManager.swift in Sources */,
 				97097336213FC22900764EA1 /* Song.swift in Sources */,
+				972A3E3C2140E5B800831A13 /* EventMonitor.swift in Sources */,
 				9709734B213FF64F00764EA1 /* RealmMigrationManager.swift in Sources */,
 				972A3E362140B59E00831A13 /* PlayListVIewController.swift in Sources */,
 				972A3E3321409E4500831A13 /* NotificationUserInfos.swift in Sources */,
 				9709734E214020E100764EA1 /* Collection.swift in Sources */,
 				972A3E3A2140D57E00831A13 /* CustomTableCellView.swift in Sources */,
 				9709733E213FD23F00764EA1 /* PlayerViewController.swift in Sources */,
+				972A3E3F2140E84100831A13 /* StatusItemViewController.swift in Sources */,
 				97276E26213FBDB40065CED7 /* ViewController.swift in Sources */,
 				97276E24213FBDB40065CED7 /* AppDelegate.swift in Sources */,
 			);

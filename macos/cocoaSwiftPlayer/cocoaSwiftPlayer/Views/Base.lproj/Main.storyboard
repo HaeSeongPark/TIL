@@ -727,6 +727,33 @@
             </objects>
             <point key="canvasLocation" x="28" y="725"/>
         </scene>
+        <!--Status Item View Controller-->
+        <scene sceneID="vbn-rP-27s">
+            <objects>
+                <viewController storyboardIdentifier="StatusItemViewController" id="pzy-RL-Z1Y" customClass="StatusItemViewController" customModule="cocoaSwiftPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="qo7-Jb-GU0">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Eag-F0-zDt">
+                                <rect key="frame" x="146" y="141" width="158" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="StatusItemViewController" id="VIU-he-w3k">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Eag-F0-zDt" firstAttribute="centerX" secondItem="qo7-Jb-GU0" secondAttribute="centerX" id="oDQ-3T-2mx"/>
+                            <constraint firstItem="Eag-F0-zDt" firstAttribute="centerY" secondItem="qo7-Jb-GU0" secondAttribute="centerY" id="wdn-Mm-Hpc"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="mLs-ao-W9V" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="616" y="192"/>
+        </scene>
         <!--PlayerControl-->
         <scene sceneID="fkR-u2-2bF">
             <objects>

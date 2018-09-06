@@ -37,6 +37,7 @@ class PlayListVIewController: NSViewController {
     }
     
     @objc func deletePlayList(sender:Any) {
+        // TODO:      outlineView.selectedRowIndexes 이용해서 playlist도 song처럼 멑티 삭제..
        let playlist = playlists[outlineView.clickedRow - 1]
        playlists.remove(at: outlineView.clickedRow - 1 )
        outlineView.reloadData()
