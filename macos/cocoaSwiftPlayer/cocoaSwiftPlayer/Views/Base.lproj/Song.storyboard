@@ -39,6 +39,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="216" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="J2D-tA-Rro">
+                                <rect key="frame" x="0.0" y="0.0" width="216" height="400"/>
+                            </visualEffectView>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Aa-pr-Pm3">
                                 <rect key="frame" x="0.0" y="40" width="216" height="360"/>
                                 <clipView key="contentView" drawsBackground="NO" id="Wpr-bj-pQQ">
@@ -49,7 +52,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="214" height="358"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
-                                            <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" red="0.14509803921568626" green="0.14509803921568626" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
                                                 <tableColumn identifier="" width="211" minWidth="16" maxWidth="1000" id="O41-ih-dqY">
@@ -106,7 +109,7 @@
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(0)" id="lfK-3a-X3s">
                                                                         <font key="font" metaFont="system"/>
-                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
@@ -149,7 +152,11 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="6Aa-pr-Pm3" firstAttribute="leading" secondItem="0A0-9j-tdm" secondAttribute="leading" id="C19-5a-8Du"/>
+                            <constraint firstAttribute="trailing" secondItem="J2D-tA-Rro" secondAttribute="trailing" id="C3e-4g-7dJ"/>
+                            <constraint firstItem="J2D-tA-Rro" firstAttribute="leading" secondItem="0A0-9j-tdm" secondAttribute="leading" id="COm-x8-RFY"/>
                             <constraint firstAttribute="bottom" secondItem="6Aa-pr-Pm3" secondAttribute="bottom" constant="40" id="PjW-Wt-bsY"/>
+                            <constraint firstItem="J2D-tA-Rro" firstAttribute="top" secondItem="0A0-9j-tdm" secondAttribute="top" id="YZd-jB-qia"/>
+                            <constraint firstAttribute="bottom" secondItem="J2D-tA-Rro" secondAttribute="bottom" id="ZAt-Sg-Emu"/>
                             <constraint firstAttribute="bottom" secondItem="aZT-sj-YmX" secondAttribute="bottom" constant="7" id="g5e-Xv-30c"/>
                             <constraint firstItem="6Aa-pr-Pm3" firstAttribute="top" secondItem="0A0-9j-tdm" secondAttribute="top" id="nCh-qy-jqs"/>
                             <constraint firstAttribute="trailing" secondItem="6Aa-pr-Pm3" secondAttribute="trailing" id="pd2-yX-9aG"/>
