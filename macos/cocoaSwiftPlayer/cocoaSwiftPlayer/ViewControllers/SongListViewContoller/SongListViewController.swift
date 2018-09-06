@@ -33,9 +33,12 @@ class SongListViewController: NSViewController {
         
         tableView.doubleAction = #selector(doubleCLick(sender:))
         
+        tableView.dataSource = self
+        
         NotificationCenter.default.addObserver(self, selector: #selector(changeSong(noti:)), name: Notification.Name.ChangeSong, object: nil)
     }
     
+    // MARK: - Notification
     @objc func changeSong(noti: Notification) {
         guard let song = noti.userInfo?[NotiicationUserInfos.Song] as? Song else { return }
         
@@ -58,5 +61,15 @@ class SongListViewController: NSViewController {
             manager.currentSong = songs[tableView.selectedRow]
             manager.play()
         }
+    }
+}
+
+extension SongListViewController: NSTableViewDataSource {
+    func tableView(_ tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
+        let song = songs[row]
+        
+        let pbItem = NSPasteboardItem()
+        pbItem.setString(song.location, forType: NSPasteboard.PasteboardType.string)
+        return pbItem
     }
 }

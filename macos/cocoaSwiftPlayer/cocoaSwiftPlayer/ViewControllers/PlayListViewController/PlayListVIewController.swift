@@ -27,6 +27,8 @@ class PlayListVIewController: NSViewController {
         
         let realm = try! Realm()
         playlists = realm.objects(Playlist.self).map { $0 }
+        
+        outlineView.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
     }
     
     //MARK: - Helper
@@ -68,6 +70,35 @@ extension PlayListVIewController: NSOutlineViewDataSource {
     
     func outlineView(_ outlineView: NSOutlineView, objectValueFor tableColumn: NSTableColumn?, byItem item: Any?) -> Any? {
         return item
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
+        
+        let canDrag = item is Playlist && index < 0
+        return canDrag ? .move : []
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
+        guard let playlist = item as? Playlist else { return false }
+        let pb = info.draggingPasteboard()
+        let location = pb.string(forType: .string)
+        
+        let realm = try! Realm()
+        if let location = location {
+            if let song = realm.objects(Song.self).filter("location = '\(location)'").first {
+                let index = playlist.songs.index { s in
+                    return s.location == song.location
+                }
+                if index == nil {
+                    try! realm.write {
+                        playlist.songs.append(song)
+                    }
+                    outlineView.reloadData()
+                }
+            }
+            return true
+        }
+        return false
     }
 }
 
