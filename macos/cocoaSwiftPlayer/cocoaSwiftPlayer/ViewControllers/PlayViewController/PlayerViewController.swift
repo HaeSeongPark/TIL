@@ -62,7 +62,7 @@ class PlayerViewController: NSViewController {
     //MARK: - Helpers
     
     @objc func changeSong(noti:Notification) {
-        guard let song = noti.userInfo?[NotiicationUserInfos.Song] as? Song else {
+        guard let song = noti.userInfo?[NotificationUserInfos.Song] as? Song else {
             return
         }
         

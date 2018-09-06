@@ -36,11 +36,18 @@ class SongListViewController: NSViewController {
         tableView.dataSource = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeSong(noti:)), name: Notification.Name.ChangeSong, object: nil)
+                NotificationCenter.default.addObserver(self, selector: #selector(switchPlayList(noti:)), name: Notification.Name.SwitchPlayList, object: nil)
     }
     
     // MARK: - Notification
+    @objc func switchPlayList(noti: Notification) {
+        guard let playlist = noti.userInfo?[NotificationUserInfos.PlayList] as? Playlist else {return}
+        songs = playlist.songs.map { $0 }
+        tableView.reloadData()
+    }
+    
     @objc func changeSong(noti: Notification) {
-        guard let song = noti.userInfo?[NotiicationUserInfos.Song] as? Song else { return }
+        guard let song = noti.userInfo?[NotificationUserInfos.Song] as? Song else { return }
         
         let index = songs.index { s in
             return s.location == song.location

@@ -123,4 +123,9 @@ extension PlayListVIewController: NSOutlineViewDelegate {
     func outlineView(_ outlineView: NSOutlineView, shouldShowOutlineCellForItem item: Any) -> Bool {
         return isHeader(item:item)
     }
+    
+    func outlineViewSelectionDidChange(_ notification: Notification) {
+        let playlist = playlists[outlineView.selectedRow - 1 ]
+        NotificationCenter.default.post(name: Notification.Name.SwitchPlayList, object: self, userInfo: [NotificationUserInfos.PlayList:playlist])
+    }
 }
