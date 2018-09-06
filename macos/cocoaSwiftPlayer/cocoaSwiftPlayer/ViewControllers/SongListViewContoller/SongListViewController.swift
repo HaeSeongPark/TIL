@@ -32,6 +32,23 @@ class SongListViewController: NSViewController {
         songs = result.map { $0 }
         
         tableView.doubleAction = #selector(doubleCLick(sender:))
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(changeSong(noti:)), name: Notification.Name.ChangeSong, object: nil)
+    }
+    
+    @objc func changeSong(noti: Notification) {
+        guard let song = noti.userInfo?[NotiicationUserInfos.Song] as? Song else { return }
+        
+        let index = songs.index { s in
+            return s.location == song.location
+        }
+        
+        if let index = index {
+            tableView.selectRowIndexes(NSIndexSet(index: index) as IndexSet, byExtendingSelection: false)
+            tableView.scrollRowToVisible(index)
+            
+        }
+        
     }
     
     @objc func doubleCLick(sender: NSTableView) {

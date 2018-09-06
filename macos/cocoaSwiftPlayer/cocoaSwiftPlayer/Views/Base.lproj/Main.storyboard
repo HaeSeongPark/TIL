@@ -890,13 +890,24 @@
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d7B-TY-vOj">
+                                        <rect key="frame" x="223" y="0.0" width="74" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Not Playing" id="Ewr-Jb-NaR">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="d7B-TY-vOj" secondAttribute="trailing" constant="155" id="JU3-Go-wwE"/>
                                     <constraint firstItem="lB9-wk-aSn" firstAttribute="centerY" secondItem="Oma-wr-Th5" secondAttribute="centerY" id="TtZ-2k-hgC"/>
                                     <constraint firstItem="Twf-yR-goj" firstAttribute="leading" secondItem="Oma-wr-Th5" secondAttribute="leading" constant="20" id="U89-As-7cV"/>
                                     <constraint firstItem="lB9-wk-aSn" firstAttribute="leading" secondItem="Twf-yR-goj" secondAttribute="trailing" constant="22" id="ee3-Y3-VrS"/>
                                     <constraint firstAttribute="height" constant="70" id="kPz-XT-KI2"/>
+                                    <constraint firstItem="d7B-TY-vOj" firstAttribute="top" secondItem="lB9-wk-aSn" secondAttribute="bottom" constant="3" id="nD7-SS-5eA"/>
                                     <constraint firstItem="Twf-yR-goj" firstAttribute="centerY" secondItem="Oma-wr-Th5" secondAttribute="centerY" id="tge-iU-AXh"/>
+                                    <constraint firstItem="d7B-TY-vOj" firstAttribute="leading" secondItem="lB9-wk-aSn" secondAttribute="leading" id="xE9-GP-OUC"/>
                                 </constraints>
                             </customView>
                         </subviews>
@@ -913,6 +924,7 @@
                         <outlet property="repeatButton" destination="uSQ-jh-BaM" id="tgn-eT-Fw3"/>
                         <outlet property="rewindButton" destination="Y1B-Ik-4yd" id="ZCf-dI-iHL"/>
                         <outlet property="shuffleButton" destination="zXU-9i-beS" id="e41-lB-QN7"/>
+                        <outlet property="songTitleLabel" destination="d7B-TY-vOj" id="7lw-GD-vak"/>
                         <outlet property="timeLabel" destination="rCq-zW-g2r" id="2Mu-hI-vvJ"/>
                         <outlet property="volumeSlider" destination="mc2-lI-DYm" id="FQJ-sx-IJu"/>
                     </connections>

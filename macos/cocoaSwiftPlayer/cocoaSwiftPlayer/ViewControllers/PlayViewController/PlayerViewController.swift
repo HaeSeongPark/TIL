@@ -17,6 +17,8 @@ class PlayerViewController: NSViewController {
     @IBOutlet weak var shuffleButton: NSButton!
     @IBOutlet weak var repeatButton: NSButton!
     
+    @IBOutlet weak var songTitleLabel: NSTextField!
+    
     let manager = PlayerManager.sharedManager
     var songTimer: Timer?
     var songProgress: Double = 0.0
@@ -61,10 +63,16 @@ class PlayerViewController: NSViewController {
     //MARK: - Helpers
     
     @objc func changeSong(noti:Notification) {
+        guard let song = noti.userInfo?[NotiicationUserInfos.Song] as? Song else {
+            return
+        }
+        
         timeLabel.stringValue = "0:00"
         songProgress = 0
         songTimer?.invalidate()
         songTimer = nil
+        
+        songTitleLabel.stringValue = song.title
     }
     
     @objc func startPlaying(noti: NSNotification) {
