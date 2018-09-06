@@ -46,13 +46,6 @@ extension ViewController: NSCollectionViewDelegate {
         return .move
     }
     
-    // when dragging start it will be called
-//    func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItemsAt indexes: IndexSet) {
-//        print("start")
-//        draggingIndexPaths = indexes
-//        print(draggingIndexPaths)
-//    }
-    
     func collectionView(_ collectionView: NSCollectionView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItemsAt indexPaths: Set<IndexPath>) {
         draggingIndexPaths = indexPaths
     }
@@ -65,7 +58,9 @@ extension ViewController: NSCollectionViewDelegate {
         for fromIndexPath in draggingIndexPaths {
             let temp = strings.remove(at: (indexPath.item <= fromIndexPath.item) ? indexPath.item : (indexPath.item - 1 ))
             strings.insert(temp, at: indexPath.item)
-            collectionView.moveItem(at: fromIndexPath, to: indexPath)
+            
+            NSAnimationContext.current.duration = 0.5
+            collectionView.animator().moveItem(at: fromIndexPath, to: indexPath)
         }
         return true
     }
