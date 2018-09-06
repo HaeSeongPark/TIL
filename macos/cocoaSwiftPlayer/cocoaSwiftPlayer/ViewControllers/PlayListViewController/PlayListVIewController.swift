@@ -4,7 +4,8 @@
 //
 //  Created by rhino Q on 06/09/2018.
 //  Copyright © 2018 rhino Q. All rights reserved.
-//
+
+// TODO: multi song drop enable
 
 import Cocoa
 import RealmSwift
@@ -23,12 +24,23 @@ class PlayListVIewController: NSViewController {
         outlineView.dataSource = self
         outlineView.delegate = self
         
+        let menu = NSMenu()
+        menu.addItem(NSMenuItem(title: "Delete", action: #selector(deletePlayList(sender:)), keyEquivalent: ""))
+        outlineView.menu = menu
+        
         RealmMigrationManager.migrate()
         
         let realm = try! Realm()
         playlists = realm.objects(Playlist.self).map { $0 }
         
         outlineView.registerForDraggedTypes([NSPasteboard.PasteboardType.string])
+    }
+    
+    @objc func deletePlayList(sender:Any) {
+       let playlist = playlists[outlineView.clickedRow - 1]
+       playlists.remove(at: outlineView.clickedRow - 1 )
+       outlineView.reloadData()
+       playlist.delete()
     }
     
     //MARK: - Helper

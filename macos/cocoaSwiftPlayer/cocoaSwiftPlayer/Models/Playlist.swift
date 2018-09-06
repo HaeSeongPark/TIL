@@ -12,4 +12,10 @@ import RealmSwift
 class Playlist: Object {
     @objc dynamic var name: String = "PlayList"
     let songs = List<Song>()
+    
+    func delete() {
+        try! realm?.write {
+            realm?.delete(self)
+        }
+    }
 }

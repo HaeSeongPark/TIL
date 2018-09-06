@@ -34,4 +34,11 @@ class Song: Object {
     override static func ignoredProperties() -> [String] {
         return ["lengthText"]
     }
+    
+    //delete from realm
+    func delete() {
+        try! realm?.write {
+            realm?.delete(self)
+        }
+    }
 }

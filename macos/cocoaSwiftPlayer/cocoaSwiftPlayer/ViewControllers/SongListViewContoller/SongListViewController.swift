@@ -35,8 +35,40 @@ class SongListViewController: NSViewController {
         
         tableView.dataSource = self
         
+        makeMenu()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(changeSong(noti:)), name: Notification.Name.ChangeSong, object: nil)
-                NotificationCenter.default.addObserver(self, selector: #selector(switchPlayList(noti:)), name: Notification.Name.SwitchPlayList, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(switchPlayList(noti:)), name: Notification.Name.SwitchPlayList, object: nil)
+    }
+    
+    private func makeMenu() {
+        let menu = NSMenu()
+        menu.addItem(NSMenuItem(title: "Delete", action: #selector(deleteSong(sender:)), keyEquivalent: ""))
+        // d -> command + D
+        // D -> command + shift + D
+        tableView.menu = menu
+    }
+    
+    @objc func deleteSong(sender: Any) {
+        print(tableView.clickedRow)
+        print(tableView.selectedRowIndexes)
+        
+        let songsMutableArray = NSMutableArray(array: songs)
+        let toBeDeleteedSongs = songsMutableArray.objects(at: tableView.selectedRowIndexes) as? [Song]
+        songsMutableArray.removeObjects(at: tableView.selectedRowIndexes)
+        
+        if let mutableArray = songsMutableArray as? [Song] {
+            songs = mutableArray
+            tableView.reloadData()
+        }
+        
+        if let songs = toBeDeleteedSongs {
+            for song in songs {
+                song.delete()
+            }
+        }
+        
     }
     
     // MARK: - Notification
