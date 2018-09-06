@@ -28,6 +28,7 @@
 		972A3E3A2140D57E00831A13 /* CustomTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E392140D57E00831A13 /* CustomTableCellView.swift */; };
 		972A3E3C2140E5B800831A13 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E3B2140E5B800831A13 /* EventMonitor.swift */; };
 		972A3E3F2140E84100831A13 /* StatusItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E3E2140E84100831A13 /* StatusItemViewController.swift */; };
+		972A3E422140FEB800831A13 /* CustomTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E412140FEB800831A13 /* CustomTableHeaderView.swift */; };
 		FAC93822FACF7B30A89A2633 /* Pods_cocoaSwiftPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61618DE6C27DE75E6AF6AF66 /* Pods_cocoaSwiftPlayer.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		972A3E392140D57E00831A13 /* CustomTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableCellView.swift; sourceTree = "<group>"; };
 		972A3E3B2140E5B800831A13 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		972A3E3E2140E84100831A13 /* StatusItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemViewController.swift; sourceTree = "<group>"; };
+		972A3E412140FEB800831A13 /* CustomTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		97097331213FC19100764EA1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				972A3E402140FE7F00831A13 /* Headers */,
 				97276E29213FBDB50065CED7 /* Main.storyboard */,
 				97097339213FC89100764EA1 /* Song.storyboard */,
 			);
@@ -208,6 +211,14 @@
 				972A3E3E2140E84100831A13 /* StatusItemViewController.swift */,
 			);
 			path = StatusItemViewController;
+			sourceTree = "<group>";
+		};
+		972A3E402140FE7F00831A13 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				972A3E412140FEB800831A13 /* CustomTableHeaderView.swift */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 		C7258CC6AA0A8CA15D3877B7 /* Pods */ = {
@@ -336,6 +347,7 @@
 				97097350214021BA00764EA1 /* MutableCollection.swift in Sources */,
 				972A3E3121409BED00831A13 /* NotificationName.swift in Sources */,
 				97097349213FEF0800764EA1 /* SongListViewController.swift in Sources */,
+				972A3E422140FEB800831A13 /* CustomTableHeaderView.swift in Sources */,
 				972A3E382140BAF200831A13 /* Playlist.swift in Sources */,
 				97097342213FDB0000764EA1 /* SongManager.swift in Sources */,
 				97097340213FD5B500764EA1 /* PlayerManager.swift in Sources */,
