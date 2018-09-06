@@ -15,5 +15,6 @@ extension Notification.Name {
     static let PreviousSong = Notification.Name("com.rhino.cocoaswift.PreviousSong")
     static let ChangeSong = Notification.Name("com.rhino.cocoaswift.ChangeSong")
     static let SwitchPlayList = Notification.Name("com.rhino.cocoaswift.SwitchPlayList")
+    static let VolumeChanged = Notification.Name("com.rhino.cocoaswift.VolueChanged")
 
 }

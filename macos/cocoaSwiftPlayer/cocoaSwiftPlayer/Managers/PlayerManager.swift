@@ -15,6 +15,8 @@ import RealmSwift
 class PlayerManager: NSObject, AVAudioPlayerDelegate {
     static var sharedManager = PlayerManager()
     
+    var statusItem: NSStatusItem?
+    
     var isPlaying:Bool {
         if let player = player {
             return player.isPlaying
@@ -35,6 +37,10 @@ class PlayerManager: NSObject, AVAudioPlayerDelegate {
                     player = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: currentSong.location))
                     player?.volume = volume
                 }
+                
+                songTimer = nil
+                songProgress = 0
+                
                 NotificationCenter.default.post(name: Notification.Name.ChangeSong, object: self, userInfo: [NotificationUserInfos.Song:currentSong])
             } else {
                 stop()
@@ -79,7 +85,31 @@ class PlayerManager: NSObject, AVAudioPlayerDelegate {
             }
         }
     }
-    var volume:Float = 0.5
+    var volume:Float = 0.5 {
+        didSet {
+            player?.volume = volume
+            NotificationCenter.default.post(name: NSNotification.Name.VolumeChanged, object: self, userInfo: nil)
+        }
+    }
+    
+    var songTimer: Timer? {
+        didSet {
+            oldValue?.invalidate()
+//            songProgress = 0
+        }
+    }
+    
+    var songProgress: Double = 0
+    var songProgressText: String  {
+        return "\(timeFormaater.string(from: songProgress)!)"
+    }
+    
+    lazy var timeFormaater: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.minute, .second]
+        formatter.zeroFormattingBehavior = .pad
+        return formatter
+    }()
     
     // MARK: Player Control
     
@@ -99,11 +129,18 @@ class PlayerManager: NSObject, AVAudioPlayerDelegate {
         }
         
         player?.play()
+        
+        songTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateProgress), userInfo: nil, repeats: true)
+        
+        
         NotificationCenter.default.post(name: Notification.Name.StartPlaying, object: self, userInfo: [NotificationUserInfos.Song:currentSong!])
     }
     
     func pause() {
         player?.pause()
+        
+        songTimer = nil
+        
         NotificationCenter.default.post(name: Notification.Name.PausePlaying, object: self, userInfo: [NotificationUserInfos.Song: currentSong!])
     }
     
@@ -144,5 +181,12 @@ class PlayerManager: NSObject, AVAudioPlayerDelegate {
     private func loadAllSongs() {
         let realm = try! Realm()
         currentPlayList = realm.objects(Song.self).map { $0 }
+    }
+    
+    // MARK: - Timer
+    
+    @objc func updateProgress() {
+        songProgress += 1
+        statusItem?.button?.title = songProgressText
     }
 }

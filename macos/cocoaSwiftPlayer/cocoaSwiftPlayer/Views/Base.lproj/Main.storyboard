@@ -684,9 +684,9 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
+                <windowController id="B8D-0N-5wS" customClass="MainWindoeController" customModule="cocoaSwiftPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="CocoaSwift" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -750,7 +750,10 @@
                                             </imageView>
                                             <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pme-uf-M7t">
                                                 <rect key="frame" x="13" y="-2" width="150" height="19"/>
-                                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="tYP-il-MFi"/>
+                                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" doubleValue="0.5" tickMarkPosition="above" sliderType="linear" id="tYP-il-MFi"/>
+                                                <connections>
+                                                    <action selector="slideVolumeWithSender:" target="pzy-RL-Z1Y" id="iAh-HR-ePC"/>
+                                                </connections>
                                             </slider>
                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lac-Si-lHz">
                                                 <rect key="frame" x="169" y="1" width="14" height="14"/>
@@ -956,7 +959,10 @@
                                                     </imageView>
                                                     <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mc2-lI-DYm">
                                                         <rect key="frame" x="13" y="-2" width="150" height="19"/>
-                                                        <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="KfN-ZU-Zj5"/>
+                                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="1" doubleValue="0.5" tickMarkPosition="above" sliderType="linear" id="KfN-ZU-Zj5"/>
+                                                        <connections>
+                                                            <action selector="slideVolumeWithSender:" target="n1V-df-A2R" id="Ez3-df-DdD"/>
+                                                        </connections>
                                                     </slider>
                                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="maE-lj-dbQ">
                                                         <rect key="frame" x="169" y="1" width="14" height="14"/>

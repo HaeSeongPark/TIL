@@ -29,6 +29,7 @@
 		972A3E3C2140E5B800831A13 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E3B2140E5B800831A13 /* EventMonitor.swift */; };
 		972A3E3F2140E84100831A13 /* StatusItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E3E2140E84100831A13 /* StatusItemViewController.swift */; };
 		972A3E422140FEB800831A13 /* CustomTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E412140FEB800831A13 /* CustomTableHeaderView.swift */; };
+		972A3E442141097C00831A13 /* MainWindoeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E432141097C00831A13 /* MainWindoeController.swift */; };
 		FAC93822FACF7B30A89A2633 /* Pods_cocoaSwiftPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61618DE6C27DE75E6AF6AF66 /* Pods_cocoaSwiftPlayer.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		972A3E3B2140E5B800831A13 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		972A3E3E2140E84100831A13 /* StatusItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemViewController.swift; sourceTree = "<group>"; };
 		972A3E412140FEB800831A13 /* CustomTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableHeaderView.swift; sourceTree = "<group>"; };
+		972A3E432141097C00831A13 /* MainWindoeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindoeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				972A3E342140B58400831A13 /* PlayListViewController */,
 				97097345213FEECB00764EA1 /* SongListViewContoller */,
 				9709733C213FD1D700764EA1 /* PlayViewController */,
+				972A3E432141097C00831A13 /* MainWindoeController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				9709734B213FF64F00764EA1 /* RealmMigrationManager.swift in Sources */,
 				972A3E362140B59E00831A13 /* PlayListVIewController.swift in Sources */,
 				972A3E3321409E4500831A13 /* NotificationUserInfos.swift in Sources */,
+				972A3E442141097C00831A13 /* MainWindoeController.swift in Sources */,
 				9709734E214020E100764EA1 /* Collection.swift in Sources */,
 				972A3E3A2140D57E00831A13 /* CustomTableCellView.swift in Sources */,
 				9709733E213FD23F00764EA1 /* PlayerViewController.swift in Sources */,

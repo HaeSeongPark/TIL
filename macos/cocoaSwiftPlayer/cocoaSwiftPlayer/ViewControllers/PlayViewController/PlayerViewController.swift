@@ -21,30 +21,43 @@ class PlayerViewController: NSViewController {
     
     let manager = PlayerManager.sharedManager
     var songTimer: Timer?
-    var songProgress: Double = 0.0
+//    var songProgress: Double = 0.0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         timeLabel.stringValue = "0:00"
         addNotifications()
+        
+        songTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateProgress), userInfo: nil, repeats: true)
     }
     
     fileprivate func addNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(startPlaying(noti:)), name: Notification.Name.StartPlaying, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(pausePlaying(noti:)), name: Notification.Name.PausePlaying, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(startPlaying(noti:)), name: Notification.Name.StartPlaying, object: nil)
+//
+//        NotificationCenter.default.addObserver(self, selector: #selector(pausePlaying(noti:)), name: Notification.Name.PausePlaying, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeSong(noti:)), name: Notification.Name.ChangeSong, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(volumeChanged(noti:)), name: Notification.Name.VolumeChanged, object: nil)
+    }
+    
+    @objc func volumeChanged(noti: Notification) {
+        volumeSlider.floatValue = manager.volume
     }
     
     //MARK: -IBAction
     @IBAction func play(_ sender: NSButton) {
         manager.play()
+        chagePlayStopButtonImage()
     }
     
     @IBAction func rewind(_ sender: NSButton) {
         manager.rewind()
+    }
+    
+    @IBAction func slideVolume(sender: NSSlider) {
+        manager.volume = sender.floatValue
     }
     
     @IBAction func next(_ sender: NSButton) {
@@ -67,23 +80,23 @@ class PlayerViewController: NSViewController {
         }
         
         timeLabel.stringValue = "0:00"
-        songProgress = 0
-        songTimer?.invalidate()
-        songTimer = nil
+//        songProgress = 0
+//        songTimer?.invalidate()
+//        songTimer = nil
         
         songTitleLabel.stringValue = song.title
     }
     
-    @objc func startPlaying(noti: NSNotification) {
-        songTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateProgress), userInfo: nil, repeats: true)
-        chagePlayStopButtonImage()
-    }
+//    @objc func startPlaying(noti: NSNotification) {
+//        songTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateProgress), userInfo: nil, repeats: true)
+//        chagePlayStopButtonImage()
+//    }
     
-    @objc func pausePlaying(noti: Notification) {
-        songTimer?.invalidate()
-        songTimer = nil
-        chagePlayStopButtonImage()
-    }
+//    @objc func pausePlaying(noti: Notification) {
+//        songTimer?.invalidate()
+//        songTimer = nil
+//        chagePlayStopButtonImage()
+//    }
     
     private func chagePlayStopButtonImage() {
         playButton.image = PlayerManager.sharedManager.isPlaying ? #imageLiteral(resourceName: "Pause") : #imageLiteral(resourceName: "Play")
@@ -91,10 +104,11 @@ class PlayerViewController: NSViewController {
     
     // MARK: - Timer
     @objc func updateProgress() {
-        songProgress += 1
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.minute, .second]
-        formatter.zeroFormattingBehavior = .pad
-        timeLabel.stringValue = "\(formatter.string(from: songProgress)!)"
+        timeLabel.stringValue = manager.songProgressText
+//        songProgress += 1
+//        let formatter = DateComponentsFormatter()
+//        formatter.allowedUnits = [.minute, .second]
+//        formatter.zeroFormattingBehavior = .pad
+//        timeLabel.stringValue = "\(formatter.string(from: songProgress)!)"
     }
 }
