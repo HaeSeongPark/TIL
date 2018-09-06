@@ -33,9 +33,9 @@ class PlayerViewController: NSViewController {
     }
     
     fileprivate func addNotifications() {
-//        NotificationCenter.default.addObserver(self, selector: #selector(startPlaying(noti:)), name: Notification.Name.StartPlaying, object: nil)
-//
-//        NotificationCenter.default.addObserver(self, selector: #selector(pausePlaying(noti:)), name: Notification.Name.PausePlaying, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(startPlaying(noti:)), name: Notification.Name.StartPlaying, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(pausePlaying(noti:)), name: Notification.Name.PausePlaying, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeSong(noti:)), name: Notification.Name.ChangeSong, object: nil)
         
@@ -49,7 +49,6 @@ class PlayerViewController: NSViewController {
     //MARK: -IBAction
     @IBAction func play(_ sender: NSButton) {
         manager.play()
-        chagePlayStopButtonImage()
     }
     
     @IBAction func rewind(_ sender: NSButton) {
@@ -87,16 +86,16 @@ class PlayerViewController: NSViewController {
         songTitleLabel.stringValue = song.title
     }
     
-//    @objc func startPlaying(noti: NSNotification) {
+    @objc func startPlaying(noti: NSNotification) {
 //        songTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateProgress), userInfo: nil, repeats: true)
-//        chagePlayStopButtonImage()
-//    }
+        chagePlayStopButtonImage()
+    }
     
-//    @objc func pausePlaying(noti: Notification) {
+    @objc func pausePlaying(noti: Notification) {
 //        songTimer?.invalidate()
 //        songTimer = nil
-//        chagePlayStopButtonImage()
-//    }
+        chagePlayStopButtonImage()
+    }
     
     private func chagePlayStopButtonImage() {
         playButton.image = PlayerManager.sharedManager.isPlaying ? #imageLiteral(resourceName: "Pause") : #imageLiteral(resourceName: "Play")
