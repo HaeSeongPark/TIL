@@ -23,6 +23,7 @@
 		97276E2B213FBDB50065CED7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97276E29213FBDB50065CED7 /* Main.storyboard */; };
 		972A3E3121409BED00831A13 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E3021409BED00831A13 /* NotificationName.swift */; };
 		972A3E3321409E4500831A13 /* Constatns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E3221409E4500831A13 /* Constatns.swift */; };
+		972A3E362140B59E00831A13 /* PlayListVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E352140B59E00831A13 /* PlayListVIewController.swift */; };
 		FAC93822FACF7B30A89A2633 /* Pods_cocoaSwiftPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61618DE6C27DE75E6AF6AF66 /* Pods_cocoaSwiftPlayer.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		97276E2D213FBDB50065CED7 /* cocoaSwiftPlayer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = cocoaSwiftPlayer.entitlements; sourceTree = "<group>"; };
 		972A3E3021409BED00831A13 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		972A3E3221409E4500831A13 /* Constatns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constatns.swift; sourceTree = "<group>"; };
+		972A3E352140B59E00831A13 /* PlayListVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListVIewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		97097332213FC19900764EA1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				972A3E342140B58400831A13 /* PlayListViewController */,
 				97097345213FEECB00764EA1 /* SongListViewContoller */,
 				9709733C213FD1D700764EA1 /* PlayViewController */,
 			);
@@ -177,6 +180,14 @@
 				97276E2D213FBDB50065CED7 /* cocoaSwiftPlayer.entitlements */,
 			);
 			path = cocoaSwiftPlayer;
+			sourceTree = "<group>";
+		};
+		972A3E342140B58400831A13 /* PlayListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				972A3E352140B59E00831A13 /* PlayListVIewController.swift */,
+			);
+			path = PlayListViewController;
 			sourceTree = "<group>";
 		};
 		C7258CC6AA0A8CA15D3877B7 /* Pods */ = {
@@ -309,6 +320,7 @@
 				97097340213FD5B500764EA1 /* PlayerManager.swift in Sources */,
 				97097336213FC22900764EA1 /* Song.swift in Sources */,
 				9709734B213FF64F00764EA1 /* RealmMigrationManager.swift in Sources */,
+				972A3E362140B59E00831A13 /* PlayListVIewController.swift in Sources */,
 				972A3E3321409E4500831A13 /* Constatns.swift in Sources */,
 				9709734E214020E100764EA1 /* Collection.swift in Sources */,
 				9709733E213FD23F00764EA1 /* PlayerViewController.swift in Sources */,
