@@ -41,7 +41,6 @@ class PlayerViewController: NSViewController {
     //MARK: -IBAction
     @IBAction func play(_ sender: NSButton) {
         manager.play()
-        playButton.image = PlayerManager.sharedManager.isPlaying ? #imageLiteral(resourceName: "Pause") : #imageLiteral(resourceName: "Play")
     }
     
     @IBAction func rewind(_ sender: NSButton) {
@@ -77,11 +76,17 @@ class PlayerViewController: NSViewController {
     
     @objc func startPlaying(noti: NSNotification) {
         songTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateProgress), userInfo: nil, repeats: true)
+        chagePlayStopButtonImage()
     }
     
     @objc func pausePlaying(noti: Notification) {
         songTimer?.invalidate()
         songTimer = nil
+        chagePlayStopButtonImage()
+    }
+    
+    private func chagePlayStopButtonImage() {
+        playButton.image = PlayerManager.sharedManager.isPlaying ? #imageLiteral(resourceName: "Pause") : #imageLiteral(resourceName: "Play")
     }
     
     // MARK: - Timer
