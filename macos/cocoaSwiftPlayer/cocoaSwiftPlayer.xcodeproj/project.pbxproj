@@ -25,6 +25,7 @@
 		972A3E3321409E4500831A13 /* NotificationUserInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E3221409E4500831A13 /* NotificationUserInfos.swift */; };
 		972A3E362140B59E00831A13 /* PlayListVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E352140B59E00831A13 /* PlayListVIewController.swift */; };
 		972A3E382140BAF200831A13 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E372140BAF200831A13 /* Playlist.swift */; };
+		972A3E3A2140D57E00831A13 /* CustomTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E392140D57E00831A13 /* CustomTableCellView.swift */; };
 		FAC93822FACF7B30A89A2633 /* Pods_cocoaSwiftPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61618DE6C27DE75E6AF6AF66 /* Pods_cocoaSwiftPlayer.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		972A3E3221409E4500831A13 /* NotificationUserInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUserInfos.swift; sourceTree = "<group>"; };
 		972A3E352140B59E00831A13 /* PlayListVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListVIewController.swift; sourceTree = "<group>"; };
 		972A3E372140BAF200831A13 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		972A3E392140D57E00831A13 /* CustomTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				972A3E352140B59E00831A13 /* PlayListVIewController.swift */,
+				972A3E392140D57E00831A13 /* CustomTableCellView.swift */,
 			);
 			path = PlayListViewController;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				972A3E362140B59E00831A13 /* PlayListVIewController.swift in Sources */,
 				972A3E3321409E4500831A13 /* NotificationUserInfos.swift in Sources */,
 				9709734E214020E100764EA1 /* Collection.swift in Sources */,
+				972A3E3A2140D57E00831A13 /* CustomTableCellView.swift in Sources */,
 				9709733E213FD23F00764EA1 /* PlayerViewController.swift in Sources */,
 				97276E26213FBDB40065CED7 /* ViewController.swift in Sources */,
 				97276E24213FBDB40065CED7 /* AppDelegate.swift in Sources */,

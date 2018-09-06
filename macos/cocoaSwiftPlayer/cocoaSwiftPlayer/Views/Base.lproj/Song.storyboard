@@ -36,23 +36,23 @@
                 <customObject id="ToG-dZ-eQe" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <viewController id="HEx-Uh-nl3" userLabel="PlayList" customClass="PlayListVIewController" customModule="cocoaSwiftPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="0A0-9j-tdm">
-                        <rect key="frame" x="0.0" y="0.0" width="176" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="216" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Aa-pr-Pm3">
-                                <rect key="frame" x="0.0" y="40" width="176" height="360"/>
+                                <rect key="frame" x="0.0" y="40" width="216" height="360"/>
                                 <clipView key="contentView" drawsBackground="NO" id="Wpr-bj-pQQ">
-                                    <rect key="frame" x="1" y="1" width="174" height="358"/>
+                                    <rect key="frame" x="1" y="1" width="214" height="358"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="O41-ih-dqY" id="Nlg-MT-UAD">
-                                            <rect key="frame" x="0.0" y="0.0" width="174" height="358"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="214" height="358"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="" width="171" minWidth="16" maxWidth="1000" id="O41-ih-dqY">
+                                                <tableColumn identifier="" width="211" minWidth="16" maxWidth="1000" id="O41-ih-dqY">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -66,11 +66,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="HeaderCell" id="mvl-kf-F9A">
-                                                            <rect key="frame" x="1" y="1" width="171" height="17"/>
+                                                            <rect key="frame" x="1" y="1" width="211" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IeZ-E2-2Iq">
-                                                                    <rect key="frame" x="0.0" y="1" width="171" height="14"/>
+                                                                    <rect key="frame" x="0.0" y="1" width="211" height="14"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Libray" id="pQL-Mk-HOy">
                                                                         <font key="font" metaFont="smallSystemBold"/>
@@ -83,8 +83,8 @@
                                                                 <outlet property="textField" destination="IeZ-E2-2Iq" id="bX9-5Q-5BM"/>
                                                             </connections>
                                                         </tableCellView>
-                                                        <tableCellView identifier="DataCell" id="LHG-1D-DfT">
-                                                            <rect key="frame" x="1" y="20" width="171" height="17"/>
+                                                        <tableCellView identifier="DataCell" id="LHG-1D-DfT" customClass="CustomTableCellView" customModule="cocoaSwiftPlayer" customModuleProvider="target">
+                                                            <rect key="frame" x="1" y="20" width="211" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <imageView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="37v-XQ-XPg">
@@ -93,17 +93,27 @@
                                                                     <imageCell key="cell" refusesFirstResponder="YES" imageScaling="proportionallyDown" image="imageCell:zFf-4L-yi5:image" id="zFf-4L-yi5"/>
                                                                 </imageView>
                                                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7kJ-0H-E3n">
-                                                                    <rect key="frame" x="25" y="0.0" width="146" height="17"/>
+                                                                    <rect key="frame" x="25" y="0.0" width="116" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Songs" id="Nwy-EU-4wV">
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Songs" id="Nwy-EU-4wV">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="igu-Pk-Ldz">
+                                                                    <rect key="frame" x="143" y="-8" width="53" height="25"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(0)" id="lfK-3a-X3s">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
                                                             <connections>
                                                                 <outlet property="imageView" destination="37v-XQ-XPg" id="xlT-TU-Puz"/>
+                                                                <outlet property="songCount" destination="igu-Pk-Ldz" id="GQq-6V-ky1"/>
                                                                 <outlet property="textField" destination="7kJ-0H-E3n" id="fKK-7k-UyO"/>
                                                             </connections>
                                                         </tableCellView>
@@ -127,7 +137,7 @@
                                 </scroller>
                             </scrollView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aZT-sj-YmX">
-                                <rect key="frame" x="34" y="0.0" width="110" height="32"/>
+                                <rect key="frame" x="34" y="0.0" width="150" height="32"/>
                                 <buttonCell key="cell" type="push" title="add playlist" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wva-bW-ncC">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -152,7 +162,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="504" y="1381"/>
+            <point key="canvasLocation" x="484" y="1381"/>
         </scene>
         <!--SongList-->
         <scene sceneID="N0h-uK-OMD">

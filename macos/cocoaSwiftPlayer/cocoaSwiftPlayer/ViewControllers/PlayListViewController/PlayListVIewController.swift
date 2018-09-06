@@ -107,10 +107,12 @@ extension PlayListVIewController: NSOutlineViewDelegate {
         if isHeader(item: item) {
             return outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HeaderCell"), owner: self)
         } else {
-            let view =  outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DataCell"), owner: self) as? NSTableCellView
+            let view =  outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "DataCell"), owner: self) as? CustomTableCellView
             
             if let playlist = item as? Playlist {
-                view?.textField?.stringValue = "\(playlist.name) (\(playlist.songs.count))"
+                view?.textField?.stringValue = "\(playlist.name)"
+                view?.textField?.delegate = self
+                view?.songCount.stringValue = "\(playlist.songs.count)"
             }
             return view
         }
@@ -127,5 +129,19 @@ extension PlayListVIewController: NSOutlineViewDelegate {
     func outlineViewSelectionDidChange(_ notification: Notification) {
         let playlist = playlists[outlineView.selectedRow - 1 ]
         NotificationCenter.default.post(name: Notification.Name.SwitchPlayList, object: self, userInfo: [NotificationUserInfos.PlayList:playlist])
+    }
+}
+
+extension PlayListVIewController: NSTextFieldDelegate {
+    override func controlTextDidEndEditing(_ obj: Notification) {
+        if let textField = obj.object as? NSTextField {
+            let row = outlineView.row(for: textField)
+            let playlist = playlists[row-1]
+            
+            let realm = try! Realm()
+            try! realm.write {
+                playlist.name = textField.stringValue
+            }
+        }
     }
 }

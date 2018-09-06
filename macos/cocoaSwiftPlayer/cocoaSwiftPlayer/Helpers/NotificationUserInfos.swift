@@ -8,6 +8,7 @@
 
 import Foundation
 
-struct NotiicationUserInfos {
+struct NotificationUserInfos {
     static let Song = "song"
+    static let PlayList = "PlayList"
 }
