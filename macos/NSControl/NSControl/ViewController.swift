@@ -21,6 +21,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var birthdayDP: NSDatePicker!
     @IBOutlet weak var subscribeButton: NSButton!
     @IBOutlet var resultView: NSTextView!
+    @IBOutlet weak var userImageView: NSImageView!
     
     var coutryCodes = ["HK +852", "China +85", "US +1"]
     
@@ -78,6 +79,8 @@ class ViewController: NSViewController {
         name : \(textField.stringValue)
         gender : \(genderControl.stringValue)
         """
+        
+//        userImageView.image = NSImage(named: NSImage.Name(rawValue: "success"))
     }
     
     @IBAction func updateSalary(_ sender: NSSlider) {
