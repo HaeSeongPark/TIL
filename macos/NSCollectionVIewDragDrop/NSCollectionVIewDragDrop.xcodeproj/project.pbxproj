@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97285403214213900018809A /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97285402214213900018809A /* MyView.swift */; };
 		972A3E742141525400831A13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E732141525400831A13 /* AppDelegate.swift */; };
 		972A3E762141525400831A13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A3E752141525400831A13 /* ViewController.swift */; };
 		972A3E782141525500831A13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 972A3E772141525500831A13 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		97285402214213900018809A /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		972A3E702141525400831A13 /* NSCollectionVIewDragDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSCollectionVIewDragDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		972A3E732141525400831A13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		972A3E752141525400831A13 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				972A3E732141525400831A13 /* AppDelegate.swift */,
 				972A3E752141525400831A13 /* ViewController.swift */,
 				972A3E832141540E00831A13 /* MyItem.swift */,
+				97285402214213900018809A /* MyView.swift */,
 				972A3E842141540E00831A13 /* MyItem.xib */,
 				972A3E772141525500831A13 /* Assets.xcassets */,
 				972A3E792141525500831A13 /* Main.storyboard */,
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97285403214213900018809A /* MyView.swift in Sources */,
 				972A3E762141525400831A13 /* ViewController.swift in Sources */,
 				972A3E852141540E00831A13 /* MyItem.swift in Sources */,
 				972A3E742141525400831A13 /* AppDelegate.swift in Sources */,
