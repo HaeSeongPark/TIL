@@ -40,6 +40,20 @@ class MyTextView: NSTextView {
         }
     }
     
+    override func deleteBackward(_ sender: Any?) {
+        if let (text, range) = paragrapAndRange(range: selectedRange()) {
+            if BulletPoint.isCheckList(text: text) {
+                let loc = textStorage!.string.distance(from: string.startIndex, to: range.lowerBound)
+                if loc == selectedRange().location - 2 {
+                    let deleteRange = NSMakeRange(loc, 2)
+                    textStorage?.replaceCharacters(in: deleteRange, with: "")
+                    return
+                }
+            }
+        }
+        super.deleteBackward(sender)
+    }
+    
     // MARK: - Helpers
     
     // find the current paragraph
@@ -52,6 +66,13 @@ class MyTextView: NSTextView {
         } else {
             return nil
         }
+    }
+}
+
+extension MyTextView: NSTextViewDelegate {
+    func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+        print(commandSelector)
+        return false
     }
 }
 
