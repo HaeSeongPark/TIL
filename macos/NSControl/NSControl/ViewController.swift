@@ -18,6 +18,7 @@ class ViewController: NSViewController {
     
     @IBOutlet weak var salaryTextField: NSTextField!
     @IBOutlet weak var salarySlider: NSSlider!
+    @IBOutlet weak var birthdayDP: NSDatePicker!
     
     var coutryCodes = ["HK +852", "China +85", "US +1"]
     
@@ -57,6 +58,13 @@ class ViewController: NSViewController {
         salarySlider.minValue = 1
         salarySlider.maxValue = 10
         salarySlider.integerValue = 3
+        
+        //birthday
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-DD"
+        birthdayDP.minDate = formatter.date(from: "2001-01-01")
+        birthdayDP.maxDate = formatter.date(from: "2020-01-01")
+        birthdayDP.dateValue = Date()
         
     }
     
