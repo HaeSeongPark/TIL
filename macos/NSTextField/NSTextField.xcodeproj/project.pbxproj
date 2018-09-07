@@ -11,6 +11,7 @@
 		9728543E214261E30018809A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9728543D214261E30018809A /* ViewController.swift */; };
 		97285440214261E30018809A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9728543F214261E30018809A /* Assets.xcassets */; };
 		97285443214261E30018809A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97285441214261E30018809A /* Main.storyboard */; };
+		9728544C214267FF0018809A /* MyTextFied.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9728544B214267FF0018809A /* MyTextFied.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		97285442214261E30018809A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97285444214261E30018809A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97285445214261E30018809A /* NSTextField.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NSTextField.entitlements; sourceTree = "<group>"; };
+		9728544B214267FF0018809A /* MyTextFied.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextFied.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +39,7 @@
 		9728542F214261E20018809A = {
 			isa = PBXGroup;
 			children = (
+				9728544B214267FF0018809A /* MyTextFied.swift */,
 				9728543A214261E20018809A /* NSTextField */,
 				97285439214261E20018809A /* Products */,
 			);
@@ -133,6 +136,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9728544C214267FF0018809A /* MyTextFied.swift in Sources */,
 				9728543E214261E30018809A /* ViewController.swift in Sources */,
 				9728543C214261E20018809A /* AppDelegate.swift in Sources */,
 			);
