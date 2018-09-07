@@ -25,6 +25,12 @@ class ViewController: NSViewController {
         // reload data happens before animation
         // to solve this, use perforBatchUpdates
         collectionView.animator().performBatchUpdates({
+          
+          // another way to animate scroll view which is better way i think
+          // use performBatchUpdates to animate scroll view
+          self.collectionView.scroll(NSPoint(x: 0, y: 0))
+          //
+            
           self.collectionView.animator().insertItems(at: indexPaths)
         }) { (finished) in
             self.collectionView.reloadData()
@@ -77,6 +83,14 @@ class ViewController: NSViewController {
         clipView.animator().setBoundsOrigin(rect.origin)
         
         NSAnimationContext.endGrouping()
+        
+        //advanced
+        clipView.postsFrameChangedNotifications = true
+        NotificationCenter.default.addObserver(self, selector: #selector(boundsDidChange(noti:)), name: NSView.boundsDidChangeNotification, object: clipView)
+    }
+    
+    @objc func boundsDidChange(noti: Notification) {
+        print("boundsDidChange")
     }
 }
 
