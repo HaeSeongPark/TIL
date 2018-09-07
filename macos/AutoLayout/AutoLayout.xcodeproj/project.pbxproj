@@ -11,7 +11,46 @@
 		97285413214237AB0018809A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97285412214237AB0018809A /* ViewController.swift */; };
 		97285415214237AC0018809A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97285414214237AC0018809A /* Assets.xcassets */; };
 		97285418214237AC0018809A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97285416214237AC0018809A /* Main.storyboard */; };
+		9728542C21423D080018809A /* SnapKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 9728542621423C780018809A /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9728542521423C780018809A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9728542021423C780018809A /* SnapKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EEBCC9D819CC627D0083B827;
+			remoteInfo = SnapKit;
+		};
+		9728542721423C780018809A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9728542021423C780018809A /* SnapKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EEBCC9E219CC627E0083B827;
+			remoteInfo = "SnapKit Tests";
+		};
+		9728542921423CBC0018809A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9728542021423C780018809A /* SnapKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EEBCC9D719CC627D0083B827;
+			remoteInfo = SnapKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9728542B21423CDC0018809A /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9728542C21423D080018809A /* SnapKit.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9728540D214237AB0018809A /* AutoLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -21,6 +60,7 @@
 		97285417214237AC0018809A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97285419214237AC0018809A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9728541A214237AC0018809A /* AutoLayout.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AutoLayout.entitlements; sourceTree = "<group>"; };
+		9728542021423C780018809A /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = SnapKit/SnapKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +79,7 @@
 			children = (
 				9728540F214237AB0018809A /* AutoLayout */,
 				9728540E214237AB0018809A /* Products */,
+				9728542021423C780018809A /* SnapKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +104,15 @@
 			path = AutoLayout;
 			sourceTree = "<group>";
 		};
+		9728542121423C780018809A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9728542621423C780018809A /* SnapKit.framework */,
+				9728542821423C780018809A /* SnapKit Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -73,10 +123,12 @@
 				97285409214237AB0018809A /* Sources */,
 				9728540A214237AB0018809A /* Frameworks */,
 				9728540B214237AB0018809A /* Resources */,
+				9728542B21423CDC0018809A /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9728542A21423CBC0018809A /* PBXTargetDependency */,
 			);
 			name = AutoLayout;
 			productName = AutoLayout;
@@ -109,12 +161,35 @@
 			mainGroup = 97285404214237AB0018809A;
 			productRefGroup = 9728540E214237AB0018809A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9728542121423C780018809A /* Products */;
+					ProjectRef = 9728542021423C780018809A /* SnapKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9728540C214237AB0018809A /* AutoLayout */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9728542621423C780018809A /* SnapKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SnapKit.framework;
+			remoteRef = 9728542521423C780018809A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9728542821423C780018809A /* SnapKit Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SnapKit Tests.xctest";
+			remoteRef = 9728542721423C780018809A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9728540B214237AB0018809A /* Resources */ = {
@@ -139,6 +214,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9728542A21423CBC0018809A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SnapKit;
+			targetProxy = 9728542921423CBC0018809A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		97285416214237AC0018809A /* Main.storyboard */ = {
