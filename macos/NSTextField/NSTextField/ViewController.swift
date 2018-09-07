@@ -11,6 +11,9 @@ import Cocoa
 class ViewController: NSViewController {
 
     @IBOutlet weak var textField: MyTextFied!
+
+    @IBOutlet var textView: NSTextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         textField.myDelegate = self
@@ -28,6 +31,16 @@ extension ViewController: MyTextFieldDelegate {
     
     func itemDidEndEditing(textField: MyTextFied) {
         print("did end edting")
+    }
+}
+
+// code fold
+// https://stackoverflow.com/questions/30743182/enabling-code-folding-bar-in-xcode
+// command option <-
+
+extension ViewController:NSTextViewDelegate {
+    func textViewDidChangeSelection(_ notification: Notification) {
+        print("textView: \(textView.string)")
     }
 }
 
