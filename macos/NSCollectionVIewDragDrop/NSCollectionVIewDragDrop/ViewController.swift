@@ -12,9 +12,51 @@ class ViewController: NSViewController {
     @IBOutlet weak var collectionView: NSCollectionView!
     var strings = ["a", "b", "c", "d", "e", "f", "g", "h"]
     var draggingIndexPaths: Set<IndexPath> = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.registerForDraggedTypes([.string])
+    }
+    
+    @IBAction func addtoToTop(_ sender: NSButton) {
+        strings.insert("Top", at: 0)
+        let indexPaths: Set<IndexPath> = [IndexPath(item: 0, section: 0)]
+        
+        // reload data happens before animation
+        // to solve this, use perforBatchUpdates
+        collectionView.animator().performBatchUpdates({
+          self.collectionView.animator().insertItems(at: indexPaths)
+        }) { (finished) in
+            self.collectionView.reloadData()
+        }
+    }
+    
+    @IBAction func removeFromTop(_ sender: NSButton) {
+        guard !strings.isEmpty else { return }
+        
+        strings.removeFirst()
+        let indexPaths: Set<IndexPath> = [IndexPath(item: 0, section: 0)]
+        collectionView.animator().performBatchUpdates({
+            self.collectionView.animator().deleteItems(at: indexPaths)
+        }) { (finished) in
+            self.collectionView.reloadData()
+        }
+    }
+    
+    @IBAction func replaceLast(_ sender: NSButton) {
+        guard !strings.isEmpty else { return }
+        strings.removeLast()
+        strings.append("Last")
+        
+        let indexPaths: Set<IndexPath> = [IndexPath(item: strings.count-1, section: 0)]
+        
+        collectionView.animator().performBatchUpdates({
+            // Deletes are processed before inserts in batch operations. from document
+            self.collectionView.deleteItems(at: indexPaths)
+            self.collectionView.insertItems(at: indexPaths)
+        }) { (finished) in
+            self.collectionView.reloadData()
+        }
     }
 }
 
