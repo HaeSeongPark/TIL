@@ -16,6 +16,8 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.registerForDraggedTypes([.string])
+        
+        collectionView.backgroundColors = [.black]
     }
     
     @IBAction func addtoToTop(_ sender: NSButton) {
