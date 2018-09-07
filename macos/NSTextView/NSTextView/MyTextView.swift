@@ -10,22 +10,33 @@ import Cocoa
 
 class MyTextView: NSTextView {
     override func insertTab(_ sender: Any?) {
-//        super.insertTab(sender)
-        print("insertTab")
-        print(selectedRange())
-        if let (_ ,range) = paragrapAndRange(range: selectedRange()) {
-        let startRange = NSMakeRange(string.distance(from: string.startIndex, to: range.lowerBound), 0)
-        insertText("- ", replacementRange: startRange)
+        //          super.insertTab(sender)
+        //          print(selectedRange())
+        if let (text ,range) = paragrapAndRange(range: selectedRange()) {
+            // 글자 중간에 "- "이 있다면?
+            if !BulletPoint.isCheckList(text: text) {
+                let startRange = NSMakeRange(string.distance(from: string.startIndex, to: range.lowerBound), 0)
+                insertText("- ", replacementRange: startRange)
+            }
         }
     }
     
     override func insertBacktab(_ sender: Any?) {
-        super.insertBacktab(sender)
-        print("insertBackTab")
+        //        print("insertBackTab")
         if let (_, range) = paragrapAndRange(range: selectedRange()) {
             let loc = string.distance(from: string.startIndex, to: range.lowerBound)
             let bulletRange = NSMakeRange(loc, 2)
             replaceCharacters(in:bulletRange , with: "")
+        }
+    }
+    
+    override func insertNewline(_ sender: Any?) {
+        if let (text, _) = paragrapAndRange(range: selectedRange()) {
+            if BulletPoint.isCheckList(text: text) {
+                insertText("\n- ", replacementRange: selectedRange())
+            } else {
+                super.insertNewline(sender)
+            }
         }
     }
     
