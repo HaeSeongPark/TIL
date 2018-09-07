@@ -79,6 +79,9 @@ class ViewController: NSViewController {
         salaryTextField.stringValue = "\(curerncyStyle.string(for: salary)!)"
     }
     
+    @IBAction func choosePlaceOfBirth(_ sender: NSButton) {
+        print("Place of Birth: \(sender.title)")
+    }
 }
 
 
