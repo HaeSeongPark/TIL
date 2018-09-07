@@ -19,6 +19,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var salaryTextField: NSTextField!
     @IBOutlet weak var salarySlider: NSSlider!
     @IBOutlet weak var birthdayDP: NSDatePicker!
+    @IBOutlet weak var subscribeButton: NSButton!
+    @IBOutlet var resultView: NSTextView!
     
     var coutryCodes = ["HK +852", "China +85", "US +1"]
     
@@ -66,6 +68,16 @@ class ViewController: NSViewController {
         birthdayDP.maxDate = formatter.date(from: "2020-01-01")
         birthdayDP.dateValue = Date()
         
+        //subscribe
+        subscribeButton.state = NSControl.StateValue.on
+        
+    }
+    @IBAction func submitForm(_ sender: NSButton) {
+        resultView.string = """
+        result :
+        name : \(textField.stringValue)
+        gender : \(genderControl.stringValue)
+        """
     }
     
     @IBAction func updateSalary(_ sender: NSSlider) {
