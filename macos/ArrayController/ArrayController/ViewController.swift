@@ -10,18 +10,15 @@ import Cocoa
 
 class ViewController: NSViewController {
     
+    @IBOutlet weak var tableView: NSTableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        tableView.sortDescriptors = [
+            .init(key: "name", ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:))),
+            .init(key: "bpm", ascending: true)
+        ]
     }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
-
-
 }
 
