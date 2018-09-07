@@ -10,6 +10,18 @@ import Cocoa
 
 class ViewController: NSViewController {
     var strings = ["apple", "banana", "orage", "waltermelon"]
+    var backupStrings:[String]!
+    var isSearching = false {
+        didSet {
+            if isSearching != oldValue {
+                if isSearching {
+                    backupStrings = strings
+                } else {
+                    strings = backupStrings
+                }
+            }
+        }
+    }
     
     @IBOutlet weak var textField: NSTextField!
     @IBOutlet weak var tableView: NSTableView!
@@ -21,6 +33,18 @@ class ViewController: NSViewController {
             textField.stringValue = ""
             tableView.reloadData()
         }
+    }
+    
+    @IBAction func searchWith(_ sender: NSSearchField) {
+        if sender.stringValue.isEmpty {
+            print("empty")
+            isSearching = false
+        } else {
+            print(sender.stringValue)
+            isSearching = true
+            strings = backupStrings.filter { $0.lowercased().contains(sender.stringValue.lowercased())}
+        }
+        tableView.reloadData()
     }
 }
 
