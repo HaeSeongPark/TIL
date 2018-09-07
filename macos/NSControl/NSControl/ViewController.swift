@@ -16,6 +16,9 @@ class ViewController: NSViewController {
     @IBOutlet weak var countryCode: NSComboBox!
     @IBOutlet var bioTextView: NSTextView!
     
+    @IBOutlet weak var salaryTextField: NSTextField!
+    @IBOutlet weak var salarySlider: NSSlider!
+    
     var coutryCodes = ["HK +852", "China +85", "US +1"]
     
     override func viewDidLoad() {
@@ -49,8 +52,28 @@ class ViewController: NSViewController {
         myAttributedString.addAttributes([NSAttributedStringKey.foregroundColor:NSColor.green], range: NSRange.init(location: 4, length: 5))
         bioTextView.textStorage?.setAttributedString(myAttributedString)
         bioTextView.delegate = self
+        
+        //salary slider
+        salarySlider.minValue = 1
+        salarySlider.maxValue = 10
+        salarySlider.integerValue = 3
+        
     }
+    
+    @IBAction func updateSalary(_ sender: NSSlider) {
+//        print(sender.integerValue)
+//        print(sender.doubleValue)
+        let curerncyStyle = NumberFormatter()
+        curerncyStyle.formatterBehavior = .behavior10_4
+        curerncyStyle.numberStyle = .decimal
+        
+        let salary = sender.integerValue * 10000
+        salaryTextField.stringValue = "\(curerncyStyle.string(for: salary)!)"
+    }
+    
 }
+
+
 
 extension ViewController: NSTextViewDelegate {
     func textViewDidChangeSelection(_ notification: Notification) {
