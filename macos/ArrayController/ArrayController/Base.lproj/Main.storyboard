@@ -706,11 +706,11 @@
             <objects>
                 <viewController id="5gI-5U-AMq" customClass="ViewController" customModule="ArrayController" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="ERx-hH-rdd">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="385"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oOc-5b-dOa">
-                                <rect key="frame" x="400" y="222" width="63" height="32"/>
+                                <rect key="frame" x="400" y="337" width="63" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="add" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aQZ-sK-SZ4">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -721,7 +721,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="afG-n1-jUL">
-                                <rect key="frame" x="389" y="189" width="85" height="32"/>
+                                <rect key="frame" x="389" y="304" width="85" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="remove" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="y2K-w8-dMy">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -732,7 +732,7 @@
                                 </connections>
                             </button>
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpb-LD-Twi">
-                                <rect key="frame" x="20" y="20" width="369" height="230"/>
+                                <rect key="frame" x="20" y="135" width="369" height="230"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="ALa-A7-UiW">
                                     <rect key="frame" x="1" y="0.0" width="367" height="229"/>
@@ -843,9 +843,22 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
+                            <searchField wantsLayer="YES" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cr-Fv-D1M">
+                                <rect key="frame" x="193" y="48" width="189" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="Gon-Fa-kkl">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </searchFieldCell>
+                                <connections>
+                                    <action selector="changeSearchQuery:" target="5gI-5U-AMq" id="e2i-GP-UZG"/>
+                                </connections>
+                            </searchField>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="arrayController" destination="OhO-az-hec" id="nBQ-bc-heg"/>
                         <outlet property="tableView" destination="r5s-Zg-jc4" id="dnO-hv-M65"/>
                     </connections>
                 </viewController>
@@ -861,7 +874,7 @@
                 </arrayController>
                 <customObject id="6V8-Qs-n7k" customClass="Document" customModule="ArrayController" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="329" y="669"/>
+            <point key="canvasLocation" x="329" y="726.5"/>
         </scene>
     </scenes>
 </document>
