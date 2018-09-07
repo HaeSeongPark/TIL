@@ -13,6 +13,8 @@ class ViewController: NSViewController, NSGestureRecognizerDelegate{
     var click:NSGestureRecognizer?
     var doubleClick:NSGestureRecognizer?
     
+    var startPoint: NSPoint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +30,48 @@ class ViewController: NSViewController, NSGestureRecognizerDelegate{
         
         let shiftClick = ShiftClickGestureRecognizer(target: self, action: #selector(shiftClick(gesture:)))
         view.addGestureRecognizer(shiftClick)
+        
+        let rightClick = NSClickGestureRecognizer(target: self, action: #selector(rightClick(rightclick:)))
+        rightClick.buttonMask = 0x2
+//        click.buttonMask = 0x2 // right mouse click
+        view.addGestureRecognizer(rightClick)
+        
+        let pan = NSPanGestureRecognizer(target: self, action: #selector(panned(pan:)))
+        view.addGestureRecognizer(pan)
+    }
+    
+    @objc func panned(pan: NSPanGestureRecognizer) {
+        print("panning")
+        statusLabel.stringValue = "panning"
+        
+        switch pan.state {
+        case .began: startPoint = pan.location(in: view)
+        case .changed:
+            let currentPoint = pan.location(in: view)
+            if startPoint.x < currentPoint.x {
+                statusLabel.stringValue = "panning to right"
+            } else {
+                statusLabel.stringValue = "panning to left"
+            }
+            
+            // move window position using pan
+            if let window = view.window {
+                var windowFrame = window.frame
+                windowFrame.origin.x += currentPoint.x - startPoint.x
+                windowFrame.origin.y += currentPoint.y - startPoint.y
+                window.setFrame(windowFrame, display:true)
+                
+            }
+        case .ended:
+            startPoint = nil
+            statusLabel.stringValue = "Panning Finished"
+        default: break
+        }
+    }
+    
+    @objc func rightClick(rightclick: NSClickGestureRecognizer) {
+        print("right cilck")
+        statusLabel.stringValue = "right click"
     }
     
     @objc func shiftClick(gesture:ShiftClickGestureRecognizer) {
