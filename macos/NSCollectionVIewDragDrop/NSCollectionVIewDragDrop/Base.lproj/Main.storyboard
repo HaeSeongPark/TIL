@@ -706,17 +706,17 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="NSCollectionVIewDragDrop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="330"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPB-rh-odB">
-                                <rect key="frame" x="0.0" y="40" width="480" height="230"/>
+                                <rect key="frame" x="0.0" y="80" width="480" height="250"/>
                                 <clipView key="contentView" drawsBackground="NO" id="qNx-Rr-1y3">
-                                    <rect key="frame" x="1" y="1" width="478" height="228"/>
+                                    <rect key="frame" x="1" y="1" width="478" height="248"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView selectable="YES" id="yY1-41-yhp">
-                                            <rect key="frame" x="0.0" y="0.0" width="478" height="228"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="478" height="248"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="LmF-L7-Q1C">
                                                 <size key="itemSize" width="300" height="100"/>
@@ -740,7 +740,7 @@
                                 </scroller>
                             </scrollView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aBW-Pc-T73">
-                                <rect key="frame" x="-3" y="2" width="103" height="32"/>
+                                <rect key="frame" x="-3" y="33" width="103" height="41"/>
                                 <buttonCell key="cell" type="push" title="add to top" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EMf-4i-WUi">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -750,7 +750,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="p7G-kV-mP7">
-                                <rect key="frame" x="100" y="2" width="144" height="32"/>
+                                <rect key="frame" x="100" y="33" width="144" height="41"/>
                                 <buttonCell key="cell" type="push" title="remove  from top" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GQp-ew-bQb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -760,7 +760,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TS8-Ad-dep">
-                                <rect key="frame" x="244" y="2" width="140" height="32"/>
+                                <rect key="frame" x="244" y="33" width="140" height="41"/>
                                 <buttonCell key="cell" type="push" title="replace last item" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pcW-JS-Oo5">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -769,20 +769,32 @@
                                     <action selector="replaceLast:" target="XfG-lQ-9wD" id="6sA-R6-HRc"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AkJ-Rd-7xA">
+                                <rect key="frame" x="172" y="0.0" width="89" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="scroll to" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aUu-JM-gtj">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="scrollDOwn:" target="XfG-lQ-9wD" id="s8r-RW-NaZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="p7G-kV-mP7" secondAttribute="bottom" constant="9" id="Dxp-g8-kQ4"/>
+                            <constraint firstAttribute="bottom" secondItem="p7G-kV-mP7" secondAttribute="bottom" constant="40" id="Dxp-g8-kQ4"/>
                             <constraint firstItem="yPB-rh-odB" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Heq-LA-HLS"/>
                             <constraint firstItem="aBW-Pc-T73" firstAttribute="top" secondItem="yPB-rh-odB" secondAttribute="bottom" constant="10" id="O9m-Tx-Mzy"/>
                             <constraint firstItem="TS8-Ad-dep" firstAttribute="top" secondItem="yPB-rh-odB" secondAttribute="bottom" constant="10" id="SWd-aF-ARe"/>
                             <constraint firstAttribute="trailing" secondItem="yPB-rh-odB" secondAttribute="trailing" id="SrN-Rz-hHj"/>
-                            <constraint firstItem="TS8-Ad-dep" firstAttribute="leading" secondItem="p7G-kV-mP7" secondAttribute="trailing" constant="12" id="Thm-Ub-5Vz"/>
+                            <constraint firstAttribute="trailing" secondItem="TS8-Ad-dep" secondAttribute="trailing" constant="102" id="TOY-NS-W5e"/>
+                            <constraint firstItem="TS8-Ad-dep" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="p7G-kV-mP7" secondAttribute="trailing" constant="12" symbolic="YES" id="Thm-Ub-5Vz"/>
                             <constraint firstItem="yPB-rh-odB" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="Vg0-Ut-6OH"/>
-                            <constraint firstAttribute="bottom" secondItem="TS8-Ad-dep" secondAttribute="bottom" constant="9" id="XLR-OE-5GJ"/>
+                            <constraint firstAttribute="bottom" secondItem="TS8-Ad-dep" secondAttribute="bottom" constant="40" id="XLR-OE-5GJ"/>
                             <constraint firstItem="p7G-kV-mP7" firstAttribute="top" secondItem="yPB-rh-odB" secondAttribute="bottom" constant="10" id="Xga-d9-iPi"/>
                             <constraint firstItem="aBW-Pc-T73" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="3" id="ZVF-g7-Ha7"/>
-                            <constraint firstAttribute="bottom" secondItem="yPB-rh-odB" secondAttribute="bottom" constant="40" id="fyJ-rb-nzV"/>
-                            <constraint firstAttribute="bottom" secondItem="aBW-Pc-T73" secondAttribute="bottom" constant="9" id="h1i-1x-Ejj"/>
+                            <constraint firstAttribute="bottom" secondItem="yPB-rh-odB" secondAttribute="bottom" constant="80" id="fyJ-rb-nzV"/>
+                            <constraint firstAttribute="bottom" secondItem="aBW-Pc-T73" secondAttribute="bottom" constant="40" id="h1i-1x-Ejj"/>
                             <constraint firstItem="p7G-kV-mP7" firstAttribute="leading" secondItem="aBW-Pc-T73" secondAttribute="trailing" constant="12" id="lUp-u4-Vas"/>
                         </constraints>
                     </view>
@@ -792,7 +804,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="685"/>
         </scene>
     </scenes>
 </document>

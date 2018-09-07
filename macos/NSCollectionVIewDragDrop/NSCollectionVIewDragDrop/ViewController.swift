@@ -58,6 +58,26 @@ class ViewController: NSViewController {
             self.collectionView.reloadData()
         }
     }
+    
+    @IBAction func scrollDOwn(_ sender: NSButton) {
+        let rect = collectionView.frameForItem(at: 2)
+        
+        // 1 get reference of clip view
+        let clipView = collectionView.enclosingScrollView!.contentView
+        
+        NSAnimationContext.beginGrouping()
+        NSAnimationContext.current.duration = 2
+        
+        //scrollPoint does not support animation
+//        collectionView.scroll(rect.origin)
+        
+        // use boudns of clip view to animate.
+        // start 1
+        // 2
+        clipView.animator().setBoundsOrigin(rect.origin)
+        
+        NSAnimationContext.endGrouping()
+    }
 }
 
 extension ViewController: NSCollectionViewDataSource {
