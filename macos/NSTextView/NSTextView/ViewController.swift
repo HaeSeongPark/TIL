@@ -13,11 +13,8 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        textVIew.string = "\u{E837}"
-        textVIew.font = BulletPoint.font
         textVIew.delegate = textVIew
-        
+        textVIew.textStorage?.delegate = textVIew
     }
 }
 
