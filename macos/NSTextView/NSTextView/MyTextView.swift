@@ -21,6 +21,8 @@ class MyTextView: NSTextView {
         }
     }
     
+    // 앞에서 부터 2칸 지우는 것..
+    //TODO: - "- " 아니면 지우지 말기...
     override func insertBacktab(_ sender: Any?) {
         //        print("insertBackTab")
         if let (_, range) = paragrapAndRange(range: selectedRange()) {
@@ -53,6 +55,38 @@ class MyTextView: NSTextView {
         }
         super.deleteBackward(sender)
     }
+    
+    //MARK: - Mouse events
+    //TODO: - 엔터치면 empty가 range로 잡히는 것 방지
+    override func mouseMoved(with event: NSEvent) {
+//        print(event.locationInWindow)
+        let fullTextRange = NSMakeRange(0, textStorage!.length)
+        layoutManager?.removeTemporaryAttribute(.backgroundColor, forCharacterRange: fullTextRange)
+        
+        var lineGlyphRange = NSMakeRange(0, textStorage!.length)
+        
+        let point = convert(event.locationInWindow, from: nil)
+//        print(point)
+        
+        if let layoutManager = layoutManager, let textContainer = textContainer {
+            let glyphIndex = layoutManager.glyphIndex(for: point, in: textContainer)
+            let glyphRect = layoutManager.boundingRect(forGlyphRange: NSMakeRange(glyphIndex, 1), in: textContainer)
+            
+            if NSPointInRect(point, glyphRect) {
+                let charIndex = layoutManager.characterIndexForGlyph(at: glyphIndex)
+                
+                layoutManager.lineFragmentRect(forGlyphAt: glyphIndex, effectiveRange: &lineGlyphRange)
+                let lineRange = layoutManager.characterRange(forGlyphRange: lineGlyphRange, actualGlyphRange: nil)
+                
+                let wordRange = selectionRange(forProposedRange: NSMakeRange(charIndex, 0), granularity:.selectByWord)
+                
+                layoutManager.addTemporaryAttributes([.backgroundColor:NSColor.yellow], forCharacterRange: lineRange)
+                layoutManager.addTemporaryAttributes([.backgroundColor:NSColor.green], forCharacterRange: wordRange)
+                layoutManager.addTemporaryAttributes([.backgroundColor:NSColor.red], forCharacterRange: NSMakeRange(charIndex, 1))
+            }
+        }
+    }
+    
     
     // MARK: - Helpers
     
