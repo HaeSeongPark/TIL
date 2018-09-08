@@ -13,6 +13,7 @@
 		9728547D21429CFB0018809A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9728547B21429CFB0018809A /* Main.storyboard */; };
 		9728548621429D6F0018809A /* MyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9728548521429D6F0018809A /* MyTextView.swift */; };
 		972854882142B1D20018809A /* BulletPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972854872142B1D20018809A /* BulletPoint.swift */; };
+		972AB04321436DC50062FAEF /* MaterialIcons-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 972AB04221436DC50062FAEF /* MaterialIcons-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		9728547F21429CFB0018809A /* NSTextView.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NSTextView.entitlements; sourceTree = "<group>"; };
 		9728548521429D6F0018809A /* MyTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextView.swift; sourceTree = "<group>"; };
 		972854872142B1D20018809A /* BulletPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletPoint.swift; sourceTree = "<group>"; };
+		972AB04221436DC50062FAEF /* MaterialIcons-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MaterialIcons-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 		9728547421429CFA0018809A /* NSTextView */ = {
 			isa = PBXGroup;
 			children = (
+				972AB04221436DC50062FAEF /* MaterialIcons-Regular.ttf */,
 				9728547521429CFA0018809A /* AppDelegate.swift */,
 				9728547721429CFA0018809A /* ViewController.swift */,
 				9728547921429CFB0018809A /* Assets.xcassets */,
@@ -128,6 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9728547A21429CFB0018809A /* Assets.xcassets in Resources */,
+				972AB04321436DC50062FAEF /* MaterialIcons-Regular.ttf in Resources */,
 				9728547D21429CFB0018809A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

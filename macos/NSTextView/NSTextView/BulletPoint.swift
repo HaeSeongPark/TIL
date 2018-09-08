@@ -7,9 +7,12 @@
 //
 
 import Foundation
+import Cocoa
 
 // just nameSapce?
 enum BulletPoint {
+    
+    static let font = NSFont(name: "MaterialIcons-Regular", size: 13)
     
     // text - paragraph
     static func isCheckList(text: String) -> Bool {
