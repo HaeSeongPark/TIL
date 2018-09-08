@@ -74,6 +74,29 @@ extension MyTextView: NSTextViewDelegate {
         print(commandSelector)
         return false
     }
+    func textView(_ textView: NSTextView, shouldChangeTextIn affectedCharRange: NSRange, replacementString: String?) -> Bool {
+        print(affectedCharRange)
+        print(replacementString)
+        
+        if let (_, range) = paragrapAndRange(range: selectedRange()) {
+            let startRange = NSMakeRange(string.distance(from: string.startIndex, to: range.lowerBound), 0)
+            if affectedCharRange.location != startRange.location {
+                if let str = replacementString, str.contains("-") {
+                    return false // not show
+                }
+            }
+        }
+        return true
+    }
+    
+    func textViewDidChangeSelection(_ notification: Notification) {
+        print("textViewDidChangeSelection")
+    }
+    
+    func textViewDidChangeTypingAttributes(_ notification: Notification) {
+        print("textViewDidChangeTypingAttributes")
+        print(textStorage)
+    }
 }
 
 // convert objc nsrange to swift range
