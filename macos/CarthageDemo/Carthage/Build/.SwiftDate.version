@@ -1,0 +1,27 @@
+{
+  "Mac" : [
+    {
+      "name" : "SwiftDate",
+      "hash" : "54a29b1175b21d857e45add112fad834af9eeae2bb8ddd9b02e71d2d00bd6b22"
+    }
+  ],
+  "watchOS" : [
+    {
+      "name" : "SwiftDate",
+      "hash" : "739c1b2678de9054f19ceb5099fb686b071885c5721358d529bd5ffbdf3b8a08"
+    }
+  ],
+  "tvOS" : [
+    {
+      "name" : "SwiftDate",
+      "hash" : "de142edbfc39a9edcd09877b1f4b7096b447bfda76fa4e72fa92fd4db02b5834"
+    }
+  ],
+  "commitish" : "5.0.7",
+  "iOS" : [
+    {
+      "name" : "SwiftDate",
+      "hash" : "61d4daaac13588f99cd573ea350962fc94fc14e8265ebce35945aef3c80bab97"
+    }
+  ]
+}
