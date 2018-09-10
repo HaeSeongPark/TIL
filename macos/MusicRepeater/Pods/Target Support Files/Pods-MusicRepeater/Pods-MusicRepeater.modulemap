@@ -1,0 +1,6 @@
+framework module Pods_MusicRepeater {
+  umbrella header "Pods-MusicRepeater-umbrella.h"
+
+  export *
+  module * { export * }
+}

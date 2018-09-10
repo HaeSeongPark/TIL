@@ -1,0 +1,16 @@
+PODS:
+  - KDEAudioPlayer (1.1.0)
+
+DEPENDENCIES:
+  - KDEAudioPlayer
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - KDEAudioPlayer
+
+SPEC CHECKSUMS:
+  KDEAudioPlayer: b3787f02b6718c2416589a7726f2633cde2cd60e
+
+PODFILE CHECKSUM: 1ef128a89c44e2b649bb49fcbdd940be8884492a
+
+COCOAPODS: 1.5.0
