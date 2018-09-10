@@ -1,0 +1,433 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5B046F717C9CB12A5C162D3B /* Pods_MusicRepeater.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F00DCEF32E6B0FC97F6F64 /* Pods_MusicRepeater.framework */; };
+		9741908C21463B4D00F0F6E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9741908B21463B4D00F0F6E5 /* AppDelegate.swift */; };
+		9741908E21463B4D00F0F6E5 /* MRHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9741908D21463B4D00F0F6E5 /* MRHomeViewController.swift */; };
+		9741909021463B4D00F0F6E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9741908F21463B4D00F0F6E5 /* Assets.xcassets */; };
+		9741909321463B4D00F0F6E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9741909121463B4D00F0F6E5 /* Main.storyboard */; };
+		9741909C21463C0400F0F6E5 /* MRUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9741909B21463C0400F0F6E5 /* MRUploadView.swift */; };
+		974190A021463C7600F0F6E5 /* MRUploadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9741909F21463C7600F0F6E5 /* MRUploadView.xib */; };
+		974190A42146415D00F0F6E5 /* RepeaterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 974190A32146415D00F0F6E5 /* RepeaterView.xib */; };
+		974190A6214642E500F0F6E5 /* MRRepaeterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974190A5214642E500F0F6E5 /* MRRepaeterView.swift */; };
+		974190A82146465400F0F6E5 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974190A72146465400F0F6E5 /* Int+Extensions.swift */; };
+		974190AA2146472500F0F6E5 /* MRPlayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974190A92146472500F0F6E5 /* MRPlayingView.swift */; };
+		974190AC2146472F00F0F6E5 /* MRPlayingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 974190AB2146472F00F0F6E5 /* MRPlayingView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		19F00DCEF32E6B0FC97F6F64 /* Pods_MusicRepeater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicRepeater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FD08DAEBBA9C0C7EA3EFBFA /* Pods-MusicRepeater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicRepeater.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicRepeater/Pods-MusicRepeater.release.xcconfig"; sourceTree = "<group>"; };
+		933A91FEFCAD4C15469026DC /* Pods-MusicRepeater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicRepeater.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusicRepeater/Pods-MusicRepeater.debug.xcconfig"; sourceTree = "<group>"; };
+		9741908821463B4D00F0F6E5 /* MusicRepeater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicRepeater.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9741908B21463B4D00F0F6E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9741908D21463B4D00F0F6E5 /* MRHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRHomeViewController.swift; sourceTree = "<group>"; };
+		9741908F21463B4D00F0F6E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9741909221463B4D00F0F6E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9741909421463B4D00F0F6E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9741909521463B4D00F0F6E5 /* MusicRepeater.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MusicRepeater.entitlements; sourceTree = "<group>"; };
+		9741909B21463C0400F0F6E5 /* MRUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRUploadView.swift; sourceTree = "<group>"; };
+		9741909F21463C7600F0F6E5 /* MRUploadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRUploadView.xib; sourceTree = "<group>"; };
+		974190A32146415D00F0F6E5 /* RepeaterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepeaterView.xib; sourceTree = "<group>"; };
+		974190A5214642E500F0F6E5 /* MRRepaeterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRRepaeterView.swift; sourceTree = "<group>"; };
+		974190A72146465400F0F6E5 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		974190A92146472500F0F6E5 /* MRPlayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRPlayingView.swift; sourceTree = "<group>"; };
+		974190AB2146472F00F0F6E5 /* MRPlayingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRPlayingView.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9741908521463B4D00F0F6E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B046F717C9CB12A5C162D3B /* Pods_MusicRepeater.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		53A0C36C2BA90D4957A93309 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				933A91FEFCAD4C15469026DC /* Pods-MusicRepeater.debug.xcconfig */,
+				1FD08DAEBBA9C0C7EA3EFBFA /* Pods-MusicRepeater.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9741907F21463B4D00F0F6E5 = {
+			isa = PBXGroup;
+			children = (
+				9741908A21463B4D00F0F6E5 /* MusicRepeater */,
+				9741908921463B4D00F0F6E5 /* Products */,
+				53A0C36C2BA90D4957A93309 /* Pods */,
+				E6543FA432C8302D8887567F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9741908921463B4D00F0F6E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9741908821463B4D00F0F6E5 /* MusicRepeater.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9741908A21463B4D00F0F6E5 /* MusicRepeater */ = {
+			isa = PBXGroup;
+			children = (
+				9741908B21463B4D00F0F6E5 /* AppDelegate.swift */,
+				9741909E21463C4200F0F6E5 /* CustomViews */,
+				9741908D21463B4D00F0F6E5 /* MRHomeViewController.swift */,
+				974190A72146465400F0F6E5 /* Int+Extensions.swift */,
+				9741909D21463C0F00F0F6E5 /* supporting files */,
+				9741909521463B4D00F0F6E5 /* MusicRepeater.entitlements */,
+				9741909421463B4D00F0F6E5 /* Info.plist */,
+			);
+			path = MusicRepeater;
+			sourceTree = "<group>";
+		};
+		9741909D21463C0F00F0F6E5 /* supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				9741908F21463B4D00F0F6E5 /* Assets.xcassets */,
+				9741909121463B4D00F0F6E5 /* Main.storyboard */,
+			);
+			path = "supporting files";
+			sourceTree = "<group>";
+		};
+		9741909E21463C4200F0F6E5 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				9741909B21463C0400F0F6E5 /* MRUploadView.swift */,
+				9741909F21463C7600F0F6E5 /* MRUploadView.xib */,
+				974190A32146415D00F0F6E5 /* RepeaterView.xib */,
+				974190A5214642E500F0F6E5 /* MRRepaeterView.swift */,
+				974190A92146472500F0F6E5 /* MRPlayingView.swift */,
+				974190AB2146472F00F0F6E5 /* MRPlayingView.xib */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		E6543FA432C8302D8887567F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				19F00DCEF32E6B0FC97F6F64 /* Pods_MusicRepeater.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9741908721463B4D00F0F6E5 /* MusicRepeater */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9741909821463B4D00F0F6E5 /* Build configuration list for PBXNativeTarget "MusicRepeater" */;
+			buildPhases = (
+				0451811B1B10024E612AB2AA /* [CP] Check Pods Manifest.lock */,
+				9741908421463B4D00F0F6E5 /* Sources */,
+				9741908521463B4D00F0F6E5 /* Frameworks */,
+				9741908621463B4D00F0F6E5 /* Resources */,
+				19F58B1D4BE10A7419822C39 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MusicRepeater;
+			productName = MusicRepeater;
+			productReference = 9741908821463B4D00F0F6E5 /* MusicRepeater.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9741908021463B4D00F0F6E5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "rhino Q";
+				TargetAttributes = {
+					9741908721463B4D00F0F6E5 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 9741908321463B4D00F0F6E5 /* Build configuration list for PBXProject "MusicRepeater" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9741907F21463B4D00F0F6E5;
+			productRefGroup = 9741908921463B4D00F0F6E5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9741908721463B4D00F0F6E5 /* MusicRepeater */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9741908621463B4D00F0F6E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				974190A42146415D00F0F6E5 /* RepeaterView.xib in Resources */,
+				9741909021463B4D00F0F6E5 /* Assets.xcassets in Resources */,
+				974190AC2146472F00F0F6E5 /* MRPlayingView.xib in Resources */,
+				9741909321463B4D00F0F6E5 /* Main.storyboard in Resources */,
+				974190A021463C7600F0F6E5 /* MRUploadView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0451811B1B10024E612AB2AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MusicRepeater-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		19F58B1D4BE10A7419822C39 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MusicRepeater/Pods-MusicRepeater-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/KDEAudioPlayer/KDEAudioPlayer.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KDEAudioPlayer.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusicRepeater/Pods-MusicRepeater-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9741908421463B4D00F0F6E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9741909C21463C0400F0F6E5 /* MRUploadView.swift in Sources */,
+				974190A6214642E500F0F6E5 /* MRRepaeterView.swift in Sources */,
+				9741908E21463B4D00F0F6E5 /* MRHomeViewController.swift in Sources */,
+				9741908C21463B4D00F0F6E5 /* AppDelegate.swift in Sources */,
+				974190AA2146472500F0F6E5 /* MRPlayingView.swift in Sources */,
+				974190A82146465400F0F6E5 /* Int+Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9741909121463B4D00F0F6E5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9741909221463B4D00F0F6E5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9741909621463B4D00F0F6E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9741909721463B4D00F0F6E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		9741909921463B4D00F0F6E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 933A91FEFCAD4C15469026DC /* Pods-MusicRepeater.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MusicRepeater/MusicRepeater.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MusicRepeater/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhino.MusicRepeater;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		9741909A21463B4D00F0F6E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FD08DAEBBA9C0C7EA3EFBFA /* Pods-MusicRepeater.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MusicRepeater/MusicRepeater.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MusicRepeater/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhino.MusicRepeater;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9741908321463B4D00F0F6E5 /* Build configuration list for PBXProject "MusicRepeater" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9741909621463B4D00F0F6E5 /* Debug */,
+				9741909721463B4D00F0F6E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9741909821463B4D00F0F6E5 /* Build configuration list for PBXNativeTarget "MusicRepeater" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9741909921463B4D00F0F6E5 /* Debug */,
+				9741909A21463B4D00F0F6E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9741908021463B4D00F0F6E5 /* Project object */;
+}

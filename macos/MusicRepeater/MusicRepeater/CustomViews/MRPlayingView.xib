@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="MRPlayingView" customModule="MusicRepeater" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6sW-dn-TdJ">
+                    <rect key="frame" x="190" y="86" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="aOl-ac-8ff"/>
+                        <constraint firstAttribute="width" constant="100" id="zRc-Ke-NoD"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="imageUpload" id="xSd-i0-2sC"/>
+                </imageView>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IUW-KA-4eZ">
+                    <rect key="frame" x="200" y="38" width="81" height="32"/>
+                    <buttonCell key="cell" type="push" title="restart" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9Ce-cZ-Gmw">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onRestart:" target="c22-O7-iKe" id="RXy-Dx-G0t"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="apo-QM-fvp">
+                    <rect key="frame" x="18" y="20" width="444" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="sVc-Tz-aj6">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="apo-QM-fvp" secondAttribute="bottom" constant="20" symbolic="YES" id="CS1-wK-gZF"/>
+                <constraint firstItem="apo-QM-fvp" firstAttribute="top" secondItem="IUW-KA-4eZ" secondAttribute="bottom" constant="8" symbolic="YES" id="ICj-Dr-zfg"/>
+                <constraint firstAttribute="trailing" secondItem="apo-QM-fvp" secondAttribute="trailing" constant="20" symbolic="YES" id="TwT-3h-FUp"/>
+                <constraint firstItem="IUW-KA-4eZ" firstAttribute="top" secondItem="6sW-dn-TdJ" secondAttribute="bottom" constant="20" id="nVp-xf-LKd"/>
+                <constraint firstItem="6sW-dn-TdJ" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="osF-x5-UAf"/>
+                <constraint firstItem="6sW-dn-TdJ" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="pbx-Kf-gAz"/>
+                <constraint firstItem="apo-QM-fvp" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="sjX-uP-Ie4"/>
+                <constraint firstItem="IUW-KA-4eZ" firstAttribute="centerX" secondItem="6sW-dn-TdJ" secondAttribute="centerX" id="vxU-wu-FFD"/>
+            </constraints>
+            <connections>
+                <outlet property="restartButton" destination="IUW-KA-4eZ" id="t5C-hX-zxs"/>
+                <outlet property="staticLabel" destination="apo-QM-fvp" id="gzv-ek-fMM"/>
+            </connections>
+        </customView>
+    </objects>
+    <resources>
+        <image name="imageUpload" width="1600" height="1600"/>
+    </resources>
+</document>
