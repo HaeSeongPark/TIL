@@ -8,19 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		972BC2D92146031E00F3E670 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972BC2D82146031E00F3E670 /* AppDelegate.swift */; };
-		972BC2DB2146031E00F3E670 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972BC2DA2146031E00F3E670 /* ViewController.swift */; };
+		972BC2DB2146031E00F3E670 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972BC2DA2146031E00F3E670 /* HomeViewController.swift */; };
 		972BC2DD2146031F00F3E670 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 972BC2DC2146031F00F3E670 /* Assets.xcassets */; };
 		972BC2E02146031F00F3E670 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 972BC2DE2146031F00F3E670 /* Main.storyboard */; };
+		97419060214606CC00F0F6E5 /* DragView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9741905F214606CC00F0F6E5 /* DragView.swift */; };
+		F0C927A14F2B2E48D6A87680 /* Pods_PushImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92456291F55B0AEFDBA52F19 /* Pods_PushImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		92456291F55B0AEFDBA52F19 /* Pods_PushImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		972BC2D52146031E00F3E670 /* PushImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		972BC2D82146031E00F3E670 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		972BC2DA2146031E00F3E670 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		972BC2DA2146031E00F3E670 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		972BC2DC2146031F00F3E670 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		972BC2DF2146031F00F3E670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		972BC2E12146031F00F3E670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		972BC2E22146031F00F3E670 /* PushImage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PushImage.entitlements; sourceTree = "<group>"; };
+		9741905F214606CC00F0F6E5 /* DragView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragView.swift; sourceTree = "<group>"; };
+		AD2C0F1DB4D5F001E8D86C23 /* Pods-PushImage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushImage.release.xcconfig"; path = "Pods/Target Support Files/Pods-PushImage/Pods-PushImage.release.xcconfig"; sourceTree = "<group>"; };
+		E3350F91F9F2F00719C1F4CF /* Pods-PushImage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushImage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PushImage/Pods-PushImage.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0C927A14F2B2E48D6A87680 /* Pods_PushImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,6 +46,8 @@
 			children = (
 				972BC2D72146031E00F3E670 /* PushImage */,
 				972BC2D62146031E00F3E670 /* Products */,
+				B40FDF34ADBE35688AF7CDE7 /* Pods */,
+				C02A05D3A1FA25E45230BA9A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,13 +63,31 @@
 			isa = PBXGroup;
 			children = (
 				972BC2D82146031E00F3E670 /* AppDelegate.swift */,
-				972BC2DA2146031E00F3E670 /* ViewController.swift */,
+				972BC2DA2146031E00F3E670 /* HomeViewController.swift */,
 				972BC2DC2146031F00F3E670 /* Assets.xcassets */,
+				9741905F214606CC00F0F6E5 /* DragView.swift */,
 				972BC2DE2146031F00F3E670 /* Main.storyboard */,
 				972BC2E12146031F00F3E670 /* Info.plist */,
 				972BC2E22146031F00F3E670 /* PushImage.entitlements */,
 			);
 			path = PushImage;
+			sourceTree = "<group>";
+		};
+		B40FDF34ADBE35688AF7CDE7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E3350F91F9F2F00719C1F4CF /* Pods-PushImage.debug.xcconfig */,
+				AD2C0F1DB4D5F001E8D86C23 /* Pods-PushImage.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C02A05D3A1FA25E45230BA9A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				92456291F55B0AEFDBA52F19 /* Pods_PushImage.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -70,9 +97,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 972BC2E52146031F00F3E670 /* Build configuration list for PBXNativeTarget "PushImage" */;
 			buildPhases = (
+				DDE9EB0079BEF109614D79A2 /* [CP] Check Pods Manifest.lock */,
 				972BC2D12146031E00F3E670 /* Sources */,
 				972BC2D22146031E00F3E670 /* Frameworks */,
 				972BC2D32146031E00F3E670 /* Resources */,
+				EC809981A7C3AA3024A260C2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,13 +157,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DDE9EB0079BEF109614D79A2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PushImage-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC809981A7C3AA3024A260C2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PushImage/Pods-PushImage-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PushImage/Pods-PushImage-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		972BC2D12146031E00F3E670 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				972BC2DB2146031E00F3E670 /* ViewController.swift in Sources */,
+				972BC2DB2146031E00F3E670 /* HomeViewController.swift in Sources */,
 				972BC2D92146031E00F3E670 /* AppDelegate.swift in Sources */,
+				97419060214606CC00F0F6E5 /* DragView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,16 +336,14 @@
 		};
 		972BC2E62146031F00F3E670 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3350F91F9F2F00719C1F4CF /* Pods-PushImage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PushImage/PushImage.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = PushImage/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rhino.PushImage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -285,16 +352,14 @@
 		};
 		972BC2E72146031F00F3E670 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD2C0F1DB4D5F001E8D86C23 /* Pods-PushImage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PushImage/PushImage.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = PushImage/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rhino.PushImage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
