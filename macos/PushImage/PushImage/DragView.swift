@@ -33,6 +33,7 @@ class DragView: NSView {
      2 – draggingEntered function will be called when the file first enter the “drop area”. Here, we will call a function checkExtension which we will discuss later, to set our fileTypeIsOk boolean to true if the file type is of .jpg or false if it is not.
     */
     override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
+        print(sender.draggedFileUrl)
         fileTypeIsOk = checkExtension(drag: sender)
         return []
     }

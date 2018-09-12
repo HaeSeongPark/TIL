@@ -54,6 +54,15 @@ extension ViewController: NSTableViewDataSource {
     }
     
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+//        guard let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "mytableCellView"), owner: self) as? mytableCellView else {
+//            return nil
+//        }
+//
+//        cell.text.stringValue = strings[row]
+//        cell.btn.layer?.backgroundColor = .white
+//
+//        return strings[row]
+////        return cell
         return strings[row]
     }
 }

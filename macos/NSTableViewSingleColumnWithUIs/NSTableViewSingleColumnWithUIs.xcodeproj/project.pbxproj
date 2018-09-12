@@ -7,26 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		977FE09D21490FEB00BF44E3 /* mytableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977FE09C21490FEB00BF44E3 /* mytableCellView.swift */; };
-		97D42711213CE8B400A3B4B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D42710213CE8B400A3B4B3 /* AppDelegate.swift */; };
-		97D42713213CE8B400A3B4B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D42712213CE8B400A3B4B3 /* ViewController.swift */; };
-		97D42715213CE8B500A3B4B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97D42714213CE8B500A3B4B3 /* Assets.xcassets */; };
-		97D42718213CE8B500A3B4B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97D42716213CE8B500A3B4B3 /* Main.storyboard */; };
+		977FE0AD214915C800BF44E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977FE0AC214915C800BF44E3 /* AppDelegate.swift */; };
+		977FE0AF214915C800BF44E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977FE0AE214915C800BF44E3 /* ViewController.swift */; };
+		977FE0B1214915C900BF44E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 977FE0B0214915C900BF44E3 /* Assets.xcassets */; };
+		977FE0B4214915C900BF44E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 977FE0B2214915C900BF44E3 /* Main.storyboard */; };
+		977FE0BD214917FA00BF44E3 /* mytableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977FE0BC214917FA00BF44E3 /* mytableCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		977FE09C21490FEB00BF44E3 /* mytableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mytableCellView.swift; sourceTree = "<group>"; };
-		97D4270D213CE8B400A3B4B3 /* TableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		97D42710213CE8B400A3B4B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		97D42712213CE8B400A3B4B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		97D42714213CE8B500A3B4B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		97D42717213CE8B500A3B4B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		97D42719213CE8B500A3B4B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		97D4271A213CE8B500A3B4B3 /* TableView.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TableView.entitlements; sourceTree = "<group>"; };
+		977FE0A9214915C800BF44E3 /* NSTableViewSingleColumnWithUIs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSTableViewSingleColumnWithUIs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		977FE0AC214915C800BF44E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		977FE0AE214915C800BF44E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		977FE0B0214915C900BF44E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		977FE0B3214915C900BF44E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		977FE0B5214915C900BF44E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		977FE0B6214915C900BF44E3 /* NSTableViewSingleColumnWithUIs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NSTableViewSingleColumnWithUIs.entitlements; sourceTree = "<group>"; };
+		977FE0BC214917FA00BF44E3 /* mytableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mytableCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		97D4270A213CE8B400A3B4B3 /* Frameworks */ = {
+		977FE0A6214915C800BF44E3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -36,72 +36,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		97D42704213CE8B400A3B4B3 = {
+		977FE0A0214915C800BF44E3 = {
 			isa = PBXGroup;
 			children = (
-				97D4270F213CE8B400A3B4B3 /* TableView */,
-				97D4270E213CE8B400A3B4B3 /* Products */,
+				977FE0AB214915C800BF44E3 /* NSTableViewSingleColumnWithUIs */,
+				977FE0AA214915C800BF44E3 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		97D4270E213CE8B400A3B4B3 /* Products */ = {
+		977FE0AA214915C800BF44E3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				97D4270D213CE8B400A3B4B3 /* TableView.app */,
+				977FE0A9214915C800BF44E3 /* NSTableViewSingleColumnWithUIs.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		97D4270F213CE8B400A3B4B3 /* TableView */ = {
+		977FE0AB214915C800BF44E3 /* NSTableViewSingleColumnWithUIs */ = {
 			isa = PBXGroup;
 			children = (
-				97D42710213CE8B400A3B4B3 /* AppDelegate.swift */,
-				97D42712213CE8B400A3B4B3 /* ViewController.swift */,
-				977FE09C21490FEB00BF44E3 /* mytableCellView.swift */,
-				97D42714213CE8B500A3B4B3 /* Assets.xcassets */,
-				97D42716213CE8B500A3B4B3 /* Main.storyboard */,
-				97D42719213CE8B500A3B4B3 /* Info.plist */,
-				97D4271A213CE8B500A3B4B3 /* TableView.entitlements */,
+				977FE0AC214915C800BF44E3 /* AppDelegate.swift */,
+				977FE0AE214915C800BF44E3 /* ViewController.swift */,
+				977FE0B0214915C900BF44E3 /* Assets.xcassets */,
+				977FE0B2214915C900BF44E3 /* Main.storyboard */,
+				977FE0BC214917FA00BF44E3 /* mytableCellView.swift */,
+				977FE0B5214915C900BF44E3 /* Info.plist */,
+				977FE0B6214915C900BF44E3 /* NSTableViewSingleColumnWithUIs.entitlements */,
 			);
-			path = TableView;
+			path = NSTableViewSingleColumnWithUIs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		97D4270C213CE8B400A3B4B3 /* TableView */ = {
+		977FE0A8214915C800BF44E3 /* NSTableViewSingleColumnWithUIs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 97D4271D213CE8B500A3B4B3 /* Build configuration list for PBXNativeTarget "TableView" */;
+			buildConfigurationList = 977FE0B9214915C900BF44E3 /* Build configuration list for PBXNativeTarget "NSTableViewSingleColumnWithUIs" */;
 			buildPhases = (
-				97D42709213CE8B400A3B4B3 /* Sources */,
-				97D4270A213CE8B400A3B4B3 /* Frameworks */,
-				97D4270B213CE8B400A3B4B3 /* Resources */,
+				977FE0A5214915C800BF44E3 /* Sources */,
+				977FE0A6214915C800BF44E3 /* Frameworks */,
+				977FE0A7214915C800BF44E3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = TableView;
-			productName = TableView;
-			productReference = 97D4270D213CE8B400A3B4B3 /* TableView.app */;
+			name = NSTableViewSingleColumnWithUIs;
+			productName = NSTableViewSingleColumnWithUIs;
+			productReference = 977FE0A9214915C800BF44E3 /* NSTableViewSingleColumnWithUIs.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		97D42705213CE8B400A3B4B3 /* Project object */ = {
+		977FE0A1214915C800BF44E3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "rhino Q";
 				TargetAttributes = {
-					97D4270C213CE8B400A3B4B3 = {
+					977FE0A8214915C800BF44E3 = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
 				};
 			};
-			buildConfigurationList = 97D42708213CE8B400A3B4B3 /* Build configuration list for PBXProject "TableView" */;
+			buildConfigurationList = 977FE0A4214915C800BF44E3 /* Build configuration list for PBXProject "NSTableViewSingleColumnWithUIs" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -109,46 +109,46 @@
 				en,
 				Base,
 			);
-			mainGroup = 97D42704213CE8B400A3B4B3;
-			productRefGroup = 97D4270E213CE8B400A3B4B3 /* Products */;
+			mainGroup = 977FE0A0214915C800BF44E3;
+			productRefGroup = 977FE0AA214915C800BF44E3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				97D4270C213CE8B400A3B4B3 /* TableView */,
+				977FE0A8214915C800BF44E3 /* NSTableViewSingleColumnWithUIs */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		97D4270B213CE8B400A3B4B3 /* Resources */ = {
+		977FE0A7214915C800BF44E3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97D42715213CE8B500A3B4B3 /* Assets.xcassets in Resources */,
-				97D42718213CE8B500A3B4B3 /* Main.storyboard in Resources */,
+				977FE0B1214915C900BF44E3 /* Assets.xcassets in Resources */,
+				977FE0B4214915C900BF44E3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		97D42709213CE8B400A3B4B3 /* Sources */ = {
+		977FE0A5214915C800BF44E3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97D42713213CE8B400A3B4B3 /* ViewController.swift in Sources */,
-				97D42711213CE8B400A3B4B3 /* AppDelegate.swift in Sources */,
-				977FE09D21490FEB00BF44E3 /* mytableCellView.swift in Sources */,
+				977FE0AF214915C800BF44E3 /* ViewController.swift in Sources */,
+				977FE0AD214915C800BF44E3 /* AppDelegate.swift in Sources */,
+				977FE0BD214917FA00BF44E3 /* mytableCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		97D42716213CE8B500A3B4B3 /* Main.storyboard */ = {
+		977FE0B2214915C900BF44E3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				97D42717213CE8B500A3B4B3 /* Base */,
+				977FE0B3214915C900BF44E3 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -156,7 +156,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		97D4271B213CE8B500A3B4B3 /* Debug */ = {
+		977FE0B7214915C900BF44E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -216,7 +216,7 @@
 			};
 			name = Debug;
 		};
-		97D4271C213CE8B500A3B4B3 /* Release */ = {
+		977FE0B8214915C900BF44E3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -269,37 +269,37 @@
 			};
 			name = Release;
 		};
-		97D4271E213CE8B500A3B4B3 /* Debug */ = {
+		977FE0BA214915C900BF44E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TableView/TableView.entitlements;
+				CODE_SIGN_ENTITLEMENTS = NSTableViewSingleColumnWithUIs/NSTableViewSingleColumnWithUIs.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = TableView/Info.plist;
+				INFOPLIST_FILE = NSTableViewSingleColumnWithUIs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rhino.TableView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhino.NSTableViewSingleColumnWithUIs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
-		97D4271F213CE8B500A3B4B3 /* Release */ = {
+		977FE0BB214915C900BF44E3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TableView/TableView.entitlements;
+				CODE_SIGN_ENTITLEMENTS = NSTableViewSingleColumnWithUIs/NSTableViewSingleColumnWithUIs.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = TableView/Info.plist;
+				INFOPLIST_FILE = NSTableViewSingleColumnWithUIs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rhino.TableView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhino.NSTableViewSingleColumnWithUIs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -308,25 +308,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		97D42708213CE8B400A3B4B3 /* Build configuration list for PBXProject "TableView" */ = {
+		977FE0A4214915C800BF44E3 /* Build configuration list for PBXProject "NSTableViewSingleColumnWithUIs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				97D4271B213CE8B500A3B4B3 /* Debug */,
-				97D4271C213CE8B500A3B4B3 /* Release */,
+				977FE0B7214915C900BF44E3 /* Debug */,
+				977FE0B8214915C900BF44E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		97D4271D213CE8B500A3B4B3 /* Build configuration list for PBXNativeTarget "TableView" */ = {
+		977FE0B9214915C900BF44E3 /* Build configuration list for PBXNativeTarget "NSTableViewSingleColumnWithUIs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				97D4271E213CE8B500A3B4B3 /* Debug */,
-				97D4271F213CE8B500A3B4B3 /* Release */,
+				977FE0BA214915C900BF44E3 /* Debug */,
+				977FE0BB214915C900BF44E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 97D42705213CE8B400A3B4B3 /* Project object */;
+	rootObject = 977FE0A1214915C800BF44E3 /* Project object */;
 }
