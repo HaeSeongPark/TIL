@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BlurEffect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Apple_Swift_Logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="bbs-zj-gaa">
+                                <rect key="frame" x="59.5" y="28" width="256" height="256"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="B4C-9D-evp"/>
+                                    <constraint firstAttribute="height" constant="256" id="PjG-c3-PEo"/>
+                                </constraints>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="28C-2Q-gVZ">
+                                <rect key="frame" x="8" y="340" width="359" height="29"/>
+                                <segments>
+                                    <segment title="extraLight"/>
+                                    <segment title="light"/>
+                                    <segment title="dark"/>
+                                    <segment title="extraDark"/>
+                                    <segment title="regular"/>
+                                    <segment title="prominent"/>
+                                </segments>
+                                <connections>
+                                    <action selector="blurImage:" destination="BYZ-38-t0r" eventType="valueChanged" id="tHG-Rb-m2u"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bbs-zj-gaa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Edt-sb-HiU"/>
+                            <constraint firstItem="28C-2Q-gVZ" firstAttribute="top" secondItem="bbs-zj-gaa" secondAttribute="bottom" constant="56" id="Ioh-uw-5zA"/>
+                            <constraint firstItem="28C-2Q-gVZ" firstAttribute="centerX" secondItem="bbs-zj-gaa" secondAttribute="centerX" id="W9i-3k-gqZ"/>
+                            <constraint firstItem="28C-2Q-gVZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="gGj-zH-erU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="28C-2Q-gVZ" secondAttribute="trailing" constant="8" id="hdh-TB-JlI"/>
+                            <constraint firstItem="bbs-zj-gaa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="oUe-Ez-KgU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="blurStyleSegment" destination="28C-2Q-gVZ" id="F7q-sA-Sec"/>
+                        <outlet property="imageView" destination="bbs-zj-gaa" id="pO8-GM-KRf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Apple_Swift_Logo.png" width="256" height="256"/>
+    </resources>
+</document>
