@@ -55,6 +55,7 @@ class SongListViewController: NSViewController {
         print(tableView.selectedRowIndexes)
         
         let songsMutableArray = NSMutableArray(array: songs)
+        // for realm
         let toBeDeleteedSongs = songsMutableArray.objects(at: tableView.selectedRowIndexes) as? [Song]
         songsMutableArray.removeObjects(at: tableView.selectedRowIndexes)
         
@@ -63,6 +64,7 @@ class SongListViewController: NSViewController {
             tableView.reloadData()
         }
         
+        // for realm
         if let songs = toBeDeleteedSongs {
             for song in songs {
                 song.delete()

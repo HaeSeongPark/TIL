@@ -20,7 +20,7 @@ class DragView: NSView {
      1 – Firstly, we need to create a boolean flag call fileTypeIsOk, defaulted to false to help us push forward only the right file format of our images. We also create a acceptedFileExtensions which is an array of acceptable file format in string.
     */
     private var fileTypeIsOk = false
-    private var acceptedFileExtensions = ["jpg", "png"]
+    private var acceptedFileExtensions = ["jpg", "png", "srt"]
     
     static let NSPastboardTypeFileUrl = NSPasteboard.PasteboardType.fileURL
     

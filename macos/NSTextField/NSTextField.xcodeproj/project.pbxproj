@@ -39,7 +39,6 @@
 		9728542F214261E20018809A = {
 			isa = PBXGroup;
 			children = (
-				9728544B214267FF0018809A /* MyTextFied.swift */,
 				9728543A214261E20018809A /* NSTextField */,
 				97285439214261E20018809A /* Products */,
 			);
@@ -56,6 +55,7 @@
 		9728543A214261E20018809A /* NSTextField */ = {
 			isa = PBXGroup;
 			children = (
+				9728544B214267FF0018809A /* MyTextFied.swift */,
 				9728543B214261E20018809A /* AppDelegate.swift */,
 				9728543D214261E30018809A /* ViewController.swift */,
 				9728543F214261E30018809A /* Assets.xcassets */,
