@@ -32,6 +32,9 @@ class ViewController: UIViewController {
         let selectedBlurEffect = UIBlurEffect(style: selectedBlurStyle)
         let blurView = UIVisualEffectView(effect: selectedBlurEffect)
         blurView.frame = imageView.bounds
+        blurView.clipsToBounds = true
+        blurView.layer.cornerRadius = 30.0
+        
         imageView.addSubview(blurView)
         
     }
