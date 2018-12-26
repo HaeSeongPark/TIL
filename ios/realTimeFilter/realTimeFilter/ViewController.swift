@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import AssetsLibrary
+import Photos
 
 class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureMetadataOutputObjectsDelegate {
     @IBOutlet weak var filterButtonsContainer: UIView!
@@ -198,7 +199,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     }
     
     func saveMovieToCameraRoll(_ finishBlock: @escaping () -> Void) {
-        ALAssetsLibrary().writeVideoAtPath(toSavedPhotosAlbum: movieURL() as URL!) { (url, error) in
+        ALAssetsLibrary().writeVideoAtPath(toSavedPhotosAlbum: movieURL() as URL) { (url, error) in
             if let errorDescription = error?.localizedDescription {
                 print("Write video error：\(errorDescription)")
             } else {
@@ -235,9 +236,9 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         captureSession.removeInput(currentDeviceInput)
         switch currentDevice!.position {
         case .back:
-            currentDevice = captureDevice(postion: .front, anyDevice: false)
+            currentDevice = captureDevice(position: .front, anyDevice: false)
         case .front:
-            currentDevice = captureDevice(postion: .back, anyDevice: false)
+            currentDevice = captureDevice(position: .back, anyDevice: false)
         case .unspecified:
             assert(false)
         }
@@ -256,21 +257,31 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         faceObject = nil
     }
     
-    func captureDevice(postion: AVCaptureDevice.Position = .front, anyDevice :Bool = true) -> AVCaptureDevice{
-        let captureDevices = AVCaptureDevice.devices(for: .video)
-        var device = captureDevices.first
+    private let videoDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera, .builtInDualCamera, .builtInTrueDepthCamera],
+                                                                               mediaType: .video, position: .unspecified)
+    func captureDevice(position: AVCaptureDevice.Position = .front, anyDevice :Bool = true) -> AVCaptureDevice{
         
-        if anyDevice {
-            return device!
-        }
+        let devices = self.videoDeviceDiscoverySession.devices
         
-        for captureDevice in captureDevices {
-            if captureDevice.position == postion{
-                device = captureDevice
-                break
-            }
-        }
-        return device!;
+        guard !devices.isEmpty else { fatalError("Missing capture devices.")}
+        
+        return devices.first(where: { device in device.position == position })!
+        
+        
+//        let captureDevices = AVCaptureDevice.devices(for: .video)
+//        var device = captureDevices.first
+//
+//        if anyDevice {
+//            return device!
+//        }
+//
+//        for captureDevice in captureDevices {
+//            if captureDevice.position == postion{
+//                device = captureDevice
+//                break
+//            }
+//        }
+//        return device!
     }
     
     @IBAction func takePicture(_ sender: UIButton) {
@@ -289,6 +300,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             self.captureSession.startRunning()
             sender.isEnabled = true
         }
+        
     }
     
     func  makeFaceWithCIImage(inputImage: CIImage, faceObjects: [AVMetadataFaceObject]) -> CIImage {
