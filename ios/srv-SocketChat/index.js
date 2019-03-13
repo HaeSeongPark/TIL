@@ -142,15 +142,15 @@ io.on('connection', function(clientSocket){
       }
 
       userList = Object.values(roomList[roomTitle].socket_ids);
-      clientSocket.to(roomTitle).emit("userList",userList);
-      clientSocket.to(roomTitle).emit("userConnectUpdate",userInfo);
+      // clientSocket.to(roomTitle).emit("userList",userList);
+      // clientSocket.to(roomTitle).emit("userConnectUpdate",userInfo);
 
       // 방에 유저가 들어오면 모든 클라이언트 룸과 유저 업데이트 
       setUserRooms();
       io.emit("roomList", rooms,users)
 
-      // io.emit("userList", userList);
-      // io.emit("userConnectUpdate", userInfo)
+      io.emit("userList", userList);
+      io.emit("userConnectUpdate", userInfo)
   });
 
   clientSocket.on("connectRoom", function(clientRoomname){
