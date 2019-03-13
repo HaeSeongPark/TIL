@@ -11,7 +11,7 @@ import SocketIO
 
 class SocketIOManager: NSObject {
     static let sharedInstance = SocketIOManager()
-    var socket: SocketIOClient = SocketIOClient(socketURL: URL(string: "http://192.168.40.39:3000")!)
+    var socket: SocketIOClient = SocketIOClient(socketURL: URL(string: "http://192.168.0.3:3000")!)
     
     override init() {
         super.init()
@@ -31,7 +31,6 @@ class SocketIOManager: NSObject {
         socket.on("userList") {(dataArray, ack) -> Void in
             completionHandler(dataArray[0] as? [[String: AnyObject]])
         }
-        
         listenForOtherMessages()
     }
     

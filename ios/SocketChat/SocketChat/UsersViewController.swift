@@ -9,7 +9,7 @@
 import UIKit
 
 class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var tblUserList: UITableView!
     
     
@@ -81,11 +81,11 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    
+    var message = "Enter your nickname 변수로 했어요^^"
     
     // MARK: Custom Methods
     func askForNickname(){
-        let alertController = UIAlertController(title: "SocketChat", message: "Enter your nickname", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "SocketChat", message: message, preferredStyle: .alert)
         
         alertController.addTextField(configurationHandler: nil)
         

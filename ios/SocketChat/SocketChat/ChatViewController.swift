@@ -20,6 +20,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var lblNewsBanner: UILabel!
     
+    
+    
     var nickname: String!
     
     var chatMessages = [[String: AnyObject]]()
@@ -32,8 +34,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         // Do any additional setup after loading the view.
         
-        NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.handleKeyboardDidShowNotification(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.handleKeyboardDidHideNotification(_:)), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.handleKeyboardWillShowNotification(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.handleKeyboardWillHideNotification(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         
         let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(ChatViewController.dismissKeyboard))
@@ -48,7 +50,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleUserTypingNotification), name: Notification.Name("userTypingNotification"), object: nil)
     }
     
-    @objc func handleUserTypingNotification(notification: NSNotification) {
+    func handleUserTypingNotification(notification: NSNotification) {
         if let typingUsersDictionary = notification.object as? [String: AnyObject] {
             var names = ""
             var totalTypingUsers = 0
@@ -72,13 +74,13 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    @objc func handleDisconnectedUserUpdateNotification(notification: NSNotification) {
+    func handleDisconnectedUserUpdateNotification(notification: NSNotification) {
         let disconnectedUserNickname = notification.object as! String
         lblNewsBanner.text = "User \(disconnectedUserNickname.uppercased()) has left."
         showBannerLabelAnimated()
     }
     
-    @objc func handleConnectedUserUpdateNotification(notification: Notification) {
+    func handleConnectedUserUpdateNotification(notification: Notification) {
         let connectedUserInfo = notification.object as! [String: AnyObject]
         let connectedUserNickname = connectedUserInfo["nickname"] as? String
         lblNewsBanner.text = "User \(connectedUserNickname!.uppercased()) was just connected."
@@ -135,7 +137,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: IBAction Methods
     
     @IBAction func sendMessage(_ sender: AnyObject) {
-        if tvMessageEditor.text.characters.count > 0 {
+        if tvMessageEditor.text.count > 0 {
             SocketIOManager.sharedInstance.sendMessage(message: tvMessageEditor.text, withNickName: nickname)
             tvMessageEditor.text = ""
             tvMessageEditor.resignFirstResponder()
@@ -168,9 +170,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    @objc func handleKeyboardDidShowNotification(_ notification: Notification) {
+    func handleKeyboardWillShowNotification(_ notification: Notification) {
         if let userInfo = notification.userInfo {
-            if let keyboardFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 conBottomEditor.constant = keyboardFrame.size.height
                 view.layoutIfNeeded()
             }
@@ -178,7 +180,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    @objc func handleKeyboardDidHideNotification(_ notification: Notification) {
+    func handleKeyboardWillHideNotification(_ notification: Notification) {
         conBottomEditor.constant = 0
         view.layoutIfNeeded()
     }
@@ -206,7 +208,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    @objc func hideBannerLabel() {
+    func hideBannerLabel() {
         if bannerLabelTimer != nil {
             bannerLabelTimer.invalidate()
             bannerLabelTimer = nil
@@ -221,7 +223,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     
     
-    @objc func dismissKeyboard() {
+    func dismissKeyboard() {
         if tvMessageEditor.isFirstResponder {
             tvMessageEditor.resignFirstResponder()
             SocketIOManager.sharedInstance.sendStopTypingMessage(nickname: nickname)

@@ -5,7 +5,8 @@
   "dependencies": {
     "express": "^4.15.4",
     "mongodb": "^2.2.31",
-    "mongoose": "^4.11.7",
+    "mongoose": "^5.4.19",
+    "package.json": "^2.0.1",
     "socket.io": "^2.0.3"
   }
 }
