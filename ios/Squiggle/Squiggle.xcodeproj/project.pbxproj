@@ -1,0 +1,361 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		977E893F22615A7900CD1B43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977E893E22615A7900CD1B43 /* AppDelegate.swift */; };
+		977E894122615A7900CD1B43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977E894022615A7900CD1B43 /* ViewController.swift */; };
+		977E894422615A7900CD1B43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 977E894222615A7900CD1B43 /* Main.storyboard */; };
+		977E894622615A7A00CD1B43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 977E894522615A7A00CD1B43 /* Assets.xcassets */; };
+		977E894922615A7A00CD1B43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 977E894722615A7A00CD1B43 /* LaunchScreen.storyboard */; };
+		977E895622615AAA00CD1B43 /* SquiggleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 977E895522615AAA00CD1B43 /* SquiggleView.m */; };
+		977E89582262049A00CD1B43 /* SquiggleShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977E89572262049A00CD1B43 /* SquiggleShapeView.swift */; };
+		977E895A2262159A00CD1B43 /* SquiggleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977E89592262159A00CD1B43 /* SquiggleCard.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		977E893B22615A7900CD1B43 /* Squiggle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squiggle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		977E893E22615A7900CD1B43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		977E894022615A7900CD1B43 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		977E894322615A7900CD1B43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		977E894522615A7A00CD1B43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		977E894822615A7A00CD1B43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		977E894A22615A7A00CD1B43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		977E895022615A8A00CD1B43 /* Squiggle-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Squiggle-Bridging-Header.h"; sourceTree = "<group>"; };
+		977E895422615AAA00CD1B43 /* SquiggleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SquiggleView.h; sourceTree = "<group>"; };
+		977E895522615AAA00CD1B43 /* SquiggleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquiggleView.m; sourceTree = "<group>"; };
+		977E89572262049A00CD1B43 /* SquiggleShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquiggleShapeView.swift; sourceTree = "<group>"; };
+		977E89592262159A00CD1B43 /* SquiggleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquiggleCard.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		977E893822615A7900CD1B43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		977E893222615A7900CD1B43 = {
+			isa = PBXGroup;
+			children = (
+				977E893D22615A7900CD1B43 /* Squiggle */,
+				977E893C22615A7900CD1B43 /* Products */,
+				977E895022615A8A00CD1B43 /* Squiggle-Bridging-Header.h */,
+			);
+			sourceTree = "<group>";
+		};
+		977E893C22615A7900CD1B43 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				977E893B22615A7900CD1B43 /* Squiggle.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		977E893D22615A7900CD1B43 /* Squiggle */ = {
+			isa = PBXGroup;
+			children = (
+				977E895422615AAA00CD1B43 /* SquiggleView.h */,
+				977E895522615AAA00CD1B43 /* SquiggleView.m */,
+				977E89572262049A00CD1B43 /* SquiggleShapeView.swift */,
+				977E89592262159A00CD1B43 /* SquiggleCard.swift */,
+				977E893E22615A7900CD1B43 /* AppDelegate.swift */,
+				977E894022615A7900CD1B43 /* ViewController.swift */,
+				977E894222615A7900CD1B43 /* Main.storyboard */,
+				977E894522615A7A00CD1B43 /* Assets.xcassets */,
+				977E894722615A7A00CD1B43 /* LaunchScreen.storyboard */,
+				977E894A22615A7A00CD1B43 /* Info.plist */,
+			);
+			path = Squiggle;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		977E893A22615A7900CD1B43 /* Squiggle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 977E894D22615A7A00CD1B43 /* Build configuration list for PBXNativeTarget "Squiggle" */;
+			buildPhases = (
+				977E893722615A7900CD1B43 /* Sources */,
+				977E893822615A7900CD1B43 /* Frameworks */,
+				977E893922615A7900CD1B43 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Squiggle;
+			productName = Squiggle;
+			productReference = 977E893B22615A7900CD1B43 /* Squiggle.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		977E893322615A7900CD1B43 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "rhino Q";
+				TargetAttributes = {
+					977E893A22615A7900CD1B43 = {
+						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1020;
+					};
+				};
+			};
+			buildConfigurationList = 977E893622615A7900CD1B43 /* Build configuration list for PBXProject "Squiggle" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 977E893222615A7900CD1B43;
+			productRefGroup = 977E893C22615A7900CD1B43 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				977E893A22615A7900CD1B43 /* Squiggle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		977E893922615A7900CD1B43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				977E894922615A7A00CD1B43 /* LaunchScreen.storyboard in Resources */,
+				977E894622615A7A00CD1B43 /* Assets.xcassets in Resources */,
+				977E894422615A7900CD1B43 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		977E893722615A7900CD1B43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				977E894122615A7900CD1B43 /* ViewController.swift in Sources */,
+				977E895A2262159A00CD1B43 /* SquiggleCard.swift in Sources */,
+				977E895622615AAA00CD1B43 /* SquiggleView.m in Sources */,
+				977E893F22615A7900CD1B43 /* AppDelegate.swift in Sources */,
+				977E89582262049A00CD1B43 /* SquiggleShapeView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		977E894222615A7900CD1B43 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				977E894322615A7900CD1B43 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		977E894722615A7A00CD1B43 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				977E894822615A7A00CD1B43 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		977E894B22615A7A00CD1B43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		977E894C22615A7A00CD1B43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		977E894E22615A7A00CD1B43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Squiggle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhino.Squiggle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Squiggle-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		977E894F22615A7A00CD1B43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Squiggle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhino.Squiggle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Squiggle-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		977E893622615A7900CD1B43 /* Build configuration list for PBXProject "Squiggle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				977E894B22615A7A00CD1B43 /* Debug */,
+				977E894C22615A7A00CD1B43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		977E894D22615A7A00CD1B43 /* Build configuration list for PBXNativeTarget "Squiggle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				977E894E22615A7A00CD1B43 /* Debug */,
+				977E894F22615A7A00CD1B43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 977E893322615A7900CD1B43 /* Project object */;
+}
