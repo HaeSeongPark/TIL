@@ -91,7 +91,7 @@ class UsersViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let OKAction = UIAlertAction(title: "OK", style: .default){(action) -> Void in
             let textfield = alertController.textFields![0]
-            if textfield.text?.characters.count == 0 {
+            if textfield.text?.count == 0 {
                 self.askForNickname()
             }
             else {
