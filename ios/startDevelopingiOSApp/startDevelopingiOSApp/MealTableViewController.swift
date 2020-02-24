@@ -61,9 +61,11 @@ class MealTableViewController: UITableViewController {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.ArchiveURL.path)
     
         if isSuccessfulSave {
-            os_log("Meals successfully saved.", log:OSLog.default, type: .debug)
+            print("Meals successfully saved.")
+//            os_log("Meals successfully saved.", log:OSLog.default, type: .debug)
         } else {
-            os_log("Failed to save meals...", log:OSLog.default, type: .error)
+            print("Failed to save meals...")
+//            os_log("Failed to save meals...", log:OSLog.default, type: .error)
         }
     }
     
@@ -108,16 +110,16 @@ class MealTableViewController: UITableViewController {
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "MealTableViewCell"
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? testTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MealTableViewCell else {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
 
         // Fetches the appropriate meal for the data source layout.
         
         let meal = meals[indexPath.row]
-//        cell.nameLabel.text = meal.name
-//        cell.photoImageView.image = meal.photo
-//        cell.ratingControl.rating = meal.rating
+        cell.nameLabel.text = meal.name
+        cell.photoImageView.image = meal.photo
+        cell.ratingControl.rating = meal.rating
 
         return cell
     }
@@ -183,7 +185,8 @@ class MealTableViewController: UITableViewController {
         super.prepare(for: segue, sender: sender)
         switch (segue.identifier ?? "") {
         case "AddItem":
-            os_log("Adding a new meal.", log: OSLog.default, type: .debug)
+//            os_log("Adding a new meal.", log: OSLog.default, type: .debug)
+            print("Adding a new meal.")
         case "ShowDetail":
             guard let mealDetailVIewController = segue.destination as? MealViewController else {
                 fatalError("Undexpected destination: \(segue.destination)")
