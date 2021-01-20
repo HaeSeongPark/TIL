@@ -7,6 +7,6 @@
     "mongodb": "^2.2.31",
     "mongoose": "^5.4.19",
     "package.json": "^2.0.1",
-    "socket.io": "^2.0.3"
+    "socket.io": "^2.4.0"
   }
 }
