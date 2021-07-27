@@ -3,4 +3,5 @@ project.xcworkspace/
 xcuserdata/
 Pods/
 ios/.DS_Store
-.DS/Store
+iOS/srv-SocketChat
+.DS_Store
