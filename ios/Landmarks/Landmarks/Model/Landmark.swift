@@ -23,6 +23,10 @@ struct Landmark:Hashable, Codable, Identifiable {
         Image(imageName)
     }
     
+    var featureImage:Image? {
+        isFeatured ? Image(imageName + "_feature") : nil
+    }
+    
     var category:Category
     enum Category:String,CaseIterable, Codable {
         case lakes = "Lakes"
