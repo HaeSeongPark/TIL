@@ -87,7 +87,7 @@ example(of: "flatMap") {
         .store(in: &subscriptions)
     
     // https://felix-mr.tistory.com/9
-    // du러 개의 upstream publisher들을 하느의 downstream publishser로 병합
+    // 여러 개의 upstream publisher들을 하나의 downstream publishser로 병합
     struct Person {
         let name: CurrentValueSubject<String, Never>
     }
