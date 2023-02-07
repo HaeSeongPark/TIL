@@ -142,21 +142,22 @@ example(of: "scan") {
         .scan(0, +)
         .sink(receiveValue: {print($0)})
         .store(in: &subscriptions)
-  // 1
-  var dailyGainLoss: Int { .random(in: -10...10) }
-
-  // 2
-  let august2019 = (0..<22)
-    .map { _ in dailyGainLoss }
-    .publisher
-
-  // 3
-  august2019
-    .scan(50) { latest, current in
-      max(0, latest + current)
-    }
-    .sink(receiveValue: {  print($0)})
-    .store(in: &subscriptions)
+    // 1
+    var dailyGainLoss: Int { .random(in: -10...10) }
+    
+    // 2
+    let august2019 = (0..<22)
+        .map { _ in dailyGainLoss }
+        .publisher
+    
+    // 3
+    august2019
+        .scan(50) { latest, current in
+            print("latest \(latest) current \(current)")
+            return max(0, latest + current)
+        }
+        .sink(receiveValue: {  print($0)})
+        .store(in: &subscriptions)
     
 }
 /// Copyright (c) 2021 Razeware LLC

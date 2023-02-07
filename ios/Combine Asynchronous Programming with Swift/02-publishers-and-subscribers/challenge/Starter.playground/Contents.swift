@@ -32,7 +32,7 @@ example(of: "Create a Blackjack card dealer") {
   // Add subscription to dealtHand here
     dealtHand.sink { completion in
         if case let .failure(error) = completion {
-            print(error)
+            print("error \(error)")
         } else {
             print("completion")
         }

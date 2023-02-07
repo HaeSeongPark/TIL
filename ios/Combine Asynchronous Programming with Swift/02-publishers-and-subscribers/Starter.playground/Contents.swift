@@ -20,7 +20,7 @@ example(of: "Publisher") {
         forName: myNotification,
         object: nil,
         queue: nil) { notification in
-            print("Notification received!")
+            print("Notification received! \(notification)")
         }
     
     // 5
@@ -160,7 +160,7 @@ example(of: "Custom Subscriber") {
 //    // rxswift hot observable같은 건가
 //    func futureIncrement(integer:Int, afterDelay delay:TimeInterval) -> Future<Int,Never> {
 //        Future<Int,Never> { promise in
-//            print("Original")
+//            print("Original") // 구독이 없어도 만들어지지마자 한 번만 호출됨
 //
 //            DispatchQueue.global().asyncAfter(deadline: .now() + delay) {
 //                promise(.success(integer+1))
@@ -317,7 +317,9 @@ example(of: "Type erasure") {
     subject.send(0)
     
     struct Test {
+        // 내부에서만 send하고
         private let subject = PassthroughSubject<Int,Never>()
+        // 외부에서는 구독만 받겍끔
         public var subejct:AnyPublisher<Int,Never> { subject.eraseToAnyPublisher() }
     }
     

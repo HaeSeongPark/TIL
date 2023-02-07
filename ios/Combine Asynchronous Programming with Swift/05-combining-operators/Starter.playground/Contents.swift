@@ -47,7 +47,7 @@ example(of: "prepend(Publisher) #2") {
     // 3
     publisher2.send(1)
     publisher2.send(2)
-    publisher2.send(completion: .finished) // 반드시 종료되야 한다.
+    publisher2.send(completion: .finished) // 반드시 종료되야 publisher1 이벤트가 방출된다.
     
 }
 
@@ -140,7 +140,7 @@ example(of: "switchToLatest") {
 // switchToLatest
 /*
  네트워크 요청을 하는 버튼이 있다고 했을때,
- 사용자가 버튼응ㄹ 누르면 네트워크 요청을하고
+ 사용자가 버튼을 누르면 네트워크 요청을하고
  또 누르면 또 요청을 합니다
  두 번쨰 요청을 했을 때 진행중인 요청을 제거하고 최신것만 요청하게 하고 싶을 때 유용
  */
@@ -191,6 +191,7 @@ example(of: "switchToLatest") {
 //     */
 //}
 
+// 타입 같아야 함.
 example(of: "merge(with:)") {
     let p1 = PassthroughSubject<Int,Never>()
     let p2 = PassthroughSubject<Int,Never>()
@@ -213,6 +214,7 @@ example(of: "merge(with:)") {
     }
 }
 
+// 다른 타임 가능
 example(of: "combineLatest") {
     let p1 = PassthroughSubject<Int,Never>()
     let p2 = PassthroughSubject<String,Never>()
@@ -236,7 +238,7 @@ example(of: "combineLatest") {
     p2.send(completion: .finished)
 }
 
-
+// 다른 타입 가능
 example(of: "zip") {
     // 1
     let publisher1 = PassthroughSubject<Int, Never>()

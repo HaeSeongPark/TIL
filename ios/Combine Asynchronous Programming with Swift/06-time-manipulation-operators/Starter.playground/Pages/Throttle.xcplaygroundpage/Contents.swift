@@ -56,7 +56,7 @@ subject.feed(with: typingHelloWorld)
 
 /*
  debouncesms 값을 받고 설정한 interval동안 정지 후에 마지막 값 방출
- throttle 설정한 interval동안 기다리고 처음 갓이나 마지막 값 내보낸다.
+ throttle 설정한 interval동안 기다리고 처음 값이나 마지막 값 내보낸다.
  */
 
 /*

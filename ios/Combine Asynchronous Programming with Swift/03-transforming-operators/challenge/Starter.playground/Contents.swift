@@ -78,7 +78,7 @@ example(of: "Create a phone number lookup") {
     }
     
     "A1BJKLDGEH".forEach {
-        input.send("\($0)")
+        input.send("\($0)") 
     }
 }
 

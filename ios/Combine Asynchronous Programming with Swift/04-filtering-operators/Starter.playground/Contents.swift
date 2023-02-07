@@ -25,6 +25,20 @@ example(of: "removeDuplicates") {
         .store(in: &subscriptions)
 }
 
+example(of: "infinite test removeDuplicates") {
+    // 무한해도 되네. rxswift의 distinctUntilChanged
+    let subject = PassthroughSubject<Int,Never>()
+    
+    subject
+        .removeDuplicates()
+        .sink(receiveValue: { print( $0 )})
+        .store(in: &subscriptions)
+    
+    subject.send(1)
+    subject.send(1)
+    subject.send(2)
+}
+
 example(of: "compactMap") {
     // 1
     let strings = ["a", "1.24", "3",
