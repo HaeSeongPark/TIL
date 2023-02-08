@@ -8,7 +8,7 @@ import Combine
 //        print("Outstanding operations in queeu:\($0)")
 //    }
 // queue에 오퍼레이션 추가하면 증가된 operationCount가 방출
-// queue가 오퍼레이션 호비하면 감소된 operationCount가 방출
+// queue가 오퍼레이션 소비하면 감소된 operationCount가 방출
 
 struct PureSwift {
     let a:(Int,Bool)
@@ -48,10 +48,10 @@ let obj = TestObject()
  integerProperty chagnes to 200
  */
 
-let subscription = obj.publisher(for: \.integerProperty, options: [.prior])
-    .sink {
-        print("integerProperty chagnes to \($0)")
-    }
+//let subscription = obj.publisher(for: \.integerProperty, options: [.prior])
+//    .sink {
+//        print("integerProperty chagnes to \($0)")
+//    }
 /*
  integerProperty chagnes to 0
  integerProperty chagnes to 100
@@ -79,7 +79,8 @@ obj.stringProperty = "World"
 obj.arrayProperty = [1.0, 2.0]
 
 
-
+// ObservableObject 프로토콜을 따르면 컴파일러가 objectWillChange를 자동으로 만들어준다.
+// SwiftUI와 잘 맞물려 돌아가기위해서 만들어짐
 class MonitorObject:ObservableObject {
     @Published var someProperty = true
     @Published var someOtherProperty = ""

@@ -34,18 +34,23 @@ class CollageNeueModel: ObservableObject {
   static let collageSize = CGSize(width: UIScreen.main.bounds.width, height: 200)
   
   private var subscriptions = Set<AnyCancellable>()
-  private let imaes = CurrentValueSubject<[UIImage], Never>([])
+  private let images = CurrentValueSubject<[UIImage], Never>([])
+  /*
+   CurrentValueSubject는 상태를 나타내는데 쓴다. 포도배열이나, 로딩 상태나
+   PassthroughSubject는 이벤트를 나타내는데 쓴다. 버튼탭등 어떤 이벤트가 일어난 것을 알리는 등
+   */
+  
   @Published var imagePreview:UIImage?
   let updateUISubject = PassthroughSubject<Int,Never>()
   
-  private(set) var seletedPhotosSubject = PassthroughSubject<UIImage, Never>()
+  private(set) var selectedPhotosSubject = PassthroughSubject<UIImage, Never>()
   // MARK: - Collage
   
   private(set) var lastSavedPhotoID = ""
   private(set) var lastErrorMessage = ""
 
   func bindMainView() {
-    imaes
+    images
       .handleEvents(receiveOutput: { [weak self ] photos in
         self?.updateUISubject.send(photos.count)
       })
@@ -56,24 +61,27 @@ class CollageNeueModel: ObservableObject {
   }
 
   func add() {
-    seletedPhotosSubject = PassthroughSubject<UIImage, Never>()
+    selectedPhotosSubject = PassthroughSubject<UIImage, Never>()
     
-    let newPhotos = seletedPhotosSubject
+    let newPhotos = selectedPhotosSubject
+      .handleEvents(receiveCancel: {
+        print("selectedPhotosSubject cancel")
+      })
       .prefix(while:  { [unowned self ] _ in
-        self.imaes.value.count < 6
+        self.images.value.count < 6  // 5이하일 떄만 받아서 최종적으로 6개가 되고 그 이후부터는 스트림 종료
       })
       .share() // newPhotos를 가지고 다른 여러가지 일을 할 수 있기 때문에 share()사용 // 구독 이후에 이벤트만 받는다.
     
     newPhotos
-      .handleEvents(receiveCompletion: { print($0)})
+      .handleEvents(receiveCompletion: { print( "newPhotos \($0)")})
       .map { [ unowned self] newImage in
-        return self.imaes.value + [newImage]
-      }.assign(to: \.value,on: imaes)
+        return self.images.value + [newImage]
+      }.assign(to: \.value,on: images)
       .store(in: &subscriptions)
   }
 
   func clear() {
-    imaes.send([])
+    images.send([])
   }
 
   func save() {
@@ -133,7 +141,7 @@ class CollageNeueModel: ObservableObject {
       }
       
       // Send the selected image
-      self.seletedPhotosSubject.send(image)
+      self.selectedPhotosSubject.send(image)
     }
   }
 }

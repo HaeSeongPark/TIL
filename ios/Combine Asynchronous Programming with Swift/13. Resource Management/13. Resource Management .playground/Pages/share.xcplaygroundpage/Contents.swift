@@ -1,19 +1,20 @@
 import Foundation
 import Combine
 
+// Publishers.Share class타입 참조하기 위해서
 
-let shared = URLSession.shared
-    .dataTaskPublisher(for: URL(string: "https://www.raywenderlich.com")!)
-    .map(\.data)
-    .print("shared")
-    .share()
-
-print("subscribing first")
-
-let sub1 = shared.sink(receiveCompletion: { _ in },
-                       receiveValue: { print("subscription1 received: '\($0)'")})
-
-print("subscribing second")
+//let shared = URLSession.shared
+//    .dataTaskPublisher(for: URL(string: "https://www.raywenderlich.com")!)
+//    .map(\.data)
+//    .print("shared")
+//    .share()
+//
+//print("subscribing first")
+//
+//let sub1 = shared.sink(receiveCompletion: { _ in },
+//                       receiveValue: { print("subscription1 received: '\($0)'")})
+//
+//print("subscribing second")
 
 //let sub2 = shared.sink(receiveCompletion: { _ in },
 //                       receiveValue: { print("subscription2 received: '\($0)'")})
@@ -33,10 +34,10 @@ print("subscribing second")
 // share 없는 버전
 /*
  subscribing first
- shared: receive subscription: (DataTaskPublisher)
+ shared: receive subscription: (DataTaskPublisher) // 요청 1
  shared: request unlimited
  subscribing second
- shared: receive subscription: (DataTaskPublisher)
+ shared: receive subscription: (DataTaskPublisher) // 요청 2
  shared: request unlimited
  shared: receive value: (267036 bytes)
  subscription1 received: '267036 bytes'
@@ -47,14 +48,14 @@ print("subscribing second")
 
  */
 // sub2가 리퀘스트가 끝나고(pulisher가 completed되고나서) 구독하면?
-var sub2:AnyCancellable? = nil
-DispatchQueue.main.asyncAfter(deadline: .now()+5) {
-    print("subscribing second")
-    sub2 =
-    shared.sink(receiveCompletion: { print("sub2 completion \($0)") },
-                           receiveValue: { print("subscription2 received: '\($0)'")})
-
-}
+//var sub2:AnyCancellable? = nil
+//DispatchQueue.main.asyncAfter(deadline: .now()+5) {
+//    print("subscribing second")
+//    sub2 =
+//    shared.sink(receiveCompletion: { print("sub2 completion \($0)") },
+//                           receiveValue: { print("subscription2 received: '\($0)'")})
+//
+//}
 /*
  completion finished 만 받는다.
  

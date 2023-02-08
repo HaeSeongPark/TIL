@@ -43,9 +43,16 @@ import Combine
 //
 
 let subs = (10...20).publisher
+//    .breakpointOnError() // 업스트림에서 에러가 나면 엑스코드가 해당라인에 break를 건다.
+// breakpoint(receiveSubscription:receiveOutput:receiveCompletion:).
+// 구독이나 완료에서도 사용할 수 있지만 취소는 안 됨
     .breakpoint(receiveOutput: { value in
         return value > 10 && value < 15 // error: Execution was interrupted, reason: signal SIGTRAP.
     })
     .sink { value in
         print("value \(value)")
     }
+/* 11이면 break가 걸리는데 sink에서 print도 찍히네
+ value 10
+ value 11
+ */

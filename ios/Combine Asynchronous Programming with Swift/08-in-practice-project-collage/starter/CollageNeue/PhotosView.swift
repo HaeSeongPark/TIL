@@ -93,7 +93,7 @@ struct PhotosView: View {
       model.bindPhotoPicker()
     }
     .onDisappear {
-      model.seletedPhotosSubject.send(completion: .finished)
+      model.selectedPhotosSubject.send(completion: .finished)
     }
   }
 }

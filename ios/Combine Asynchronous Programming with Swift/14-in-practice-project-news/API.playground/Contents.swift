@@ -95,20 +95,20 @@ struct API {
 let api = API()
 var subscriptions = [AnyCancellable]()
 
-//api.story(id: -5)
-//    .sink(receiveCompletion: { print($0)},
-//          receiveValue: { print($0)})
-//    .store(in: &subscriptions)
+api.story(id: 1000,1001,1002)
+    .sink(receiveCompletion: { print("completino \($0)")},
+          receiveValue: { print($0)})
+    .store(in: &subscriptions)
 
 //api.mergedStories(ids:[1000,1001,1002])
 //    .sink(receiveCompletion: { print($0)},
 //          receiveValue: { print($0)})
 //    .store(in: &subscriptions)
 
-api.stories()
-    .sink(receiveCompletion: { print($0)},
-          receiveValue: { print($0)})
-    .store(in: &subscriptions)
+//api.stories()
+//    .sink(receiveCompletion: { print($0)},
+//          receiveValue: { print($0)})
+//    .store(in: &subscriptions)
 
 // Run indefinitely.
 PlaygroundPage.current.needsIndefiniteExecution = true
