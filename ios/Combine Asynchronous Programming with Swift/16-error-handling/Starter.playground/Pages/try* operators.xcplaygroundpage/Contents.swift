@@ -29,7 +29,7 @@ example(of: "tryMap") {
 
 /*
  map은 기존 실패 유형을 전달하고 퍼블리셔의 값만 조작
- tryMap dms 기존 실패 유형을 일단 Swift Erorr로 변환
+ tryMap은 기존 실패 유형을 일단 Swift Erorr로 변환 ( 모든 try-prefixed 오퍼레이터가 같다 )
  */
 //: [Next](@next)
 

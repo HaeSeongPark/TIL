@@ -41,32 +41,39 @@ example(of: "assign(to:on:)") {
     
     Just("Shai") // Publisher<String, Never>
 //        .setFailureType(to: Error.self) // Publisher<String, Error>
-    // Referencing instance method 'assign(to:on:)' on 'Publisher' requires the types 'any Error' and 'Never' be equivalent
+    //Error: Referencing instance method 'assign(to:on:)' on 'Publisher' requires the types 'any Error' and 'Never' be equivalent
         .handleEvents(receiveCompletion: { _ in print("2", person.name)})
         .assign(to: \.name, on: person)
         .store(in: &subscriptions)
 }
 
-example(of: "assign(to:)") {
-    class myViewModel:ObservableObject {
-        @Published var currentDate = Date()
-        
-        init() {
-            Timer.publish(every: 1, on: .main, in: .common)
-                .autoconnect()
-                .prefix(3)
-//                .assign(to: \.currentDate, on: self) // retainCycle  여기서 self <-> subscriptions
-//                .store(in: &subscriptions)
-                .assign(to: &$currentDate) // inout reference, break retainCycle
-            // 내부적으로 구독에 관해서 메모리 관리를 한다.
-        }
-    }
-    
+//example(of: "assign(to:)") {
+//    class myViewModel:ObservableObject {
+//        @Published var currentDate = Date()
+//        
+//        init() {
+//            Timer.publish(every: 1, on: .main, in: .common)
+//                .autoconnect()
+//                .prefix(3)
+////                .assign(to: \.currentDate, on: self) // retainCycle  여기서 self <-> subscriptions
+////                .store(in: &subscriptions)
+//                .assign(to: &$currentDate) // inout reference, break retainCycle
+//            // 내부적으로 구독에 관해서 메모리 관리를 한다.
+//        }
+//    }
+//    
 //    let vm = myViewModel()
 //    vm.$currentDate
 //        .sink(receiveValue: { print($0)})
 //        .store(in: &subscriptions)
-}
+//    /*
+//     ——— Example of: assign(to:) ———
+//     2023-02-09 08:18:30 +0000 초기값 이벤트
+//     2023-02-09 08:18:31 +0000
+//     2023-02-09 08:18:32 +0000
+//     2023-02-09 08:18:33 +0000
+//     */
+//}
 
 example(of: "assertNoFailure") {
     Just("Hello")

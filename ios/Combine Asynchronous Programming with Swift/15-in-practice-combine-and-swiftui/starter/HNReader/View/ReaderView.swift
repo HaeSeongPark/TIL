@@ -32,6 +32,13 @@ import Combine
 struct ReaderView: View {
     @Environment(\.colorScheme) var colorScheme:ColorScheme
     
+    /*
+     ObservedObject
+     뷰에서 프로퍼티저장소를 제거하고 원래모델에 바인딩을 한다? -> 데이터 북사하지 않는다.
+     프로퍼티를 외부저장소로 표시, 뷰가 데이터를 소유 하지 않는다?
+     publishder를 프로퍼티에 추가해서 구독이나 바인딩할 수 있게한 다.
+     
+     */
     @ObservedObject var model: ReaderViewModel
     @State var presentingSettingsSheet = false
     
@@ -84,7 +91,8 @@ struct ReaderView: View {
                 SettingsView()
             })
             // Display errors here
-            .alert(item:self.$model.error) { error in
+            // optional값을 받고 non-nil값이면 alert을 띄운다.
+            .alert(item:$model.error) { error in
                 Alert(
                     title: Text("Network error"),
                     message: Text(error.localizedDescription),
@@ -94,9 +102,7 @@ struct ReaderView: View {
             .navigationBarItems(trailing:
                                     Button("Settings") {
                 // Set presentingSettingsSheet to true here
-                self.presentingSettingsSheet = true
-            }
-            )
+                self.presentingSettingsSheet = true})
         }
     }
 }

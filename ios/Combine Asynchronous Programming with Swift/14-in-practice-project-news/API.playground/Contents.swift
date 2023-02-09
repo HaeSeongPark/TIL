@@ -46,9 +46,14 @@ struct API {
         URLSession.shared
             .dataTaskPublisher(for: EndPoint.story(id).url)
             .receive(on: apiQueue)
+        //  앱 반응성 유지하기 위해 백그라운드 스레드에서 json 파싱을 함.
             .map(\.data)
             .decode(type: Story.self, decoder: decoder)
-            .catch { _ in Empty<Story, Error>() }
+//            .catch { _ in Empty<Story, Error>() }
+            .catch { error in
+                print("error: \(error)")
+                return Empty<Story, Error>()
+            }
             .eraseToAnyPublisher()
     }
     
@@ -83,6 +88,7 @@ struct API {
             .flatMap { storyIds in
                 return self.mergedStories(ids:storyIds)
             }
+//            .eraseToAnyPublisher()
             .scan([]) { stories, story -> [Story] in
                 return stories + [story]
             }
@@ -95,20 +101,20 @@ struct API {
 let api = API()
 var subscriptions = [AnyCancellable]()
 
-api.story(id: 1000,1001,1002)
-    .sink(receiveCompletion: { print("completino \($0)")},
-          receiveValue: { print($0)})
-    .store(in: &subscriptions)
+//api.story(id: 100)
+//    .sink(receiveCompletion: { print("completion \($0)")},
+//          receiveValue: { print($0)})
+//    .store(in: &subscriptions)
 
 //api.mergedStories(ids:[1000,1001,1002])
 //    .sink(receiveCompletion: { print($0)},
 //          receiveValue: { print($0)})
 //    .store(in: &subscriptions)
 
-//api.stories()
-//    .sink(receiveCompletion: { print($0)},
-//          receiveValue: { print($0)})
-//    .store(in: &subscriptions)
+api.stories()
+    .sink(receiveCompletion: { print($0)},
+          receiveValue: { print($0)})
+    .store(in: &subscriptions)
 
 // Run indefinitely.
 PlaygroundPage.current.needsIndefiniteExecution = true

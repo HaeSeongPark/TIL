@@ -5,7 +5,7 @@ public struct Story: Codable {
   public let title: String
   public let by: String
   public let time: TimeInterval
-  public let url: String
+  public let url: String?
 }
 
 extension Story: Comparable {
