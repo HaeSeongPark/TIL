@@ -1,31 +1,18 @@
 import Combine
-import SwiftUI
-import PlaygroundSupport
 
-let serialQueue = DispatchQueue(label: "Serial queue")
-let sourceQueue =  serialQueue // DispatchQueue.main // serialQueue
 
-let source = PassthroughSubject<Void, Never>()
-
-let subscription = sourceQueue.schedule(after: sourceQueue.now,
-                                        interval: .seconds(1)) {
-  source.send()
+extension Publisher {
+    func unwrap<T>() -> Publishers.CompactMap<Self, T> where Output == Optional<T> {
+        compactMap { $0 }
+    }
 }
 
-
-let setupPublisher = { recorder in
-  source
-    .recordThread(using: recorder)
-    .receive(on: serialQueue, options: DispatchQueue.SchedulerOptions(qos: .userInteractive))
-    .recordThread(using: recorder)
-    .eraseToAnyPublisher()
-}
-
-let view = ThreadRecorderView(title: "Using DispatchQueue",
-                              setup: setupPublisher)
-PlaygroundPage.current.liveView = UIHostingController(rootView: view)
-
-
+let valeus: [Int?] = [1,2,nil,3,nil,4]
+valeus.publisher
+    .unwrap()
+    .sink {
+        print("Received value: \($0)")
+    }
 //: [Next](@next)
 /*:
  Copyright (c) 2021 Razeware LLC
@@ -56,4 +43,3 @@ PlaygroundPage.current.liveView = UIHostingController(rootView: view)
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  */
-

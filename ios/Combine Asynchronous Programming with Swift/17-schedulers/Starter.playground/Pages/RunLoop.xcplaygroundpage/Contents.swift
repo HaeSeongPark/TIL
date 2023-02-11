@@ -13,7 +13,7 @@ let source = Timer
 let setupPublisher = { recorder in
     source
     // 1
-    //    .receive(on: DispatchQueue.global())
+//        .receive(on: DispatchQueue.global())
         .subscribe(on: DispatchQueue.global())
         .recordThread(using: recorder)
     // 2
@@ -24,6 +24,29 @@ let setupPublisher = { recorder in
             })
         .eraseToAnyPublisher()
 }
+/*
+ 1
+ //    .receive(on: DispatchQueue.global())
+ // DispatchQueue.global()이기 떄문에 다른 스레드 5, 6, etc 찍힘
+2
+ //         .receive(on: RunLoop.current)
+ RunLoop.current -> 현재 돌아가는 스레드
+ setupPublisher클로저가 실행되는게 ThreadRecorderView안에서 실행됨
+ 즉 메인스레드 실행되서 메인스레드 인 1번 스레드 가 찍힘
+
+ */
+
+/*
+ 1
+ //    .subscribe(on: DispatchQueue.global())
+ // 메인스레드 인 1번 스레드 가 찍힘
+ // 이유 subscribe를 해도 Timer는 main runloop를 사용해서 값을 방출하기 때문에
+2
+ //         .receive(on: RunLoop.current)
+ RunLoop.current -> 현재 돌아가는 스레드
+ setupPublisher클로저가 실행되는게 ThreadRecorderView안에서 실행됨
+ 즉 메인스레드 실행되서 메인스레드 인 1번 스레드 가 찍힘
+ */
 
 let view = ThreadRecorderView(title: "Using RunLoop", setup: setupPublisher)
 PlaygroundPage.current.liveView = UIHostingController(rootView: view)
