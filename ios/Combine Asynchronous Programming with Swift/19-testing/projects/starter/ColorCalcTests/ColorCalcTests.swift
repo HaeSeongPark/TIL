@@ -48,6 +48,7 @@ class ColorCalcTests: XCTestCase {
     }
     
     func test_correnctNameReceived() {
+        // given
         let expecetd = "rwGreen 66%"
         var result = ""
         
@@ -55,8 +56,10 @@ class ColorCalcTests: XCTestCase {
             .sink(receiveValue:  { result = $0 })
             .store(in: &subscriptions)
         
+        // when
         viewModel.hexText = "006636AA"
         
+        // then
         XCTAssert(result == expecetd, "Name expected to be \(expecetd) but was \(result)")
     }
     

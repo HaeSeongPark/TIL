@@ -61,9 +61,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 private enum CoreDataStack {
-    // case없는 enum은 초기화 할 수 없기 때문에 사용
+    // case없는 enum은 초기화 할 수 없기 때문에 사용, namespace만 제공
     static var viewContext:NSManagedObjectContext = {
         let container = NSPersistentContainer(name: "ChuckNorrisJokes")
+        
+        /*
+         Once the persistent container has been initialized,
+         you need to execute loadPersistentStores(completionHandler:) to instruct the container to load the persistent stores
+         and complete the creation of the Core Data stack.
+         */
         container.loadPersistentStores { _, error in
             guard error == nil else {
               fatalError("\(#file), \(#function), \(error!.localizedDescription)")
@@ -74,6 +80,7 @@ private enum CoreDataStack {
     }()
     
     static func save() {
+        // It’s always a good idea to verify that the context has changed before you initiate a save operation.
         guard viewContext.hasChanges else { return }
         
         do {

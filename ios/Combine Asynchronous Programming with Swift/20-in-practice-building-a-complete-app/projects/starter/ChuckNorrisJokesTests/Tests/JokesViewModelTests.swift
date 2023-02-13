@@ -132,7 +132,7 @@ final class JokesViewModelTests: XCTestCase {
         let bounds = CGRect(x: 0, y: 0, width: 414, height: 896)
         let x = bounds.width
         let expected: JokesViewModel.DecisionState = .undecided
-        var result: JokesViewModel.DecisionState = .undecided
+        var result: JokesViewModel.DecisionState = .liked
         
         vm.$decisionState
             .sink(receiveValue:  {
@@ -183,10 +183,10 @@ final class JokesViewModelTests: XCTestCase {
         
         vm.$joke
             .dropFirst()
-            .print("123")
+            .print("test_fetchJokeReceivesErrorJoke")
             .sink(receiveValue:  {
                 result = $0
-                print("$0 \($0)")
+                print("test_fetchJokeReceivesErrorJoke receiveValue \($0)")
                 expectation.fulfill()
             })
             .store(in: &subscriptions)

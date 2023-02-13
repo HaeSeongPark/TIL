@@ -15,6 +15,7 @@ import ChuckNorrisJokesModel
 // 2
 extension JokeManagedObject {
     // 3
+    // viewContext는 코어데이터를 다룰 수 있는 scratchpad(메모장), main queue랑 연결돼 있다.
     static func save(joke:Joke, inViewContext viewContext:NSManagedObjectContext) {
         // 4
         guard joke.id != "error" else { return }

@@ -60,6 +60,7 @@ public final class JokesViewModel:ObservableObject {
         fetching = true
         
         jokeService.publisher()
+            .print("jokeService.publisher()")
             .retry(1)
             .decode(type: Joke.self, decoder: Self.decoder)
             .replaceError(with: Joke.error)
