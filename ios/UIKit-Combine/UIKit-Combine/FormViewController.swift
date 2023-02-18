@@ -17,24 +17,26 @@ class FormViewController: UIViewController {
     @IBOutlet var value1_message_label: UILabel!
     @IBOutlet var value2_message_label: UILabel!
 
-    @IBAction func value1_updated(_ sender: UITextField) {
-        value1 = sender.text ?? ""
-    }
+//    @IBAction func value1_updated(_ sender: UITextField) {
+//        value1 = sender.text ?? ""
+//    }
+//
+//    @IBAction func value2_updated(_ sender: UITextField) {
+//        value2 = sender.text ?? ""
+//    }
+//
+//    @IBAction func value2_repeat_updated(_ sender: UITextField) {
+//        value2_repeat = sender.text ?? ""
+//    }
 
-    @IBAction func value2_updated(_ sender: UITextField) {
-        value2 = sender.text ?? ""
-    }
-
-    @IBAction func value2_repeat_updated(_ sender: UITextField) {
-        value2_repeat = sender.text ?? ""
-    }
-
-    @Published var value1: String = ""
-    @Published var value2: String = ""
-    @Published var value2_repeat: String = ""
+//    @Published var value1: String = ""
+//    @Published var value2: String = ""
+//    @Published var value2_repeat: String = ""
 
     var validatedValue1: AnyPublisher<String?, Never> {
-        return $value1.map { value1 in
+        return value1_input.textPublisher
+            .unwrap()
+            . map { value1 in
             guard value1.count > 2 else {
                 DispatchQueue.main.async {
                     self.value1_message_label.text = "minimum of 3 characters required"
@@ -49,7 +51,9 @@ class FormViewController: UIViewController {
     }
 
     var validatedValue2: AnyPublisher<String?, Never> {
-        return Publishers.CombineLatest($value2, $value2_repeat)
+        return Publishers.CombineLatest(
+            value2_input.textPublisher.unwrap(),
+            value2_repeat_input.textPublisher.unwrap())
             .receive(on: RunLoop.main)
             .map { value2, value2_repeat in
                 guard value2_repeat == value2, value2.count > 4 else {
