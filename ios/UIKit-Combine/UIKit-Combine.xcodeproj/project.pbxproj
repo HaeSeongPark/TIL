@@ -18,6 +18,7 @@
 		97C3FF5029A093A300A6226A /* HeadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C3FF4A29A093A300A6226A /* HeadingViewController.swift */; };
 		97C3FF5129A093A300A6226A /* GithubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C3FF4B29A093A300A6226A /* GithubViewController.swift */; };
 		97C3FF5329A093E500A6226A /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C3FF5229A093E500A6226A /* FormViewController.swift */; };
+		97C3FF7729A0C9D600A6226A /* CustomCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C3FF7629A0C9D600A6226A /* CustomCombine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		97C3FF4A29A093A300A6226A /* HeadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadingViewController.swift; sourceTree = "<group>"; };
 		97C3FF4B29A093A300A6226A /* GithubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubViewController.swift; sourceTree = "<group>"; };
 		97C3FF5229A093E500A6226A /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		97C3FF7629A0C9D600A6226A /* CustomCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCombine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				97C3FF3B29A08DBF00A6226A /* Assets.xcassets */,
 				97C3FF3D29A08DBF00A6226A /* LaunchScreen.storyboard */,
 				97C3FF4029A08DBF00A6226A /* Info.plist */,
+				97C3FF7629A0C9D600A6226A /* CustomCombine.swift */,
 			);
 			path = "UIKit-Combine";
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				97C3FF5129A093A300A6226A /* GithubViewController.swift in Sources */,
 				97C3FF3529A08DBE00A6226A /* SceneDelegate.swift in Sources */,
 				97C3FF4F29A093A300A6226A /* AsyncCoordinatorViewController.swift in Sources */,
+				97C3FF7729A0C9D600A6226A /* CustomCombine.swift in Sources */,
 				97C3FF5329A093E500A6226A /* FormViewController.swift in Sources */,
 				97C3FF5029A093A300A6226A /* HeadingViewController.swift in Sources */,
 			);

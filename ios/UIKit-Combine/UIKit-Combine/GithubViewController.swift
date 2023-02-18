@@ -10,32 +10,15 @@ import Combine
 import UIKit
 
 class GithubViewController: UIViewController {
+    private var cancellables = Set<AnyCancellable>()
+
+    
     @IBOutlet var github_id_entry: UITextField!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var repositoryCountLabel: UILabel!
     @IBOutlet var githubAvatarImageView: UIImageView!
 
-    var repositoryCountSubscriber: AnyCancellable?
-    var avatarViewSubscriber: AnyCancellable?
-    var usernameSubscriber: AnyCancellable?
-    var apiNetworkActivitySubscriber: AnyCancellable?
-
-    // username from the github_id_entry field, updated via IBAction
-    @Published var username: String = ""
-
-    // github user retrieved from the API publisher. As it's updated, it
-    // is "wired" to update UI elements
-    @Published private var githubUserData: [GithubAPIUser] = []
-
     var myBackgroundQueue: DispatchQueue = .init(label: "myBackgroundQueue")
-    let coreLocationProxy = LocationHeadingProxy()
-
-    // MARK: - Actions
-
-    @IBAction func githubIdChanged(_ sender: UITextField) {
-        username = sender.text ?? ""
-        print("Set username to ", username)
-    }
 
     @IBAction func poke(_: Any) {}
 
@@ -43,9 +26,8 @@ class GithubViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
 
-        apiNetworkActivitySubscriber = GithubAPI.networkActivityPublisher
+        GithubAPI.networkActivityPublisher
             .receive(on: RunLoop.main)
             .sink { doingSomethingNow in
                 if doingSomethingNow {
@@ -53,31 +35,22 @@ class GithubViewController: UIViewController {
                 } else {
                     self.activityIndicator.stopAnimating()
                 }
-            }
-
-        usernameSubscriber = $username
+            }.store(in: &cancellables)
+        
+        
+        
+       let receiveAPI =  github_id_entry.textPublisher
+            .unwrap()
             .throttle(for: 0.5, scheduler: myBackgroundQueue, latest: true)
-            // ^^ scheduler myBackGroundQueue publishes resulting elements
-            // into that queue, resulting on this processing moving off the
-            // main runloop.
             .removeDuplicates()
             .print("username pipeline: ") // debugging output for pipeline
             .map { username -> AnyPublisher<[GithubAPIUser], Never> in
                 GithubAPI.retrieveGithubUser(username: username)
             }
-            // ^^ type returned in the pipeline is a Publisher, so we use
-            // switchToLatest to flatten the values out of that
-            // pipeline to return down the chain, rather than returning a
-            // publisher down the pipeline.
             .switchToLatest()
-            // using a sink to get the results from the API search lets us
-            // get not only the user, but also any errors attempting to get it.
-            .receive(on: RunLoop.main)
-            .assign(to: \.githubUserData, on: self)
+            .share()
 
-        // using .assign() on the other hand (which returns an
-        // AnyCancellable) *DOES* require a Failure type of <Never>
-        repositoryCountSubscriber = $githubUserData
+        receiveAPI
             .print("github user data: ")
             .map { userData -> String in
                 if let firstUser = userData.first {
@@ -87,8 +60,9 @@ class GithubViewController: UIViewController {
             }
             .receive(on: RunLoop.main)
             .assign(to: \.text, on: repositoryCountLabel)
+            .store(in: &cancellables)
 
-        let avatarViewSub = $githubUserData
+       receiveAPI
             // When I first wrote this publisher pipeline, the type I was
             // aiming for was <GithubAPIUser?, Never>, where the value was an
             // optional. The commented out .filter below was to prevent a `nil` // GithubAPIUser object from propagating further and attempting to
@@ -159,10 +133,8 @@ class GithubViewController: UIViewController {
             // which is key to making it work correctly with the .assign()
             // operator, which must map the type *exactly*
             .assign(to: \.image, on: githubAvatarImageView)
-
-        // convert the .sink to an `AnyCancellable` object that we have
-        // referenced from the implied initializers
-        avatarViewSubscriber = AnyCancellable(avatarViewSub)
+            .store(in: &cancellables)
+        
 
         // KVO publisher of UIKit interface element
         _ = repositoryCountLabel.publisher(for: \.text)
