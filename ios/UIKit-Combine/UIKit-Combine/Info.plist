@@ -21,7 +21,11 @@
 			</array>
 		</dict>
 	</dict>
-    <key>NSLocationWhenInUseUsageDescription</key>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>heading for combine example</string>
+	<key>NSLocationUsageDescription</key>
+	<string>example code</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
     <string>heading for combine example</string>
 </dict>
 </plist>

@@ -16,12 +16,15 @@ final class LocationHeadingProxy: NSObject, CLLocationManagerDelegate {
     var publisher: AnyPublisher<CLHeading, Error> {
         headingPublisher.eraseToAnyPublisher()
     }
-
+    
+    private let authCurrentSubject = CurrentValueSubject<CLAuthorizationStatus,Never>(.notDetermined)
+    var authPublisher:AnyPublisher<CLAuthorizationStatus, Never> {
+        authCurrentSubject.eraseToAnyPublisher()
+    }
+    
     override init() {
         mgr = CLLocationManager()
         headingPublisher = PassthroughSubject<CLHeading, Error>()
-//        publisher = headingPublisher.eraseToAnyPublisher()
-
         super.init()
         mgr.delegate = self
     }
@@ -56,6 +59,6 @@ final class LocationHeadingProxy: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-//        manager.authorizationStatus
+        authCurrentSubject.send(manager.authorizationStatus)
     }
 }
