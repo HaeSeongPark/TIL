@@ -33,6 +33,8 @@
 import SwiftUI
 // Non-constant range: argument must be an integer literal
 // https://gyuios.tistory.com/168
+// https://jierong.dev/2020/05/31/foreach-with-index-in-swiftui.html
+// https://forums.swift.org/t/how-for-swiftui-foreach-init-data-range-int-viewbuilder-content-escaping-int-content-compiler-is-able-to-warn-if-range-is-not-constant/55233/11
 struct ContentView: View {
     @State private var selectedTab = 9
     
@@ -41,7 +43,7 @@ struct ContentView: View {
             WelcomeView(selectedTab:$selectedTab)
                 .tag(9)
             
-            ForEach( 0 ..< Exercise.exercises.count) { index in
+            ForEach( 0 ..< Exercise.exercises.count, id:\.self) { index in
                 ExerciseView(selectedTab:$selectedTab, index: index)
                     .tag(index)
             }

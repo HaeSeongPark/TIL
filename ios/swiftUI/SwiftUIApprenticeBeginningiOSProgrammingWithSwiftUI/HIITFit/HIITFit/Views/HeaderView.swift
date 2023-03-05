@@ -41,7 +41,8 @@ struct HeaderView: View {
             Text(titleText)
                 .font(.largeTitle)
             HStack {
-                ForEach( 0..<Exercise.exercises.count) { index in
+                //: TODO: Generic struct 'ForEach' requires that 'Exercise' conform to 'Hashable'
+                ForEach( Array(zip(Exercise.exercises.indices, Exercise.exercises)), id:\.0) { index, element in
                     let fill = index == selectedTab ? ".fill" : ""
                     Image(systemName: "\(index + 1).circle\(fill)")
                         .onTapGesture {
