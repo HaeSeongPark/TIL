@@ -36,7 +36,7 @@ import SwiftUI
 // https://jierong.dev/2020/05/31/foreach-with-index-in-swiftui.html
 // https://forums.swift.org/t/how-for-swiftui-foreach-init-data-range-int-viewbuilder-content-escaping-int-content-compiler-is-able-to-warn-if-range-is-not-constant/55233/11
 struct ContentView: View {
-    @State private var selectedTab = 9
+    @SceneStorage("selectedTab") private var selectedTab = 9
     
     var body: some View {
         TabView(selection:$selectedTab) {
@@ -50,6 +50,9 @@ struct ContentView: View {
 
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        .onAppear {
+            print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        }
     }
 }
 

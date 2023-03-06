@@ -34,14 +34,20 @@ import SwiftUI
 import AVKit
 
 struct ExerciseView: View {
+    @EnvironmentObject var history: HistoryStore
+    
     @Binding var selectedTab:Int
     let index: Int
-    let interval: TimeInterval = 30
+    
+//    let interval: TimeInterval = 30
+    @State private var timerDone = false
+    @State private var showTimer = false
+    
     var lastExercise:Bool {
         index + 1 == Exercise.exercises.count
     }
-    
-    @State private var rating = 0
+        
+    @State private var showHistory = false
     @State private var showSuccess = false
     
     var body: some View {
@@ -58,18 +64,25 @@ struct ExerciseView: View {
                         .foregroundColor(.red)
                 }
                 
-                Text(Date().addingTimeInterval(interval), style: .timer)
-                    .font(.system(size: 90))
+
                 
                 HStack(spacing: 150) {
-                    Button("Start Exercise") {}
+                    Button("Start Exercise") {
+                        showTimer.toggle()
+                    }
                     Button("Done") {
+                        history.addDoneExercise(Exercise.exercises[index].exerciseName)
+                        
+                        timerDone = false
+                        showTimer.toggle()
+                        
                         if lastExercise {
                             showSuccess.toggle()
                         } else {
                             selectedTab += 1
                         }
                     }
+                    .disabled(!timerDone)
                     .sheet(isPresented: $showSuccess) {
                         SuccessView(selectedTab: $selectedTab)
                     }
@@ -77,12 +90,21 @@ struct ExerciseView: View {
                 .font(.title3)
                 .padding()
                 
-                RatingView(rating:$rating)
+                RatingView(exerciseIndex:index)
                     .padding()
+                
+                if showTimer {
+                    TimerView(timerDone: $timerDone)
+                }
                 
                 Spacer()
                                 
-                Button( NSLocalizedString("History", comment: "view user activity")) {}
+                Button( NSLocalizedString("History", comment: "view user activity")) {
+                    showHistory.toggle()
+                }
+                .sheet(isPresented: $showHistory, content: {
+                    HistoryView(showHistory: $showHistory)
+                })
                     .padding(.bottom)
             }
         }
@@ -91,7 +113,8 @@ struct ExerciseView: View {
 
 struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        ExerciseView(selectedTab: .constant(3),index: 3)
+        ExerciseView(selectedTab: .constant(0),index: 0)
+            .environmentObject(HistoryStore())
             .previewLayout(.sizeThatFits)
     }
 }

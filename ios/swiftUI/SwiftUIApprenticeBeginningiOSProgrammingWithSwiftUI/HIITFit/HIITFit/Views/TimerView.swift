@@ -32,47 +32,32 @@
 
 import SwiftUI
 
-struct HistoryView: View {
-    @EnvironmentObject var history:HistoryStore
-    
-    @Binding var showHistory: Bool
+struct TimerView: View {
+    @State private var timeRemaining = 3 // 1
+    @Binding var timerDone:Bool // 2
+    let timer = Timer.publish( // 3
+        every: 1,
+        on: .main,
+        in: .common)
+        .autoconnect() // 4
     
     var body: some View {
-        ZStack(alignment: .topTrailing) {
-            Button(action: {
-                showHistory.toggle()
-            }) {
-                Image(systemName: "xmark.circle")
-            }
-            .font(.title)
-            .padding(.trailing)
-            
-            VStack {
-                Text(NSLocalizedString("History", comment: "view user activity"))
-                    .font(.title)
-                    .padding()
-                
-                Form {
-                    ForEach(history.exerciseDays) { day in
-                        Section(
-                            header:
-                                Text(day.date.formatted(as: "MMM d"))
-                                .font(.headline)) {
-                                    ForEach(day.exercises, id:\.self) { exercise in
-                                        Text(exercise)
-                                        
-                                    }
-                                }
-                    }
+        Text("\(timeRemaining)") // 5
+            .font(.system(size: 90,design: .rounded))
+            .padding()
+            .onReceive(timer) { _ in // 6
+                if self.timeRemaining > 0 {
+                    self.timeRemaining -= 1
+                } else {
+                    timerDone = true // 7
                 }
             }
-        }
     }
 }
 
-struct HistoryView_Previews: PreviewProvider {
+struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryView(showHistory: .constant(true))
-            .environmentObject(HistoryStore())
+        TimerView(timerDone: .constant(false))
+            .previewLayout(.sizeThatFits)
     }
 }
