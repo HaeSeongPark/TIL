@@ -32,51 +32,39 @@
 
 import SwiftUI
 
-struct HeaderView: View {
-    @Binding var selectedTab:Int
-    let titleText: String
+struct ContainerView<Content:View>: View {
+    var content:Content
+    
+    init(@ViewBuilder content: () -> Content) {
+        self.content = content()
+    }
     
     var body: some View {
-        VStack {
-            Text(titleText)
-                .font(.largeTitle)
-                .fontWeight(.black)
-                .foregroundColor(.white)
-            HStack {
-                //: TODO: Generic struct 'ForEach' requires that 'Exercise' conform to 'Hashable'
-                ForEach( Array(zip(Exercise.exercises.indices, Exercise.exercises)), id:\.0) { index,
-                    element in
-                    
-                    ZStack {
-                        Circle()
-                            .frame(width: 32, height: 32)
-                            .foregroundColor(.white)
-                            .opacity(index == selectedTab ? 0.5 : 0)
-                        Circle()
-                            .frame(width:16, height: 16)
-                            .foregroundColor(.white)
-                    }
-                    
-                    .onTapGesture {
-                        selectedTab = index
-                    }
-                }
+        ZStack {
+            RoundedRectangle(cornerRadius: 25.0)
+                .foregroundColor(Color("background"))
+            VStack {
+                Spacer()
+                Rectangle()
+                    .frame(height:25)
+                    .foregroundColor(Color("background"))
             }
-            .font(.title2)
+            content
         }
     }
 }
 
-
-struct HeaderView_Previews: PreviewProvider {
+struct ContainerView_Previews: PreviewProvider {
     static var previews: some View {
-        
-        Group {
-            HeaderView(selectedTab:.constant(0), titleText: "Squat")
-                .previewLayout(.sizeThatFits)
-            HeaderView(selectedTab:.constant(1), titleText: "Squat")
-                .preferredColorScheme(.dark)
-                .previewLayout(.sizeThatFits)
+        ContainerView {
+            VStack {
+                RaisedButton(buttonText: "Hello world") {}
+                    .padding(50)
+                Button("Tap me!") {}
+                    .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
+            }
         }
+        .padding(50)
+        .previewLayout(.sizeThatFits)
     }
 }

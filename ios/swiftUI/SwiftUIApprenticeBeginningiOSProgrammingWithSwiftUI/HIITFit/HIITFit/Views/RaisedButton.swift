@@ -32,51 +32,51 @@
 
 import SwiftUI
 
-struct HeaderView: View {
-    @Binding var selectedTab:Int
-    let titleText: String
+struct RaisedButton: View {
+    let buttonText:String
+    let action: () -> Void
     
     var body: some View {
-        VStack {
-            Text(titleText)
-                .font(.largeTitle)
-                .fontWeight(.black)
-                .foregroundColor(.white)
-            HStack {
-                //: TODO: Generic struct 'ForEach' requires that 'Exercise' conform to 'Hashable'
-                ForEach( Array(zip(Exercise.exercises.indices, Exercise.exercises)), id:\.0) { index,
-                    element in
-                    
-                    ZStack {
-                        Circle()
-                            .frame(width: 32, height: 32)
-                            .foregroundColor(.white)
-                            .opacity(index == selectedTab ? 0.5 : 0)
-                        Circle()
-                            .frame(width:16, height: 16)
-                            .foregroundColor(.white)
-                    }
-                    
-                    .onTapGesture {
-                        selectedTab = index
-                    }
-                }
-            }
-            .font(.title2)
+        Button(action: {
+            action()
+        }) {
+            Text(buttonText)
+                .raisedButtonTextStyle()
         }
+        .buttonStyle(RaisedButtonStyle())
     }
 }
 
+struct RaisedButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .frame(maxWidth: .infinity)
+            .padding([.top, .bottom], 12)
+            .background(
+                Capsule()
+                    .foregroundColor(Color("background"))
+                    .shadow(color: Color("drop-shadow"), radius: 4, x: 6, y: 6)
+                    .shadow(color: Color("drop-highlight"), radius: 4, x: -6, y: -6)
+            )
+    }
+}
 
-struct HeaderView_Previews: PreviewProvider {
+extension Text {
+    func raisedButtonTextStyle() -> some View {
+        self
+            .font(.body)
+            .fontWeight(.bold)
+    }
+}
+
+struct RaisedButton_Previews: PreviewProvider {
     static var previews: some View {
-        
-        Group {
-            HeaderView(selectedTab:.constant(0), titleText: "Squat")
-                .previewLayout(.sizeThatFits)
-            HeaderView(selectedTab:.constant(1), titleText: "Squat")
-                .preferredColorScheme(.dark)
-                .previewLayout(.sizeThatFits)
+        ZStack {
+            RaisedButton(buttonText: "Get Started", action: { print("Hello World") })
+                .buttonStyle(RaisedButtonStyle())
+                .padding(20)
         }
+        .background(Color("background"))
+        .previewLayout(.sizeThatFits)
     }
 }

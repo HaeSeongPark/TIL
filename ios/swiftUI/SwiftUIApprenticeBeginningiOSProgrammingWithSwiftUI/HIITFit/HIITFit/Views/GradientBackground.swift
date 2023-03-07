@@ -32,51 +32,32 @@
 
 import SwiftUI
 
-struct HeaderView: View {
-    @Binding var selectedTab:Int
-    let titleText: String
+struct GradientBackground: View {
+    var gradient: Gradient {
+      let color1 = Color("gradient-top")
+      let color2 = Color("gradient-bottom")
+      let background = Color("background")
+      return Gradient(
+        stops: [
+          Gradient.Stop(color: color1, location: 0),
+          Gradient.Stop(color: color2, location: 0.9),
+          Gradient.Stop(color: background, location: 0.9),
+          Gradient.Stop(color: background, location: 1)
+    ]) }
     
     var body: some View {
-        VStack {
-            Text(titleText)
-                .font(.largeTitle)
-                .fontWeight(.black)
-                .foregroundColor(.white)
-            HStack {
-                //: TODO: Generic struct 'ForEach' requires that 'Exercise' conform to 'Hashable'
-                ForEach( Array(zip(Exercise.exercises.indices, Exercise.exercises)), id:\.0) { index,
-                    element in
-                    
-                    ZStack {
-                        Circle()
-                            .frame(width: 32, height: 32)
-                            .foregroundColor(.white)
-                            .opacity(index == selectedTab ? 0.5 : 0)
-                        Circle()
-                            .frame(width:16, height: 16)
-                            .foregroundColor(.white)
-                    }
-                    
-                    .onTapGesture {
-                        selectedTab = index
-                    }
-                }
-            }
-            .font(.title2)
-        }
+        LinearGradient(
+            gradient: gradient,
+            startPoint: .top,
+            endPoint: .bottom)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
-
-struct HeaderView_Previews: PreviewProvider {
+struct GradientBackground_Previews: PreviewProvider {
     static var previews: some View {
-        
-        Group {
-            HeaderView(selectedTab:.constant(0), titleText: "Squat")
-                .previewLayout(.sizeThatFits)
-            HeaderView(selectedTab:.constant(1), titleText: "Squat")
-                .preferredColorScheme(.dark)
-                .previewLayout(.sizeThatFits)
-        }
+        GradientBackground()
+            .frame(width: 300,height: 300)
+            .previewLayout(.sizeThatFits)
     }
 }

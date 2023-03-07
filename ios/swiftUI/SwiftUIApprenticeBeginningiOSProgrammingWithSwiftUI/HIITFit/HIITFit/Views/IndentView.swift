@@ -1,4 +1,4 @@
-/// Copyright (c) 2023 Razeware LLC
+/// Copyright (c) 2021 Razeware LLC
 /// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -32,51 +32,58 @@
 
 import SwiftUI
 
-struct HeaderView: View {
-    @Binding var selectedTab:Int
-    let titleText: String
-    
-    var body: some View {
-        VStack {
-            Text(titleText)
-                .font(.largeTitle)
-                .fontWeight(.black)
-                .foregroundColor(.white)
-            HStack {
-                //: TODO: Generic struct 'ForEach' requires that 'Exercise' conform to 'Hashable'
-                ForEach( Array(zip(Exercise.exercises.indices, Exercise.exercises)), id:\.0) { index,
-                    element in
-                    
-                    ZStack {
-                        Circle()
-                            .frame(width: 32, height: 32)
-                            .foregroundColor(.white)
-                            .opacity(index == selectedTab ? 0.5 : 0)
-                        Circle()
-                            .frame(width:16, height: 16)
-                            .foregroundColor(.white)
-                    }
-                    
-                    .onTapGesture {
-                        selectedTab = index
-                    }
-                }
-            }
-            .font(.title2)
-        }
+struct IndentView<Content: View>: View {
+  var content: Content
+
+  init(@ViewBuilder content: () -> Content) {
+    self.content = content()
+  }
+
+  var body: some View {
+    ZStack {
+      content
+        .background(
+          GeometryReader { geometry in
+            Circle()
+              .inset(by: -4)
+              .stroke(Color("background"), lineWidth: 8)
+              .shadow(color: Color("drop-shadow").opacity(0.5), radius: 6, x: 6, y: 6)
+              .shadow(color: Color("drop-highlight"), radius: 6, x: -6, y: -6)
+              .foregroundColor(Color("background"))
+              .clipShape(Circle().inset(by: -1))
+              .resized(size: geometry.size)
+          }
+        )
     }
+  }
 }
 
+private extension View {
+  func resized(size: CGSize) -> some View {
+    self
+      .frame(
+        width: max(size.width, size.height),
+        height: max(size.width, size.height))
+      .offset(y: -max(size.width, size.height) / 2
+        + min(size.width, size.height) / 2)
+  }
+}
 
-struct HeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        Group {
-            HeaderView(selectedTab:.constant(0), titleText: "Squat")
-                .previewLayout(.sizeThatFits)
-            HeaderView(selectedTab:.constant(1), titleText: "Squat")
-                .preferredColorScheme(.dark)
-                .previewLayout(.sizeThatFits)
-        }
+struct IndentView_Previews: PreviewProvider {
+  static var previews: some View {
+    VStack {
+      IndentView {
+        Text("5")
+          .font(.system(size: 90, design: .rounded))
+          .frame(width: 120, height: 120)
+      }
+      .padding(.bottom, 50)
+      IndentView {
+        Image(systemName: "hare.fill")
+          .font(.largeTitle)
+          .foregroundColor(.purple)
+          .padding(20)
+      }
     }
+  }
 }

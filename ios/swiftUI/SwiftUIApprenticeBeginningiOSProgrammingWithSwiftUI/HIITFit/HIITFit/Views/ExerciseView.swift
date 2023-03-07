@@ -35,77 +35,126 @@ import AVKit
 
 struct ExerciseView: View {
     @EnvironmentObject var history: HistoryStore
-    
     @Binding var selectedTab:Int
-    let index: Int
     
-//    let interval: TimeInterval = 30
     @State private var timerDone = false
+    @State private var showSuccess = false
+    @State private var showHistory = false
     @State private var showTimer = false
+    @State private var showSheet = false
+    @State private var exerciseSheet: ExerciseSheet?
+    
+    enum ExerciseSheet {
+        case history, timer, success
+    }
+    
+    let index: Int
     
     var lastExercise:Bool {
         index + 1 == Exercise.exercises.count
     }
+    
+    var startExerciseButton: some View {
+        RaisedButton(buttonText: "Start Exercise") {
+            showTimer.toggle()
+            showSheet = true
+            exerciseSheet = .timer
+        }
+    }
+    
+    var historyButton: some View {
+        Button {
+            showSheet = true
+            showHistory = true
+            exerciseSheet = .history
+        } label: {
+            Text(NSLocalizedString("History", comment: "view user activity"))
+                .fontWeight(.bold)
+                .padding([.leading, .trailing], 5)
+        }
+        .padding(.bottom, 10)
+        .buttonStyle(EmbossedButtonStyle())
         
-    @State private var showHistory = false
-    @State private var showSuccess = false
+    }
+    
+    @ViewBuilder
+    func vidieo(size:CGSize) -> some View {
+        if let url = Bundle.main.url(
+            forResource: Exercise.exercises[index].videoName,
+            withExtension: "mp4") {
+            
+            VideoPlayer(player: AVPlayer(url: url))
+                .frame(height: size.height * 0.25)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .padding(20)
+        } else {
+            Text("Couldn't find \(Exercise.exercises[index].videoName).mp4")
+                .foregroundColor(.red)
+        }
+    }
     
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                HeaderView(selectedTab:$selectedTab, titleText: Exercise.exercises[index].exerciseName)
-                    .padding(.bottom)
+                HeaderView(
+                    selectedTab:$selectedTab,
+                    titleText: Exercise.exercises[index].exerciseName)
+                .padding(.bottom)
                 
-                if let url = Bundle.main.url(forResource: Exercise.exercises[index].videoName, withExtension: "mp4") {
-                    VideoPlayer(player: AVPlayer(url: url))
-                        .frame(height: geometry.size.height * 0.45)
-                } else {
-                    Text("Couldn't find \(Exercise.exercises[index].videoName).mp4")
-                        .foregroundColor(.red)
-                }
+                Spacer()
                 
-
-                
-                HStack(spacing: 150) {
-                    Button("Start Exercise") {
-                        showTimer.toggle()
+                ContainerView {
+                    VStack {
+                        vidieo(size: geometry.size)
+                        startExerciseButton
+                            .padding(20)
+                        RatingView(exerciseIndex:index)
+                            .padding()
+                        Spacer()
+                        historyButton
                     }
-                    Button("Done") {
-                        history.addDoneExercise(Exercise.exercises[index].exerciseName)
-                        
-                        timerDone = false
-                        showTimer.toggle()
-                        
+                }
+                .frame(height: geometry.size.height * 0.8)
+                .sheet(isPresented: $showSheet, onDismiss: {
+                    showSuccess = false
+                    showHistory = false
+                    if exerciseSheet == .timer {
+                        if timerDone {
+                            history.addDoneExercise(Exercise.exercises[index].exerciseName)
+                            timerDone = false
+
+                        }
+                        showTimer = false
                         if lastExercise {
-                            showSuccess.toggle()
+                            showSuccess = true
+                            showSheet = true
+                            exerciseSheet = .success
                         } else {
                             selectedTab += 1
                         }
+                    } else {
+                        exerciseSheet = nil
                     }
-                    .disabled(!timerDone)
-                    .sheet(isPresented: $showSuccess) {
-                        SuccessView(selectedTab: $selectedTab)
+                    
+                    showTimer = false
+                }, content: {
+                    if let exerciseSheet {
+                        switch exerciseSheet {
+                        case .history:
+                            HistoryView(showHistory: $showHistory)
+                                .environmentObject(history)
+                            
+                        case .timer:
+                            TimerView(
+                                exerciseName: Exercise.exercises[index].exerciseName, timerDone: $timerDone)
+                        case .success:
+                            SuccessView(selectedTab: $selectedTab)
+                            
+                        }
                     }
-                }
-                .font(.title3)
-                .padding()
-                
-                RatingView(exerciseIndex:index)
-                    .padding()
-                
-                if showTimer {
-                    TimerView(timerDone: $timerDone)
-                }
-                
-                Spacer()
-                                
-                Button( NSLocalizedString("History", comment: "view user activity")) {
-                    showHistory.toggle()
-                }
-                .sheet(isPresented: $showHistory, content: {
-                    HistoryView(showHistory: $showHistory)
+                    
                 })
-                    .padding(.bottom)
+                .padding(.bottom)
             }
         }
     }
@@ -115,6 +164,7 @@ struct ExerciseView_Previews: PreviewProvider {
     static var previews: some View {
         ExerciseView(selectedTab: .constant(0),index: 0)
             .environmentObject(HistoryStore())
-            .previewLayout(.sizeThatFits)
+            .preferredColorScheme(.dark)
+        //            .previewLayout(.sizeThatFits)
     }
 }

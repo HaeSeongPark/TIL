@@ -19,6 +19,14 @@
 		97574F2F29B2C51600EC87CD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 97574F2D29B2C51600EC87CD /* Localizable.strings */; };
 		97574F3129B2C5D400EC87CD /* step-up.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 97574F3329B2C5D400EC87CD /* step-up.mp4 */; };
 		97574F3729B572FB00EC87CD /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97574F3629B572FB00EC87CD /* TimerView.swift */; };
+		97574F3929B6B6BF00EC87CD /* RaisedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97574F3829B6B6BF00EC87CD /* RaisedButton.swift */; };
+		97574F3B29B6BE3400EC87CD /* EmbossedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97574F3A29B6BE3400EC87CD /* EmbossedButton.swift */; };
+		97574F3D29B6CD1300EC87CD /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97574F3C29B6CD1300EC87CD /* ContainerView.swift */; };
+		97574F3F29B6D09200EC87CD /* WelcomeImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97574F3E29B6D09200EC87CD /* WelcomeImages.swift */; };
+		97574F4129B6D37600EC87CD /* GradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97574F4029B6D37600EC87CD /* GradientBackground.swift */; };
+		97574F4329B759D600EC87CD /* IndentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97574F4229B759D600EC87CD /* IndentView.swift */; };
+		97574F4629B759E500EC87CD /* HistoryBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97574F4429B759E400EC87CD /* HistoryBarView.swift */; };
+		97574F4729B759E500EC87CD /* HistoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97574F4529B759E500EC87CD /* HistoryListView.swift */; };
 		CD30C924251474DC0049DB93 /* HIITFitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30C923251474DC0049DB93 /* HIITFitApp.swift */; };
 		CD30C926251474DC0049DB93 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30C925251474DC0049DB93 /* ContentView.swift */; };
 		CD30C928251474DD0049DB93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD30C927251474DD0049DB93 /* Assets.xcassets */; };
@@ -44,6 +52,14 @@
 		97574F3029B2C55D00EC87CD /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = HIITFit/ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		97574F3229B2C5D400EC87CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = "Base.lproj/step-up.mp4"; sourceTree = "<group>"; };
 		97574F3629B572FB00EC87CD /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		97574F3829B6B6BF00EC87CD /* RaisedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaisedButton.swift; sourceTree = "<group>"; };
+		97574F3A29B6BE3400EC87CD /* EmbossedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbossedButton.swift; sourceTree = "<group>"; };
+		97574F3C29B6CD1300EC87CD /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
+		97574F3E29B6D09200EC87CD /* WelcomeImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeImages.swift; sourceTree = "<group>"; };
+		97574F4029B6D37600EC87CD /* GradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackground.swift; sourceTree = "<group>"; };
+		97574F4229B759D600EC87CD /* IndentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndentView.swift; sourceTree = "<group>"; };
+		97574F4429B759E400EC87CD /* HistoryBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryBarView.swift; sourceTree = "<group>"; };
+		97574F4529B759E500EC87CD /* HistoryListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryListView.swift; sourceTree = "<group>"; };
 		CD30C920251474DC0049DB93 /* HIITFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HIITFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD30C923251474DC0049DB93 /* HIITFitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HIITFitApp.swift; sourceTree = "<group>"; };
 		CD30C925251474DC0049DB93 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,14 +87,22 @@
 		97574F1629B1D36800EC87CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				97574F3E29B6D09200EC87CD /* WelcomeImages.swift */,
 				CD30C925251474DC0049DB93 /* ContentView.swift */,
+				97574F4029B6D37600EC87CD /* GradientBackground.swift */,
 				97574F1F29B1EA1E00EC87CD /* SuccessView.swift */,
 				97574F1429B1D34100EC87CD /* ExerciseView.swift */,
 				97574F3629B572FB00EC87CD /* TimerView.swift */,
 				97574F1D29B1DF1400EC87CD /* HistoryView.swift */,
 				97574F1B29B1DE1500EC87CD /* RatingView.swift */,
+				97574F3C29B6CD1300EC87CD /* ContainerView.swift */,
 				97574F1729B1D81200EC87CD /* HeaderView.swift */,
 				97574F1229B1D32800EC87CD /* WelcomeView.swift */,
+				97574F3829B6B6BF00EC87CD /* RaisedButton.swift */,
+				97574F3A29B6BE3400EC87CD /* EmbossedButton.swift */,
+				97574F4229B759D600EC87CD /* IndentView.swift */,
+				97574F4429B759E400EC87CD /* HistoryBarView.swift */,
+				97574F4529B759E500EC87CD /* HistoryListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -243,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97574F3F29B6D09200EC87CD /* WelcomeImages.swift in Sources */,
 				97574F3729B572FB00EC87CD /* TimerView.swift in Sources */,
 				97574F1529B1D34100EC87CD /* ExerciseView.swift in Sources */,
 				CD30C926251474DC0049DB93 /* ContentView.swift in Sources */,
@@ -252,11 +277,18 @@
 				97574F2729B2C0DB00EC87CD /* HistoryStoreDevData.swift in Sources */,
 				97574F1C29B1DE1500EC87CD /* RatingView.swift in Sources */,
 				CD30C924251474DC0049DB93 /* HIITFitApp.swift in Sources */,
+				97574F3D29B6CD1300EC87CD /* ContainerView.swift in Sources */,
 				97574F2229B1ED1D00EC87CD /* Exercise.swift in Sources */,
 				97574F1329B1D32800EC87CD /* WelcomeView.swift in Sources */,
+				97574F3929B6B6BF00EC87CD /* RaisedButton.swift in Sources */,
 				CD30C94025147A8C0049DB93 /* ImageExtension.swift in Sources */,
+				97574F4629B759E500EC87CD /* HistoryBarView.swift in Sources */,
+				97574F3B29B6BE3400EC87CD /* EmbossedButton.swift in Sources */,
+				97574F4329B759D600EC87CD /* IndentView.swift in Sources */,
 				97574F1E29B1DF1400EC87CD /* HistoryView.swift in Sources */,
+				97574F4129B6D37600EC87CD /* GradientBackground.swift in Sources */,
 				97574F1829B1D81200EC87CD /* HeaderView.swift in Sources */,
+				97574F4729B759E500EC87CD /* HistoryListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -33,31 +33,85 @@
 import SwiftUI
 
 struct TimerView: View {
-    @State private var timeRemaining = 3 // 1
-    @Binding var timerDone:Bool // 2
-    let timer = Timer.publish( // 3
+    @Environment(\.presentationMode) var presentationMode
+    let exerciseName:String
+    @State private var timeRemaining = 3
+    @Binding var timerDone:Bool
+    let timer = Timer.publish(
         every: 1,
         on: .main,
         in: .common)
         .autoconnect() // 4
     
+    func circle(size: CGSize) -> some View {
+        Circle()
+            .frame(
+                width: size.width,
+                height: size.height)
+            .position(
+                x: size.width * 0.5,
+                y: -size.width * 0.2)
+    }
+    
+    var timerText: some View {
+      Text("\(timeRemaining)")
+        .font(.system(size: 90, design: .rounded))
+        .fontWeight(.heavy)
+        .frame(
+          minWidth: 180,
+          maxWidth: 200,
+          minHeight: 180,
+          maxHeight: 200)
+        .padding()
+        .onReceive(timer) { _ in
+          if self.timeRemaining > 0 {
+            self.timeRemaining -= 1
+          } else {
+            timerDone = true
+          }
+        }
+    }
+    
     var body: some View {
-        Text("\(timeRemaining)") // 5
-            .font(.system(size: 90,design: .rounded))
-            .padding()
-            .onReceive(timer) { _ in // 6
-                if self.timeRemaining > 0 {
-                    self.timeRemaining -= 1
-                } else {
-                    timerDone = true // 7
+        GeometryReader { geometry in
+            ZStack {
+                Color("background")
+                    .edgesIgnoringSafeArea(.all)
+                circle(size: geometry.size)
+                    .overlay(
+                        GradientBackground()
+                            .mask(circle(size: geometry.size))
+                    )
+                VStack {
+                    Text(exerciseName)
+                        .font(.largeTitle)
+                        .fontWeight(.black)
+                        .foregroundColor(.white)
+                        .padding(.top, 20)
+                    Spacer()
+                    IndentView {
+                        timerText
+                    }
+                    Spacer()
+                    RaisedButton(buttonText: "Done") {
+                      presentationMode.wrappedValue.dismiss()
+                    }
+                    .opacity(timerDone ? 1 : 0)
+                    .padding([.leading, .trailing], 30)
+                    .padding(.bottom, 60)
+                    .disabled(!timerDone)
+                }
+                .onAppear {
+                    timerDone = false
                 }
             }
+        }
     }
 }
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView(timerDone: .constant(false))
-            .previewLayout(.sizeThatFits)
+        TimerView(exerciseName: "Step Up", timerDone: .constant(false))
+//            .previewLayout(.sizeThatFits)
     }
 }
