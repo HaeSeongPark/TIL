@@ -34,7 +34,7 @@ import SwiftUI
 
 struct AddThingView: View {
     @Environment(\.presentationMode) var presentationMode
-    @Binding var somethings:ThingStore
+    @ObservedObject var somethings:ThingStore
     
     @State private var thing = ""
     
@@ -58,6 +58,6 @@ struct AddThingView: View {
 
 struct AddThingView_Previews: PreviewProvider {
     static var previews: some View {
-        AddThingView(somethings: .constant(ThingStore()))
+        AddThingView(somethings: ThingStore())
     }
 }

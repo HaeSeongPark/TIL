@@ -32,14 +32,14 @@
 
 import SwiftUI
 
-struct ThingStore {
-    var things: [String] = []
+final class ThingStore:ObservableObject {
+   @Published var things: [String] = []
 }
 
 struct ContentView: View {
     @State private var showAddThing = false
     
-    @State private var myThings = ThingStore()
+    @StateObject private var myThings = ThingStore()
     
     
     var body: some View {
@@ -55,7 +55,7 @@ struct ContentView: View {
                 Spacer()
             }
             .sheet(isPresented: $showAddThing) {
-                AddThingView(somethings: $myThings)
+                AddThingView(somethings: myThings)
             }
             .navigationTitle("TIL")
             .toolbar {
