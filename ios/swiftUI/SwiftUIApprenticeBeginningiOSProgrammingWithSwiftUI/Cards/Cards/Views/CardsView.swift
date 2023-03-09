@@ -1,0 +1,28 @@
+//
+//  CardView.swift
+//  Cards
+//
+//  Created by rhino Q on 2023/03/09.
+//
+
+import SwiftUI
+
+struct CardsView: View {
+    @EnvironmentObject var viewState: ViewState
+    
+    var body: some View {
+        ZStack {
+            CardListView()
+            if !viewState.showAllCards {
+                SingleCardView()
+            }
+        }
+    }
+}
+
+struct CardView_Previews: PreviewProvider {
+    static var previews: some View {
+        CardsView()
+            .environmentObject(ViewState())
+    }
+}
