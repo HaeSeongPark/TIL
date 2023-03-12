@@ -32,6 +32,8 @@
 		97D7DF2829BC6F150042723C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D7DF2729BC6F150042723C /* Card.swift */; };
 		97D7DF2A29BC6F550042723C /* CardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D7DF2929BC6F550042723C /* CardStore.swift */; };
 		97D7DF2C29BC7F280042723C /* CardElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D7DF2B29BC7F280042723C /* CardElementView.swift */; };
+		97D7DF3129BDF7420042723C /* Stickers in Resources */ = {isa = PBXBuildFile; fileRef = 97D7DF3029BDF7420042723C /* Stickers */; };
+		97D7DF3429BDF7710042723C /* StickerPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D7DF3329BDF7710042723C /* StickerPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,9 @@
 		97D7DF2729BC6F150042723C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		97D7DF2929BC6F550042723C /* CardStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStore.swift; sourceTree = "<group>"; };
 		97D7DF2B29BC7F280042723C /* CardElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardElementView.swift; sourceTree = "<group>"; };
+		97D7DF2D29BDF3020042723C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		97D7DF3029BDF7420042723C /* Stickers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Stickers; sourceTree = "<group>"; };
+		97D7DF3329BDF7710042723C /* StickerPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +82,7 @@
 		97574F4829B9F39C00EC87CD = {
 			isa = PBXGroup;
 			children = (
+				97D7DF3029BDF7420042723C /* Stickers */,
 				97574F5329B9F39C00EC87CD /* Cards */,
 				97574F5229B9F39C00EC87CD /* Products */,
 			);
@@ -93,6 +99,7 @@
 		97574F5329B9F39C00EC87CD /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				97D7DF2D29BDF3020042723C /* Info.plist */,
 				97574F8029BB3D9C00EC87CD /* Config */,
 				97574F7B29BB333700EC87CD /* Extension */,
 				97574F5429B9F39C00EC87CD /* CardsApp.swift */,
@@ -142,6 +149,7 @@
 		97574F7629B9FF0C00EC87CD /* Single Card Views */ = {
 			isa = PBXGroup;
 			children = (
+				97D7DF3229BDF75D0042723C /* CardModalViews */,
 				97574F7229B9FA9700EC87CD /* CardBottomToolbar.swift */,
 				97574F6629B9F51000EC87CD /* SingleCardView.swift */,
 				97574F6E29B9F8A200EC87CD /* CardDetailView.swift */,
@@ -176,6 +184,14 @@
 				97574F8629BB40C800EC87CD /* CardToolbar.swift */,
 			);
 			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		97D7DF3229BDF75D0042723C /* CardModalViews */ = {
+			isa = PBXGroup;
+			children = (
+				97D7DF3329BDF7710042723C /* StickerPicker.swift */,
+			);
+			path = CardModalViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97574F5C29B9F39E00EC87CD /* Preview Assets.xcassets in Resources */,
+				97D7DF3129BDF7420042723C /* Stickers in Resources */,
 				97574F5929B9F39E00EC87CD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +282,7 @@
 				97574F7D29BB334100EC87CD /* Operators.swift in Sources */,
 				97574F7129B9FA6B00EC87CD /* CardModal.swift in Sources */,
 				97D7DF2229BC6C580042723C /* PreviewData.swift in Sources */,
+				97D7DF3429BDF7710042723C /* StickerPicker.swift in Sources */,
 				97D7DF2C29BC7F280042723C /* CardElementView.swift in Sources */,
 				97D7DF2829BC6F150042723C /* Card.swift in Sources */,
 				97574F7A29BB2F3D00EC87CD /* Transform.swift in Sources */,
@@ -396,14 +414,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cards/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cards/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -424,14 +443,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cards/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cards/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

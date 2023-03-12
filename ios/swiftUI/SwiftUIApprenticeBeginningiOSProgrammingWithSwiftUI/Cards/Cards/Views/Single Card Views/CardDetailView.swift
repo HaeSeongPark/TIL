@@ -11,6 +11,7 @@ struct CardDetailView: View {
     @EnvironmentObject var viewState:ViewState
     @State private var currentModal: CardModal?
     @Binding var card: Card
+    @State private var stickerImage: UIImage?
     
     var content: some View {
         ZStack {
@@ -39,6 +40,20 @@ struct CardDetailView: View {
     var body: some View {
         content
             .modifier(CardToolbar(currentModal:$currentModal))
+            .sheet(item: $currentModal) { item in
+                switch item {
+                case .stickerPicker:
+                    StickerPicker(stickerImage: $stickerImage)
+                        .onDisappear {
+                            if let stickerImage {
+                                card.addElement(uiImage: stickerImage)
+                            }
+                            stickerImage = nil
+                        }
+                default:
+                    EmptyView()
+                }
+            }
     }
     
     func bindingTransform(for element: CardElement) -> Binding<Transform> {
