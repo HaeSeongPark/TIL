@@ -12,6 +12,7 @@ struct CardDetailView: View {
     @State private var currentModal: CardModal?
     @Binding var card: Card
     @State private var stickerImage: UIImage?
+    @State private var images:[UIImage] = []
     
     var content: some View {
         ZStack {
@@ -39,6 +40,7 @@ struct CardDetailView: View {
     
     var body: some View {
         content
+            .onDrop(of: [.item], delegate: CardDrop(card: $card))
             .modifier(CardToolbar(currentModal:$currentModal))
             .sheet(item: $currentModal) { item in
                 switch item {
@@ -49,6 +51,14 @@ struct CardDetailView: View {
                                 card.addElement(uiImage: stickerImage)
                             }
                             stickerImage = nil
+                        }
+                case .photoPicker:
+                    PhotoPicker(iamges: $images)
+                        .onDisappear {
+                            for image in images {
+                                card.addElement(uiImage: image)
+                            }
+                            images = []
                         }
                 default:
                     EmptyView()
