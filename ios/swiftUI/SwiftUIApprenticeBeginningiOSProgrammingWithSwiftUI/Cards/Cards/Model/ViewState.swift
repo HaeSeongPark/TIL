@@ -15,11 +15,20 @@ class ViewState: ObservableObject {
             }
         }
     }
-    var selectedCard: Card?
+    var selectedCard: Card? {
+        didSet {
+            if selectedCard == nil {
+                selectedElement = nil
+            }
+        }
+    }
+    
+    @Published var selectedElement: CardElement?
     
     convenience init(card:Card) {
         self.init()
         showAllCards = false
         selectedCard = card
+        selectedElement = nil
     }
 }

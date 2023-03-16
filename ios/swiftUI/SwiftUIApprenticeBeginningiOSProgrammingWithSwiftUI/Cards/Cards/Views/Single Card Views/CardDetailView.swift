@@ -13,27 +13,36 @@ struct CardDetailView: View {
     @Binding var card: Card
     @State private var stickerImage: UIImage?
     @State private var images:[UIImage] = []
+    @State private var frame:AnyShape?
     
     var content: some View {
         ZStack {
             card.backgroundColor
                 .edgesIgnoringSafeArea(.all)
+                .onTapGesture {
+                    viewState.selectedElement = nil
+                }
             
             ForEach(card.elements, id: \.id) { element in
-                CardElementView(element: element)
+                CardElementView(
+                    element: element,
+                        selected:viewState.selectedElement?.id == element.id
+                )
                     .contextMenu {
                         Button {
                             card.remove(element)
                         } label: {
                             Label("Delete", systemImage: "trash")
                         }
-
                     }
                     .resizableView(transform: bindingTransform(for: element))
                     .frame(
                         width: element.transform.size.width,
                         height: element.transform.size.height
                     )
+                    .onTapGesture {
+                        viewState.selectedElement = element
+                    }
             }
         }
     }
@@ -59,6 +68,17 @@ struct CardDetailView: View {
                                 card.addElement(uiImage: image)
                             }
                             images = []
+                        }
+                case .framePicker:
+                    FramePicker(frame: $frame)
+                        .onDisappear {
+                            if let frame = frame {
+                                card.update(
+                                    viewState.selectedElement,
+                                    frame:frame
+                                )
+                            }
+                            frame = nil
                         }
                 default:
                     EmptyView()

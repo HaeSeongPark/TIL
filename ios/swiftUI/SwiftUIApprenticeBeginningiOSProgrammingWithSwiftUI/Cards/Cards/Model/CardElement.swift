@@ -8,8 +8,8 @@
 import SwiftUI
 
 protocol CardElement {
-  var id: UUID { get }
-  var transform: Transform { get set }
+    var id: UUID { get }
+    var transform: Transform { get set }
 }
 
 extension CardElement {
@@ -19,15 +19,16 @@ extension CardElement {
 }
 
 struct ImageElement: CardElement {
-  let id = UUID()
-  var transform = Transform()
-  var image: Image
+    let id = UUID()
+    var transform = Transform()
+    var image: Image
+    var frame: AnyShape?
 }
 
 struct TextElement: CardElement {
-  let id = UUID()
-  var transform = Transform()
-  var text = ""
-  var textColor = Color.black
-  var textFont = "San Fransisco"
+    let id = UUID()
+    var transform = Transform()
+    var text = ""
+    var textColor = Color.black
+    var textFont = "San Fransisco"
 }
