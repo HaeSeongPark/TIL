@@ -14,6 +14,9 @@ struct CardDetailView: View {
     @State private var stickerImage: UIImage?
     @State private var images:[UIImage] = []
     @State private var frame:AnyShape?
+    @State private var textElement:TextElement = TextElement()
+    
+    @Environment(\.scenePhase) private var scenePhase
     
     var content: some View {
         ZStack {
@@ -35,7 +38,7 @@ struct CardDetailView: View {
                             Label("Delete", systemImage: "trash")
                         }
                     }
-                    .resizableView(transform: bindingTransform(for: element))
+                    .resizableView(transform: bindingTransform(for: element), selected: viewState.selectedElement?.id == element.id)
                     .frame(
                         width: element.transform.size.width,
                         height: element.transform.size.height
@@ -80,9 +83,23 @@ struct CardDetailView: View {
                             }
                             frame = nil
                         }
-                default:
-                    EmptyView()
+                case .textPicker:
+                    TextPicker(textElement: $textElement)
+                        .onDisappear {
+                            if textElement.text.isEmpty == false {
+                                card.addElement(textElement: textElement)
+                            }
+                            textElement = TextElement()
+                        }
                 }
+            }
+            .onChange(of: scenePhase, perform: { newValue in
+                if newValue == .inactive {
+                    card.save()
+                }
+            })
+            .onDisappear {
+                card.save()
             }
     }
     

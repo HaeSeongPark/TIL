@@ -63,7 +63,8 @@ struct TextElementView: View {
                 .font(.custom(element.textFont, size: 200))
                 .foregroundColor(element.textColor)
                 .scalableText()
-        } }
+        }
+    }
 }
 
 struct CardElementView_Previews: PreviewProvider {

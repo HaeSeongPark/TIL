@@ -12,6 +12,7 @@ struct ResizableView: ViewModifier {
     @State private var previouseOffset:CGSize = .zero
     @State private var previousRotation: Angle = .zero
     @State private var scale: CGFloat = 1.0
+    let selected:Bool
     
     func body(content:Content) -> some View {
         let dragGesture = DragGesture()
@@ -59,6 +60,6 @@ struct ResizableVIew_Previews: PreviewProvider {
     static var previews: some View {
         RoundedRectangle(cornerRadius: 30.0)
             .foregroundColor(Color.red)
-            .resizableView(transform: .constant(Transform()))
+            .resizableView(transform: .constant(Transform()), selected: true)
     }
 }

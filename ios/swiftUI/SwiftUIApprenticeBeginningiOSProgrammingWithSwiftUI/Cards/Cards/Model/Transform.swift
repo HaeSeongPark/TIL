@@ -12,3 +12,5 @@ struct Transform {
     var rotation:Angle = .zero
     var offset:CGSize = .zero
 }
+
+extension Transform:Codable {}
