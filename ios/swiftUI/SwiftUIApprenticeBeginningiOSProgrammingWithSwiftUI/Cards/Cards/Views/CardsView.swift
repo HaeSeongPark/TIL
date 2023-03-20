@@ -10,22 +10,38 @@ import SwiftUI
 struct CardsView: View {
     @EnvironmentObject var viewState: ViewState
     @EnvironmentObject var store:CardStore
+
+    var createButton: some View {
+        Button {
+            viewState.selectedCard = store.addCard()
+            viewState.showAllCards = false
+        } label: {
+            Label("Create New", systemImage: "plus")
+                .frame(maxWidth: .infinity)
+        }
+        .font(.system(size: 16, weight: .bold))
+        .padding([.top, .bottom], 10)
+        .background(Color("barColor"))
+        .accentColor(.white)
+
+    }
     
     var body: some View {
         ZStack {
+            CardListView()
             VStack {
-                Button {
-                    viewState.selectedCard = store.addCard()
-                    viewState.showAllCards = false
-                } label: {
-                    Text("Add")
-                }
-                CardListView()
+                Spacer()
+                createButton
             }
             if !viewState.showAllCards {
                 SingleCardView()
             }
         }
+        .background(
+            Color("background")
+                .edgesIgnoringSafeArea(.all)
+        )
+        
     }
 }
 

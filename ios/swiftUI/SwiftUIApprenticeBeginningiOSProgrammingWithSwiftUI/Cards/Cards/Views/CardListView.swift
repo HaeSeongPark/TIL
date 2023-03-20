@@ -11,22 +11,31 @@ struct CardListView: View {
     @EnvironmentObject var viewState: ViewState
     @EnvironmentObject var store:CardStore
     
+    func columns(size: CGSize) -> [GridItem] {
+      [
+        GridItem(.adaptive(
+          minimum: Settings.thumbnailSize(size: size).width))
+      ]
+    }
+    
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack {
-                ForEach(store.cards) { card in
-                    CardThumbnailView(card: card)
-                        .contextMenu {
-                            Button {
-                                store.remove(card)
-                            } label: {
-                                Label("Delete", systemImage: "trash")
+        GeometryReader { proxy in
+            ScrollView(showsIndicators: false) {
+                LazyVGrid(columns: columns(size: proxy.size),spacing: 30) {
+                    ForEach(store.cards) { card in
+                        CardThumbnailView(card: card, size:proxy.size)
+                            .contextMenu {
+                                Button {
+                                    store.remove(card)
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
                             }
-                        }
-                        .onTapGesture {
-                            viewState.showAllCards.toggle()
-                            viewState.selectedCard = card
-                        }
+                            .onTapGesture {
+                                viewState.showAllCards.toggle()
+                                viewState.selectedCard = card
+                            }
+                    }
                 }
             }
         }

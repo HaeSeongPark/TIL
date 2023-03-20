@@ -24,12 +24,13 @@ struct Card:Identifiable {
         save()
     }
     
-    mutating func addElement(uiImage: UIImage) {
+    mutating func addElement(uiImage: UIImage, transform: Transform = Transform()) {
         let imageilename = uiImage.save()
         let image = Image(uiImage: uiImage)
         
         let element = ImageElement(
             imageFilename:imageilename,
+            transform: transform,
             image: image
         )
         elements.append(element)

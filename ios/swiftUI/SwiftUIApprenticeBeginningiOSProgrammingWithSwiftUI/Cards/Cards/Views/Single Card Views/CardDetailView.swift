@@ -11,14 +11,10 @@ struct CardDetailView: View {
     @EnvironmentObject var viewState:ViewState
     @State private var currentModal: CardModal?
     @Binding var card: Card
-    @State private var stickerImage: UIImage?
-    @State private var images:[UIImage] = []
-    @State private var frame:AnyShape?
-    @State private var textElement:TextElement = TextElement()
     
     @Environment(\.scenePhase) private var scenePhase
     
-    var content: some View {
+    func content(size:CGSize) -> some View {
         ZStack {
             card.backgroundColor
                 .edgesIgnoringSafeArea(.all)
@@ -29,78 +25,48 @@ struct CardDetailView: View {
             ForEach(card.elements, id: \.id) { element in
                 CardElementView(
                     element: element,
-                        selected:viewState.selectedElement?.id == element.id
+                    selected:viewState.selectedElement?.id == element.id
                 )
-                    .contextMenu {
-                        Button {
-                            card.remove(element)
-                        } label: {
-                            Label("Delete", systemImage: "trash")
-                        }
+                .contextMenu {
+                    Button {
+                        card.remove(element)
+                    } label: {
+                        Label("Delete", systemImage: "trash")
                     }
-                    .resizableView(transform: bindingTransform(for: element), selected: viewState.selectedElement?.id == element.id)
-                    .frame(
-                        width: element.transform.size.width,
-                        height: element.transform.size.height
-                    )
-                    .onTapGesture {
-                        viewState.selectedElement = element
-                    }
+                }
+                .resizableView(transform: bindingTransform(for: element), viewScale:calculateScale(size))
+                .frame(
+                    width: element.transform.size.width,
+                    height: element.transform.size.height
+                )
+                .onTapGesture {
+                    viewState.selectedElement = element
+                }
             }
         }
     }
     
     var body: some View {
-        content
-            .onDrop(of: [.item], delegate: CardDrop(card: $card))
-            .modifier(CardToolbar(currentModal:$currentModal))
-            .sheet(item: $currentModal) { item in
-                switch item {
-                case .stickerPicker:
-                    StickerPicker(stickerImage: $stickerImage)
-                        .onDisappear {
-                            if let stickerImage {
-                                card.addElement(uiImage: stickerImage)
-                            }
-                            stickerImage = nil
-                        }
-                case .photoPicker:
-                    PhotoPicker(iamges: $images)
-                        .onDisappear {
-                            for image in images {
-                                card.addElement(uiImage: image)
-                            }
-                            images = []
-                        }
-                case .framePicker:
-                    FramePicker(frame: $frame)
-                        .onDisappear {
-                            if let frame = frame {
-                                card.update(
-                                    viewState.selectedElement,
-                                    frame:frame
-                                )
-                            }
-                            frame = nil
-                        }
-                case .textPicker:
-                    TextPicker(textElement: $textElement)
-                        .onDisappear {
-                            if textElement.text.isEmpty == false {
-                                card.addElement(textElement: textElement)
-                            }
-                            textElement = TextElement()
-                        }
-                }
-            }
-            .onChange(of: scenePhase, perform: { newValue in
-                if newValue == .inactive {
+        GeometryReader { proxy in
+            content(size: proxy.size)
+                .onDrop(of: [.item], delegate: CardDrop(card: $card, size: proxy.size, frame: proxy.frame(in: .global)))
+                .modifier(CardToolbar(currentModal:$currentModal))
+                .onChange(of: scenePhase, perform: { newValue in
+                    if newValue == .inactive {
+                        card.save()
+                    }
+                })
+                .onDisappear {
                     card.save()
                 }
-            })
-            .onDisappear {
-                card.save()
-            }
+                .cardModals(card: $card, currentModal: $currentModal)
+                .frame(
+                    width: calculateSize(proxy.size).width,
+                    height: calculateSize(proxy.size).height
+                )
+                .clipped()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
     }
     
     func bindingTransform(for element: CardElement) -> Binding<Transform> {
@@ -110,7 +76,28 @@ struct CardDetailView: View {
         
         return $card.elements[index].transform
     }
+    
+    func calculateSize(_ size:CGSize) -> CGSize {
+        var newSize = size
+        let ratio = Settings.cardSize.width / Settings.cardSize.height
+        
+        if size.width < size.height {
+            newSize.height = min(size.height, newSize.width / ratio)
+            newSize.width = min(size.width, newSize.height * ratio)
+        } else {
+            newSize.width = min(size.width, newSize.height * ratio)
+            newSize.height = min(size.height, newSize.width / ratio)
+        }
+        
+        return newSize
+    }
+    
+    func calculateScale(_ size:CGSize) -> CGFloat {
+        let newSize = calculateSize(size)
+        return newSize.width / Settings.cardSize.width
+    }
 }
+
 
 
 struct CardDetailView_Previews: PreviewProvider {

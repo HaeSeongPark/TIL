@@ -9,18 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        GeometryReader { proxy in
+            HStack {
+                Text("Hello, world!")
+                    .background(Color.red)
+                Text("Hello, world!")
+                    .padding()
+                    .background(Color.red)
+            }
+            .frame(width: proxy.size.width * 0.8)
+            .background(Color.gray)
+            .padding(.leading, (proxy.size.width - proxy.size.width * 0.8)/2)
         }
-        .padding()
+        .background(Color.yellow)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewLayout(.fixed(width: 500, height: 300))
     }
 }

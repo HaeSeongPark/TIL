@@ -33,6 +33,7 @@
 		97D0348229C66C94009DE891 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D0348029C66C94009DE891 /* UIImageExtensions.swift */; };
 		97D0348429C68DAE009DE891 /* AngleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D0348329C68DAE009DE891 /* AngleExtensions.swift */; };
 		97D0348829C6A564009DE891 /* TextPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D0348729C6A564009DE891 /* TextPicker.swift */; };
+		97D0348A29C6D726009DE891 /* CardModalViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D0348929C6D726009DE891 /* CardModalViews.swift */; };
 		97D7DF2229BC6C580042723C /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D7DF2129BC6C580042723C /* PreviewData.swift */; };
 		97D7DF2429BC6C6C0042723C /* TextExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D7DF2329BC6C6C0042723C /* TextExtensions.swift */; };
 		97D7DF2629BC6EE90042723C /* CardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D7DF2529BC6EE90042723C /* CardElement.swift */; };
@@ -74,6 +75,7 @@
 		97D0348029C66C94009DE891 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		97D0348329C68DAE009DE891 /* AngleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngleExtensions.swift; sourceTree = "<group>"; };
 		97D0348729C6A564009DE891 /* TextPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPicker.swift; sourceTree = "<group>"; };
+		97D0348929C6D726009DE891 /* CardModalViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModalViews.swift; sourceTree = "<group>"; };
 		97D7DF2129BC6C580042723C /* PreviewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		97D7DF2329BC6C6C0042723C /* TextExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextExtensions.swift; sourceTree = "<group>"; };
 		97D7DF2529BC6EE90042723C /* CardElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardElement.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			children = (
 				97574F7729BB2ED200EC87CD /* ResizableView.swift */,
 				97574F8629BB40C800EC87CD /* CardToolbar.swift */,
+				97D0348929C6D726009DE891 /* CardModalViews.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				97D7DF2429BC6C6C0042723C /* TextExtensions.swift in Sources */,
 				97574F6F29B9F8A200EC87CD /* CardDetailView.swift in Sources */,
 				97D7DF3629BF16D70042723C /* PhotoPicker.swift in Sources */,
+				97D0348A29C6D726009DE891 /* CardModalViews.swift in Sources */,
 				97574F8429BB3EE800EC87CD /* ColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,6 +469,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -494,6 +499,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
