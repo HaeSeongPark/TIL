@@ -12,9 +12,15 @@ struct CardThumbnailView: View {
     var size:CGSize = .zero
     
     var body: some View {
-//        RoundedRectangle(cornerRadius: 15)
-//            .foregroundColor(card.backgroundColor)
-        card.backgroundColor
+        Group {
+            if let image = UIImage.load(uuidString: card.id.uuidString) {
+                Image(uiImage: image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            } else {
+                card.backgroundColor
+            }
+        }
             .cornerRadius(10)
             .frame(width:Settings.thumbnailSize(size: size).width,
                    height: Settings.thumbnailSize(size:size).height)

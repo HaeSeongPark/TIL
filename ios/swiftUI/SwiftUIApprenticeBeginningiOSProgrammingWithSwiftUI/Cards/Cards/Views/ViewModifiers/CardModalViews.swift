@@ -18,7 +18,7 @@ struct CardModalViews:ViewModifier {
     @State private var images: [UIImage] = []
     @State private var frame: AnyShape?
     @State private var textElement = TextElement()
-//    @State private var textColor: Color = .black
+    //    @State private var textColor: Color = .black
     
     func body(content: Content) -> some View {
         content
@@ -59,6 +59,15 @@ struct CardModalViews:ViewModifier {
                             }
                             textElement = TextElement()
                         }
+                case .shareSheet:
+                    if let shareImage = card.shareImage {
+                        ShareSheetView(
+                            activityItems: [shareImage],
+                            applicationActivities: nil)
+                        .onDisappear {
+                            card.shareImage = nil
+                        }
+                    }
                 }
             }
     }

@@ -16,8 +16,21 @@ struct CardToolbar: ViewModifier {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                   // swiftlint:disable:next multiple_closures_with_trailing_closure
-                  Button(action: { viewState.showAllCards.toggle() }) {
+                  Button(action: {
+                      withAnimation {
+                          viewState.showAllCards = true
+                      }
+                  }) {
                     Text("Done")
+                  }
+                }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                  Button(action: {
+                    viewState.shouldScreenshot = true
+                    currentModal = .shareSheet
+                  }) {
+                    Image(systemName: "square.and.arrow.up")
                   }
                 }
                 

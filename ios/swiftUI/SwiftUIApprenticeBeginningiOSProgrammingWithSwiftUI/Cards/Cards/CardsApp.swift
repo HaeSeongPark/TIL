@@ -10,11 +10,11 @@ import SwiftUI
 @main
 struct CardsApp: App {
     @StateObject var viewState = ViewState()
-    @StateObject var store = CardStore(defaultData: true)
+    @StateObject var store = CardStore(defaultData:false)
     
     var body: some Scene {
         WindowGroup {
-            CardsView()
+            AppLoadingView()
                 .environmentObject(viewState)
                 .environmentObject(store)
                 .onAppear {

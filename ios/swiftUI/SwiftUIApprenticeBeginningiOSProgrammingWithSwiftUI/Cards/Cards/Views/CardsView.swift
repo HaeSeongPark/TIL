@@ -14,7 +14,9 @@ struct CardsView: View {
     var createButton: some View {
         Button {
             viewState.selectedCard = store.addCard()
-            viewState.showAllCards = false
+            withAnimation {
+                viewState.showAllCards = false
+            }
         } label: {
             Label("Create New", systemImage: "plus")
                 .frame(maxWidth: .infinity)
@@ -27,20 +29,33 @@ struct CardsView: View {
     }
     
     var body: some View {
-        ZStack {
-            CardListView()
-            VStack {
-                Spacer()
-                createButton
+        VStack {
+            if viewState.showAllCards {
+                ListSelectionView(selection: $viewState.cardListState)
+                    .padding(.bottom)
             }
-            if !viewState.showAllCards {
-                SingleCardView()
+            ZStack {
+                switch viewState.cardListState {
+                case .list:
+                    CardListView()
+                case .carousel:
+                    Carousel()
+                }
+                VStack {
+                    Spacer()
+                    createButton
+                }
+                if !viewState.showAllCards {
+                    SingleCardView()
+                        .transition(.move(edge: .bottom))
+                        .zIndex(1)
+                }
             }
-        }
-        .background(
-            Color("background")
-                .edgesIgnoringSafeArea(.all)
+            .background(
+                Color("background")
+                    .edgesIgnoringSafeArea(.all)
         )
+        }
         
     }
 }

@@ -11,6 +11,8 @@ struct Card:Identifiable {
     var id = UUID()
     var backgroundColor:Color = .yellow
     var elements:[CardElement] = []
+    var image: UIImage?
+    var shareImage: UIImage?
     
     mutating func remove(_ element:CardElement) {
         if let element = element as? ImageElement {
