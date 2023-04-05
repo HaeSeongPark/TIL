@@ -38,20 +38,25 @@ struct ContentView: View {
   
   var body: some View {
     NavigationView {
-//            VStack {
-//              HeaderView(count: store.episodes.count)
-//              List(store.episodes, id: \.name) { episode in
-//                NavigationLink(destination: PlayerView(episode: episode)) {
-//                  EpisodeView(episode: episode)
-//                }
-//              }
-//            }
       List {
         HeaderView(count: store.episodes.count)
         ForEach(store.episodes, id: \.name) { episode in
-          NavigationLink(destination: PlayerView(episode: episode)) {
+          ZStack {
+            NavigationLink(destination: PlayerView(episode: episode)) {
+              EmptyView()
+            }
+            .buttonStyle(PlainButtonStyle())
+            .opacity(0)
             EpisodeView(episode: episode)
           }
+          .frame(
+            maxWidth: .infinity,
+            maxHeight: .infinity,
+            alignment: .leading)
+          .listRowInsets(EdgeInsets())
+          .padding(.bottom, 8)
+          .padding([.leading, .trailing], 20)
+          .background(Color.listBkgd)
         }
       }
       .navigationTitle("Videos")
@@ -85,7 +90,7 @@ struct ContentView: View {
     
     UISegmentedControl.appearance()
       .selectedSegmentTintColor = UIColor(named: "list-bkgd")
-    
+        
   }
 }
 
